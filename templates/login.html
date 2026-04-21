@@ -1,0 +1,244 @@
+{% import "translations.html" as i18n with context %}
+
+<!DOCTYPE html>
+<html lang="{{ session.get('lang', 'en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <style>
+        :root { --tn-blue: #003366; --tn-gold: #FFD700; }
+        
+        html, body { height: 100vh; margin: 0; overflow: hidden; font-family: 'Segoe UI', 'Latha', 'Tamil MN', sans-serif; }
+        .split-container { display: flex; height: 100vh; width: 100vw; }
+
+        .image-side {
+            flex: 1.2;
+            background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)),
+                        url('https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover; background-position: center;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; color: white; text-align: center; padding: 40px;
+        }
+
+        .form-side { flex: 1; background: white; display: flex; flex-direction: column; justify-content: center; padding: 0 40px; overflow-y: auto; }
+        .login-card { width: 100%; max-width: 420px; margin: auto; }
+
+        /* Form Inputs */
+        .input-group-text { background-color: #f8f9fa; border: 1.5px solid #eee; border-right: none; color: var(--tn-blue); }
+        .form-control, .form-select { border: 1.5px solid #eee; padding: 11px; }
+        .input-group .form-control, .input-group .form-select { border-left: none; }
+        .form-control:focus, .form-select:focus { border-color: #eee; box-shadow: none; }
+        .input-group:focus-within .input-group-text, .input-group:focus-within .form-control, .input-group:focus-within .form-select { border-color: var(--tn-blue); }
+
+        .btn-gov { background: var(--tn-blue); color: white; padding: 12px; font-weight: 600; width: 100%; border: none; border-radius: 8px; transition: 0.3s; }
+        .btn-gov:hover { background: #002244; color: var(--tn-gold); transform: translateY(-2px); }
+
+        /* Tamil Map Styling */
+        #map { height: 180px; border-radius: 10px; margin: 10px 0; border: 1px solid #ddd; z-index: 1; }
+        /* Subtle filter to make map look more professional/official */
+        .leaflet-tile-pane { filter: contrast(1.1) brightness(0.95) saturate(0.8); }
+
+        .otp-input { letter-spacing: 15px; font-size: 2rem !important; font-weight: bold; color: var(--tn-blue); }
+
+        @media (max-width: 992px) {
+            .image-side { display: none; }
+            .form-side { padding: 20px; }
+            html, body { overflow: auto; }
+            .split-container { height: auto; min-height: 100vh; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="split-container">
+        <div class="image-side">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" height="120" class="mb-4 shadow-sm">
+            <h1 class="display-6 fw-bold">{{ i18n.translate("Government of Tamil Nadu") }}</h1>
+            <p class="lead">{{ i18n.translate("Slogan") }}</p>
+        </div>
+
+        <div class="form-side">
+            <div class="login-card">
+                <h3 class="fw-bold mb-1 text-primary">{{ i18n.translate("Citizen Login") }}</h3>
+                <p class="text-muted small mb-4">{{ i18n.translate("Secure Access") }}</p>
+
+                {% if not otp_stage %}
+                <form action="/user/login/check" method="POST">
+                    <div class="mb-3">
+                        <label class="small fw-bold">{{ i18n.translate("Email") }}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            <input type="email" name="email" class="form-control" placeholder="{{ i18n.translate('Placeholder Email') }}" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="small fw-bold">{{ i18n.translate("Password") }}</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                            <input type="password" name="password" class="form-control" placeholder="{{ i18n.translate('Placeholder Pass') }}" required>
+                        </div>
+                    </div>
+
+                    <div class="mb-2 d-flex justify-content-between">
+                        <label class="small fw-bold">{{ i18n.translate("District") }}</label>
+                        <a href="javascript:void(0)" onclick="detectLiveLocation()" class="small text-danger text-decoration-none fw-bold">
+                            <i class="fa fa-crosshairs"></i> {{ i18n.translate("Detect") }}
+                        </a>
+                    </div>
+                    
+                    <div class="input-group mb-2">
+                        <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
+                        <select name="district" id="districtSelect" class="form-select" required>
+                            <option value="">{{ i18n.translate("Select District") }}</option>
+                        </select>
+                    </div>
+                    
+                    <div id="map"></div>
+                    
+                    <button type="submit" class="btn btn-gov mt-2">
+                        <i class="fa fa-paper-plane me-2"></i>{{ i18n.translate("Send OTP") }}
+                    </button>
+                </form>
+                {% else %}
+                <div class="text-center">
+                    <div class="alert alert-warning small py-2">{{ i18n.translate("OTP Sent") }}</div>
+                    <form action="/user/verify_otp" method="POST">
+                        <div class="mb-4">
+                            <label class="fw-bold mb-2">{{ i18n.translate("Enter OTP") }}</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fa fa-shield-alt"></i></span>
+                                <input type="text" name="otp" class="form-control otp-input text-center" placeholder="000000" maxlength="6" required autofocus>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-gov">
+                            <i class="fa fa-check-circle me-2"></i>{{ i18n.translate("Verify Login") }}
+                        </button>
+                    </form>
+                </div>
+                {% endif %}
+
+                <div class="mt-4 text-center">
+                    <span class="small text-muted">{{ i18n.translate("No Account") }}</span>
+                    <a href="/user/register" class="small fw-bold text-decoration-none ms-1">{{ i18n.translate("Register") }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const districts = [
+            {en: "Ariyalur", ta: "அரியலூர்"}, {en: "Chengalpattu", ta: "செங்கல்பட்டு"},
+            {en: "Chennai", ta: "சென்னை"}, {en: "Coimbatore", ta: "கோயம்புத்தூர்"},
+            {en: "Cuddalore", ta: "கடலூர்"}, {en: "Dharmapuri", ta: "தர்மபுரி"},
+            {en: "Dindigul", ta: "திண்டுக்கல்"}, {en: "Erode", ta: "ஈரோடு"},
+            {en: "Kallakurichi", ta: "கள்ளக்குறிச்சி"}, {en: "Kanchipuram", ta: "காஞ்சிபுரம்"},
+            {en: "Kanniyakumari", ta: "கன்னியாகுமரி"}, {en: "Karur", ta: "கரூர்"},
+            {en: "Krishnagiri", ta: "கிருஷ்ணகிரி"}, {en: "Madurai", ta: "மதுரை"},
+            {en: "Mayiladuthurai", ta: "மயிலாடுதுறை"}, {en: "Nagapattinam", ta: "நாகப்பட்டினம்"},
+            {en: "Namakkal", ta: "நாமக்கல்"}, {en: "Nilgiris", ta: "நீலகிரி"},
+            {en: "Perambalur", ta: "பெரம்பலூர்"}, {en: "Pudukkottai", ta: "புதுக்கோட்டை"},
+            {en: "Ramanathapuram", ta: "இராமநாதபுரம்"}, {en: "Ranipet", ta: "ராணிப்பேட்டை"},
+            {en: "Salem", ta: "சேலம்"}, {en: "Sivaganga", ta: "சிவகங்கை"},
+            {en: "Tenkasi", ta: "தென்காசி"}, {en: "Thanjavur", ta: "தஞ்சாவூர்"},
+            {en: "Theni", ta: "தேனி"}, {en: "Thoothukudi", ta: "தூத்துக்குடி"},
+            {en: "Tiruchirappalli", ta: "திருச்சிராப்பள்ளி"}, {en: "Tirunelveli", ta: "திருநெல்வேலி"},
+            {en: "Tirupathur", ta: "திருப்பத்தூர்"}, {en: "Tiruppur", ta: "திருப்பூர்"},
+            {en: "Tiruvallur", ta: "திருவள்ளூர்"}, {en: "Tiruvannamalai", ta: "திருவண்ணாமலை"},
+            {en: "Tiruvarur", ta: "திருவாரூர்"}, {en: "Vellore", ta: "வேலூர்"},
+            {en: "Viluppuram", ta: "விழுப்புரம்"}, {en: "Virudhunagar", ta: "விருதுநகர்"}
+        ];
+
+        const isTamil = "{{ session.get('lang', 'en') }}" === "ta";
+        const select = document.getElementById('districtSelect');
+        
+        districts.forEach(d => {
+            const opt = document.createElement('option');
+            opt.value = d.en;
+            opt.textContent = isTamil ? d.ta : d.en;
+            select.appendChild(opt);
+        });
+
+        // ⭐ INITIALIZE MAP WITH TAMIL COORDINATES
+        const map = L.map('map', {zoomControl: false}).setView([11.1271, 78.6569], 6);
+        
+        // ⭐ LOAD TILES (Localization via Browser/URL)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap',
+            // Note: OSM Tiles are usually rendered in English, but reverse geocoding (below) will be in Tamil.
+        }).addTo(map);
+
+        let marker;
+        map.on('click', function(e) { updateMarker(e.latlng.lat, e.latlng.lng); });
+			function detectLiveLocation() {
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(async pos => {
+
+						const lat = pos.coords.latitude;
+						const lng = pos.coords.longitude;
+
+						updateMarker(lat, lng);
+						map.setView([lat, lng], 10);
+
+						// Get district from backend
+						const res = await fetch(`/get_district?lat=${lat}&lon=${lng}`);
+						const data = await res.json();
+
+						const district = data.district;
+
+						// set dropdown
+						if (district) {
+							select.value = district;
+						}
+
+						// ⭐ SAVE TO DATABASE (IMPORTANT)
+						await fetch("/update_location", {
+							method: "POST",
+							headers: { "Content-Type": "application/json" },
+							body: JSON.stringify({
+								lat: lat,
+								lon: lng,
+								district: district
+							})
+						});
+
+					});
+				}
+			}
+
+        function updateMarker(lat, lng) {
+            if (marker) map.removeLayer(marker);
+            marker = L.marker([lat, lng]).addTo(map);
+            reverseGeocode(lat, lng);
+        }
+
+        // ⭐ REVERSE GEOCODING IN TAMIL
+        async function reverseGeocode(lat, lng) {
+            const langCode = isTamil ? 'ta' : 'en';
+            try {
+                // We add accept-language header parameter for Tamil results
+                const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&accept-language=${langCode}`);
+                const data = await res.json();
+                
+                const addr = data.address;
+                const detected = addr.state_district || addr.county || addr.city || "";
+                const clean = detected.replace(/ district/i, "").replace(/ மாவட்டம்/i, "").trim();
+                
+                // Match the result against our localized list
+                const match = districts.find(d => 
+                    d.en.toLowerCase() === clean.toLowerCase() || 
+                    d.ta === clean ||
+                    clean.includes(d.ta)
+                );
+                
+                if (match) select.value = match.en;
+            } catch (e) { console.error(e); }
+        }
+    </script>
+</body>
+</html>

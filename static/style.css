@@ -1,0 +1,44 @@
+body{
+    font-family: Arial;
+    background: #e2e8f0;
+    text-align:center;
+}
+
+.container{
+    margin-top:120px;
+}
+
+.btn{
+    display:inline-block;
+    padding:15px 30px;
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    margin:10px;
+    border-radius:8px;
+}
+
+.admin{
+    background:#16a34a;
+}
+
+.box{
+    width:350px;
+    margin:80px auto;
+    background:white;
+    padding:25px;
+    border-radius:10px;
+}
+
+input{
+    width:90%;
+    padding:10px;
+    margin:8px 0;
+}
+
+button{
+    width:95%;
+    padding:10px;
+    background:#0f172a;
+    color:white;
+}

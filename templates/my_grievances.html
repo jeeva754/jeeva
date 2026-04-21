@@ -1,0 +1,265 @@
+{% import "translations.html" as i18n with context %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ i18n.translate('track_title') }}| Official State Portal</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tn-blue: #063970;
+            --tn-green: #1b5e20;
+            --tn-gold: #ffb300;
+            --glass: rgba(255, 255, 255, 0.94);
+        }
+
+        body {
+            /* HIGH-DEFINITION VILLAGE BACKGROUND */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://images.pexels.com/photos/235731/pexels-photo-235731.jpeg?auto=compress&cs=tinysrgb&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            color: #1a1a1a;
+        }
+
+        /* Official Top Bar */
+        .gov-branding {
+            background: white;
+            padding: 12px 0;
+            border-bottom: 4px solid var(--tn-gold);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 1001;
+        }
+
+        /* Advanced Floating Navbar */
+        .nav-container {
+            margin: 20px auto;
+            max-width: 1100px;
+            background: var(--tn-blue);
+            padding: 12px 30px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-container a {
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-container a:hover { color: var(--tn-gold); }
+
+        /* Dashboard Summary Header */
+        .summary-header {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 25px 40px;
+            border-radius: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.5);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        /* Application Glass Card */
+        .app-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 30px;
+            margin-bottom: 25px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .app-card:hover { transform: translateY(-5px); }
+
+        /* Progress Stepper */
+        .stepper {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .step { flex: 1; text-align: center; position: relative; }
+        .step::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            left: -50%;
+            width: 100%;
+            height: 4px;
+            background: #cbd5e1;
+            z-index: 0;
+        }
+        .step:first-child::before { display: none; }
+
+        .step-icon {
+            width: 40px;
+            height: 40px;
+            background: #cbd5e1;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            position: relative;
+            z-index: 1;
+            transition: 0.4s;
+        }
+
+        .active .step-icon { background: var(--tn-green); box-shadow: 0 0 20px rgba(27,94,32,0.4); }
+        .active::before { background: var(--tn-green); }
+        .active .step-label { color: var(--tn-green); font-weight: 800; }
+
+        .step-label { font-size: 10px; text-transform: uppercase; font-weight: 700; color: #64748b; }
+
+        /* Badge Styling */
+        .status-pill {
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+        }
+        .pill-pending { background: #fff7ed; color: #9a3412; border: 1px solid #ffedd5; }
+        .pill-approved { background: #f0fdf4; color: #166534; border: 1px solid #dcfce7; }
+
+        .btn-track {
+            background: var(--tn-blue);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .btn-track:hover { background: #0d47a1; color: white; transform: scale(1.05); }
+
+    </style>
+</head>
+<body>
+
+<div class="gov-branding">
+    <div class="container d-flex align-items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" alt="TN Logo" height="55" class="me-3">
+        <div>
+            <div class="fw-bold text-success" style="font-size: 0.75rem; line-height: 1;">GOVERNMENT OF TAMIL NADU</div>
+            <div class="fw-extrabold text-dark" style="font-size: 1.1rem; letter-spacing: -0.5px;">State Welfare Application Tracker</div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="nav-container">
+    <span class="text-white small fw-bold">
+        {{ i18n.translate('PORTAL ACCESS: SECURE') }}
+    </span>
+    <div class="d-flex gap-4">
+        <a href="/user/dashboard">
+            <i class="fas fa-home me-1"></i> {{ i18n.translate('Dashboard') }}
+        </a>
+        <a href="/apply">
+            <i class="fas fa-plus me-1"></i> {{ i18n.translate('Apply New') }}
+        </a>
+        <a href="/logout">
+            <i class="fas fa-sign-out-alt"></i>
+        </a>
+    </div>
+</div>
+
+    <div class="summary-header">
+        <div>
+            <h2 class="fw-extrabold mb-1" style="color: var(--tn-blue);">{{ i18n.translate('track_title') }}</h2>
+            <p class="text-muted mb-0 small"><i class="fas fa-info-circle me-1"></i> {{ i18n.translate('Current active applications in your name') }}</p>
+        </div>
+        <div class="text-end">
+            <span class="badge bg-success px-3 py-2 rounded-pill">Total: {{ grievances|length }}</span>
+        </div>
+    </div>
+
+    {% if grievances %}
+        {% for g in grievances %}
+        <div class="app-card">
+            <div class="row align-items-center">
+                <div class="col-lg-4 border-end">
+                    <div class="mb-3">
+                        <span class="badge bg-light text-dark border">REF: #TN{{ g.id }}</span>
+                    </div>
+                    <h4 class="fw-extrabold mb-2" style="color: var(--tn-blue);">{{ g.scheme }}</h4>
+                    <p class="text-muted small mb-4"><i class="fas fa-map-marker-alt me-1"></i> {{ g.district }}, {{ g.constituency }}</p>
+                    
+                    <span class="status-pill {% if g.status == 'Pending' %}pill-pending{% else %}pill-approved{% endif %}">
+                        ● {{ i18n.translate(g.status) }}
+                    </span>
+                </div>
+
+                <div class="col-lg-8 ps-lg-5">
+                    <div class="stepper">
+                        <div class="step active">
+                            <div class="step-icon"><i class="fas fa-file-invoice"></i></div>
+                            <div class="step-label">{{ i18n.translate("Submitted") }}</div>
+                        </div>
+                        <div class="step {% if g.status != 'Pending' %}active{% endif %}">
+                            <div class="step-icon"><i class="fas fa-user-shield"></i></div>
+                            <div class="step-label">{{ i18n.translate("Verification") }}</div>
+                        </div>
+                        <div class="step {% if g.status == 'Approved' %}active{% endif %}">
+                            <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+                            <div class="step-label">{{ i18n.translate("Processed") }}</div>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon"><i class="fas fa-hands-helping"></i></div>
+                            <div class="step-label">{{ i18n.translate("Closed") }}</div>
+                        </div>
+                    </div>
+
+                    <div class="text-end mt-5">
+                        <a href="/grievance_details/{{ g.id }}" class="btn-track">
+                            {{ i18n.translate("View Details") }} <i class="fas fa-chevron-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endfor %}
+    {% else %}
+        <div class="app-card text-center py-5">
+            <h4 class="text-muted">
+                {{ i18n.translate('No records found.') }}
+            </h4>
+            <a href="/apply" class="btn btn-primary mt-3">
+                {{ i18n.translate('Start Application') }}
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+<footer class="py-5 text-center text-white small">
+    {{ i18n.translate('Content Management by State e-Governance Mission') }} &copy; 2026
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+{% set translations = {
+    "User Verification": {"ta": "பயனர் சரிபார்ப்பு"},
+    "ID": {"ta": "அடையாள எண்"},
+    "Name": {"ta": "பெயர்"},
+    "Email": {"ta": "மின்னஞ்சல்"},
+    "Status": {"ta": "நிலை"},
+    "Action": {"ta": "நடவடிக்கை"},
+    "View Details": {"ta": "விவரங்களைக் காண்க"},
+    "Back to Dashboard": {"ta": "டாஷ்போர்டுக்குச் செல்ல"},
+    "Pending": {"ta": "நிலுவையில் உள்ளது"},
+    "Approved": {"ta": "அங்கீகரிக்கப்பட்டது"},
+    "Rejected": {"ta": "நிராகரிக்கப்பட்டது"}
+} %}
+
+{% macro t(text) %}
+    {% if session.get('lang') == 'ta' %}
+        {{ translations.get(text, {}).get('ta', text) }}
+    {% else %}
+        {{ text }}
+    {% endif %}
+{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="{{ session.get('lang', 'en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t("User Verification") }} | TN Gov Official</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root { 
+            --tn-blue: #063970; 
+            --tn-gold: #ffb300; 
+            --tn-green: #10b981;
+            --glass: rgba(255, 255, 255, 0.92);
+        }
+        
+        body { 
+            background: linear-gradient(rgba(241, 245, 249, 0.85), rgba(241, 245, 249, 0.85)), 
+                        url('https://images.pexels.com/photos/235731/pexels-photo-235731.jpeg?auto=compress&cs=tinysrgb&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            padding: 40px 20px;
+            color: #1e293b;
+        }
+
+        .glass-panel {
+            max-width: 1200px;
+            margin: auto;
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.6);
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #eef2f6;
+            padding-bottom: 20px;
+        }
+
+        .gov-seal-flex {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Modern Table Styling */
+        .custom-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0 12px;
+        }
+
+        .custom-table thead th {
+            background: transparent;
+            color: var(--tn-blue);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            padding: 15px 20px;
+            border: none;
+        }
+
+        .custom-table tbody tr {
+            background: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+
+        .custom-table tbody tr:hover {
+            transform: scale(1.01) translateY(-2px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+            z-index: 10;
+        }
+
+        .custom-table td {
+            padding: 20px;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .custom-table td:first-child { border-radius: 15px 0 0 15px; }
+        .custom-table td:last-child { border-radius: 0 15px 15px 0; }
+
+        /* Advanced Status Badges */
+        .status-pill {
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bg-pending { background: #fffbeb; color: #b45309; border: 1px solid #fef3c7; }
+        .bg-approved { background: #ecfdf5; color: #065f46; border: 1px solid #d1fae5; }
+        .bg-rejected { background: #fef2f2; color: #991b1b; border: 1px solid #fee2e2; }
+
+        .btn-action-premium {
+            background: var(--tn-blue);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: 0.3s;
+            text-decoration: none;
+            box-shadow: 0 8px 15px rgba(6, 57, 112, 0.2);
+        }
+
+        .btn-action-premium:hover {
+            background: var(--tn-gold);
+            color: var(--tn-blue);
+            transform: translateY(-2px);
+        }
+
+        .btn-back-pill {
+            background: white;
+            color: #64748b;
+            border: 1.5px solid #e2e8f0;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-back-pill:hover {
+            background: #f8fafc;
+            color: var(--tn-blue);
+            border-color: var(--tn-blue);
+        }
+    </style>
+</head>
+<body>
+
+<div class="glass-panel">
+    <div class="top-header">
+        <div class="gov-seal-flex">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" alt="TN Logo" height="65">
+            <div>
+                <h3 class="fw-800 mb-0" style="color: var(--tn-blue);">{{ t("User Verification") }}</h3>
+                <p class="text-muted small mb-0">E-Governance Authority Management Console</p>
+            </div>
+        </div>
+        <a href="/admin/dashboard" class="btn-back-pill">
+            <i class="fa fa-arrow-left me-2"></i>{{ t("Back to Dashboard") }}
+        </a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>{{ t("ID") }}</th>
+                    <th>{{ t("Name") }}</th>
+                    <th>{{ t("Email") }}</th>
+                    <th>{{ t("Status") }}</th>
+                    <th class="text-center">{{ t("Action") }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for u in users %}
+                <tr>
+                    <td><span class="fw-800 opacity-50">#{{ u.id }}</span></td>
+                    <td>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://ui-avatars.com/api/?name={{ u.name }}&background=063970&color=fff&size=32" class="rounded-circle">
+                            <span class="fw-700">{{ u.name }}</span>
+                        </div>
+                    </td>
+                    <td class="text-muted">{{ u.email }}</td>
+                    <td>
+                        <span class="status-pill bg-{{ u.status|lower }}">
+                            <i class="fas fa-circle" style="font-size: 6px;"></i> {{ t(u.status) }}
+                        </span>
+                    </td>
+                    <td class="text-center">
+                        <a href="/admin/user/{{ u.id }}" class="btn-action-premium">
+                            <i class="fa fa-magnifying-glass me-2"></i>{{ t("View Details") }}
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="mt-4 p-3 bg-white bg-opacity-50 rounded-4 border border-white text-center">
+        <small class="text-muted">
+            <i class="fas fa-user-shield text-success me-1"></i> 
+            Authorized administrative access only. System logs all actions for auditing.
+        </small>
+    </div>
+</div>
+
+</body>
+</html>

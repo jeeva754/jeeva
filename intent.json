@@ -1,0 +1,241 @@
+{
+"intents":[
+
+{"tag":"greeting",
+"patterns":["hi","hello","hey","good morning"],
+"responses":["Hello! Welcome to Citizen Welfare Portal.","Hi! How can I help you today?","Welcome! Tell me your issue.","Greetings! I am here to assist you."]},
+
+{"tag":"portal_about",
+"patterns":["what is this portal","about portal","website purpose","what this site do","portal information"],
+"responses":["This portal allows citizens to submit grievances and apply for government welfare schemes.","You can register complaints and track status here.","It is a public welfare complaint management system.","Citizens can apply and monitor applications online."]},
+
+{"tag":"register",
+"patterns":["how to register","create account","sign up","new account","citizen registration"],
+"responses":["Go to Register page and enter name, email and password.","Use the citizen registration form to create account.","Fill the registration form and submit.","After registering you can login using your credentials."]},
+
+{"tag":"login_help",
+"patterns":["how to login","login steps","sign in help","login procedure","enter portal login"],
+"responses":["Enter your registered email and password to login.","After login you will receive OTP verification.","Use the login page to access dashboard.","Provide correct credentials to access your account."]},
+
+{"tag":"otp_info",
+"patterns":["what is otp","why otp required","otp verification","otp meaning","purpose of otp"],
+"responses":["OTP is a one-time password sent for security verification.","OTP helps to confirm your identity.","It is used to protect your account from unauthorized access.","You must enter OTP within valid time."]},
+
+{"tag":"apply_grievance",
+"patterns":["apply grievance","submit complaint","file complaint","report problem","register complaint"],
+"responses":["Go to Apply Grievance and fill the form with details.","Provide complete information before submitting.","Attach proof photo if available.","After submission you will get confirmation."]},
+
+{"tag":"grievance_required_details",
+"patterns":["what details needed","form details","complaint form fields","required information","what to fill in complaint"],
+"responses":["Provide name, aadhar, mobile, address and reason.","Upload supporting photo evidence.","Select district and constituency.","Fill all mandatory fields correctly."]},
+
+{"tag":"upload_photo",
+"patterns":["upload image","attach photo","add proof","photo upload","image attachment"],
+"responses":["You can upload photo evidence in grievance form.","Upload JPG or PNG format image.","Image must be clear and readable.","Photo helps officer verify complaint."]},
+
+{"tag":"track_status",
+"patterns":["check status","track complaint","complaint status","application status","view grievance status"],
+"responses":["Open dashboard to view current status.","Go to My Grievances section.","You can monitor approval progress.","Status updates appear after officer review."]},
+
+{"tag":"status_pending",
+"patterns":["pending status meaning","why pending","complaint pending","application pending","status shows pending"],
+"responses":["Pending means officer has not yet reviewed your complaint.","Your application is waiting for verification.","Please wait for review process.","Officer will check soon."]},
+
+{"tag":"status_approved",
+"patterns":["approved meaning","complaint approved","application approved","status approved","what after approval"],
+"responses":["Approved means officer accepted your complaint.","Action will be taken soon.","You may receive further instructions.","Check dashboard for updates."]},
+
+{"tag":"status_rejected",
+"patterns":["rejected meaning","complaint rejected","application rejected","why rejected","status rejected"],
+"responses":["Rejected means incorrect or insufficient details.","Please resubmit with correct information.","Upload proper proof documents.","Verify your details carefully."]},
+
+{"tag":"forgot_password",
+"patterns":["forgot password","reset password","password recovery","cannot remember password","change password"],
+"responses":["Use reset password option in login page.","Enter registered email to reset password.","Follow instructions sent to your email.","Create a new secure password."]},
+
+{"tag":"contact_admin",
+"patterns":["contact admin","support help","technical support","help desk","administrator help"],
+"responses":["Contact administrator for technical issues.","Use support email for assistance.","Admin will resolve system problems.","You can report bugs to support team."]},
+
+{"tag":"working_hours",
+"patterns":["office working hours","office timing","government office time","when office open","office schedule"],
+"responses":["Government office hours are 10 AM to 5 PM.","Offices work on weekdays.","Closed on Sundays.","Visit during working hours only."]},
+
+{"tag":"security",
+"patterns":["is my data safe","data security","secure portal","information safety","account safety"],
+"responses":["Yes, your data is stored securely.","We protect user information.","Your details are not shared publicly.","Portal follows security standards."]},
+
+{"tag":"browser_supported",
+"patterns":["which browser supported","supported browser","best browser","browser compatibility","portal browser"],
+"responses":["Use Chrome or Edge for best performance.","Modern browsers are recommended.","Enable JavaScript for proper working.","Avoid outdated browsers."]},
+
+{"tag":"mobile_use",
+"patterns":["can use mobile","mobile access","use in phone","phone compatible","mobile supported"],
+"responses":["Yes, portal works on mobile phones.","You can access via smartphone browser.","Use Chrome mobile browser.","All features available on mobile."]},
+
+{"tag":"thank_you",
+"patterns":["thanks","thank you","thank you so much","thanks a lot","ok thanks"],
+"responses":["You are welcome!","Happy to help!","Glad I assisted you.","Anytime!"]},
+
+{"tag":"goodbye",
+"patterns":["bye","goodbye","see you","ok bye","talk later"],
+"responses":["Goodbye!","Have a nice day!","See you again!","Take care!"]},
+
+{"tag":"otp_not_received",
+"patterns":["otp not received","no otp mail","didn't get otp","otp not coming","otp missing"],
+"responses":["Please check your spam folder.","Wait 1 minute and request OTP again.","Ensure your email is correct.","Try logging in again to generate new OTP."]},
+
+{"tag":"otp_expired",
+"patterns":["otp expired","otp timeout","otp invalid","old otp","otp not working"],
+"responses":["OTP is valid only for 2 minutes.","Please login again to get new OTP.","Do not reuse old OTP.","Generate a fresh OTP."]},
+
+{"tag":"account_not_approved",
+"patterns":["account not approved","why cannot login after register","approval pending","registration waiting","officer not approved"],
+"responses":["Government officer must approve your account.","Please wait until verification completed.","Approval usually takes 1-2 days.","Contact office if delay occurs."]},
+
+{"tag":"dashboard_help",
+"patterns":["what is dashboard","dashboard use","dashboard meaning","dashboard options","portal dashboard"],
+"responses":["Dashboard shows all your applications.","You can track grievance status.","It displays approval updates.","You can manage your submissions here."]},
+
+{"tag":"district_select",
+"patterns":["how select district","district selection","choose district","district dropdown","wrong district"],
+"responses":["Select your district from dropdown list.","Choose correct district carefully.","District is required for routing complaint.","You can change before submission."]},
+
+{"tag":"constituency_select",
+"patterns":["choose constituency","constituency meaning","mla area","what is constituency","select constituency"],
+"responses":["Constituency is your MLA administrative area.","Select after choosing district.","It helps officer assignment.","Choose your local area correctly."]},
+
+{"tag":"scheme_select",
+"patterns":["select scheme","which scheme choose","scheme options","choose government scheme","scheme selection"],
+"responses":["Select scheme related to your issue.","Choose proper welfare scheme.","Each scheme has different benefits.","Wrong scheme may delay approval."]},
+
+{"tag":"approval_time",
+"patterns":["how long approval","review time","approval duration","how many days approval","approval waiting time"],
+"responses":["Approval usually takes 1 to 3 working days.","Depends on officer verification.","Sometimes may take longer.","Check dashboard regularly."]},
+
+{"tag":"officer_visit",
+"patterns":["should visit office","office visit needed","need to go taluk office","visit officer","physical verification"],
+"responses":["Officer may call you for verification.","You may need to visit Taluk office.","Carry original documents.","Follow officer instructions."]},
+
+{"tag":"email_notification",
+"patterns":["will i get email","email notification","mail alert","approval mail","rejection mail"],
+"responses":["You will receive email updates.","Mail sent after approval or rejection.","Check inbox regularly.","Ensure correct email provided."]},
+
+{"tag":"document_required",
+"patterns":["documents needed","required documents","what documents upload","proof documents","which certificates"],
+"responses":["Provide ID proof and address proof.","Upload valid supporting documents.","Documents help verification.","Clear images are recommended."]},
+
+{"tag":"government_scheme",
+"patterns":["what schemes available","government schemes","welfare schemes","benefits available","available programs"],
+"responses":["Multiple welfare schemes are available.","Schemes vary district wise.","Check scheme section.","Choose based on eligibility."]},
+
+{"tag":"scheme_eligibility",
+"patterns":["scheme eligibility","who eligible","can i apply scheme","qualification for scheme","scheme requirements"],
+"responses":["Eligibility depends on government rules.","Income and category may matter.","Check official guidelines.","Officer will verify eligibility."]},
+
+{"tag":"multiple_complaints",
+"patterns":["can i file many complaints","multiple complaints","more than one complaint","submit again","file another grievance"],
+"responses":["Yes you can submit multiple complaints.","Each complaint is processed separately.","Avoid duplicate issues.","Provide proper details."]},
+
+{"tag":"duplicate_complaint",
+"patterns":["same complaint twice","duplicate complaint","submitted twice","double complaint","repeat complaint"],
+"responses":["Avoid duplicate complaints.","It may delay processing.","Submit only once.","Officer may reject duplicates."]},
+
+{"tag":"photo_size",
+"patterns":["photo size limit","image size","upload size","max image size","file size limit"],
+"responses":["Upload image below 2MB.","Large files are not accepted.","Compress image if needed.","Use clear but small size image."]},
+
+{"tag":"file_format",
+"patterns":["allowed file types","file format","image format","supported format","photo format"],
+"responses":["JPG and PNG formats allowed.","Other formats not supported.","Rename file properly.","Avoid PDF uploads."]},
+
+{"tag":"change_language",
+"patterns":["change language","tamil language","english language","switch language","language option"],
+"responses":["Use language button on homepage.","You can switch Tamil or English.","Reload page after change.","Chatbot will respond in selected language."]},
+
+{"tag":"logout_help",
+"patterns":["logout","sign out","exit account","how to logout","logout option"],
+"responses":["Click logout button on top right.","Session will be cleared.","Always logout for security.","Login again when needed."]},
+
+{"tag":"ration_card",
+"patterns":["ration card help","apply ration card","smart card apply","food card application","new ration card"],
+"responses":["You can apply ration card through Civil Supplies portal.","Visit Taluk office for verification.","Provide family details and address proof.","Officer will approve after inspection."]},
+
+{"tag":"old_age_pension",
+"patterns":["old age pension","senior citizen pension","apply pension","pension scheme help","government pension"],
+"responses":["Old age pension available for eligible senior citizens.","Apply through welfare scheme section.","Provide age and income proof.","Officer will verify eligibility."]},
+
+{"tag":"widow_pension",
+"patterns":["widow pension scheme","apply widow pension","widow benefits","financial help widow","widow assistance"],
+"responses":["Widow pension provided by social welfare department.","Submit death certificate and ID proof.","Approval after verification.","Monthly assistance will be credited."]},
+
+{"tag":"disability_pension",
+"patterns":["disability pension","disabled benefits","physically challenged scheme","handicap pension","apply disability scheme"],
+"responses":["Disability pension available for eligible persons.","Upload disability certificate.","Medical verification may be required.","After approval amount will be credited."]},
+
+{"tag":"community_certificate",
+"patterns":["community certificate","caste certificate apply","apply community certificate","caste proof","community verification"],
+"responses":["Apply through e-sevai center or online portal.","Upload address and ID proof.","VAO officer will verify details.","Certificate issued after approval."]},
+
+{"tag":"income_certificate",
+"patterns":["income certificate","apply income certificate","income proof certificate","family income certificate","income verification"],
+"responses":["Income certificate issued by Tahsildar office.","Submit salary or self income proof.","Officer verification required.","Download after approval."]},
+
+{"tag":"nativity_certificate",
+"patterns":["nativity certificate","residence certificate","apply nativity","proof of residence","native place certificate"],
+"responses":["Nativity certificate proves your residence.","Apply online or at e-sevai center.","Upload address proof.","Issued after verification."]},
+
+{"tag":"aadhar_update",
+"patterns":["update aadhar","aadhar correction","change aadhar mobile","aadhar update center","uidai update"],
+"responses":["Visit nearest Aadhaar service center.","Carry original documents.","Biometric verification required.","Update will reflect in few days."]},
+
+{"tag":"officer_contact",
+"patterns":["contact officer","officer phone number","government contact","complaint officer contact","taluk officer number"],
+"responses":["Contact your Taluk office officer.","Visit office during working hours.","You can also email department.","Details available in district website."]},
+
+{"tag":"inspection_visit",
+"patterns":["home inspection","officer inspection","verification visit","field verification","house verification"],
+"responses":["Officer may visit your address for verification.","Keep documents ready.","Provide correct details.","After inspection status will update."]},
+
+{"tag":"beneficiary_list",
+"patterns":["beneficiary list","approved list","scheme list","who got benefits","benefit recipients"],
+"responses":["Approved beneficiaries list published by department.","Check official website.","Contact office for details.","Only eligible citizens are included."]},
+
+{"tag":"bank_linking",
+"patterns":["bank account linking","link bank aadhar","dbt payment","direct benefit transfer","bank details update"],
+"responses":["Link your bank account with Aadhaar.","Required for DBT payments.","Visit bank branch if needed.","Payment credited after approval."]},
+
+{"tag":"grievance_escalation",
+"patterns":["complaint not solved","no response complaint","delay in grievance","escalate complaint","higher officer complaint"],
+"responses":["You can escalate complaint to higher authority.","Visit district collector office.","Provide grievance ID.","They will review your case."]},
+
+{"tag":"collector_office",
+"patterns":["district collector office","collector complaint","meet collector","collector grievance day","collector meeting"],
+"responses":["District Collector handles public grievances.","Attend grievance day meeting.","Carry complaint documents.","Collector will review your issue."]},
+
+{"tag":"public_grievance_day",
+"patterns":["grievance day","public grievance meeting","petition day","monday grievance meeting","government complaint day"],
+"responses":["Government conducts weekly grievance day.","Citizens can submit petitions directly.","Meet officials personally.","Carry all required documents."]},
+
+{"tag":"scholarship_scheme",
+"patterns":["scholarship scheme","student scholarship","education assistance","apply scholarship","government scholarship"],
+"responses":["Students can apply for scholarship schemes.","Submit school or college certificates.","Income certificate required.","Amount credited after approval."]},
+
+{"tag":"free_house_scheme",
+"patterns":["free house scheme","housing scheme","apply housing board","government house","housing benefits"],
+"responses":["Housing scheme available for eligible families.","Apply through housing department.","Land verification required.","Approval based on eligibility."]},
+
+{"tag":"water_problem",
+"patterns":["no water supply","water complaint","drinking water issue","water problem area","water shortage"],
+"responses":["Water supply complaints forwarded to local body.","Municipality will inspect area.","Repair work will be scheduled.","Track status in portal."]},
+
+{"tag":"road_damage",
+"patterns":["road damaged","road complaint","bad road","street road issue","road repair request"],
+"responses":["Road complaints sent to local authority.","Engineer will inspect location.","Repair work planned soon.","Check portal for updates."]},
+
+{"tag":"street_light",
+"patterns":["street light not working","street light complaint","light problem road","no street light","street lamp issue"],
+"responses":["Street light complaint registered.","Electric department notified.","Technician will repair soon.","Track complaint status online."]}
+]
+ 
+}

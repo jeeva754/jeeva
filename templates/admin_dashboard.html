@@ -1,0 +1,737 @@
+{% set translations = {
+    "Admin Dashboard": {"ta": "நிர்வாகத் டாஷ்போர்டு"},
+    "Government of Tamil Nadu": {"ta": "தமிழ்நாடு அரசு"},
+    "Home": {"ta": "முகப்பு"},
+    "Verify Users": {"ta": "பயனர் சரிபார்ப்பு"},
+    "Grievance Applications": {"ta": "புகார் விண்ணப்பங்கள்"},
+    "Citizen Complaints": {"ta": "குடிமகன் புகார்கள்"},
+    "Logout": {"ta": "வெளியேறு"},
+    "Pending Tasks": {"ta": "நிலுவையில் உள்ள பணிகள்"},
+    "Active": {"ta": "செயலில் உள்ளது"},
+    "Process Now": {"ta": "இப்போது செயல்படுத்து"}
+} %}
+{% macro t(text) %}{% if session.get('lang')=='ta' %}{{ translations.get(text,{}).get('ta',text) }}{% else %}{{ text }}{% endif %}{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="{{ session.get('lang','en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t("Admin Dashboard") }} | TN State Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --tn-blue:   #063970;
+            --tn-gold:   #ffb300;
+            --tn-green:  #10b981;
+            --tn-red:    #ef4444;
+            --tn-orange: #f97316;
+            --tn-purple: #7c3aed;
+            --sidebar-width: 260px;
+            --glass: rgba(255,255,255,0.96);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background: linear-gradient(rgba(241,245,249,0.88), rgba(241,245,249,0.88)),
+                url('https://images.pexels.com/photos/235731/pexels-photo-235731.jpeg?auto=compress&cs=tinysrgb&w=1920')
+                no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            margin: 0; overflow-x: hidden; color: #1e293b;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--tn-blue);
+            position: fixed; top: 0; left: 0;
+            color: white; padding: 28px 14px;
+            z-index: 1000; display: flex;
+            flex-direction: column; overflow-y: auto;
+        }
+
+        .brand-box {
+            text-align: center; padding-bottom: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 22px;
+        }
+
+        .nav-section-lbl {
+            font-size: 0.62rem; font-weight: 700;
+            letter-spacing: 1.2px; text-transform: uppercase;
+            color: rgba(255,255,255,0.35); padding: 0 12px;
+            margin: 14px 0 4px;
+        }
+
+        .nav-link {
+            color: rgba(255,255,255,0.7);
+            padding: 11px 16px; margin: 2px 0;
+            border-radius: 12px;
+            display: flex; align-items: center;
+            text-decoration: none; transition: 0.25s;
+            font-size: 0.88rem; position: relative;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: rgba(255,255,255,0.15);
+            color: white !important;
+            font-weight: 700;
+        }
+        .nav-link.active { background: white; color: var(--tn-blue) !important; }
+        .nav-link i { width: 22px; margin-right: 10px; font-size: 0.9rem; }
+
+        .nav-badge {
+            margin-left: auto;
+            background: var(--tn-red); color: white;
+            font-size: 0.62rem; font-weight: 800;
+            padding: 2px 7px; border-radius: 20px;
+        }
+
+        .nav-badge-orange { background: var(--tn-orange); }
+
+        .sidebar-bottom {
+            margin-top: auto; padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* ── MAIN ── */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            padding: 28px 36px;
+            min-height: 100vh;
+        }
+
+        /* ── TOP NAV ── */
+        .top-nav {
+            background: var(--glass); backdrop-filter: blur(10px);
+            padding: 14px 28px; border-radius: 18px;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 26px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 1px solid white;
+        }
+
+        .status-dot {
+            width: 9px; height: 9px; background: var(--tn-green);
+            border-radius: 50%; display: inline-block; margin-right: 5px;
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.7); }
+            70%  { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+            100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+        }
+
+        /* ── KPI CARDS ── */
+        .kpi-card {
+            background: var(--glass); backdrop-filter: blur(12px);
+            border-radius: 18px; padding: 20px 22px;
+            border: 1px solid white;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            display: flex; align-items: center; gap: 16px;
+            transition: 0.25s;
+        }
+        .kpi-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+        }
+        .kpi-icon {
+            width: 52px; height: 52px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.25rem; flex-shrink: 0;
+        }
+        .kpi-num   { font-size: 1.7rem; font-weight: 800; line-height: 1; }
+        .kpi-label { font-size: 0.75rem; color: #64748b; font-weight: 600; margin-top: 3px; }
+        .kpi-sub   { font-size: 0.7rem; margin-top: 4px; font-weight: 700; }
+
+        /* ── SECTION LABEL ── */
+        .section-label {
+            font-size: 0.72rem; font-weight: 800;
+            text-transform: uppercase; letter-spacing: 1px;
+            color: #94a3b8; margin-bottom: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .section-label::after {
+            content: ''; flex: 1; height: 1px; background: #e2e8f0;
+        }
+
+        /* ── CHART CARDS ── */
+        .chart-card {
+            background: var(--glass); backdrop-filter: blur(12px);
+            border-radius: 20px; padding: 22px;
+            border: 1px solid white;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            height: 340px; display: flex; flex-direction: column;
+        }
+        .chart-title {
+            font-weight: 800; font-size: 0.78rem;
+            color: var(--tn-blue); text-transform: uppercase;
+            letter-spacing: 0.8px; margin-bottom: 16px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .chart-wrapper { flex-grow: 1; position: relative; }
+
+        /* ── ACTIVITY FEED ── */
+        .feed-card {
+            background: var(--glass); backdrop-filter: blur(12px);
+            border-radius: 20px; border: 1px solid white;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .feed-header {
+            padding: 16px 22px 12px;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .feed-header h6 {
+            font-weight: 800; font-size: 0.8rem;
+            text-transform: uppercase; letter-spacing: 0.7px;
+            color: var(--tn-blue); margin: 0;
+        }
+        .feed-item {
+            padding: 13px 22px;
+            border-bottom: 1px solid #f8fafc;
+            display: flex; align-items: center; gap: 12px;
+            transition: 0.2s;
+        }
+        .feed-item:hover { background: #f8fafc; }
+        .feed-item:last-child { border-bottom: none; }
+
+        .feed-avatar {
+            width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+        }
+        .feed-name  { font-size: 0.83rem; font-weight: 700; color: #1e293b; }
+        .feed-meta  { font-size: 0.7rem; color: #94a3b8; margin-top: 2px; }
+        .feed-right { margin-left: auto; flex-shrink: 0; }
+
+        .status-pill {
+            padding: 4px 10px; border-radius: 100px;
+            font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+        }
+        .sp-pending  { background: #fffbeb; color: #b45309; border: 1px solid #fef3c7; }
+        .sp-approved { background: #ecfdf5; color: #065f46; border: 1px solid #d1fae5; }
+        .sp-rejected { background: #fef2f2; color: #991b1b; border: 1px solid #fee2e2; }
+        .sp-open     { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+        .sp-progress { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+        .sp-resolved { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+        .sp-closed   { background: #f1f5f9; color: #475569; }
+
+        /* ── ALERT BANNER ── */
+        .alert-banner {
+            background: var(--glass); backdrop-filter: blur(12px);
+            border-radius: 18px; padding: 18px 24px;
+            border: 1px solid white;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+            display: flex; align-items: center;
+            justify-content: space-between; flex-wrap: wrap; gap: 14px;
+        }
+
+        .alert-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 10px 18px; border-radius: 12px;
+            font-size: 0.82rem; font-weight: 700;
+        }
+        .ai-red    { background: #fef2f2; color: #991b1b; }
+        .ai-orange { background: #fff7ed; color: #9a3412; }
+        .ai-blue   { background: #eff6ff; color: #1d4ed8; }
+
+        .btn-process {
+            padding: 10px 22px; border-radius: 100px;
+            font-weight: 700; font-size: 0.82rem;
+            color: white; text-decoration: none; transition: 0.2s;
+            display: inline-flex; align-items: center; gap: 7px;
+        }
+        .btn-process:hover { opacity: 0.9; color: white; transform: translateY(-1px); }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════ SIDEBAR ══════════════ -->
+<aside class="sidebar">
+    <div class="brand-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" height="58">
+        <h6 class="mt-3 fw-bold small text-uppercase" style="letter-spacing:1px; font-size:0.65rem;">
+            {{ t("Government of Tamil Nadu") }}
+        </h6>
+    </div>
+
+    <nav style="flex:1;">
+        <div class="nav-section-lbl">Overview</div>
+        <a href="/admin/dashboard" class="nav-link active">
+            <i class="fa-solid fa-gauge-high"></i> <span>{{ t("Home") }}</span>
+        </a>
+
+        <div class="nav-section-lbl">Management</div>
+        <a href="/admin/users" class="nav-link">
+            <i class="fa-solid fa-user-check"></i> <span>{{ t("Verify Users") }}</span>
+            {% if pending_users > 0 %}
+            <span class="nav-badge">{{ pending_users }}</span>
+            {% endif %}
+        </a>
+        <a href="/admin/grievances" class="nav-link">
+            <i class="fa-solid fa-clipboard-list"></i> <span>{{ t("Grievance Applications") }}</span>
+            {% if pending_grievances > 0 %}
+            <span class="nav-badge">{{ pending_grievances }}</span>
+            {% endif %}
+        </a>
+        <a href="/admin/complaints" class="nav-link">
+            <i class="fa-solid fa-headset"></i> <span>{{ t("Citizen Complaints") }}</span>
+            {% if open_complaints > 0 %}
+            <span class="nav-badge nav-badge-orange">{{ open_complaints }}</span>
+            {% endif %}
+        </a>
+        <a href="/" class="nav-link">
+            <i class="fa-solid fa-user"></i> 
+            <span></span>
+
+            <span class="nav-badge nav-badge-blue"></span>
+        </a>
+    </nav>
+
+    <div class="sidebar-bottom">
+        <a href="/logout" class="nav-link" style="color:rgba(255,255,255,0.5);">
+            <i class="fa-solid fa-power-off"></i> <span>{{ t("Logout") }}</span>
+        </a>
+    </div>
+</aside>
+
+<!-- ══════════════ MAIN ══════════════ -->
+<main class="main-content">
+
+    <!-- Top nav bar -->
+    <header class="top-nav">
+        <div>
+            <h4 class="fw-800 mb-0" style="font-size:1.1rem;">{{ t("Admin Dashboard") }}</h4>
+            <small class="text-muted">Official Oversight & Analytics Engine</small>
+        </div>
+        <div class="d-flex align-items-center gap-3 bg-white p-2 px-3 rounded-pill border">
+            <div class="text-end">
+                <div class="fw-bold small">{{ session.get('admin') }}</div>
+                <div class="small text-success fw-bold" style="font-size:0.65rem;">
+                    <span class="status-dot"></span> {{ t("Active") }}
+                </div>
+            </div>
+            <img src="https://ui-avatars.com/api/?name=Admin&background=063970&color=fff"
+                 class="rounded-circle shadow-sm" width="36">
+        </div>
+    </header>
+
+    <!-- ── KPI ROW 1 — GRIEVANCES ── -->
+    <div class="section-label mb-3">
+        <i class="fa fa-file-lines text-primary"></i> Grievance Applications
+    </div>
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-xl-3">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:#eff6ff; color:#2563eb;">
+                    <i class="fa fa-file-lines"></i>
+                </div>
+                <div>
+                    <div class="kpi-num">{{ total_grievances }}</div>
+                    <div class="kpi-label">Total Applications</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:#fffbeb; color:#b45309;">
+                    <i class="fa fa-clock"></i>
+                </div>
+                <div>
+                    <div class="kpi-num" style="color:#b45309;">{{ pending_grievances }}</div>
+                    <div class="kpi-label">Pending Review</div>
+                    <div class="kpi-sub text-danger">⚠ Needs action</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:#ecfdf5; color:#065f46;">
+                    <i class="fa fa-circle-check"></i>
+                </div>
+                <div>
+                    <div class="kpi-num" style="color:#065f46;">{{ approved_grievances }}</div>
+                    <div class="kpi-label">Approved</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:#fef2f2; color:#991b1b;">
+                    <i class="fa fa-circle-xmark"></i>
+                </div>
+                <div>
+                    <div class="kpi-num" style="color:#991b1b;">{{ rejected_grievances }}</div>
+                    <div class="kpi-label">Rejected</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── KPI ROW 2 — COMPLAINTS & USERS ── -->
+    <div class="section-label mb-3">
+        <i class="fa fa-headset text-warning"></i> Complaints & Users
+    </div>
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-xl-3">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:#fff7ed; color:#9a3412;">
+                    <i class="fa fa-triangle-exclamation"></i>
+                </div>
+                <div>
+                    <div class="kpi-num" style="color:#9a3412;">{{ open_complaints }}</div>
+                    <div class="kpi-label">Open Complaints</div>
+                    <div class="kpi-sub text-danger">⚠ Needs reply</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:#eff6ff; color:#1d4ed8;">
+                    <i class="fa fa-spinner"></i>
+                </div>
+                <div>
+                    <div class="kpi-num" style="color:#1d4ed8;">{{ in_progress_complaints }}</div>
+                    <div class="kpi-label">In Progress</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:#f3f4f6; color:#374151;">
+                    <i class="fa fa-users"></i>
+                </div>
+                <div>
+                    <div class="kpi-num">{{ total_users }}</div>
+                    <div class="kpi-label">Registered Users</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-3">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:#fdf4ff; color:#7c3aed;">
+                    <i class="fa fa-user-clock"></i>
+                </div>
+                <div>
+                    <div class="kpi-num" style="color:#7c3aed;">{{ pending_users }}</div>
+                    <div class="kpi-label">Pending User Verif.</div>
+                    {% if pending_users > 0 %}
+                    <div class="kpi-sub" style="color:#7c3aed;">↗ Verify now</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── CHARTS ROW 1 ── -->
+    <div class="section-label mb-3">
+        <i class="fa fa-chart-pie text-success"></i> Analytics
+    </div>
+    <div class="row g-4 mb-4">
+        <div class="col-lg-4">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fas fa-chart-pie text-warning"></i> Application Status</div>
+                <div class="chart-wrapper"><canvas id="statusChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-8">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fas fa-chart-line text-primary"></i> Application Growth (6 Months)</div>
+                <div class="chart-wrapper"><canvas id="trendChart"></canvas></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── CHARTS ROW 2 ── -->
+    <div class="row g-4 mb-4">
+        <div class="col-lg-4">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fas fa-headset text-orange" style="color:var(--tn-orange);"></i> Complaint Status</div>
+                <div class="chart-wrapper"><canvas id="complaintStatusChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fas fa-tags text-purple" style="color:var(--tn-purple);"></i> Complaint Categories</div>
+                <div class="chart-wrapper"><canvas id="complaintCatChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fas fa-users-cog text-info"></i> User Account Ratios</div>
+                <div class="chart-wrapper"><canvas id="userChart"></canvas></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── CHARTS ROW 3 ── -->
+    <div class="row g-4 mb-4">
+        <div class="col-lg-6">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fas fa-map-marked-alt text-success"></i> Top Districts Activity</div>
+                <div class="chart-wrapper"><canvas id="districtChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fas fa-list-check text-danger"></i> Popular Welfare Schemes</div>
+                <div class="chart-wrapper"><canvas id="schemeChart"></canvas></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── ACTIVITY FEEDS ── -->
+    <div class="section-label mb-3">
+        <i class="fa fa-clock-rotate-left text-info"></i> Recent Activity
+    </div>
+    <div class="row g-4 mb-4">
+
+        <!-- Recent Grievances -->
+        <div class="col-lg-6">
+            <div class="feed-card">
+                <div class="feed-header">
+                    <h6><i class="fa fa-file-lines me-2"></i> Recent Applications</h6>
+                    <a href="/admin/grievances" class="small text-primary fw-700 text-decoration-none">
+                        View all <i class="fa fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+                {% for g in recent_grievances %}
+                <div class="feed-item">
+                    <img src="https://ui-avatars.com/api/?name={{ g.name }}&background=063970&color=fff&size=34"
+                         class="feed-avatar">
+                    <div style="min-width:0; flex:1;">
+                        <div class="feed-name">{{ g.name }}</div>
+                        <div class="feed-meta">
+                            <span class="me-2"><i class="fa fa-tag me-1"></i>{{ g.scheme[:28] }}{% if g.scheme|length > 28 %}…{% endif %}</span>
+                            <span><i class="fa fa-map-pin me-1"></i>{{ g.district }}</span>
+                        </div>
+                    </div>
+                    <div class="feed-right">
+                        <span class="status-pill sp-{{ g.status|lower }}">{{ g.status }}</span>
+                        <div class="text-muted mt-1" style="font-size:0.62rem; text-align:right;">{{ g.applied_at[:10] if g.applied_at else '' }}</div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="text-center py-4 text-muted small">No applications yet.</div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Recent Complaints -->
+        <div class="col-lg-6">
+            <div class="feed-card">
+                <div class="feed-header">
+                    <h6><i class="fa fa-headset me-2" style="color:var(--tn-orange);"></i> Recent Complaints</h6>
+                    <a href="/admin/complaints" class="small fw-700 text-decoration-none" style="color:var(--tn-orange);">
+                        View all <i class="fa fa-arrow-right ms-1"></i>
+                    </a>
+                </div>
+                {% for c in recent_complaints %}
+                <div class="feed-item">
+                    <img src="https://ui-avatars.com/api/?name={{ c.citizen_name }}&background=f97316&color=fff&size=34"
+                         class="feed-avatar">
+                    <div style="min-width:0; flex:1;">
+                        <div class="feed-name">{{ c.citizen_name }}</div>
+                        <div class="feed-meta">
+                            <span class="me-2"><i class="fa fa-tag me-1"></i>{{ c.category }}</span>
+                            <span class="me-2">
+                                <span style="font-size:0.62rem; padding:1px 6px; border-radius:4px;
+                                    {% if c.priority=='High' %}background:#fef2f2;color:#991b1b;
+                                    {% elif c.priority=='Medium' %}background:#fffbeb;color:#92400e;
+                                    {% else %}background:#f0fdf4;color:#166534;{% endif %}
+                                    font-weight:800;">{{ c.priority }}</span>
+                            </span>
+                        </div>
+                        <div class="feed-name" style="font-weight:500; font-size:0.78rem; color:#475569;">
+                            {{ c.subject[:40] }}{% if c.subject|length > 40 %}…{% endif %}
+                        </div>
+                    </div>
+                    <div class="feed-right">
+                        <span class="status-pill
+                            {% if c.status=='Open' %}sp-open
+                            {% elif c.status=='In Progress' %}sp-progress
+                            {% elif c.status=='Resolved' %}sp-resolved
+                            {% else %}sp-closed{% endif %}">
+                            {{ c.status }}
+                        </span>
+                        <div class="text-muted mt-1" style="font-size:0.62rem; text-align:right;">{{ c.submitted_at[:10] if c.submitted_at else '' }}</div>
+                    </div>
+                </div>
+                {% else %}
+                <div class="text-center py-4 text-muted small">No complaints filed yet.</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <!-- ── ALERT / ACTION BANNER ── -->
+    <div class="alert-banner mb-4">
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+            <i class="fa fa-bell text-warning fa-lg"></i>
+            <strong class="me-2">{{ t("Pending Tasks") }}</strong>
+            {% if pending_grievances > 0 %}
+            <div class="alert-item ai-red">
+                <i class="fa fa-file-circle-exclamation"></i>
+                {{ pending_grievances }} grievance{{ 's' if pending_grievances != 1 else '' }} awaiting review
+            </div>
+            {% endif %}
+            {% if pending_users > 0 %}
+            <div class="alert-item ai-orange">
+                <i class="fa fa-user-clock"></i>
+                {{ pending_users }} user{{ 's' if pending_users != 1 else '' }} pending verification
+            </div>
+            {% endif %}
+            {% if open_complaints > 0 %}
+            <div class="alert-item ai-blue">
+                <i class="fa fa-headset"></i>
+                {{ open_complaints }} complaint{{ 's' if open_complaints != 1 else '' }} need a response
+            </div>
+            {% endif %}
+            {% if pending_grievances == 0 and pending_users == 0 and open_complaints == 0 %}
+            <div class="alert-item" style="background:#f0fdf4; color:#166534;">
+                <i class="fa fa-circle-check"></i> All queues clear — great work!
+            </div>
+            {% endif %}
+        </div>
+        <div class="d-flex gap-2 flex-wrap">
+            <a href="/admin/grievances" class="btn-process" style="background:var(--tn-blue);">
+                <i class="fa fa-clipboard-list"></i> Grievances
+            </a>
+            <a href="/admin/complaints" class="btn-process" style="background:var(--tn-orange);">
+                <i class="fa fa-headset"></i> Complaints
+            </a>
+            <a href="/admin/users" class="btn-process" style="background:var(--tn-purple);">
+                <i class="fa fa-user-check"></i> Users
+            </a>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    const chartDefaults = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    font: { family: 'Plus Jakarta Sans', weight: '600', size: 11 },
+                    padding: 16
+                }
+            }
+        }
+    };
+
+    // 1. Application Status doughnut
+    new Chart(document.getElementById('statusChart'), {
+        type: 'doughnut',
+        data: {
+            labels: [{% for r in status_data %}"{{ r.status }}",{% endfor %}],
+            datasets: [{
+                data: [{% for r in status_data %}{{ r.count }},{% endfor %}],
+                backgroundColor: ['#ffb300','#10b981','#ef4444'],
+                borderWidth: 0
+            }]
+        },
+        options: { ...chartDefaults, cutout: '65%' }
+    });
+
+    // 2. Growth trend line
+    new Chart(document.getElementById('trendChart'), {
+        type: 'line',
+        data: {
+            labels: [{% for r in trend_data %}"{{ r.month }}",{% endfor %}].reverse(),
+            datasets: [{
+                label: 'Submissions',
+                data: [{% for r in trend_data %}{{ r.count }},{% endfor %}].reverse(),
+                borderColor: '#063970',
+                backgroundColor: 'rgba(6,57,112,0.07)',
+                fill: true, tension: 0.4,
+                pointBackgroundColor: '#063970', pointRadius: 4
+            }]
+        },
+        options: chartDefaults
+    });
+
+    // 3. Complaint status doughnut
+    new Chart(document.getElementById('complaintStatusChart'), {
+        type: 'doughnut',
+        data: {
+            labels: [{% for r in complaint_status_data %}"{{ r.status }}",{% endfor %}],
+            datasets: [{
+                data: [{% for r in complaint_status_data %}{{ r.count }},{% endfor %}],
+                backgroundColor: ['#f97316','#3b82f6','#10b981','#94a3b8'],
+                borderWidth: 0
+            }]
+        },
+        options: { ...chartDefaults, cutout: '65%' }
+    });
+
+    // 4. Complaint category bar
+    new Chart(document.getElementById('complaintCatChart'), {
+        type: 'bar',
+        data: {
+            labels: [{% for r in complaint_category_data %}"{{ r.category }}",{% endfor %}],
+            datasets: [{
+                label: 'Complaints',
+                data: [{% for r in complaint_category_data %}{{ r.count }},{% endfor %}],
+                backgroundColor: '#7c3aed', borderRadius: 6
+            }]
+        },
+        options: { ...chartDefaults, indexAxis: 'y',
+                   plugins: { ...chartDefaults.plugins, legend: { display: false } } }
+    });
+
+    // 5. User status pie
+    new Chart(document.getElementById('userChart'), {
+        type: 'pie',
+        data: {
+            labels: [{% for r in user_status %}"{{ r.status }}",{% endfor %}],
+            datasets: [{
+                data: [{% for r in user_status %}{{ r.count }},{% endfor %}],
+                backgroundColor: ['#10b981','#64748b','#ef4444'],
+                borderWidth: 0
+            }]
+        },
+        options: chartDefaults
+    });
+
+    // 6. District bar
+    new Chart(document.getElementById('districtChart'), {
+        type: 'bar',
+        data: {
+            labels: [{% for r in district_data %}"{{ r.district }}",{% endfor %}],
+            datasets: [{
+                label: 'Applications',
+                data: [{% for r in district_data %}{{ r.count }},{% endfor %}],
+                backgroundColor: '#063970', borderRadius: 6
+            }]
+        },
+        options: { ...chartDefaults,
+                   plugins: { ...chartDefaults.plugins, legend: { display: false } } }
+    });
+
+    // 7. Popular schemes horizontal bar
+    new Chart(document.getElementById('schemeChart'), {
+        type: 'bar',
+        data: {
+            labels: [{% for r in scheme_data %}"{{ r.scheme }}",{% endfor %}],
+            datasets: [{
+                label: 'Applications',
+                data: [{% for r in scheme_data %}{{ r.count }},{% endfor %}],
+                backgroundColor: '#ffb300', borderRadius: 6
+            }]
+        },
+        options: { ...chartDefaults, indexAxis: 'y',
+                   plugins: { ...chartDefaults.plugins, legend: { display: false } } }
+    });
+</script>
+</body>
+</html>

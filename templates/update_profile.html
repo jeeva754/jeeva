@@ -1,0 +1,1296 @@
+{% set translations = {
+
+"Update Profile": {
+    "en": "Update Profile", "ta": "சுயவிவரத்தை புதுப்பிக்கவும்",
+    "te": "ప్రొఫైల్ నవీకరించండి", "ml": "പ്രൊഫൈൽ അപ്‌ഡേറ്റ് ചെയ്യുക",
+    "kn": "ಪ್ರೊಫೈಲ್ ನವೀಕರಿಸಿ", "hi": "प्रोफ़ाइल अपडेट करें", "ur": "پروفائل اپ ڈیٹ کریں"
+},
+"My Profile": {
+    "en": "My Profile", "ta": "என் சுயவிவரம்",
+    "te": "నా ప్రొఫైల్", "ml": "എന്റെ പ്രൊഫൈൽ",
+    "kn": "ನನ್ನ ಪ್ರೊಫೈಲ್", "hi": "मेरी प्रोफ़ाइल", "ur": "میری پروفائل"
+},
+"Basic Information": {
+    "en": "Basic Information", "ta": "அடிப்படை தகவல்",
+    "te": "ప్రాథమిక సమాచారం", "ml": "അടിസ്ഥാന വിവരങ്ങൾ",
+    "kn": "ಮೂಲ ಮಾಹಿತಿ", "hi": "बुनियादी जानकारी", "ur": "بنیادی معلومات"
+},
+"Full Name": {
+    "en": "Full Name", "ta": "முழு பெயர்",
+    "te": "పూర్తి పేరు", "ml": "പൂർണ്ണ നാമം",
+    "kn": "ಪೂರ್ಣ ಹೆಸರು", "hi": "पूरा नाम", "ur": "پورا نام"
+},
+"Mobile Number": {
+    "en": "Mobile Number", "ta": "கைபேசி எண்",
+    "te": "మొబైల్ నంబర్", "ml": "മൊബൈൽ നമ്പർ",
+    "kn": "ಮೊಬೈಲ್ ಸಂಖ್ಯೆ", "hi": "मोबाइल नंबर", "ur": "موبائل نمبر"
+},
+"District": {
+    "en": "District", "ta": "மாவட்டம்",
+    "te": "జిల్లా", "ml": "ജില്ല",
+    "kn": "ಜಿಲ್ಲೆ", "hi": "जिला", "ur": "ضلع"
+},
+"Select District": {
+    "en": "— Select District —", "ta": "— மாவட்டத்தைத் தேர்ந்தெடுக்கவும் —",
+    "te": "— జిల్లా ఎంచుకోండి —", "ml": "— ജില്ല തിരഞ്ഞെടുക്കുക —",
+    "kn": "— ಜಿಲ್ಲೆ ಆರಿಸಿ —", "hi": "— जिला चुनें —", "ur": "— ضلع منتخب کریں —"
+},
+"New Password": {
+    "en": "New Password", "ta": "புதிய கடவுச்சொல்",
+    "te": "కొత్త పాస్‌వర్డ్", "ml": "പുതിയ പാസ്‌വേഡ്",
+    "kn": "ಹೊಸ ಪಾಸ್‌ವರ್ಡ್", "hi": "नया पासवर्ड", "ur": "نیا پاس ورڈ"
+},
+"leave blank to keep current": {
+    "en": "leave blank to keep current", "ta": "மாற்ற வேண்டாமெனில் காலியாக விடவும்",
+    "te": "ప్రస్తుతం ఉంచాలంటే ఖాళీగా వదలండి", "ml": "നിലവിലേത് നിലനിർത്തണമെങ്കിൽ ശൂന്യമാക്കുക",
+    "kn": "ಪ್ರಸ್ತುತ ಇರಿಸಲು ಖಾಲಿ ಬಿಡಿ", "hi": "वर्तमान रखने के लिए खाली छोड़ें", "ur": "موجودہ رکھنے کے لیے خالی چھوڑیں"
+},
+"Save Changes": {
+    "en": "Save Changes", "ta": "மாற்றங்களைச் சேமிக்கவும்",
+    "te": "మార్పులు సేవ్ చేయండి", "ml": "മാറ്റങ്ങൾ സൂക്ഷിക്കുക",
+    "kn": "ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಿ", "hi": "परिवर्तन सहेजें", "ur": "تبدیلیاں محفوظ کریں"
+},
+"Aadhaar Verification": {
+    "en": "Aadhaar Verification", "ta": "ஆதார் சரிபார்ப்பு",
+    "te": "ఆధార్ ధృవీకరణ", "ml": "ആധാർ സ്ഥിരീകരണം",
+    "kn": "ಆಧಾರ್ ಪರಿಶೀಲನೆ", "hi": "आधार सत्यापन", "ur": "آدھار تصدیق"
+},
+"Verified": {
+    "en": "Verified", "ta": "சரிபார்க்கப்பட்டது",
+    "te": "ధృవీకరించబడింది", "ml": "സ്ഥിരീകരിച്ചു",
+    "kn": "ಪರಿಶೀಲಿಸಲಾಗಿದೆ", "hi": "सत्यापित", "ur": "تصدیق شدہ"
+},
+"Pending Verification": {
+    "en": "Pending Verification", "ta": "சரிபார்ப்பு நிலுவையில்",
+    "te": "ధృవీకరణ పెండింగ్‌లో", "ml": "സ്ഥിരീകരണം ബാക്കിയുണ്ട്",
+    "kn": "ಪರಿಶೀಲನೆ ಬಾಕಿ", "hi": "सत्यापन लंबित", "ur": "تصدیق زیر التواء"
+},
+"Not Verified": {
+    "en": "Not Verified", "ta": "சரிபார்க்கப்படவில்லை",
+    "te": "ధృవీకరించబడలేదు", "ml": "സ്ഥിരീകരിച്ചിട്ടില്ല",
+    "kn": "ಪರಿಶೀಲಿಸಲಾಗಿಲ್ಲ", "hi": "असत्यापित", "ur": "غیر تصدیق شدہ"
+},
+"Aadhaar Successfully Verified": {
+    "en": "Aadhaar Successfully Verified", "ta": "ஆதார் வெற்றிகரமாக சரிபார்க்கப்பட்டது",
+    "te": "ఆధార్ విజయవంతంగా ధృవీకరించబడింది", "ml": "ആധാർ വിജയകരമായി സ്ഥിരീകരിച്ചു",
+    "kn": "ಆಧಾರ್ ಯಶಸ್ವಿಯಾಗಿ ಪರಿಶೀಲಿಸಲಾಗಿದೆ", "hi": "आधार सफलतापूर्वक सत्यापित", "ur": "آدھار کامیابی سے تصدیق شدہ"
+},
+"Linked Aadhaar": {
+    "en": "Linked Aadhaar", "ta": "இணைக்கப்பட்ட ஆதார்",
+    "te": "లింక్ ఆధార్", "ml": "ലിങ്ക് ചെയ്ത ആധാർ",
+    "kn": "ಲಿಂಕ್ ಆಧಾರ್", "hi": "लिंक आधार", "ur": "منسلک آدھار"
+},
+"Verified on": {
+    "en": "Verified on", "ta": "சரிபார்க்கப்பட்ட தேதி",
+    "te": "ధృవీకరించిన తేదీ", "ml": "സ്ഥിരീകരിച്ച തീയതി",
+    "kn": "ಪರಿಶೀಲಿಸಿದ ದಿನ", "hi": "सत्यापित तिथि", "ur": "تصدیق کی تاریخ"
+},
+"Aadhaar Number": {
+    "en": "Aadhaar Number", "ta": "ஆதார் எண்",
+    "te": "ఆధార్ నంబర్", "ml": "ആധാർ നമ്പർ",
+    "kn": "ಆಧಾರ್ ಸಂಖ್ಯೆ", "hi": "आधार नंबर", "ur": "آدھار نمبر"
+},
+"aadhaar_info": {
+    "en": "Enter your 12-digit Aadhaar number. An OTP will be sent to your registered email for verification.",
+    "ta": "உங்கள் 12 இலக்க ஆதார் எண்ணை உள்ளிடவும். சரிபார்ப்புக்கு பதிவு மின்னஞ்சலுக்கு OTP அனுப்பப்படும்.",
+    "te": "మీ 12-అంకెల ఆధార్ నంబర్ నమోదు చేయండి. ధృవీకరణకు ఇమెయిల్‌కు OTP పంపబడుతుంది.",
+    "ml": "12 അക്ക ആധാർ നമ്പർ നൽകുക. സ്ഥിരീകരണത്തിനായി ഇമെയിലിലേക്ക് OTP അയക്കും.",
+    "kn": "12-ಅಂಕಿಯ ಆಧಾರ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ. ಪರಿಶೀಲನೆಗಾಗಿ ಇಮೇಲ್‌ಗೆ OTP ಕಳುಹಿಸಲಾಗುತ್ತದೆ.",
+    "hi": "12-अंकीय आधार नंबर दर्ज करें। सत्यापन के लिए ईमेल पर OTP भेजा जाएगा।",
+    "ur": "12 ہندسہ آدھار نمبر درج کریں۔ تصدیق کے لیے ای میل پر OTP بھیجا جائے گا۔"
+},
+"Send OTP": {
+    "en": "Send OTP", "ta": "OTP அனுப்பு",
+    "te": "OTP పంపండి", "ml": "OTP അയയ്ക്കുക",
+    "kn": "OTP ಕಳುಹಿಸಿ", "hi": "OTP भेजें", "ur": "OTP بھیجیں"
+},
+"Sending": {
+    "en": "Sending…", "ta": "அனுப்புகிறது…",
+    "te": "పంపుతోంది…", "ml": "അയക്കുന്നു…",
+    "kn": "ಕಳುಹಿಸಲಾಗುತ್ತಿದೆ…", "hi": "भेजा जा रहा है…", "ur": "بھیجا جا رہا ہے…"
+},
+"Resend OTP": {
+    "en": "Resend OTP", "ta": "OTP மீண்டும் அனுப்பு",
+    "te": "OTP మళ్ళీ పంపండి", "ml": "OTP വീണ്ടും അയക്കുക",
+    "kn": "OTP ಮರು ಕಳುಹಿಸಿ", "hi": "OTP फिर भेजें", "ur": "OTP دوبارہ بھیجیں"
+},
+"otp_sent_note": {
+    "en": "OTP sent to your registered email. Valid for 120 seconds.",
+    "ta": "உங்கள் பதிவு மின்னஞ்சலுக்கு OTP அனுப்பப்பட்டது. 120 வினாடிகள் செல்லுபடியாகும்.",
+    "te": "నమోదిత ఇమెయిల్‌కు OTP పంపబడింది. 120 సెకన్ల వరకు చెల్లుతుంది.",
+    "ml": "ഇമെയിലിലേക്ക് OTP അയച്ചു. 120 സെക്കൻഡ് സാധുവായിരിക്കും.",
+    "kn": "ಇಮೇಲ್‌ಗೆ OTP ಕಳುಹಿಸಲಾಗಿದೆ. 120 ಸೆಕೆಂಡ್ ವರೆಗೆ ಮಾನ್ಯ.",
+    "hi": "OTP ईमेल पर भेजा गया। 120 सेकंड के लिए वैध।",
+    "ur": "ای میل پر OTP بھیجا گیا۔ 120 سیکنڈ کے لیے درست۔"
+},
+"Enter 6-Digit OTP": {
+    "en": "Enter 6-Digit OTP", "ta": "6 இலக்க OTP உள்ளிடவும்",
+    "te": "6 అంకెల OTP నమోదు చేయండి", "ml": "6 അക്ക OTP നൽകുക",
+    "kn": "6-ಅಂಕಿಯ OTP ನಮೂದಿಸಿ", "hi": "6-अंकीय OTP दर्ज करें", "ur": "6 ہندسہ OTP درج کریں"
+},
+"Verify Aadhaar": {
+    "en": "Verify Aadhaar", "ta": "ஆதாரை சரிபார்க்கவும்",
+    "te": "ఆధార్ ధృవీకరించండి", "ml": "ആധാർ സ്ഥിരീകരിക്കുക",
+    "kn": "ಆಧಾರ್ ಪರಿಶೀಲಿಸಿ", "hi": "आधार सत्यापित करें", "ur": "آدھار تصدیق کریں"
+},
+"OTP expires in": {
+    "en": "OTP expires in", "ta": "OTP காலாவதியாகும் நேரம்",
+    "te": "OTP గడువు ముగియు సమయం", "ml": "OTP കാലഹരണമാകും",
+    "kn": "OTP ಅವಧಿ ಮುಗಿಯುತ್ತದೆ", "hi": "OTP समाप्त होगा", "ur": "OTP ختم ہو گا"
+},
+"OTP expired — resend again.": {
+    "en": "OTP expired — resend again.", "ta": "OTP காலாவதியானது — மீண்டும் அனுப்பவும்.",
+    "te": "OTP గడువు ముగిసింది — మళ్ళీ పంపండి.", "ml": "OTP കാലഹരണപ്പെട്ടു — വീണ്ടും അയക്കുക.",
+    "kn": "OTP ಅವಧಿ ಮುಗಿದಿದೆ — ಮರು ಕಳುಹಿಸಿ.", "hi": "OTP समाप्त हो गया — पुनः भेजें।", "ur": "OTP ختم ہو گیا — دوبارہ بھیجیں۔"
+},
+"Invalid Aadhaar number": {
+    "en": "Enter a valid 12-digit Aadhaar number", "ta": "செல்லுபடியான 12 இலக்க ஆதார் எண்ணை உள்ளிடவும்",
+    "te": "చెల్లుబాటు అయ్యే 12-అంకెల ఆధార్ నంబర్ నమోదు చేయండి", "ml": "സാധുവായ 12 അക്ക ആധാർ നമ്പർ നൽകുക",
+    "kn": "ಮಾನ್ಯ 12-ಅಂಕಿಯ ಆಧಾರ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ", "hi": "वैध 12-अंकीय आधार नंबर दर्ज करें", "ur": "درست 12 ہندسہ آدھار نمبر درج کریں"
+},
+"Invalid mobile number": {
+    "en": "Enter a valid 10-digit mobile number", "ta": "செல்லுபடியான 10 இலக்க கைபேசி எண்ணை உள்ளிடவும்",
+    "te": "చెల్లుబాటు అయ్యే 10 అంకెల మొబైల్ నంబర్ నమోదు చేయండి", "ml": "സാധുവായ 10 അക്ക മൊബൈൽ നമ്പർ നൽകുക",
+    "kn": "ಮಾನ್ಯ 10-ಅಂಕಿಯ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ನಮೂದಿಸಿ", "hi": "वैध 10-अंकीय मोबाइल नंबर दर्ज करें", "ur": "درست 10 ہندسہ موبائل نمبر درج کریں"
+},
+"Network error. Try again.": {
+    "en": "Network error. Try again.", "ta": "நெட்வொர்க் பிழை. மீண்டும் முயற்சிக்கவும்.",
+    "te": "నెట్‌వర్క్ లోపం. మళ్ళీ ప్రయత్నించండి.", "ml": "നെറ്റ്‌വർക്ക് പിശക്. വീണ്ടും ശ്രമിക്കുക.",
+    "kn": "ನೆಟ್‌ವರ್ಕ್ ದೋಷ. ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.", "hi": "नेटवर्क त्रुटि। पुनः प्रयास करें।", "ur": "نیٹ ورک خرابی۔ دوبارہ کوشش کریں۔"
+},
+"security_note": {
+    "en": "Your Aadhaar details are encrypted and stored securely as per the IT Act 2000 and Aadhaar Act 2016 guidelines. They are used solely for identity verification on this portal.",
+    "ta": "உங்கள் ஆதார் விவரங்கள் IT சட்டம் 2000 மற்றும் ஆதார் சட்டம் 2016 வழிகாட்டுதல்களின்படி குறியாக்கம் செய்யப்பட்டு பாதுகாப்பாக சேமிக்கப்படுகின்றன.",
+    "te": "మీ ఆధార్ వివరాలు IT చట్టం 2000 మరియు ఆధార్ చట్టం 2016 ప్రకారం గుప్తీకరించి సురక్షితంగా నిల్వ చేయబడతాయి.",
+    "ml": "IT ആക്ട് 2000, ആധാർ ആക്ട് 2016 ప్రకారం ആധാർ വിവരങ്ങൾ എൻക്രിപ്റ്റ് ചെയ്ത് സൂക്ഷിക്കുന്നു.",
+    "kn": "ನಿಮ್ಮ ಆಧಾರ್ ವಿವರಗಳನ್ನು IT ಕಾಯ್ದೆ 2000 ಮತ್ತು ಆಧಾರ್ ಕಾಯ್ದೆ 2016 ಪ್ರಕಾರ ಎನ್‌ಕ್ರಿಪ್ಟ್ ಮಾಡಿ ಸುರಕ್ಷಿತವಾಗಿ ಸಂಗ್ರಹಿಸಲಾಗಿದೆ.",
+    "hi": "आपके आधार विवरण IT अधिनियम 2000 और आधार अधिनियम 2016 के अनुसार एन्क्रिप्ट और सुरक्षित रूप से संग्रहीत हैं।",
+    "ur": "آپ کی آدھار تفصیلات IT ایکٹ 2000 اور آدھار ایکٹ 2016 کے مطابق انکرپٹ اور محفوظ ہیں۔"
+},
+"Account Information": {
+    "en": "Account Information", "ta": "கணக்கு தகவல்",
+    "te": "ఖాతా సమాచారం", "ml": "അക്കൗണ്ട് വിവരങ്ങൾ",
+    "kn": "ಖಾತೆ ಮಾಹಿತಿ", "hi": "खाता जानकारी", "ur": "اکاؤنٹ معلومات"
+},
+"ACCOUNT STATUS": {
+    "en": "ACCOUNT STATUS", "ta": "கணக்கு நிலை",
+    "te": "ఖాతా స్థితి", "ml": "അക്കൗണ്ട് നില",
+    "kn": "ಖಾತೆ ಸ್ಥಿತಿ", "hi": "खाता स्थिति", "ur": "اکاؤنٹ صورتحال"
+},
+"USER ID": {
+    "en": "USER ID", "ta": "பயனர் எண்",
+    "te": "యూజర్ ఐడి", "ml": "യൂസർ ഐഡി",
+    "kn": "ಬಳಕೆದಾರ ಐಡಿ", "hi": "उपयोगकर्ता ID", "ur": "یوزر آئی ڈی"
+},
+"AADHAAR STATUS": {
+    "en": "AADHAAR STATUS", "ta": "ஆதார் நிலை",
+    "te": "ఆధార్ స్థితి", "ml": "ആധാർ നില",
+    "kn": "ಆಧಾರ್ ಸ್ಥಿತಿ", "hi": "आधार स्थिति", "ur": "آدھار صورتحال"
+},
+"Verified ✓": {
+    "en": "Verified ✓", "ta": "சரிபார்க்கப்பட்டது ✓",
+    "te": "ధృవీకరించబడింది ✓", "ml": "സ്ഥിരീകരിച്ചു ✓",
+    "kn": "ಪರಿಶೀಲಿಸಲಾಗಿದೆ ✓", "hi": "सत्यापित ✓", "ur": "تصدیق شدہ ✓"
+},
+"Unverified": {
+    "en": "Unverified", "ta": "சரிபார்க்கப்படவில்லை",
+    "te": "ధృవీకరించబడలేదు", "ml": "സ്ഥിരീകരിച്ചിട്ടില്ല",
+    "kn": "ಪರಿಶೀಲಿಸಲಾಗಿಲ್ಲ", "hi": "असत्यापित", "ur": "غیر تصدیق شدہ"
+},
+"District not set": {
+    "en": "District not set", "ta": "மாவட்டம் அமைக்கப்படவில்லை",
+    "te": "జిల్లా సెట్ చేయబడలేదు", "ml": "ജില്ല നിശ്ചയിച്ചിട്ടില്ല",
+    "kn": "ಜಿಲ್ಲೆ ಹೊಂದಿಸಲಾಗಿಲ್ಲ", "hi": "जिला सेट नहीं", "ur": "ضلع سیٹ نہیں"
+},
+"New password optional": {
+    "en": "New password (optional)", "ta": "புதிய கடவுச்சொல் (விரும்பினால்)",
+    "te": "కొత్త పాస్‌వర్డ్ (ఐచ్ఛికం)", "ml": "പുതിയ പാസ്‌വേഡ് (ഐച്ഛികം)",
+    "kn": "ಹೊಸ ಪಾಸ್‌ವರ್ಡ್ (ಐಚ್ಛಿಕ)", "hi": "नया पासवर्ड (वैकल्पिक)", "ur": "نیا پاس ورڈ (اختیاری)"
+},
+"Dashboard": {
+    "en": "Dashboard", "ta": "முகப்புப்பலகை",
+    "te": "డ్యాష్‌బోర్డ్", "ml": "ഡാഷ്ബോർഡ്",
+    "kn": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್", "hi": "डैशबोर्ड", "ur": "ڈیش بورڈ"
+},
+"Apply Now": {
+    "en": "Apply Now", "ta": "இப்போதே விண்ணப்பிக்கவும்",
+    "te": "ఇప్పుడే దరఖాస్తు చేసుకోండి", "ml": "ഇപ്പോൾ അപേക്ഷിക്കുക",
+    "kn": "ಈಗಲೇ ಅರ್ಜಿ ಸಲ್ಲಿಸಿ", "hi": "अभी आवेदन करें", "ur": "ابھی اپلائی کریں"
+},
+"View Status": {
+    "en": "View Status", "ta": "நிலையை காண்க",
+    "te": "స్థితిని వీక్షించండి", "ml": "നില കാണുക",
+    "kn": "ಸ್ಥಿತಿಯನ್ನು ನೋಡಿ", "hi": "स्थिति देखें", "ur": "صورتحال دیکھیں"
+},
+"Logout": {
+    "en": "Logout", "ta": "வெளியேறு",
+    "te": "లాగ్ అవుట్", "ml": "ലോഗ് ഔട്ട്",
+    "kn": "ಲಾಗ್ ಔಟ್", "hi": "लॉग आउट", "ur": "لاگ آؤٹ"
+},
+"N/A": {
+    "en": "N/A", "ta": "இல்லை", "te": "వర్తించదు",
+    "ml": "ബാധകമല്ല", "kn": "ಅನ್ವಯಿಸಲಾಗದು", "hi": "लागू नहीं", "ur": "قابل اطلاق نہیں"
+},
+"10-digit mobile placeholder": {
+    "en": "10-digit mobile number", "ta": "10 இலக்க கைபேசி எண்",
+    "te": "10 అంకెల మొబైల్ నంబర్", "ml": "10 അക്ക മൊബൈൽ നമ്പർ",
+    "kn": "10-ಅಂಕಿ ಮೊಬೈಲ್ ನಂಬರ್", "hi": "10-अंकीय मोबाइल नंबर", "ur": "10 ہندسہ موبائل نمبر"
+},
+"Date of Birth": {
+    "en": "Date of Birth", "ta": "பிறந்த தேதி",
+    "te": "పుట్టిన తేది", "ml": "ജനനത്തീയതി",
+    "kn": "ಹುಟ್ಟಿದ ದಿನಾಂಕ", "hi": "जन्म तिथि", "ur": "تاریخ پیدائش"
+},
+"Age": {
+    "en": "Age", "ta": "வயது",
+    "te": "వయసు", "ml": "പ്രായം",
+    "kn": "ವಯಸ್ಸು", "hi": "आयु", "ur": "عمر"
+},
+"years old": {
+    "en": "yrs old", "ta": "வயது",
+    "te": "సంవత్సరాలు", "ml": "വയസ്സ്",
+    "kn": "ವರ್ಷಗಳು", "hi": "वर्ष", "ur": "سال"
+},
+"Gender": {
+    "en": "Gender", "ta": "பாலினம்",
+    "te": "లింగం", "ml": "ലിംഗം",
+    "kn": "ಲಿಂಗ", "hi": "लिंग", "ur": "جنس"
+},
+"Select Gender": {
+    "en": "— Select Gender —", "ta": "— பாலினத்தைத் தேர்ந்தெடுக்கவும் —",
+    "te": "— లింగం ఎంచుకోండి —", "ml": "— ലിംഗം തിരഞ്ഞെടുക്കുക —",
+    "kn": "— ಲಿಂಗ ಆರಿಸಿ —", "hi": "— लिंग चुनें —", "ur": "— جنس منتخب کریں —"
+},
+"Male": {
+    "en": "Male", "ta": "ஆண்",
+    "te": "పురుషుడు", "ml": "പുരുഷൻ",
+    "kn": "ಪುರುಷ", "hi": "पुरुष", "ur": "مرد"
+},
+"Female": {
+    "en": "Female", "ta": "பெண்",
+    "te": "స్త్రీ", "ml": "സ്ത്രീ",
+    "kn": "ಮಹಿಳೆ", "hi": "महिला", "ur": "خاتون"
+},
+"Other": {
+    "en": "Other", "ta": "மற்றவை",
+    "te": "ఇతర", "ml": "മറ്റുള്ളവ",
+    "kn": "ಇತರ", "hi": "अन्य", "ur": "دیگر"
+},
+
+"Location Details": {
+    "en": "Location Details", "ta": "இருப்பிட விவரங்கள்",
+    "te": "స్థాన వివరాలు", "ml": "സ്ഥാന വിവരങ്ങൾ",
+    "kn": "ಸ್ಥಳ ವಿವರಗಳು", "hi": "स्थान विवरण", "ur": "مقام کی تفصیلات"
+},
+"State": {
+    "en": "State", "ta": "மாநிலம்",
+    "te": "రాష్ట్రం", "ml": "സംസ്ഥാനം",
+    "kn": "ರಾಜ್ಯ", "hi": "राज्य", "ur": "ریاست"
+},
+"Rural / Urban": {
+    "en": "Rural / Urban", "ta": "கிராமம் / நகரம்",
+    "te": "గ్రామీణ / పట్టణం", "ml": "ഗ്രാമം / നഗരം",
+    "kn": "ಗ್ರಾಮೀಣ / ನಗರ", "hi": "ग्रामीण / शहरी", "ur": "دیہی / شہری"
+},
+"Rural": {
+    "en": "Rural", "ta": "கிராமம்",
+    "te": "గ్రామీణ", "ml": "ഗ്രാമം",
+    "kn": "ಗ್ರಾಮೀಣ", "hi": "ग्रामीण", "ur": "دیہی"
+},
+"Urban": {
+    "en": "Urban", "ta": "நகரம்",
+    "te": "పట్టణం", "ml": "നഗരം",
+    "kn": "ನಗರ", "hi": "शहरी", "ur": "شہری"
+},
+"Village / City": {
+    "en": "Village / City", "ta": "கிராமம் / நகரம் பெயர்",
+    "te": "గ్రామం / నగరం", "ml": "ഗ്രാമം / നഗരം",
+    "kn": "ಗ್ರಾಮ / ನಗರ", "hi": "गांव / शहर", "ur": "گاؤں / شہر"
+},
+
+"Economic Details": {
+    "en": "Economic Details", "ta": "பொருளாதார விவரங்கள்",
+    "te": "ఆర్థిక వివరాలు", "ml": "സാമ്പത്തിക വിവരങ്ങൾ",
+    "kn": "ಆರ್ಥಿಕ ವಿವರಗಳು", "hi": "आर्थिक विवरण", "ur": "معاشی تفصیلات"
+},
+"Annual Family Income": {
+    "en": "Annual Family Income", "ta": "குடும்ப வருடாந்திர வருமானம்",
+    "te": "వార్షిక కుటుంబ ఆదాయం", "ml": "വার്ഷിക കുടുംബ വരുമാനം",
+    "kn": "ವಾರ್ಷಿಕ ಕುಟುಂಬ ಆದಾಯ", "hi": "वार्षिक पारिवारिक आय", "ur": "سالانہ خاندانی آمدنی"
+},
+"Select Income Range": {
+    "en": "— Select Income Range —", "ta": "— வருமான வரம்பை தேர்ந்தெடுக்கவும் —",
+    "te": "— ఆదాయ పరిధి ఎంచుకోండి —", "ml": "— വരുമാന പരിധി തിരഞ്ഞെടുക്കുക —",
+    "kn": "— ಆದಾಯ ಶ್ರೇಣಿ ಆರಿಸಿ —", "hi": "— आय सीमा चुनें —", "ur": "— آمدنی کی حد منتخب کریں —"
+},
+"BPL / APL Status": {
+    "en": "BPL / APL Status", "ta": "BPL / APL நிலை",
+    "te": "BPL / APL స్థితి", "ml": "BPL / APL നില",
+    "kn": "BPL / APL ಸ್ಥಿತಿ", "hi": "BPL / APL स्थिति", "ur": "BPL / APL صورتحال"
+},
+"Ration Card Type": {
+    "en": "Ration Card Type", "ta": "ரேஷன் கார்டு வகை",
+    "te": "రేషన్ కార్డు రకం", "ml": "റേഷൻ കാർഡ് തരം",
+    "kn": "ರೇಷನ್ ಕಾರ್ಡ್ ಪ್ರಕಾರ", "hi": "राशन कार्ड प्रकार", "ur": "راشن کارڈ کی قسم"
+},
+"No Ration Card": {
+    "en": "No Ration Card", "ta": "ரேஷன் கார்டு இல்லை",
+    "te": "రేషన్ కార్డు లేదు", "ml": "റേഷൻ കാർഡ് ഇല്ല",
+    "kn": "ರೇಷನ್ ಕಾರ್ಡ್ ಇಲ್ಲ", "hi": "राशन कार्ड नहीं", "ur": "راشن کارڈ نہیں"
+},
+
+"Education Details": {
+    "en": "Education & Employment", "ta": "கல்வி மற்றும் வேலைவாய்ப்பு",
+    "te": "విద్య మరియు ఉపాధి", "ml": "വിദ്യാഭ്യാസവും തൊഴിലും",
+    "kn": "ಶಿಕ್ಷಣ ಮತ್ತು ಉದ್ಯೋಗ", "hi": "शिक्षा और रोजगार", "ur": "تعلیم اور روزگار"
+},
+"Highest Qualification": {
+    "en": "Highest Qualification", "ta": "உயர்ந்த கல்வித்தகுதி",
+    "te": "అత్యున్నత అర్హత", "ml": "ഏറ്റവും ഉയർന്ന യോഗ്യത",
+    "kn": "ಅತ್ಯುನ್ನತ ಅರ್ಹತೆ", "hi": "उच्चतम योग्यता", "ur": "اعلیٰ ترین قابلیت"
+},
+"Currently Studying": {
+    "en": "Currently Studying?", "ta": "தற்போது படிக்கிறீர்களா?",
+    "te": "ప్రస్తుతం చదువుతున్నారా?", "ml": "ഇപ്പോൾ പഠിക്കുന്നുണ്ടോ?",
+    "kn": "ಈಗ ಓದುತ್ತಿದ್ದೀರಾ?", "hi": "क्या आप अभी पढ़ रहे हैं?", "ur": "کیا ابھی پڑھ رہے ہیں؟"
+},
+"Study Type": {
+    "en": "Type of Study", "ta": "படிப்பு வகை",
+    "te": "చదువు రకం", "ml": "പഠന തരം",
+    "kn": "ಅಧ್ಯಯನ ಪ್ರಕಾರ", "hi": "अध्ययन प्रकार", "ur": "تعلیم کی قسم"
+},
+"Employment Status": {
+    "en": "Employment Status", "ta": "வேலைவாய்ப்பு நிலை",
+    "te": "ఉపాధి స్థితి", "ml": "തൊഴിൽ നില",
+    "kn": "ಉದ್ಯೋಗ ಸ್ಥಿತಿ", "hi": "रोजगार स्थिति", "ur": "روزگار کی صورتحال"
+},
+"Occupation": {
+    "en": "Occupation / Type", "ta": "தொழில் வகை",
+    "te": "వృత్తి రకం", "ml": "തൊഴിൽ വിഭാഗം",
+    "kn": "ವೃತ್ತಿ ವಿಧ", "hi": "व्यवसाय प्रकार", "ur": "پیشہ کی قسم"
+},
+
+"Special Categories": {
+    "en": "Special Categories", "ta": "சிறப்பு வகைகள்",
+    "te": "ప్రత్యేక వర్గాలు", "ml": "പ്രത്യേക വിഭാഗങ്ങൾ",
+    "kn": "ವಿಶೇಷ ವರ್ಗಗಳು", "hi": "विशेष श्रेणियां", "ur": "خصوصی زمرے"
+},
+"Caste Category": {
+    "en": "Caste Category", "ta": "சாதி பிரிவு",
+    "te": "కుల వర్గం", "ml": "ജാതി വിഭാഗം",
+    "kn": "ಜಾತಿ ವರ್ಗ", "hi": "जाति श्रेणी", "ur": "ذات کا زمرہ"
+},
+"Disability Status": {
+    "en": "Person with Disability?", "ta": "மாற்றுத்திறனாளியா?",
+    "te": "వికలాంగులా?", "ml": "ഭിന്നശേഷിക്കാരനാണോ?",
+    "kn": "ಅಂಗವಿಕಲರಾ?", "hi": "दिव्यांग हैं?", "ur": "معذور شخص؟"
+},
+"Widow / Single Parent": {
+    "en": "Widow / Single Parent?", "ta": "விதவை / தனி பெற்றோரா?",
+    "te": "వితంతువు / ఒంటరి తల్లిదండ్రీ?", "ml": "വിധവ / ഒറ്റ മാതാപിതാവ്?",
+    "kn": "ವಿಧವೆ / ಒಂಟಿ ಪೋಷಕರಾ?", "hi": "विधवा / एकल माता-पिता?", "ur": "بیوہ / اکیلے والدین؟"
+},
+"Are you a Farmer": {
+    "en": "Are you a Farmer?", "ta": "நீங்கள் ஒரு விவசாயியா?",
+    "te": "మీరు రైతా?", "ml": "നിങ്ങൾ ഒരു കർഷകനാണോ?",
+    "kn": "ನೀವು ರೈತರಾ?", "hi": "क्या आप किसान हैं?", "ur": "کیا آپ کسان ہیں؟"
+},
+"Land Ownership": {
+    "en": "Do you own Land?", "ta": "நீங்கள் நிலம் வைத்திருக்கிறீர்களா?",
+    "te": "మీకు భూమి ఉందా?", "ml": "നിങ്ങൾക്ക് ഭൂമി ഉണ്ടോ?",
+    "kn": "ನಿಮಗೆ ಭೂಮಿ ಇದೆಯೇ?", "hi": "क्या आपके पास जमीन है?", "ur": "کیا آپ کے پاس زمین ہے؟"
+},
+"Land Acres": {
+    "en": "Land (acres, optional)", "ta": "நில அளவு (ஏக்கர், விரும்பினால்)",
+    "te": "భూమి (ఎకరాలు, ఐచ్ఛికం)", "ml": "ഭൂമി (ഏക്കർ, ഐച്ഛികം)",
+    "kn": "ಭೂಮಿ (ಎಕರೆ, ಐಚ್ಛಿಕ)", "hi": "भूमि (एकड़, वैकल्पिक)", "ur": "زمین (ایکڑ، اختیاری)"
+},
+"Minority Category": {
+    "en": "Minority Category (optional)", "ta": "சிறுபான்மை பிரிவு (விரும்பினால்)",
+    "te": "మైనారిటీ వర్గం (ఐచ్ఛికం)", "ml": "ന്യൂനപക്ഷ വിഭാഗം (ഐച്ഛികം)",
+    "kn": "ಅಲ್ಪಸಂಖ್ಯಾತ ವರ್ಗ (ಐಚ್ಛಿಕ)", "hi": "अल्पसंख्यक वर्ग (वैकल्पिक)", "ur": "اقلیتی زمرہ (اختیاری)"
+},
+"Yes": {
+    "en": "Yes", "ta": "ஆம்",
+    "te": "అవును", "ml": "അതെ",
+    "kn": "ಹೌದು", "hi": "हाँ", "ur": "ہاں"
+},
+"No": {
+    "en": "No", "ta": "இல்லை",
+    "te": "కాదు", "ml": "ഇല്ല",
+    "kn": "ಇಲ್ಲ", "hi": "नहीं", "ur": "نہیں"
+},
+"Change Password": {
+    "en": "Change Password", "ta": "கடவுச்சொல்லை மாற்றவும்",
+    "te": "పాస్‌వర్డ్ మార్చండి", "ml": "പാസ്‌വേഡ് മാറ്റുക",
+    "kn": "ಪಾಸ್‌ವರ್ಡ್ ಬದಲಿಸಿ", "hi": "पासवर्ड बदलें", "ur": "پاس ورڈ تبدیل کریں"
+},
+"profile_completeness": {
+    "en": "Profile Completeness", "ta": "சுயவிவர முழுமை",
+    "te": "ప్రొఫైల్ పూర్తితత్వం", "ml": "പ്രൊഫൈൽ പൂർണ്ണത",
+    "kn": "ಪ್ರೊಫೈಲ್ ಸಂಪೂರ್ಣತೆ", "hi": "प्रोफ़ाइल पूर्णता", "ur": "پروفائل کی مکمل تفصیل"
+}
+
+} %}
+
+{%- macro t(key) -%}
+  {%- set lang = session.get('lang','en') -%}
+  {{- translations.get(key, {}).get(lang, translations.get(key, {}).get('en', key)) -}}
+{%- endmacro -%}
+
+<!DOCTYPE html>
+<html lang="{{ session.get('lang','en') }}" {% if session.get('lang') == 'ur' %}dir="rtl"{% endif %}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t("Update Profile") }} | TN Citizen Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tn-blue:   #003366;
+            --tn-gold:   #FFD700;
+            --tn-green:  #10b981;
+            --tn-red:    #ef4444;
+            --tn-accent: #2563eb;
+            --sidebar-width: 280px;
+            --bg:        #f4f7fe;
+        }
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans','Segoe UI','Latha','Tamil MN',sans-serif;
+            background: var(--bg); color: #1e293b; line-height: 1.6;
+        }
+        /* RTL */
+        [dir="rtl"] .nav-link i         { margin-right:0; margin-left:12px; }
+        [dir="rtl"] .input-group-text   { border-radius:0 12px 12px 0; border-right:1.5px solid #e2e8f0; border-left:none; }
+        [dir="rtl"] .input-group .form-control { border-radius:12px 0 0 12px; border-left:1.5px solid #e2e8f0; border-right:none; }
+        [dir="rtl"] .verify-badge       { margin-left:0; margin-right:auto; }
+
+        /* Sidebar */
+        .sidebar {
+            width:var(--sidebar-width); height:100vh; position:fixed;
+            background:white; border-right:1px solid #e2e8f0;
+            padding:2rem 1.5rem; z-index:1000;
+        }
+        [dir="rtl"] .sidebar { border-right:none; border-left:1px solid #e2e8f0; left:auto; right:0; }
+        .sidebar-brand {
+            display:flex; align-items:center; gap:12px; margin-bottom:3rem;
+            color:var(--tn-blue); font-weight:700; font-size:1.15rem; text-decoration:none;
+        }
+        .nav-link {
+            display:flex; align-items:center; padding:12px 15px; color:#64748b;
+            text-decoration:none; border-radius:12px; margin-bottom:8px; transition:.3s;
+        }
+        .nav-link:hover,.nav-link.active { background:#eff6ff; color:var(--tn-accent); }
+        .nav-link i { margin-right:12px; width:20px; text-align:center; }
+
+        /* Main */
+        .main-wrapper { margin-left:var(--sidebar-width); padding:2.5rem 3rem; min-height:100vh; }
+        [dir="rtl"] .main-wrapper { margin-left:0; margin-right:var(--sidebar-width); }
+
+        /* Avatar */
+        .avatar-ring {
+            width:85px; height:85px; border-radius:50%;
+            background:linear-gradient(135deg,var(--tn-blue),#1e40af);
+            display:flex; align-items:center; justify-content:center;
+            font-size:2rem; color:white; font-weight:800;
+            box-shadow:0 10px 20px rgba(0,51,102,.25); flex-shrink:0;
+        }
+
+        /* Cards */
+        .section-card {
+            background:white; border-radius:22px; padding:2rem 2.5rem;
+            border:1px solid #e2e8f0; box-shadow:0 4px 15px rgba(0,0,0,.04);
+            margin-bottom:1.75rem; animation:fadeUp .5s ease both;
+        }
+        .section-card:nth-child(2){animation-delay:.08s}
+        .section-card:nth-child(3){animation-delay:.16s}
+        .section-card:nth-child(4){animation-delay:.24s}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+        .section-title {
+            font-size:.85rem; font-weight:800; color:var(--tn-blue);
+            text-transform:uppercase; letter-spacing:.8px;
+            margin-bottom:1.5rem; display:flex; align-items:center; gap:10px;
+            border-bottom:2px solid #f1f5f9; padding-bottom:.75rem;
+        }
+
+        /* Form */
+        label.form-label { font-weight:700; font-size:.78rem; color:#475569; text-transform:uppercase; letter-spacing:.5px; margin-bottom:6px; }
+        .form-control,.form-select { border:1.5px solid #e2e8f0; border-radius:12px; padding:11px 15px; font-size:.95rem; transition:.3s; }
+        .form-control:focus,.form-select:focus { border-color:var(--tn-blue); box-shadow:0 0 0 3px rgba(0,51,102,.08); }
+        .input-group .form-control { border-radius:0 12px 12px 0; }
+        .input-group-text {
+            background:#f8fafc; border:1.5px solid #e2e8f0; border-right:none;
+            border-radius:12px 0 0 12px; color:var(--tn-blue); font-size:1rem;
+        }
+        .input-group:focus-within .input-group-text,
+        .input-group:focus-within .form-control { border-color:var(--tn-blue); }
+
+        /* Buttons */
+        .btn-save {
+            background:var(--tn-blue); color:white; padding:13px 35px;
+            border-radius:12px; font-weight:700; border:none; transition:.3s; cursor:pointer;
+        }
+        .btn-save:hover { background:#002244; color:var(--tn-gold); transform:translateY(-2px); }
+        .btn-otp {
+            background:#eff6ff; color:var(--tn-accent); border:1.5px solid #bfdbfe;
+            padding:11px 22px; border-radius:12px; font-weight:700; font-size:.85rem;
+            white-space:nowrap; transition:.3s; cursor:pointer; width:100%;
+        }
+        .btn-otp:hover:not(:disabled) { background:var(--tn-accent); color:white; border-color:var(--tn-accent); }
+        .btn-otp:disabled { opacity:.5; cursor:not-allowed; }
+        .btn-verify {
+            background:var(--tn-green); color:white; padding:13px 25px;
+            border-radius:12px; font-weight:700; border:none; transition:.3s; flex-grow:1; cursor:pointer;
+        }
+        .btn-verify:hover { background:#059669; transform:translateY(-2px); }
+        .btn-reset {
+            padding:13px 14px; border-radius:12px; border:1.5px solid #e2e8f0;
+            background:white; color:#64748b; transition:.3s; cursor:pointer;
+        }
+        .btn-reset:hover { border-color:var(--tn-red); color:var(--tn-red); }
+
+        /* Badges */
+        .verify-badge {
+            display:inline-flex; align-items:center; gap:8px; padding:7px 16px;
+            border-radius:100px; font-weight:800; font-size:.73rem;
+            text-transform:uppercase; letter-spacing:.4px; margin-left:auto;
+        }
+        .badge-verified   { background:#ecfdf5; color:#065f46; border:1px solid #bbf7d0; }
+        .badge-unverified { background:#fff7ed; color:#9a3412; border:1px solid #fed7aa; }
+        .badge-pending    { background:#eff6ff; color:#1e40af; border:1px solid #bfdbfe; }
+
+        /* Step dots */
+        .step-indicator { display:flex; gap:10px; margin-bottom:1.25rem; }
+        .step-dot { width:10px; height:10px; border-radius:50%; background:#e2e8f0; transition:.3s; }
+        .step-dot.active { background:var(--tn-blue); transform:scale(1.3); }
+        .step-dot.done   { background:var(--tn-green); }
+
+        /* OTP field */
+        .otp-box { letter-spacing:12px; font-size:1.8rem; font-weight:700; color:var(--tn-blue); text-align:center; }
+
+        /* Countdown */
+        #countdown { font-size:.74rem; font-weight:700; color:#94a3b8; margin-top:5px; min-height:18px; }
+        #countdown.urgent { color:var(--tn-red); }
+
+        /* Alert */
+        .alert { border-radius:12px; font-weight:600; font-size:.9rem; }
+
+        /* Account tiles */
+        .info-tile { background:#f8fafc; border-radius:14px; padding:1rem 1.25rem; text-align:center; }
+        .info-tile-label { font-size:.7rem; font-weight:800; color:#94a3b8; text-transform:uppercase; letter-spacing:.8px; }
+        .info-tile-value { font-size:1rem; font-weight:700; margin-top:4px; }
+
+        @media(max-width:992px){
+            .sidebar{display:none}
+            .main-wrapper{margin-left:0!important;margin-right:0!important;padding:1rem}
+        }
+
+        /* Profile completeness */
+        .completeness-bar { height:8px; border-radius:99px; background:#e2e8f0; overflow:hidden; margin-top:6px; }
+        .completeness-fill { height:100%; border-radius:99px;
+            background:linear-gradient(90deg,var(--tn-blue),var(--tn-accent)); transition:.6s ease; }
+        .completeness-label { font-size:.72rem; font-weight:700; color:#64748b; margin-bottom:3px; }
+
+        /* Toggle radio pills */
+        .pill-group { display:flex; flex-wrap:wrap; gap:8px; }
+        .pill-group input[type=radio] { display:none; }
+        .pill-group label {
+            padding:7px 18px; border-radius:99px; border:1.5px solid #e2e8f0;
+            font-size:.82rem; font-weight:600; color:#64748b; cursor:pointer; transition:.25s;
+        }
+        .pill-group input[type=radio]:checked + label {
+            background:var(--tn-blue); color:white; border-color:var(--tn-blue);
+        }
+        .pill-group label:hover { border-color:var(--tn-accent); color:var(--tn-accent); }
+
+        /* Section nav tabs */
+        .profile-tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:1.5rem; }
+        .profile-tab {
+            padding:7px 16px; border-radius:10px; border:1.5px solid #e2e8f0;
+            font-size:.78rem; font-weight:700; color:#64748b; cursor:pointer;
+            background:white; transition:.25s; text-decoration:none;
+        }
+        .profile-tab:hover, .profile-tab.active { background:var(--tn-blue); color:white; border-color:var(--tn-blue); }
+    </style>
+</head>
+<body>
+
+<!-- ═══ SIDEBAR ═══ -->
+<div class="sidebar">
+    <a href="/user/dashboard" class="sidebar-brand">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" height="40">
+        <span>TN Connect</span>
+    </a>
+    <nav>
+        <a href="/user/dashboard"  class="nav-link"><i class="fa fa-home"></i> {{ t("Dashboard") }}</a>
+        <a href="/apply_grievance" class="nav-link"><i class="fa fa-pen-to-square"></i> {{ t("Apply Now") }}</a>
+        <a href="/my_grievances"   class="nav-link"><i class="fa fa-list-check"></i> {{ t("View Status") }}</a>
+        <a href="/profile"         class="nav-link active"><i class="fa fa-user-pen"></i> {{ t("My Profile") }}</a>
+        <hr class="my-4 opacity-25">
+        <a href="/logout" class="nav-link text-danger"><i class="fa fa-sign-out-alt"></i> {{ t("Logout") }}</a>
+    </nav>
+</div>
+
+<!-- ═══ MAIN ═══ -->
+<div class="main-wrapper">
+
+    <!-- Header -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div class="d-flex align-items-center gap-4">
+            <div class="avatar-ring">{{ user.name[0]|upper }}</div>
+            <div>
+                <h2 class="fw-bold mb-0">{{ user.name }}</h2>
+                <p class="text-muted mb-0 small">
+                    <i class="fa fa-envelope me-1"></i>{{ user.email }}
+                    &nbsp;|&nbsp;
+                    <i class="fa fa-map-marker-alt me-1"></i>
+                    {{ user.district if user.district else t("District not set") }}
+                </p>
+                {# Completeness score #}
+                {% set fields = [user.name, user.mobile, user.dob, user.gender,
+                                 user.district, user.rural_urban, user.village_city,
+                                 user.annual_income, user.bpl_apl,
+                                 user.education, user.employment_status,
+                                 user.caste_category] %}
+                {% set filled = fields | select | list | length %}
+                {% set pct = ((filled / fields|length) * 100) | int %}
+                <div class="mt-1" style="min-width:220px;">
+                    <div class="completeness-label">{{ t("profile_completeness") }}: {{ pct }}%</div>
+                    <div class="completeness-bar"><div class="completeness-fill" id="cpFill" style="width:{{ pct }}%"></div></div>
+                </div>
+            </div>
+        </div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" height="48" class="d-none d-md-block">
+    </div>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}{% for cat, msg in messages %}
+    <div class="alert alert-{{ 'success' if cat=='success' else 'danger' }} alert-dismissible fade show">
+        <i class="fa {{ 'fa-circle-check' if cat=='success' else 'fa-circle-exclamation' }} me-2"></i>{{ msg }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endfor %}{% endif %}
+    {% endwith %}
+
+    <!-- Master form wraps all editable cards -->
+    <form action="/profile/update" method="POST" id="profileForm">
+
+    <!-- ═══ CARD 1: BASIC PERSONAL DETAILS ═══ -->
+    <div class="section-card">
+        <div class="section-title">
+            <i class="fas fa-user-circle text-primary"></i> {{ t("Basic Information") }}
+        </div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">{{ t("Full Name") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-user"></i></span>
+                    <input type="text" name="name" class="form-control" value="{{ user.name }}" required placeholder="{{ t('Full Name') }}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">{{ t("Mobile Number") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                    <input type="text" name="mobile" id="mobileInput" class="form-control"
+                           value="{{ user.mobile or '' }}" maxlength="10"
+                           placeholder="{{ t('10-digit mobile placeholder') }}">
+                </div>
+                <small id="mobileErr" class="text-danger fw-bold" style="font-size:.75rem;display:none;">
+                    {{ t("Invalid mobile number") }}
+                </small>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="col-md-6">
+                <label class="form-label">{{ t("Date of Birth") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-calendar-days"></i></span>
+                    <input type="date" name="dob" id="dobInput" class="form-control"
+                           value="{{ user.dob or '' }}">
+                </div>
+                <small id="dobAge" class="text-muted fw-semibold" style="font-size:.75rem;min-height:18px;display:block;margin-top:4px;"></small>
+            </div>
+
+            <!-- Gender -->
+            <div class="col-md-6">
+                <label class="form-label">{{ t("Gender") }}</label>
+                <div class="pill-group mt-1">
+                    {% for g in ["Male","Female","Other"] %}
+                    <input type="radio" name="gender" id="g_{{ g }}" value="{{ g }}"
+                           {{ 'checked' if user.gender == g }}>
+                    <label for="g_{{ g }}">{{ t(g) }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ CARD 2: LOCATION DETAILS ═══ -->
+    <div class="section-card">
+        <div class="section-title">
+            <i class="fas fa-map-location-dot text-danger"></i> {{ t("Location Details") }}
+        </div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">{{ t("State") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-flag"></i></span>
+                    <input type="text" class="form-control" value="Tamil Nadu" readonly
+                           style="background:#f8fafc;color:#64748b;">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">{{ t("District") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-map-marker-alt"></i></span>
+                    <select name="district" class="form-select">
+                        <option value="">{{ t("Select District") }}</option>
+                        {% set districts = ["Ariyalur","Chengalpattu","Chennai","Coimbatore","Cuddalore",
+                          "Dharmapuri","Dindigul","Erode","Kallakurichi","Kanchipuram","Kanniyakumari",
+                          "Karur","Krishnagiri","Madurai","Mayiladuthurai","Nagapattinam","Namakkal",
+                          "Nilgiris","Perambalur","Pudukkottai","Ramanathapuram","Ranipet","Salem",
+                          "Sivaganga","Tenkasi","Thanjavur","Theni","Thoothukudi","Tiruchirappalli",
+                          "Tirunelveli","Tirupathur","Tiruppur","Tiruvallur","Tiruvannamalai",
+                          "Tiruvarur","Vellore","Viluppuram","Virudhunagar"] %}
+                        {% for d in districts %}
+                        <option value="{{ d }}" {{ 'selected' if user.district == d }}>{{ d }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">{{ t("Rural / Urban") }}</label>
+                <div class="pill-group mt-1">
+                    <input type="radio" name="rural_urban" id="ru_rural" value="Rural"
+                           {{ 'checked' if user.rural_urban == 'Rural' }}>
+                    <label for="ru_rural"><i class="fa fa-tree me-1"></i>{{ t("Rural") }}</label>
+                    <input type="radio" name="rural_urban" id="ru_urban" value="Urban"
+                           {{ 'checked' if user.rural_urban == 'Urban' }}>
+                    <label for="ru_urban"><i class="fa fa-city me-1"></i>{{ t("Urban") }}</label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">{{ t("Village / City") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-location-dot"></i></span>
+                    <input type="text" name="village_city" class="form-control"
+                           value="{{ user.village_city or '' }}"
+                           placeholder="{{ t('Village / City') }}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ CARD 3: ECONOMIC DETAILS ═══ -->
+    <div class="section-card">
+        <div class="section-title">
+            <i class="fas fa-indian-rupee-sign text-success"></i> {{ t("Economic Details") }}
+        </div>
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label class="form-label">{{ t("Annual Family Income") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-wallet"></i></span>
+                    <select name="annual_income" class="form-select">
+                        <option value="">{{ t("Select Income Range") }}</option>
+                        {% for inc in ["Below ₹1 Lakh","₹1–3 Lakh","₹3–5 Lakh","₹5–8 Lakh","₹8–12 Lakh","Above ₹12 Lakh"] %}
+                        <option value="{{ inc }}" {{ 'selected' if user.annual_income == inc }}>{{ inc }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">{{ t("BPL / APL Status") }}</label>
+                <div class="pill-group mt-1">
+                    {% for s in ["BPL","APL"] %}
+                    <input type="radio" name="bpl_apl" id="ba_{{ s }}" value="{{ s }}"
+                           {{ 'checked' if user.bpl_apl == s }}>
+                    <label for="ba_{{ s }}">{{ s }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">{{ t("Ration Card Type") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                    <select name="ration_card" class="form-select">
+                        <option value="">—</option>
+                        {% for rc in ["AAY (Yellow)","PHH (Pink)","NPHH (White)","No Ration Card"] %}
+                        <option value="{{ rc }}" {{ 'selected' if user.ration_card == rc }}>{{ rc }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ CARD 4: EDUCATION & EMPLOYMENT ═══ -->
+    <div class="section-card">
+        <div class="section-title">
+            <i class="fas fa-graduation-cap text-info"></i> {{ t("Education Details") }}
+        </div>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">{{ t("Highest Qualification") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-book"></i></span>
+                    <select name="education" class="form-select">
+                        <option value="">—</option>
+                        {% for edu in ["No Formal Education","Primary (1–5)","Middle School (6–8)",
+                                       "High School (9–10)","Higher Secondary (11–12)",
+                                       "Diploma / ITI","Undergraduate","Postgraduate","Doctorate"] %}
+                        <option value="{{ edu }}" {{ 'selected' if user.education == edu }}>{{ edu }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">{{ t("Currently Studying") }}</label>
+                <div class="pill-group mt-1">
+                    {% for v in ["Yes","No"] %}
+                    <input type="radio" name="currently_studying" id="cs_{{ v }}" value="{{ v }}"
+                           {{ 'checked' if user.currently_studying == v }}
+                           onchange="toggleStudyType()">
+                    <label for="cs_{{ v }}">{{ t(v) }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4" id="studyTypeWrap"
+                 style="display:{{ 'block' if user.currently_studying == 'Yes' else 'none' }}">
+                <label class="form-label">{{ t("Study Type") }}</label>
+                <div class="pill-group mt-1">
+                    {% for st in ["School","College","Dropout"] %}
+                    <input type="radio" name="study_type" id="st_{{ st }}" value="{{ st }}"
+                           {{ 'checked' if user.study_type == st }}>
+                    <label for="st_{{ st }}">{{ st }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">{{ t("Employment Status") }}</label>
+                <div class="pill-group mt-1">
+                    {% for es in ["Unemployed","Student","Self-Employed","Government Job","Private Job"] %}
+                    <input type="radio" name="employment_status" id="es_{{ loop.index }}" value="{{ es }}"
+                           {{ 'checked' if user.employment_status == es }}>
+                    <label for="es_{{ loop.index }}">{{ es }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">{{ t("Occupation") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-briefcase"></i></span>
+                    <select name="occupation" class="form-select">
+                        <option value="">—</option>
+                        {% for occ in ["Farmer","Agricultural Labourer","Daily Wage Worker",
+                                       "Fisherman","Weaver","Artisan","Business / Trader",
+                                       "Professional","Government Employee","Private Employee",
+                                       "Homemaker","Student","Other"] %}
+                        <option value="{{ occ }}" {{ 'selected' if user.occupation == occ }}>{{ occ }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ CARD 5: SPECIAL CATEGORIES ═══ -->
+    <div class="section-card">
+        <div class="section-title">
+            <i class="fas fa-users-rectangle" style="color:#7c3aed;"></i> {{ t("Special Categories") }}
+        </div>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <label class="form-label">{{ t("Caste Category") }}</label>
+                <div class="pill-group mt-1">
+                    {% for cc in ["SC","ST","OBC","General"] %}
+                    <input type="radio" name="caste_category" id="cc_{{ cc }}" value="{{ cc }}"
+                           {{ 'checked' if user.caste_category == cc }}>
+                    <label for="cc_{{ cc }}">{{ cc }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">{{ t("Disability Status") }}</label>
+                <div class="pill-group mt-1">
+                    {% for v in ["Yes","No"] %}
+                    <input type="radio" name="disability" id="dis_{{ v }}" value="{{ v }}"
+                           {{ 'checked' if user.disability == v }}>
+                    <label for="dis_{{ v }}">{{ t(v) }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">{{ t("Widow / Single Parent") }}</label>
+                <div class="pill-group mt-1">
+                    {% for v in ["Yes","No"] %}
+                    <input type="radio" name="widow_single_parent" id="wsp_{{ v }}" value="{{ v }}"
+                           {{ 'checked' if user.widow_single_parent == v }}>
+                    <label for="wsp_{{ v }}">{{ t(v) }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label">{{ t("Are you a Farmer") }}</label>
+                <div class="pill-group mt-1">
+                    {% for v in ["Yes","No"] %}
+                    <input type="radio" name="is_farmer" id="if_{{ v }}" value="{{ v }}"
+                           {{ 'checked' if user.is_farmer == v }}
+                           onchange="toggleLand()">
+                    <label for="if_{{ v }}">{{ t(v) }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4" id="landWrap"
+                 style="display:{{ 'block' if user.is_farmer == 'Yes' else 'none' }}">
+                <label class="form-label">{{ t("Land Ownership") }}</label>
+                <div class="pill-group mt-1">
+                    {% for v in ["Yes","No"] %}
+                    <input type="radio" name="land_ownership" id="lo_{{ v }}" value="{{ v }}"
+                           {{ 'checked' if user.land_ownership == v }}>
+                    <label for="lo_{{ v }}">{{ t(v) }}</label>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-md-4" id="acresWrap"
+                 style="display:{{ 'block' if user.is_farmer == 'Yes' else 'none' }}">
+                <label class="form-label">{{ t("Land Acres") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-seedling"></i></span>
+                    <input type="number" name="land_acres" class="form-control" step="0.01" min="0"
+                           value="{{ user.land_acres or '' }}" placeholder="e.g. 2.5">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">{{ t("Minority Category") }}</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-people-group"></i></span>
+                    <select name="minority" class="form-select">
+                        <option value="">— {{ t("Other") }} / {{ t("No") }} —</option>
+                        {% for m in ["Muslim","Christian","Sikh","Buddhist","Jain","Zoroastrian (Parsi)"] %}
+                        <option value="{{ m }}" {{ 'selected' if user.minority == m }}>{{ m }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══ CARD 6: CHANGE PASSWORD ═══ -->
+    <div class="section-card">
+        <div class="section-title">
+            <i class="fas fa-lock text-secondary"></i> {{ t("Change Password") }}
+        </div>
+        <div class="row g-3 align-items-end">
+            <div class="col-md-6">
+                <label class="form-label">
+                    {{ t("New Password") }}
+                    <span class="text-muted fw-normal ms-1" style="font-size:.72rem;">({{ t("leave blank to keep current") }})</span>
+                </label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                    <input type="password" name="password" id="pwdInput" class="form-control"
+                           placeholder="{{ t('New password optional') }}">
+                    <button type="button" onclick="togglePwd()"
+                            style="border-radius:0 12px 12px 0;border:1.5px solid #e2e8f0;border-left:none;background:white;padding:0 14px;cursor:pointer;">
+                        <i class="fa fa-eye" id="eyeIcon" style="color:#94a3b8;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <button type="submit" class="btn-save">
+                    <i class="fa fa-floppy-disk me-2"></i> {{ t("Save Changes") }}
+                </button>
+            </div>
+        </div>
+    </div>
+
+    </form><!-- /master form -->
+
+    <!-- ═══ CARD 2: AADHAAR VERIFICATION ═══ -->
+    <div class="section-card">
+        <div class="section-title">
+            <i class="fas fa-id-card text-warning"></i> {{ t("Aadhaar Verification") }}
+            {% if user.aadhar_verified %}
+            <span class="verify-badge badge-verified"><i class="fas fa-shield-halved"></i> {{ t("Verified") }}</span>
+            {% elif user.aadhar %}
+            <span class="verify-badge badge-pending"><i class="fas fa-clock"></i> {{ t("Pending Verification") }}</span>
+            {% else %}
+            <span class="verify-badge badge-unverified"><i class="fas fa-triangle-exclamation"></i> {{ t("Not Verified") }}</span>
+            {% endif %}
+        </div>
+
+        {% if user.aadhar_verified %}
+        <div class="d-flex align-items-center gap-4 p-4 rounded-4 bg-success bg-opacity-10 border border-success border-opacity-25">
+            <i class="fas fa-circle-check text-success fa-3x flex-shrink-0"></i>
+            <div>
+                <h6 class="fw-bold text-success mb-1">{{ t("Aadhaar Successfully Verified") }}</h6>
+                <p class="mb-0 text-muted small">
+                    {{ t("Linked Aadhaar") }}: <strong>XXXX-XXXX-{{ user.aadhar[-4:] }}</strong>
+                    &nbsp;|&nbsp;
+                    {{ t("Verified on") }}: <strong>{{ user.aadhar_verified_at or t("N/A") }}</strong>
+                </p>
+            </div>
+        </div>
+
+        {% else %}
+        <!-- Step dots -->
+        <div class="step-indicator">
+            <div class="step-dot active" id="dot1"></div>
+            <div class="step-dot"        id="dot2"></div>
+            <div class="step-dot"        id="dot3"></div>
+        </div>
+
+        <!-- Step 1: Enter Aadhaar -->
+        <div id="step1">
+            <p class="text-muted small mb-3">
+                <i class="fa fa-info-circle me-1 text-primary"></i> {{ t("aadhaar_info") }}
+            </p>
+            <div class="row g-3 align-items-end">
+                <div class="col-md-7">
+                    <label class="form-label">{{ t("Aadhaar Number") }}</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                        <input type="text" id="aadharInput" class="form-control"
+                               value="{{ user.aadhar or '' }}" maxlength="12" placeholder="XXXXXXXXXXXX">
+                    </div>
+                    <small id="aadharErr" class="text-danger fw-bold" style="font-size:.75rem;display:none;">
+                        {{ t("Invalid Aadhaar number") }}
+                    </small>
+                </div>
+                <div class="col-md-5">
+                    <button class="btn-otp" id="sendOtpBtn" onclick="sendAadhaarOtp()">
+                        <i class="fa fa-paper-plane me-2"></i> {{ t("Send OTP") }}
+                    </button>
+                    <div id="countdown"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2: Verify OTP -->
+        <div id="step2" style="display:none;">
+            <div class="alert alert-info py-2 small mb-3">
+                <i class="fa fa-envelope me-1"></i> {{ t("otp_sent_note") }}
+            </div>
+            <form action="/profile/verify_aadhaar_otp" method="POST">
+                <input type="hidden" name="aadhar" id="hiddenAadhar">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-6">
+                        <label class="form-label">{{ t("Enter 6-Digit OTP") }}</label>
+                        <input type="text" name="otp" class="form-control otp-box" maxlength="6" placeholder="000000" required>
+                    </div>
+                    <div class="col-md-6 d-flex gap-2">
+                        <button type="submit" class="btn-verify">
+                            <i class="fa fa-check-circle me-2"></i> {{ t("Verify Aadhaar") }}
+                        </button>
+                        <button type="button" class="btn-reset" onclick="resetFlow()">
+                            <i class="fa fa-rotate-left"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+
+        <div class="mt-4 pt-3 border-top d-flex align-items-start gap-2">
+            <i class="fas fa-shield-halved text-success mt-1 flex-shrink-0"></i>
+            <small class="text-muted">{{ t("security_note") }}</small>
+        </div>
+    </div>
+
+    <!-- ═══ CARD 3: ACCOUNT INFO ═══ -->
+    <div class="section-card">
+        <div class="section-title">
+            <i class="fas fa-circle-info text-secondary"></i> {{ t("Account Information") }}
+        </div>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="info-tile">
+                    <div class="info-tile-label">{{ t("ACCOUNT STATUS") }}</div>
+                    <div class="info-tile-value mt-2">
+                        <span class="badge rounded-pill px-3 py-2
+                            {% if user.status=='Approved' %}bg-success
+                            {% elif user.status=='Pending' %}bg-warning text-dark
+                            {% else %}bg-danger{% endif %}">{{ user.status }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-tile">
+                    <div class="info-tile-label">{{ t("USER ID") }}</div>
+                    <div class="info-tile-value">#USR-{{ user.id }}</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info-tile">
+                    <div class="info-tile-label">{{ t("AADHAAR STATUS") }}</div>
+                    <div class="info-tile-value {{ 'text-success' if user.aadhar_verified else 'text-warning' }}">
+                        {{ t("Verified ✓") if user.aadhar_verified else t("Unverified") }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div><!-- /main-wrapper -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ── All user-facing JS strings from Jinja ── */
+const JS = {
+    sending:       "{{ t('Sending') }}",
+    sendOtp:       "{{ t('Send OTP') }}",
+    resendOtp:     "{{ t('Resend OTP') }}",
+    otpExpires:    "{{ t('OTP expires in') }}",
+    otpExpired:    "{{ t('OTP expired — resend again.') }}",
+    invalidAadhar: "{{ t('Invalid Aadhaar number') }}",
+    invalidMobile: "{{ t('Invalid mobile number') }}",
+    networkErr:    "{{ t('Network error. Try again.') }}"
+};
+
+/* ── Password show/hide ── */
+function togglePwd() {
+    const i = document.getElementById('pwdInput');
+    const c = document.getElementById('eyeIcon');
+    i.type = i.type === 'password' ? 'text' : 'password';
+    c.classList.toggle('fa-eye'); c.classList.toggle('fa-eye-slash');
+}
+
+/* ── Mobile validation ── */
+const mob = document.getElementById('mobileInput');
+if (mob) {
+    mob.addEventListener('input', () => {
+        const ok = /^\d{10}$/.test(mob.value) || mob.value === '';
+        document.getElementById('mobileErr').style.display = ok ? 'none' : 'block';
+    });
+}
+document.getElementById('profileForm')?.addEventListener('submit', e => {
+    if (mob && mob.value && !/^\d{10}$/.test(mob.value)) {
+        document.getElementById('mobileErr').style.display = 'block';
+        e.preventDefault();
+    }
+});
+
+/* ── DOB → Age calculator ── */
+const dobInput = document.getElementById('dobInput');
+const dobAge   = document.getElementById('dobAge');
+const yearsOld = "{{ t('years old') }}";
+
+function calcAge(dob) {
+    if (!dob) { dobAge.textContent = ''; return; }
+    const today = new Date();
+    const birth = new Date(dob);
+    let age = today.getFullYear() - birth.getFullYear();
+    const m = today.getMonth() - birth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
+    if (age >= 0 && age < 150) {
+        dobAge.textContent = `${age} ${yearsOld}`;
+    } else {
+        dobAge.textContent = '';
+    }
+}
+
+if (dobInput) {
+    // Show age on page load if DOB already saved
+    calcAge(dobInput.value);
+    dobInput.addEventListener('change', () => calcAge(dobInput.value));
+    // Prevent future dates
+    dobInput.max = new Date().toISOString().split('T')[0];
+}
+
+/* ── Farmer → show/hide land fields ── */
+function toggleLand() {
+    const isFarmer = document.querySelector('input[name="is_farmer"]:checked')?.value === 'Yes';
+    ['landWrap','acresWrap'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = isFarmer ? 'block' : 'none';
+    });
+}
+
+/* ── Currently studying → show/hide study type ── */
+function toggleStudyType() {
+    const studying = document.querySelector('input[name="currently_studying"]:checked')?.value === 'Yes';
+    const el = document.getElementById('studyTypeWrap');
+    if (el) el.style.display = studying ? 'block' : 'none';
+}
+
+/* ── Aadhaar OTP flow ── */
+let timer = null;
+
+function sendAadhaarOtp() {
+    const aadhar = document.getElementById('aadharInput').value.trim();
+    const errEl  = document.getElementById('aadharErr');
+    const btn    = document.getElementById('sendOtpBtn');
+
+    if (!/^\d{12}$/.test(aadhar)) { errEl.style.display = 'block'; return; }
+    errEl.style.display = 'none';
+
+    btn.disabled  = true;
+    btn.innerHTML = `<i class="fa fa-spinner fa-spin me-2"></i> ${JS.sending}`;
+
+    fetch('/profile/send_aadhaar_otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ aadhar })
+    })
+    .then(r => r.json())
+    .then(d => {
+        if (d.success) {
+            document.getElementById('hiddenAadhar').value = aadhar;
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'block';
+            document.getElementById('dot1').classList.replace('active','done');
+            document.getElementById('dot2').classList.add('active');
+            startCountdown(120);
+        } else {
+            errEl.textContent = d.error || JS.invalidAadhar;
+            errEl.style.display = 'block';
+            btn.disabled  = false;
+            btn.innerHTML = `<i class="fa fa-paper-plane me-2"></i> ${JS.sendOtp}`;
+        }
+    })
+    .catch(() => {
+        errEl.textContent = JS.networkErr;
+        errEl.style.display = 'block';
+        btn.disabled  = false;
+        btn.innerHTML = `<i class="fa fa-paper-plane me-2"></i> ${JS.sendOtp}`;
+    });
+}
+
+function startCountdown(secs) {
+    const el = document.getElementById('countdown');
+    el.classList.remove('urgent');
+    clearInterval(timer);
+    let s = secs;
+    timer = setInterval(() => {
+        el.textContent = `${JS.otpExpires} ${s}s`;
+        if (s <= 20) el.classList.add('urgent');
+        if (s-- <= 0) {
+            clearInterval(timer);
+            el.textContent = JS.otpExpired;
+            resetFlow(true);
+        }
+    }, 1000);
+}
+
+function resetFlow(expired = false) {
+    clearInterval(timer);
+    document.getElementById('step2').style.display = 'none';
+    document.getElementById('step1').style.display = 'block';
+    document.getElementById('dot1').classList.remove('done');
+    document.getElementById('dot1').classList.add('active');
+    document.getElementById('dot2').classList.remove('active');
+    if (!expired) document.getElementById('countdown').textContent = '';
+    const btn = document.getElementById('sendOtpBtn');
+    btn.disabled  = false;
+    btn.innerHTML = `<i class="fa fa-${expired ? 'rotate-right' : 'paper-plane'} me-2"></i> ${expired ? JS.resendOtp : JS.sendOtp}`;
+}
+</script>
+</body>
+</html>

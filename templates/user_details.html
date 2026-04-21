@@ -1,0 +1,258 @@
+{% set translations = {
+    "User Details": {"ta": "பயனர் விவரங்கள்"},
+    "Officer Review Portal": {"ta": "அதிகாரி மதிப்பாய்வு மையம்"},
+    "Full Name": {"ta": "முழு பெயர்"},
+    "Email Address": {"ta": "மின்னஞ்சல் முகவரி"},
+    "District": {"ta": "மாவட்டம்"},
+    "Current Status": {"ta": "தற்போதைய நிலை"},
+    "Approve User": {"ta": "பயனரை அங்கீகரி"},
+    "Reject User": {"ta": "பயனரை நிராகரி"},
+    "Back": {"ta": "பின்செல்"},
+    "Pending": {"ta": "நிலுவையில் உள்ளது"},
+    "Approved": {"ta": "அங்கீகரிக்கப்பட்டது"},
+    "Rejected": {"ta": "நிராகரிக்கப்பட்டது"},
+    "User Metadata": {"ta": "பயனர் மெட்டாடேட்டா"}
+} %}
+
+{% macro t(text) %}
+    {% if session.get('lang') == 'ta' %}
+        {{ translations.get(text, {}).get('ta', text) }}
+    {% else %}
+        {{ text }}
+    {% endif %}
+{% endmacro %}
+
+<!DOCTYPE html>
+<html lang="{{ session.get('lang', 'en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ t("User Details") }} | TN State Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --tn-blue: #063970; 
+            --tn-gold: #ffb300; 
+            --tn-green: #10b981;
+            --tn-red: #ef4444;
+            --glass: rgba(255, 255, 255, 0.96);
+        }
+
+        body { 
+            background: linear-gradient(rgba(241, 245, 249, 0.85), rgba(241, 245, 249, 0.85)), 
+                        url('https://images.pexels.com/photos/235731/pexels-photo-235731.jpeg?auto=compress&cs=tinysrgb&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .document-card {
+            background: var(--glass);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.25);
+            border: 1px solid white;
+            overflow: hidden;
+            animation: cardEntrance 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(40px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .doc-header {
+            background: var(--tn-blue);
+            padding: 40px;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .doc-header::after {
+            content: "";
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 100%; height: 5px;
+            background: var(--tn-gold);
+        }
+
+        .profile-orbit {
+            width: 100px; height: 100px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .info-grid {
+            padding: 50px;
+        }
+
+        .meta-label {
+            font-size: 0.7rem;
+            font-weight: 800;
+            color: var(--tn-blue);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 5px;
+            opacity: 0.7;
+        }
+
+        .meta-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f1f5f9;
+        }
+
+        .status-badge {
+            padding: 10px 25px;
+            border-radius: 100px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .bg-pending { background: #fffbeb; color: #b45309; border: 1px solid #fef3c7; }
+        .bg-approved { background: #ecfdf5; color: #065f46; border: 1px solid #d1fae5; }
+        .bg-rejected { background: #fef2f2; color: #991b1b; border: 1px solid #fee2e2; }
+
+        .btn-premium {
+            border-radius: 15px;
+            padding: 14px 25px;
+            font-weight: 700;
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-approve {
+            background: var(--tn-green);
+            color: white;
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
+        }
+
+        .btn-approve:hover {
+            background: #059669;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
+            color: white;
+        }
+
+        .btn-reject {
+            background: #f8fafc;
+            color: var(--tn-red);
+            border: 2px solid var(--tn-red);
+        }
+
+        .btn-reject:hover {
+            background: var(--tn-red);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-back {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .btn-back:hover { color: var(--tn-blue); }
+    </style>
+</head>
+<body>
+
+<div class="document-card">
+    <div class="doc-header">
+        <div class="profile-orbit">
+            <img src="https://ui-avatars.com/api/?name={{ user.name }}&background=063970&color=fff&size=128" class="rounded-circle w-100">
+        </div>
+        <h3 class="fw-800 mb-1">{{ t("User Details") }}</h3>
+        <p class="opacity-75 small mb-0">{{ t("Officer Review Portal") }} | ID: #USR-{{ user.id }}</p>
+    </div>
+
+    <div class="info-grid">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="meta-label">{{ t("Full Name") }}</div>
+                <div class="meta-value">{{ user.name }}</div>
+            </div>
+            <div class="col-md-6">
+                <div class="meta-label">{{ t("Email Address") }}</div>
+                <div class="meta-value">{{ user.email }}</div>
+            </div>
+            <div class="col-md-6">
+                <div class="meta-label">{{ t("District") }}</div>
+                <div class="meta-value">{{ user.district or 'Not Provided' }}</div>
+            </div>
+            <div class="col-md-6">
+                <div class="meta-label">{{ t("Current Status") }}</div>
+                <div class="mb-4">
+                    <span class="status-badge bg-{{ user.status|lower }}">
+                        <i class="fas fa-circle me-2" style="font-size: 8px;"></i> {{ t(user.status) }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 mt-4">
+            <div class="col-sm-6">
+                {% if user.status != 'Approved' %}
+                <form action="/admin/approve_user/{{ user.id }}" method="POST">
+                    <button type="submit" class="btn-premium btn-approve w-100">
+                        <i class="fas fa-user-check"></i> {{ t("Approve User") }}
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+            <div class="col-sm-6">
+                {% if user.status != 'Rejected' %}
+                <form action="/admin/reject_user/{{ user.id }}" method="POST">
+                    <button type="submit" class="btn-premium btn-reject w-100">
+                        <i class="fas fa-user-slash"></i> {{ t("Reject User") }}
+                    </button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="/admin/users" class="btn-back">
+                <i class="fas fa-arrow-left"></i> {{ t("Back") }}
+            </a>
+        </div>
+    </div>
+
+    <div class="bg-light p-3 text-center border-top">
+        <small class="text-muted">
+            <i class="fas fa-shield-alt text-success me-1"></i>
+            Electronic Record Verified by Tamil Nadu Digital Authority
+        </small>
+    </div>
+</div>
+
+</body>
+</html>

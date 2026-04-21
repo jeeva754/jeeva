@@ -1,0 +1,804 @@
+{% import "translations.html" as i18n with context %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ i18n.translate("GRAMIN WELFARE PORTAL") }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { 
+            --tn-green: #2e7d32; 
+            --tn-blue: #1565c0; 
+            --soft-bg: #fdfdfd;
+            --card-white: #ffffff;
+            --border-color: #e0e0e0;
+        }
+
+        body { 
+            background-color: var(--soft-bg);
+            /* Subtle rice paper/village texture background */
+            background-image: url('https://www.transparenttextures.com/patterns/natural-paper.png');
+            color: #333;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Top Header Logo Bar */
+        .gov-bar {
+            background: #fff;
+            border-bottom: 2px solid #ff9800; /* Saffron touch */
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .navbar {
+            background: var(--tn-green);
+            padding: 15px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            color: white !important;
+            letter-spacing: 0.5px;
+        }
+
+        /* Hero Section with Rural Backdrop */
+        .hero-section {
+            background: linear-gradient(to right, rgba(255,255,255,0.95) 40%, rgba(255,255,255,0.1)), 
+                        url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1932&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-title {
+            color: var(--tn-green);
+            font-weight: 800;
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+
+        /* Form Card */
+        .form-card {
+            background: var(--card-white);
+            border-radius: 20px;
+            padding: 45px;
+            margin-top: -50px; /* Slight lift */
+            margin-bottom: 60px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-header {
+            border-bottom: 3px solid #ff9800;
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-bottom: 5px;
+            color: var(--tn-blue);
+        }
+
+        .form-label {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #444;
+            margin-top: 15px;
+        }
+
+        .form-control, .form-select {
+            border: 1px solid #ced4da;
+            padding: 12px;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+
+        .form-control:focus {
+            border-color: var(--tn-green);
+            box-shadow: 0 0 0 0.25rem rgba(46, 125, 50, 0.1);
+        }
+
+        /* Result Box */
+        /* eligibility panel transitions */
+        #schemeDetails, #eligCheckPanel { transition: all 0.3s ease; }
+        .elig-tag {
+            display:inline-flex;align-items:center;gap:6px;
+            padding:7px 14px;border-radius:100px;font-size:0.8rem;font-weight:700;
+        }
+
+        .btn-submit {
+            background: var(--tn-green);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 800;
+            width: 100%;
+            margin-top: 30px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .footer {
+            background: #f5f5f5;
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+<div class="gov-bar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" alt="TN Logo" height="60">
+    <div class="fw-bold mt-1" style="color: #2e7d32; font-size: 0.8rem;">GOVERNMENT OF TAMIL NADU</div>
+</div>
+
+<nav class="navbar navbar-dark">
+    <div class="container">
+        <span class="navbar-brand">
+            <i class="fas fa-seedling me-2"></i> {{ i18n.translate("GRAMIN WELFARE PORTAL") }}
+        </span>
+    </div>
+</nav>
+
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <h1 class="hero-title">{{ i18n.translate("Bringing Prosperity to Every Village") }}</h1>
+                <p class="lead text-dark mt-3">{{ i18n.translate("Access social security schemes, agricultural subsidies, and village-level grievance redressal from the comfort of your home") }}</p>                <div class="mt-4">
+                    <span class="badge bg-success p-2 px-3 me-2"><i class="fas fa-check-circle me-1"></i> Fast Processing</span>
+                    <span class="badge bg-primary p-2 px-3"><i class="fas fa-shield-alt me-1"></i> Secure Data</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-9">
+            <div class="form-card">
+                <h3 class="section-header">{{ i18n.translate("Online Application Portal") }}</h3>
+                
+                <form action="/submit_grievance" method="POST" enctype="multipart/form-data" id="applicationForm">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label">{{ i18n.translate("District") }}</label>
+                            <select id="district" name="district" class="form-select" required>
+                                <option value="">Select District</option>
+                                {% for d in data.keys() %}
+                                    <option value="{{ d }}">{{ d }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">{{ i18n.translate("Taluk") }}</label>
+                            <select id="taluk" name="constituency" class="form-select" required>
+                                <option value="">{{ i18n.translate("Select Taluk") }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label class="form-label">{{ i18n.translate("Choose Scheme") }}</label>
+                    <select id="scheme" name="scheme" class="form-select" onchange="displaySchemeDetails()" required>
+                        <option value="">{{ i18n.translate("Select Location First") }}</option>
+                    </select>
+
+                    <!-- SCHEME INFO + ELIGIBILITY PANEL -->
+                    <div id="schemeDetails" style="display:none; margin-top:20px;">
+
+                        <!-- Description card -->
+                        <div style="background:#f1f8e9;border:1px solid #c5e1a5;border-radius:14px;padding:22px;margin-bottom:16px;">
+                            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+                                <span style="background:#2e7d32;color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;"><i class="fas fa-info"></i></span>
+                                <h6 id="detailTitle" class="fw-bold text-success mb-0" style="font-size:1.05rem;"></h6>
+                            </div>
+                            <p id="detailDesc" class="mb-0 text-dark small" style="line-height:1.7;"></p>
+                        </div>
+
+                        <!-- Eligibility criteria card -->
+                        <div style="background:#fff8e1;border:1px solid #ffe082;border-radius:14px;padding:22px;margin-bottom:16px;">
+                            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+                                <span style="background:#f57c00;color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;"><i class="fas fa-user-check"></i></span>
+                                <h6 class="fw-bold mb-0" style="color:#e65100;">{{ i18n.translate("Eligibility Criteria") }}</h6>
+                            </div>
+                            <ul id="eligibilityList" class="mb-0 ps-3" style="font-size:0.88rem;line-height:2;color:#4e342e;"></ul>
+                        </div>
+
+                        <!-- Required documents card -->
+                        <div style="background:#e3f2fd;border:1px solid #90caf9;border-radius:14px;padding:22px;margin-bottom:16px;">
+                            <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+                                <span style="background:#1565c0;color:white;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:0.85rem;"><i class="fas fa-file-alt"></i></span>
+                                <h6 class="fw-bold mb-0" style="color:#0d47a1;">{{ i18n.translate("Required Documents") }}</h6>
+                            </div>
+                            <ul id="requirementsList" class="list-unstyled mb-0" style="font-size:0.88rem;"></ul>
+                        </div>
+
+                        <!-- Benefit amount badge row -->
+                        <div id="benefitRow" style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px;"></div>
+
+                        <!-- Eligibility checker result -->
+                        <div id="eligCheckResult" style="display:none;border-radius:14px;padding:16px 20px;margin-bottom:10px;font-weight:700;font-size:0.9rem;"></div>
+                    </div>
+
+                    <!-- ELIGIBILITY QUICK-CHECK FORM -->
+                    <div id="eligCheckPanel" style="display:none;background:#fafafa;border:1px solid #e0e0e0;border-radius:14px;padding:24px;margin-bottom:20px;">
+                        <h6 class="fw-bold mb-3" style="color:#1565c0;"><i class="fas fa-clipboard-check me-2"></i>{{ i18n.translate("Check Your Eligibility") }}</h6>
+                        <div class="row g-3" id="eligCheckFields"></div>
+                        <button type="button" onclick="checkEligibility()" class="btn btn-warning fw-bold mt-3 px-4" style="border-radius:8px;">
+                            <i class="fas fa-search me-2"></i>{{ i18n.translate("Check Now") }}
+                        </button>
+                    </div>
+
+                    <label class="form-label">{{ i18n.translate("Request Description") }}</label>
+                    <textarea name="reason" class="form-control" rows="3" placeholder="Enter details..." required></textarea>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label">{{ i18n.translate("Aadhar Number") }}</label>
+                            <input type="text" name="aadhar" class="form-control" pattern="[0-9]{12}" placeholder="12 Digit ID" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">{{ i18n.translate("Mobile Number") }}</label>
+                            <input type="text" name="mobile" class="form-control" pattern="[0-9]{10}" placeholder="10 Digit Mobile" required>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="form-label">{{ i18n.translate("Full Address") }}</label>
+                            <input type="text" name="address" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-check-circle me-2"></i> {{ i18n.translate("Submit Official Application") }}
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p class="mb-1 fw-bold">{{ i18n.translate("Department of Social Welfare and Women Empowerment") }}</p>
+        <p class="text-muted small">&copy; 2026 {{ i18n.translate("Government of Tamil Nadu. All rights reserved.") }}</p>
+    </div>
+</footer>
+
+<script>
+const currentLang = "{{ session.get('lang', 'en') }}";
+const data = {{ data | tojson }};
+
+// ═══════════════════════════════════════════════════════
+// FULL SCHEME DATABASE — with eligibility + requirements
+// ═══════════════════════════════════════════════════════
+const schemeData = { schemes: [
+  {
+    id:1,
+    name_en:"Old Age Pension Scheme", name_ta:"முதியோர் ஓய்வூதியத் திட்டம்", name_hi:"वृद्धावस्था पेंशन योजना", name_te:"వృద్ధాప్య పెన్షన్ పథకం", name_ml:"വാർദ്ധക്യകാല പെൻഷൻ പദ്ധതി", name_kn:"ವೃದ್ಧಾಪ್ಯ ವೇತನ ಯೋಜನೆ", name_ur:"اولڈ ایج پینشن اسکیم",
+    description_en:"Monthly financial assistance to destitute senior citizens aged 60+ who lack family support or stable income. Funds transferred via DBT directly to bank accounts.",
+    description_ta:"60 வயது மற்றும் அதற்கு மேற்பட்ட ஆதரவற்ற முதியோர்களுக்கு மாதாந்திர நிதி உதவி. DBT மூலம் நேரடியாக வங்கிக் கணக்கில் வரவு வைக்கப்படுகிறது.",
+    description_hi:"60 वर्ष से अधिक आयु के निराश्रित वरिष्ठ नागरिकों को मासिक वित्तीय सहायता। DBT के माध्यम से सीधे बैंक खाते में स्थानांतरण।",
+    description_te:"60+ నిరాశ్రయులైన వృద్ధులకు నెలవారీ ఆర్థిక సహాయం. DBT ద్వారా నేరుగా బ్యాంక్ ఖాతాకు బదిలీ.",
+    description_ml:"60 വയസ്സ് കഴിഞ്ഞ നിരാലംബ മുതിർന്ന പൗരന്മാർക്ക് പ്രതിമാസ സഹായം. DBT വഴി നേരിട്ട് ബാങ്കിൽ.",
+    description_kn:"60+ ವಯಸ್ಸಿನ ನಿರಾಶ್ರಿತ ಹಿರಿಯ ನಾಗರಿಕರಿಗೆ ಮಾಸಿಕ ಸಹಾಯ. DBT ಮೂಲಕ ನೇರ ಬ್ಯಾಂಕ್ ವರ್ಗಾವಣೆ.",
+    description_ur:"60+ سال کے بے سہارا بزرگوں کو ماہانہ مالی امداد۔ DBT کے ذریعے بینک میں براہ راست منتقلی۔",
+    benefit_en:"₹1,000/month", benefit_ta:"₹1,000/மாதம்", benefit_hi:"₹1,000/माह", benefit_te:"₹1,000/నెల", benefit_ml:"₹1,000/മാസം", benefit_kn:"₹1,000/ತಿಂಗಳು", benefit_ur:"₹1,000/ماہ",
+    eligibility_en:["Aged 60 years or above","Tamil Nadu resident for minimum 5 years","No stable income or pension","Not supported by children / family","Below Poverty Line preferred"],
+    eligibility_ta:["வயது 60 அல்லது அதற்கு மேல்","குறைந்தது 5 ஆண்டுகளாக தமிழ்நாட்டில் வாழ்கின்றவர்","நிலையான வருமானம் அல்லது ஓய்வூதியம் இல்லாதவர்","பிள்ளைகள் / குடும்பத்தால் ஆதரிக்கப்படாதவர்","வறுமைக் கோட்டிற்கு கீழ் உள்ளவர்கள் முன்னுரிமை"],
+    eligibility_hi:["60 वर्ष या उससे अधिक आयु","न्यूनतम 5 वर्षों से तमिलनाडु में निवास","कोई स्थिर आय या पेंशन नहीं","बच्चों/परिवार द्वारा समर्थित नहीं","गरीबी रेखा से नीचे को प्राथमिकता"],
+    eligibility_te:["వయస్సు 60 లేదా అంతకంటే ఎక్కువ","కనీసం 5 సంవత్సరాలు TN నివాసి","స్థిరమైన ఆదాయం లేదా పెన్షన్ లేదు","పిల్లలు/కుటుంబం ద్వారా ఆధారపడలేదు","BPL కార్డ్‌దారులకు ప్రాధాన్యత"],
+    eligibility_ml:["60 വയസ്സ് അല്ലെങ്കിൽ അതിൽ കൂടുതൽ","കുറഞ്ഞത് 5 വർഷം TN നിവാസി","സ്ഥിര വരുമാനം / പെൻഷൻ ഇല്ല","കുട്ടികൾ / കുടുംബം സഹായിക്കുന്നില്ല","BPL കാർഡ്‌ഹോൾഡർക്ക് മുൻഗണന"],
+    eligibility_kn:["ವಯಸ್ಸು 60 ಅಥವಾ ಹೆಚ್ಚು","ಕನಿಷ್ಠ 5 ವರ್ಷ TN ನಿವಾಸಿ","ಸ್ಥಿರ ಆದಾಯ / ಪಿಂಚಣಿ ಇಲ್ಲ","ಮಕ್ಕಳು / ಕುಟುಂಬ ಬೆಂಬಲಿಸಿಲ್ಲ","BPL ಕಾರ್ಡ್‌ದಾರರಿಗೆ ಆದ್ಯತೆ"],
+    eligibility_ur:["عمر 60 سال یا اس سے زیادہ","کم از کم 5 سال TN رہائشی","کوئی مستقل آمدنی یا پنشن نہیں","بچوں/خاندان کی مدد نہیں","BPL کارڈ ہولڈرز کو ترجیح"],
+    requirements_en:["Age Proof (Aadhaar / Birth Certificate)","Residence Certificate","BPL Ration Card","Bank Passbook (first page)","Passport-size photograph","Income Certificate (if applicable)"],
+    requirements_ta:["வயது சான்று (ஆதார் / பிறப்பு சான்றிதழ்)","வசிப்பிட சான்றிதழ்","BPL குடும்ப அட்டை","வங்கி பாஸ்புக் (முதல் பக்கம்)","பாஸ்போர்ட் அளவு புகைப்படம்","வருமான சான்றிதழ் (தேவைப்பட்டால்)"],
+    requirements_hi:["आयु प्रमाण (आधार / जन्म प्रमाण पत्र)","निवास प्रमाण पत्र","BPL राशन कार्ड","बैंक पासबुक (पहला पृष्ठ)","पासपोर्ट साइज फोटो","आय प्रमाण पत्र (यदि लागू हो)"],
+    requirements_te:["వయస్సు రుజువు (ఆధార్/జన్మ ధృవీకరణ పత్రం)","నివాస ధృవీకరణ పత్రం","BPL రేషన్ కార్డ్","బ్యాంక్ పాస్‌బుక్ (మొదటి పేజీ)","పాస్‌పోర్ట్ సైజ్ ఫోటో","ఆదాయ ధృవీకరణ పత్రం (వర్తిస్తే)"],
+    requirements_ml:["പ്രായ തെളിവ് (ആധാർ/ജനന സർട്ടിഫിക്കറ്റ്)","നിവാസ സർട്ടിഫിക്കറ്റ്","BPL റേഷൻ കാർഡ്","ബാങ്ക് പാസ്‌ബുക്ക് (ആദ്യ പേജ്)","പാസ്‌പോർട്ട് ഫോട്ടോ","വരുമാന സർട്ടിഫിക്കറ്റ് (ബാധകമെങ്കിൽ)"],
+    requirements_kn:["ವಯಸ್ಸಿನ ದಾಖಲೆ (ಆಧಾರ್/ಜನ್ಮ ಪ್ರಮಾಣ)","ನಿವಾಸ ಪ್ರಮಾಣಪತ್ರ","BPL ರೇಷನ್ ಕಾರ್ಡ್","ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್ (ಮೊದಲ ಪುಟ)","ಪಾಸ್‌ಪೋರ್ಟ್ ಫೋಟೋ","ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ (ಅನ್ವಯವಾದಲ್ಲಿ)"],
+    requirements_ur:["عمر کا ثبوت (آدھار/پیدائشی سرٹیفکیٹ)","رہائشی سرٹیفکیٹ","BPL راشن کارڈ","بینک پاس بک (پہلا صفحہ)","پاسپورٹ سائز تصویر","آمدنی کا سرٹیفکیٹ (اگر لاگو ہو)"],
+    checkFields:[{id:"age",type:"number",label_en:"Your Age",label_ta:"உங்கள் வயது",label_hi:"आपकी उम्र",label_te:"మీ వయస్సు",label_ml:"നിങ്ങളുടെ പ്രായം",label_kn:"ನಿಮ್ಮ ವಯಸ್ಸು",label_ur:"آپ کی عمر",min:18,max:120},{id:"hasBPL",type:"select",label_en:"Do you have BPL card?",label_ta:"BPL கார்டு உள்ளதா?",label_hi:"क्या आपके पास BPL कार्ड है?",label_te:"మీకు BPL కార్డ్ ఉందా?",label_ml:"BPL കാർഡ് ഉണ്ടോ?",label_kn:"BPL ಕಾರ್ಡ್ ಇದೆಯೇ?",label_ur:"کیا BPL کارڈ ہے؟",options:[{val:"yes",en:"Yes",ta:"ஆம்",hi:"हाँ",te:"అవును",ml:"ഉണ്ട്",kn:"ಹೌದು",ur:"ہاں"},{val:"no",en:"No",ta:"இல்லை",hi:"नहीं",te:"లేదు",ml:"ഇല്ല",kn:"ಇಲ್ಲ",ur:"نہیں"}]}],
+    checkFn:function(v){return parseInt(v.age)>=60;}
+  },
+  {
+    id:2,
+    name_en:"Marriage Assistance Scheme", name_ta:"திருமண உதவித் திட்டம்", name_hi:"विवाह सहायता योजना", name_te:"వివాహ సహాయ పథకం", name_ml:"വിവാഹ സഹായ പദ്ധതി", name_kn:"ವಿವಾಹ ಸಹಾಯ ಯೋಜನೆ", name_ur:"شادی امدادی اسکیم",
+    description_en:"Financial assistance and gold 'thali' for the bride to help poor families meet wedding costs. Extra benefits for women who completed higher education.",
+    description_ta:"ஏழைக் குடும்பங்களுக்கு திருமண செலவினங்களை சமாளிக்க நிதி உதவி மற்றும் வதுவுக்கு தங்க தாலி வழங்கப்படுகிறது.",
+    description_hi:"गरीब परिवारों की शादी के खर्चे में मदद के लिए वित्तीय सहायता और दुल्हन के लिए सोने की 'थाली'।",
+    description_te:"పేద కుటుంబాలకు పెళ్ళి ఖర్చుల కోసం ఆర్థిక సహాయం మరియు వధువుకు బంగారు 'తాళి'.",
+    description_ml:"ദരിദ്ര കുടുംബങ്ങൾക്ക് വിവാഹ ചെലവ് നടത്താൻ ധനസഹായവും 'താലി'ക്ക് സ്വർണ്ണവും.",
+    description_kn:"ಬಡ ಕುಟುಂಬಗಳ ಮದುವೆ ವೆಚ್ಚಕ್ಕೆ ಸಹಾಯ ಹಾಗೂ ವಧುವಿಗೆ 'ತಾಳಿ'ಗಾಗಿ ಚಿನ್ನ.",
+    description_ur:"غریب خاندانوں کی شادی کے اخراجات کے لیے مالی امداد اور دلہن کے لیے 'تھالی' سونا۔",
+    benefit_en:"₹25,000 + 8g Gold", benefit_ta:"₹25,000 + 8 கிராம் தங்கம்", benefit_hi:"₹25,000 + 8 ग्राम सोना", benefit_te:"₹25,000 + 8g బంగారం", benefit_ml:"₹25,000 + 8g സ്വർണ്ണം", benefit_kn:"₹25,000 + 8g ಚಿನ್ನ", benefit_ur:"₹25,000 + 8g سونا",
+    eligibility_en:["Family annual income below ₹72,000","Bride must be 18 years or above","Groom must be 21 years or above","Tamil Nadu residents","Application before the wedding date","Higher education bonus available"],
+    eligibility_ta:["குடும்ப வருடாந்திர வருமானம் ₹72,000 க்கும் குறைவாக இருக்க வேண்டும்","மணப்பெண்ணுக்கு 18 வயது அல்லது அதற்கு மேல்","மணமகனுக்கு 21 வயது அல்லது அதற்கு மேல்","தமிழ்நாட்டில் வசிப்பவர்கள்","திருமணத்திற்கு முன் விண்ணப்பிக்க வேண்டும்","உயர்கல்வி பயின்றவர்களுக்கு கூடுதல் சலுகை"],
+    eligibility_hi:["परिवार की वार्षिक आय ₹72,000 से कम","दुल्हन की आयु 18 वर्ष या अधिक","दूल्हे की आयु 21 वर्ष या अधिक","तमिलनाडु के निवासी","विवाह से पूर्व आवेदन","उच्च शिक्षा बोनस उपलब्ध"],
+    eligibility_te:["కుటుంబ వార్షిక ఆదాయం ₹72,000 కంటే తక్కువ","వధువు వయస్సు 18+","వరుడు వయస్సు 21+","TN నివాసులు","పెళ్ళి తేదీకి ముందు దరఖాస్తు","ఉన్నత విద్య బోనస్ అందుబాటులో ఉంది"],
+    eligibility_ml:["കുടുംബ വার്ഷിക വരുമാനം ₹72,000-ൽ കുറവ്","വധുവിന് 18 വയസ്സ് / അതിൽ കൂടുതൽ","വരന് 21+","TN നിവാസികൾ","വിവാഹ തീയതിക്ക് മുൻപ് അപേക്ഷ","ഉന്നത വിദ്യാഭ്യാസ ബോണസ്"],
+    eligibility_kn:["ಕುಟುಂಬ ವಾರ್ಷಿಕ ಆದಾಯ ₹72,000 ಕ್ಕಿಂತ ಕಡಿಮೆ","ವಧುವಿಗೆ 18+","ವರನಿಗೆ 21+","TN ನಿವಾಸಿಗಳು","ಮದುವೆ ಮೊದಲು ಅರ್ಜಿ","ಉನ್ನತ ಶಿಕ್ಷಣ ಬೋನಸ್"],
+    eligibility_ur:["خاندانی سالانہ آمدنی ₹72,000 سے کم","دلہن کی عمر 18+","دولہے کی عمر 21+","TN رہائشی","شادی سے پہلے درخواست","اعلیٰ تعلیم بونس دستیاب"],
+    requirements_en:["Income Certificate (family)","Bride's Age Proof (Aadhaar)","Groom's Age Proof","Caste/Community Certificate","Wedding invitation card","Bank account details (bride's)","Educational certificates (for bonus)"],
+    requirements_ta:["குடும்ப வருமான சான்றிதழ்","மணப்பெண் வயது சான்று","மணமகன் வயது சான்று","ஜாதி/சமுதாய சான்றிதழ்","திருமண அழைப்பிதழ்","வங்கி கணக்கு விவரம்","கல்விச் சான்றுகள் (கூடுதல் சலுகைக்கு)"],
+    requirements_hi:["आय प्रमाण पत्र (परिवार)","दुल्हन का आयु प्रमाण","दूल्हे का आयु प्रमाण","जाति प्रमाण पत्र","शादी का निमंत्रण कार्ड","बैंक खाता विवरण","शैक्षिक प्रमाण पत्र (बोनस के लिए)"],
+    requirements_te:["ఆదాయ ధృవీకరణ పత్రం","వధువు వయస్సు రుజువు","వరుడు వయస్సు రుజువు","కుల/కమ్యూనిటీ సర్టిఫికేట్","పెళ్ళి ఆహ్వాన పత్రం","బ్యాంక్ ఖాతా వివరాలు","విద్యా ధృవీకరణ పత్రాలు"],
+    requirements_ml:["വരുമാന സർട്ടിഫിക്കറ്റ്","വധുവിന്റെ പ്രായ തെളിവ്","വരന്റെ പ്രായ തെളിവ്","ജാതി/കമ്മ്യൂണിറ്റി സർട്ടിഫിക്കറ്റ്","വിവാഹ ക്ഷണക്കത്ത്","ബാങ്ക് വിവരങ്ങൾ","വിദ്യാഭ്യാസ സർട്ടിഫിക്കറ്റ്"],
+    requirements_kn:["ಆದಾಯ ಪ್ರಮಾಣಪತ್ರ","ವಧುವಿನ ವಯಸ್ಸಿನ ಪ್ರಮಾಣ","ವರನ ವಯಸ್ಸಿನ ಪ್ರಮಾಣ","ಜಾತಿ ಪ್ರಮಾಣಪತ್ರ","ಮದುವೆ ಆಮಂತ್ರಣ ಪತ್ರ","ಬ್ಯಾಂಕ್ ವಿವರ","ಶೈಕ್ಷಣಿಕ ದಾಖಲೆ"],
+    requirements_ur:["آمدنی کا سرٹیفکیٹ","دلہن کی عمر کا ثبوت","دولہے کی عمر کا ثبوت","ذات/برادری کا سرٹیفکیٹ","شادی کا دعوت نامہ","بینک اکاؤنٹ کی تفصیلات","تعلیمی سرٹیفکیٹ"],
+    checkFields:[{id:"income",type:"number",label_en:"Annual Family Income (₹)",label_ta:"வருடாந்திர குடும்ப வருமானம் (₹)",label_hi:"वार्षिक पारिवारिक आय (₹)",label_te:"వార్షిక కుటుంబ ఆదాయం (₹)",label_ml:"വർഷ കുടുംബ വരുമാനം (₹)",label_kn:"ವಾರ್ಷಿಕ ಕುಟುಂಬ ಆದಾಯ (₹)",label_ur:"سالانہ خاندانی آمدنی (₹)",min:0,max:9999999},{id:"brideAge",type:"number",label_en:"Bride's Age",label_ta:"மணப்பெண் வயது",label_hi:"दुल्हन की उम्र",label_te:"వధువు వయస్సు",label_ml:"വധുവിന്റെ പ്രായം",label_kn:"ವಧುವಿನ ವಯಸ್ಸು",label_ur:"دلہن کی عمر",min:10,max:80}],
+    checkFn:function(v){return parseInt(v.income)<=72000 && parseInt(v.brideAge)>=18;}
+  },
+  {
+    id:3,
+    name_en:"Farmer Production Subsidy", name_ta:"விவசாயிகள் உற்பத்தி மானியம்", name_hi:"किसान उत्पादन सब्सिडी", name_te:"రైతు ఉత్పత్తి సబ్సిడీ", name_ml:"കർഷക ഉൽപ്പാദന സബ്‌സിഡി", name_kn:"ರೈತ ಉತ್ಪಾದನಾ ಸಬ್ಸಿಡಿ", name_ur:"کسان پیداواری سبسڈی",
+    description_en:"Subsidies on quality seeds, fertilizers, modern equipment, and micro-irrigation for small and marginal farmers to increase crop yield.",
+    description_ta:"சிறு மற்றும் குறு விவசாயிகளுக்கு தரமான விதை, உரம், நவீன உபகரணங்கள் மற்றும் நுண்ணீர் பாசனத்தில் மானியம்.",
+    description_hi:"छोटे और सीमांत किसानों के लिए बीज, उर्वरक, आधुनिक उपकरण और सूक्ष्म सिंचाई पर सब्सिडी।",
+    description_te:"చిన్న మరియు సన్నకారు రైతులకు నాణ్యమైన విత్తనాలు, ఎరువులు, ఆధునిక పరికరాలు, సూక్ష్మ నీటి పారుదలపై సబ్సిడీ.",
+    description_ml:"ചെറുകിട കർഷകർക്ക് വിത്ത്, വളം, ആധുനിക ഉപകരണം, ജലസേചനത്തിൽ സബ്‌സിഡി.",
+    description_kn:"ಸಣ್ಣ ರೈತರಿಗೆ ಬೀಜ, ಗೊಬ್ಬರ, ಆಧುನಿಕ ಉಪಕರಣ ಮತ್ತು ಸೂಕ್ಷ್ಮ ನೀರಾವರಿಯಲ್ಲಿ ಸಬ್ಸಿಡಿ.",
+    description_ur:"چھوٹے کسانوں کے لیے بیج، کھاد، جدید آلات اور مائیکرو آبپاشی پر سبسڈی۔",
+    benefit_en:"Up to 50% subsidy", benefit_ta:"50% வரை மானியம்", benefit_hi:"50% तक सब्सिडी", benefit_te:"50% వరకు సబ్సిడీ", benefit_ml:"50% വരെ സബ്‌സിഡി", benefit_kn:"50% ವರೆಗೆ ಸಬ್ಸಿಡಿ", benefit_ur:"50% تک سبسڈی",
+    eligibility_en:["Must own or lease agricultural land","Small / Marginal farmer (land < 2 hectares preferred)","Registered with local agricultural office","Tamil Nadu resident","Aadhaar-linked bank account"],
+    eligibility_ta:["வேளாண் நிலம் சொந்தமாக அல்லது குத்தகையில் வைத்திருக்க வேண்டும்","சிறு / குறு விவசாயி (நிலம் < 2 ஹெக்டேர் விரும்பத்தக்கது)","உள்ளூர் வேளாண்மை அலுவலகத்தில் பதிவு செய்யப்பட்டவர்","தமிழ்நாட்டில் வசிப்பவர்","ஆதார் இணைக்கப்பட்ட வங்கிக் கணக்கு"],
+    eligibility_hi:["स्वयं की या पट्टे पर कृषि भूमि होनी चाहिए","लघु/सीमांत किसान (भूमि < 2 हेक्टेयर प्राथमिक)","स्थानीय कृषि कार्यालय में पंजीकृत","तमिलनाडु का निवासी","आधार-लिंक्ड बैंक खाता"],
+    eligibility_te:["వ్యవసాయ భూమి సొంతం లేదా లీజు","చిన్న/సన్నకారు రైతు (భూమి < 2 హెక్టార్లు)","స్థానిక వ్యవసాయ కార్యాలయంలో నమోదు","TN నివాసి","ఆధార్ లింక్ బ్యాంక్ ఖాతా"],
+    eligibility_ml:["കൃഷിഭൂമി ഉടമ / പാട്ടക്കാർ","ചെറുകിട/നാമമാത്ര കർഷകൻ (< 2 ഹെക്ടർ)","പ്രാദേശിക കൃഷി ഓഫീസ് രജിസ്ട്രേഷൻ","TN നിവാസി","ആധാർ ലിങ്ക്ഡ് ബാങ്ക് അക്കൗണ്ട്"],
+    eligibility_kn:["ಕೃಷಿ ಭೂಮಿ ಸ್ವಂತ / ಗೇಣಿ","ಸಣ್ಣ/ಅತಿಸಣ್ಣ ರೈತ (< 2 ಹೆಕ್ಟೇರ್)","ಸ್ಥಳೀಯ ಕೃಷಿ ಕಚೇರಿ ನೋಂದಣಿ","TN ನಿವಾಸಿ","ಆಧಾರ್ ಲಿಂಕ್ಡ್ ಬ್ಯಾಂಕ್"],
+    eligibility_ur:["زرعی زمین اپنی یا لیز پر","چھوٹا/حاشیائی کسان (زمین < 2 ہیکٹر)","مقامی زرعی دفتر رجسٹریشن","TN رہائشی","آدھار لنک بینک اکاؤنٹ"],
+    requirements_en:["Land ownership / lease documents","Agricultural registration certificate","Aadhaar card","Bank passbook","Passport photo","Ration card"],
+    requirements_ta:["நில உரிமை / குத்தகை ஆவணங்கள்","வேளாண்மை பதிவுச் சான்றிதழ்","ஆதார் அட்டை","வங்கி பாஸ்புக்","பாஸ்போர்ட் புகைப்படம்","குடும்ப அட்டை"],
+    requirements_hi:["भूमि स्वामित्व / पट्टा दस्तावेज","कृषि पंजीकरण प्रमाण पत्र","आधार कार्ड","बैंक पासबुक","पासपोर्ट फोटो","राशन कार्ड"],
+    requirements_te:["భూమి యాజమాన్య/లీజు పత్రాలు","వ్యవసాయ నమోదు సర్టిఫికేట్","ఆధార్ కార్డ్","బ్యాంక్ పాస్‌బుక్","పాస్‌పోర్ట్ ఫోటో","రేషన్ కార్డ్"],
+    requirements_ml:["ഭൂ ഉടമ/പാട്ട രേഖ","കൃഷി ഓഫീസ് സർട്ടിഫിക്കറ്റ്","ആധാർ","ബാങ്ക് പാസ്‌ബുക്ക്","ഫോട്ടോ","റേഷൻ കാർഡ്"],
+    requirements_kn:["ಭೂ ಮಾಲೀಕತ್ವ/ಗೇಣಿ ದಾಖಲೆ","ಕೃಷಿ ನೋಂದಣಿ ಸರ್ಟಿಫಿಕೇಟ್","ಆಧಾರ್","ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್","ಫೋಟೋ","ರೇಷನ್ ಕಾರ್ಡ್"],
+    requirements_ur:["زمین کی دستاویزات","زرعی رجسٹریشن سرٹیفکیٹ","آدھار کارڈ","بینک پاس بک","پاسپورٹ فوٹو","راشن کارڈ"],
+    checkFields:[{id:"hasLand",type:"select",label_en:"Do you own/lease farmland?",label_ta:"விவசாய நிலம் உள்ளதா?",label_hi:"क्या आपके पास कृषि भूमि है?",label_te:"వ్యవసాయ భూమి ఉందా?",label_ml:"കൃഷിഭൂമി ഉണ്ടോ?",label_kn:"ಕೃಷಿ ಭೂಮಿ ಇದೆಯೇ?",label_ur:"زرعی زمین ہے؟",options:[{val:"yes",en:"Yes",ta:"ஆம்",hi:"हाँ",te:"అవును",ml:"ഉണ്ട്",kn:"ಹೌದು",ur:"ہاں"},{val:"no",en:"No",ta:"இல்லை",hi:"नहीं",te:"లేదు",ml:"ഇല്ല",kn:"ಇಲ್ಲ",ur:"نہیں"}]}],
+    checkFn:function(v){return v.hasLand==="yes";}
+  },
+  {
+    id:4,
+    name_en:"CM Comprehensive Health Insurance", name_ta:"முதலமைச்சர் மருத்துவக் காப்பீடு", name_hi:"CM स्वास्थ्य बीमा", name_te:"CM ఆరోగ్య బీమా", name_ml:"CM ആരോഗ്യ ഇൻഷുറൻസ്", name_kn:"CM ಆರೋಗ್ಯ ವಿಮೆ", name_ur:"CM صحت بیمہ",
+    description_en:"Cashless treatment for low-income families in empanelled hospitals covering major surgeries, emergency care, and serious illnesses.",
+    description_ta:"அங்கீகரிக்கப்பட்ட மருத்துவமனைகளில் குறைந்த வருமானக் குடும்பங்களுக்கு பெரிய அறுவை சிகிச்சை உட்பட கட்டணமில்லா சிகிச்சை.",
+    description_hi:"सूचीबद्ध अस्पतालों में कम आय वाले परिवारों को प्रमुख सर्जरी सहित कैशलेस उपचार।",
+    description_te:"ఎంపిక చేసిన ఆసుపత్రులలో తక్కువ ఆదాయ కుటుంబాలకు ప్రధాన శస్త్రచికిత్సలతో సహా నగదు రహిత చికిత్స.",
+    description_ml:"ശ്രേണിബദ്ധ ആശുപത്രിகളിൽ കുറഞ്ഞ വരുമാന കുടുംബങ്ങൾക്ക് പ്രധാന ശസ്ത്രക്രിയ ഉൾപ്പെടെ നഗദ് ഇല്ലാ ചികിത്സ.",
+    description_kn:"ಪಟ್ಟಿ ಮಾಡಿದ ಆಸ್ಪತ್ರೆಗಳಲ್ಲಿ ಕಡಿಮೆ ಆದಾಯ ಕುಟುಂಬಗಳಿಗೆ ಪ್ರಮುಖ ಶಸ್ತ್ರಚಿಕಿತ್ಸೆ ಸೇರಿದಂತೆ ನಗದು ರಹಿತ ಚಿಕಿತ್ಸೆ.",
+    description_ur:"فہرست شدہ ہسپتالوں میں کم آمدنی والے خاندانوں کو بڑی سرجری سمیت کیش لیس علاج۔",
+    benefit_en:"Up to ₹5 Lakh/year", benefit_ta:"₹5 லட்சம்/ஆண்டு", benefit_hi:"₹5 लाख/वर्ष", benefit_te:"₹5 లక్షలు/సంవత్సరం", benefit_ml:"₹5 ലക്ഷം/വർഷം", benefit_kn:"₹5 ಲಕ್ಷ/ವರ್ಷ", benefit_ur:"₹5 لاکھ/سال",
+    eligibility_en:["Annual family income below ₹72,000","Tamil Nadu resident","Must have ration card","Family size up to 5 members covered","No existing government health insurance"],
+    eligibility_ta:["குடும்ப வருடாந்திர வருமானம் ₹72,000 க்கும் குறைவாக","தமிழ்நாட்டில் வசிப்பவர்","குடும்ப அட்டை இருக்க வேண்டும்","5 உறுப்பினர்கள் வரை உள்ள குடும்பங்கள்","வேறு அரசு மருத்துவக் காப்பீடு இல்லாதவர்"],
+    eligibility_hi:["पारिवारिक वार्षिक आय ₹72,000 से कम","तमिलनाडु निवासी","राशन कार्ड होना चाहिए","5 सदस्य तक के परिवार","कोई अन्य सरकारी बीमा नहीं"],
+    eligibility_te:["వార్షిక ఆదాయం ₹72,000 కంటే తక్కువ","TN నివాసి","రేషన్ కార్డ్ ఉండాలి","5 మంది వరకు కుటుంబ సభ్యులు","మరే ప్రభుత్వ బీమా లేదు"],
+    eligibility_ml:["వার్షిక ఆదాయం ₹72,000 కంటే తక്కువ","TN నివాసి","রেশন কার্ড থাকতে হবে","5 পর্যন্ত পরিবারের সদস্য","অন্য সরকারি বিমা নেই"],
+    eligibility_kn:["ವಾರ್ಷಿಕ ₹72,000 ಕ್ಕಿಂತ ಕಡಿಮೆ","TN ನಿವಾಸಿ","ರೇಷನ್ ಕಾರ್ಡ್ ಬೇಕು","5 ಸದಸ್ಯರ ವರೆಗೆ","ಇತರ ಸರ್ಕಾರಿ ಬಿಮೆ ಇಲ್ಲ"],
+    eligibility_ur:["سالانہ آمدنی ₹72,000 سے کم","TN رہائشی","راشن کارڈ ہونا ضروری","5 تک خاندانی اراکین","کوئی اور سرکاری بیمہ نہیں"],
+    requirements_en:["Ration card (family)","Aadhaar card (all members)","Income certificate","Residence proof","Passport photos","Previous medical records (if any)"],
+    requirements_ta:["குடும்ப அட்டை","ஆதார் அட்டை (அனைத்து உறுப்பினர்களுக்கும்)","வருமான சான்றிதழ்","வசிப்பிட சான்று","பாஸ்போர்ட் புகைப்படம்","முந்தைய மருத்துவ ஆவணங்கள்"],
+    requirements_hi:["राशन कार्ड","आधार कार्ड (सभी सदस्य)","आय प्रमाण","निवास प्रमाण","पासपोर्ट फोटो","पिछले मेडिकल रिकॉर्ड"],
+    requirements_te:["రేషన్ కార్డ్","ఆధార్ కార్డ్","ఆదాయ సర్టిఫికేట్","నివాస రుజువు","పాస్‌పోర్ట్ ఫోటోలు","వైద్య రికార్డులు"],
+    requirements_ml:["റേഷൻ കാർഡ്","ആധാർ","വരുമാന സർട്ടിഫിക്കറ്റ്","നിവാസ തെളിവ്","ഫോട്ടോ","മെഡിക്കൽ രേഖ"],
+    requirements_kn:["ರೇಷನ್ ಕಾರ್ಡ್","ಆಧಾರ್","ಆದಾಯ ಪ್ರಮಾಣ","ನಿವಾಸ ಪ್ರಮಾಣ","ಫೋಟೋ","ವೈದ್ಯಕೀಯ ದಾಖಲೆ"],
+    requirements_ur:["راشن کارڈ","آدھار کارڈ","آمدنی کا سرٹیفکیٹ","رہائشی ثبوت","فوٹو","طبی ریکارڈ"],
+    checkFields:[{id:"income2",type:"number",label_en:"Annual Family Income (₹)",label_ta:"குடும்ப வருட வருமானம்",label_hi:"वार्षिक आय (₹)",label_te:"వార్షిక ఆదాయం (₹)",label_ml:"വർഷ വരുമാനം (₹)",label_kn:"ವಾರ್ಷಿಕ ಆದಾಯ (₹)",label_ur:"سالانہ آمدنی (₹)",min:0,max:9999999},{id:"hasRation",type:"select",label_en:"Ration Card?",label_ta:"குடும்ப அட்டை உள்ளதா?",label_hi:"राशन कार्ड है?",label_te:"రేషన్ కార్డ్ ఉందా?",label_ml:"റേഷൻ കാർഡ് ഉണ്ടോ?",label_kn:"ರೇಷನ್ ಕಾರ್ಡ್ ಇದೆಯೇ?",label_ur:"راشن کارڈ ہے؟",options:[{val:"yes",en:"Yes",ta:"ஆம்",hi:"हाँ",te:"అవును",ml:"ഉണ്ട്",kn:"ಹೌದು",ur:"ہاں"},{val:"no",en:"No",ta:"இல்லை",hi:"नहीं",te:"లేదు",ml:"ഇല്ല",kn:"ಇಲ್ಲ",ur:"نہیں"}]}],
+    checkFn:function(v){return parseInt(v.income2)<=72000 && v.hasRation==="yes";}
+  },
+  {
+    id:5,
+    name_en:"Free Sewing Machine Scheme", name_ta:"விலையில்லா தையல் இயந்திரத் திட்டம்", name_hi:"मुफ्त सिलाई मशीन योजना", name_te:"ఉచిత కుట్టు మిషన్ పథకం", name_ml:"സൗജന്യ തയ്യൽ മെഷീൻ", name_kn:"ಉಚಿತ ಹೊಲಿಗೆ ಯಂತ್ರ ಯೋಜನೆ", name_ur:"مفت سلائی مشین اسکیم",
+    description_en:"Free sewing machines to widows and economically weaker women to start tailoring from home and become financially independent.",
+    description_ta:"வீட்டிலிருந்து தையல் தொழிலைத் தொடங்கி நிதி ரீதியாக சுதந்திரமாக வாழ விதவைகள் மற்றும் பொருளாதார பின்தங்கிய பெண்களுக்கு இலவச தையல் இயந்திரம்.",
+    description_hi:"घर से सिलाई काम शुरू कर आत्मनिर्भर बनने के लिए विधवाओं और कमजोर महिलाओं को मुफ्त सिलाई मशीन।",
+    description_te:"ఇంటి నుండి కుట్టు పని ప్రారంభించి స్వతంత్రంగా జీవించడానికి విధవలు మరియు పేద మహిళలకు ఉచిత కుట్టు మిషన్.",
+    description_ml:"ഭവനത്തിൽ നിന്ന് തയ്യൽ ആരംഭിക്കാൻ വിധവകൾക്കും ദരിദ്ര സ്ത്രീകൾക്കും സൗജന്യ തയ്യൽ മെഷീൻ.",
+    description_kn:"ಮನೆಯಿಂದಲೇ ಹೊಲಿಗೆ ಕೆಲಸ ಶುರು ಮಾಡಲು ವಿಧವೆ ಮತ್ತು ಬಡ ಮಹಿಳೆಯರಿಗೆ ಉಚಿತ ಹೊಲಿಗೆ ಯಂತ್ರ.",
+    description_ur:"گھر سے سلائی کا کام شروع کرنے کے لیے بیواؤں اور کمزور خواتین کو مفت سلائی مشین۔",
+    benefit_en:"1 Free Sewing Machine", benefit_ta:"1 இலவச தையல் இயந்திரம்", benefit_hi:"1 मुफ्त सिलाई मशीन", benefit_te:"1 ఉచిత కుట్టు మిషన్", benefit_ml:"1 സൗജന്യ തയ്യൽ മെഷീൻ", benefit_kn:"1 ಉಚಿತ ಹೊಲಿಗೆ ಯಂತ್ರ", benefit_ur:"1 مفت سلائی مشین",
+    eligibility_en:["Female applicant only","Annual income below ₹36,000","Widow / Deserted / Destitute women preferred","Age between 18–60 years","Tamil Nadu resident","Must not have received this scheme before"],
+    eligibility_ta:["பெண் விண்ணப்பதாரர் மட்டும்","ஆண்டு வருமானம் ₹36,000 க்கு குறைவாக","விதவை / கைவிடப்பட்ட பெண்கள் முன்னுரிமை","வயது 18–60","தமிழ்நாட்டில் வசிப்பவர்","இதற்கு முன் இத்திட்டத்தைப் பெறாதவர்"],
+    eligibility_hi:["केवल महिला आवेदक","वार्षिक आय ₹36,000 से कम","विधवा/परित्यक्त महिलाओं को प्राथमिकता","आयु 18–60","तमिलनाडु की निवासी","पहले इस योजना का लाभ न लिया हो"],
+    eligibility_te:["మహిళా దరఖాస్తుదారు మాత్రమే","వార్షిక ఆదాయం ₹36,000 కంటే తక్కువ","విధవలు/విడిచిపెట్టబడిన మహిళలకు ప్రాధాన్యత","వయస్సు 18–60","TN నివాసి","ముందు ఈ పథకం పొందలేదు"],
+    eligibility_ml:["വനിതാ അപേക്ഷകർ മാത്രം","വർഷ വരുമാനം ₹36,000-ൽ കുറവ്","വിധവ/ഉപേക്ഷിക്കപ്പെട്ടവർക്ക് മുൻഗണന","വയസ്സ് 18–60","TN നിവാസി","ഇതിനു മുൻ ഈ പദ്ധതി ലഭിച്ചിട്ടില്ല"],
+    eligibility_kn:["ಮಹಿಳಾ ಅರ್ಜಿದಾರರು ಮಾತ್ರ","ವಾರ್ಷಿಕ ₹36,000 ಕ್ಕಿಂತ ಕಡಿಮೆ","ವಿಧವೆ/ಪರಿತ್ಯಕ್ತ ಮಹಿಳೆಯರಿಗೆ ಆದ್ಯತೆ","ವಯಸ್ಸು 18–60","TN ನಿವಾಸಿ","ಮೊದಲು ಈ ಯೋಜನೆ ಪಡೆದಿಲ್ಲ"],
+    eligibility_ur:["صرف خاتون درخواست دہندہ","سالانہ آمدنی ₹36,000 سے کم","بیوہ/چھوڑی گئی خواتین کو ترجیح","عمر 18–60","TN رہائشی","پہلے یہ اسکیم نہیں ملی"],
+    requirements_en:["Aadhaar card","Income certificate","Widowhood / marital status certificate","Age proof","Ration card / BPL card","Bank account details","Passport photo"],
+    requirements_ta:["ஆதார் அட்டை","வருமான சான்றிதழ்","விதவை / திருமண நிலை சான்றிதழ்","வயது சான்று","குடும்ப அட்டை / BPL அட்டை","வங்கி கணக்கு விவரங்கள்","பாஸ்போர்ட் புகைப்படம்"],
+    requirements_hi:["आधार","आय प्रमाण","वैधव्य/वैवाहिक प्रमाण","आयु प्रमाण","राशन/BPL कार्ड","बैंक विवरण","फोटो"],
+    requirements_te:["ఆధార్","ఆదాయ సర్టిఫికేట్","వైధవ్య/వైవాహిక స్థితి సర్టిఫికేట్","వయస్సు రుజువు","రేషన్/BPL కార్డ్","బ్యాంక్ వివరాలు","ఫోటో"],
+    requirements_ml:["ആധാർ","వรుమான സർട്ടിഫിക്കറ്റ്","വൈധവ്യ/വൈവാഹിക ഓഫീസ്","പ്രായ തെളിവ്","റേഷൻ/BPL കാർഡ്","ബ്യാংക് വിവരം","ഫോട്ടോ"],
+    requirements_kn:["ಆಧಾರ್","ಆದಾಯ ಪ್ರಮಾಣ","ವಿಧವೆ/ವೈವಾಹಿಕ ಸ್ಥಿತಿ ಪ್ರಮಾಣ","ವಯಸ್ಸಿನ ಪ್ರಮಾಣ","ರೇಷನ್/BPL ಕಾರ್ಡ್","ಬ್ಯಾಂಕ್ ವಿವರ","ಫೋಟೋ"],
+    requirements_ur:["آدھار","آمدنی سرٹیفکیٹ","بیوہ/ازدواجی حیثیت کا سرٹیفکیٹ","عمر کا ثبوت","راشن/BPL کارڈ","بینک تفصیلات","فوٹو"],
+    checkFields:[{id:"gender",type:"select",label_en:"Gender",label_ta:"பாலினம்",label_hi:"लिंग",label_te:"లింగం",label_ml:"ലിംഗഭേദം",label_kn:"ಲಿಂಗ",label_ur:"جنس",options:[{val:"female",en:"Female",ta:"பெண்",hi:"महिला",te:"స్త్రీ",ml:"സ്ത്രീ",kn:"ಮಹಿಳೆ",ur:"خاتون"},{val:"male",en:"Male",ta:"ஆண்",hi:"पुरुष",te:"పురుషుడు",ml:"പുരുഷൻ",kn:"ಪುರುಷ",ur:"مرد"}]},{id:"income3",type:"number",label_en:"Annual Income (₹)",label_ta:"ஆண்டு வருமானம் (₹)",label_hi:"वार्षिक आय (₹)",label_te:"వార్షిక ఆదాయం (₹)",label_ml:"வர்ষ வருமானம் (₹)",label_kn:"ವಾರ್ಷಿಕ ಆದಾಯ (₹)",label_ur:"سالانہ آمدنی (₹)",min:0,max:9999999}],
+    checkFn:function(v){return v.gender==="female" && parseInt(v.income3)<=36000;}
+  },
+  {
+    id:6, name_en:"Home Construction Grant", name_ta:"வீடு கட்டும் மானியம்", name_hi:"गृह निर्माण अनुदान", name_te:"గృహ నిర్మాణ గ్రాంట్", name_ml:"ഭวन നിർമ്മാണ ഗ്രാന്റ്", name_kn:"ಮನೆ ನಿರ್ಮಾಣ ಅನುದಾನ", name_ur:"گھر تعمیر گرانٹ",
+    description_en:"Financial assistance for poor families without proper housing to build permanent concrete homes. Funds released in stages based on construction progress.",
+    description_ta:"வீடில்லாத ஏழைக் குடும்பங்களுக்கு நிரந்தர வீடு கட்ட நிதி உதவி. கட்டுமான முன்னேற்றத்திற்கு ஏற்ப பல்வேறு கட்டங்களாக வழங்கப்படுகிறது.",
+    description_hi:"उचित आवास विहीन गरीब परिवारों को स्थायी मकान बनाने के लिए वित्तीय सहायता। निर्माण प्रगति के अनुसार चरणों में जारी।",
+    description_te:"సరైన నివాసం లేని పేద కుటుంబాలకు నిర్మాణ ప్రగతికి అనుగుణంగా విడతల వారీగా నిధులు.",
+    description_ml:"ഭവനം ഇല്ലാത്ത ദരിദ്ര കుടുംബങ്ങൾക്ക് നിർമ്മാണ ഘട്ടങ്ങൾ അനുസരിച്ച് ഫണ്ട്.",
+    description_kn:"ವಸತಿ ಇಲ್ಲದ ಬಡ ಕುಟುಂಬಗಳಿಗೆ ನಿರ್ಮಾಣ ಪ್ರಗತಿಗೆ ಅನುಗುಣವಾಗಿ ಹಣ.",
+    description_ur:"رہائش کے بغیر غریب خاندانوں کے لیے تعمیراتی پیشرفت کے مطابق فنڈ۔",
+    benefit_en:"Up to ₹1.2 Lakh", benefit_ta:"₹1.2 லட்சம் வரை", benefit_hi:"₹1.2 लाख तक", benefit_te:"₹1.2 లక్షల వరకు", benefit_ml:"₹1.2 ലക്ഷം വരെ", benefit_kn:"₹1.2 ಲಕ್ಷ ವರೆಗೆ", benefit_ur:"₹1.2 لاکھ تک",
+    eligibility_en:["BPL family","No pucca house","Own land to build on","Annual income below ₹1 Lakh","Tamil Nadu resident for 3+ years","Not availed similar housing scheme before"],
+    eligibility_ta:["BPL குடும்பம்","சொந்தமாக கான்கிரீட் வீடு இல்லாதவர்","கட்டுவதற்கு சொந்த நிலம் இருக்க வேண்டும்","ஆண்டு வருமானம் ₹1 லட்சத்திற்கும் குறைவாக","3+ ஆண்டுகளாக தமிழ்நாட்டில் வசிப்பவர்","இத்தகைய வீட்டுவசதி திட்டத்தை முன்பு பெறாதவர்"],
+    eligibility_hi:["BPL परिवार","कोई पक्का मकान नहीं","निर्माण हेतु स्वयं की जमीन","वार्षिक आय ₹1 लाख से कम","3+ वर्षों से TN में निवास","पूर्व में कोई आवास योजना नहीं"],
+    eligibility_te:["BPL కుటుంబం","పక్కా ఇల్లు లేదు","నిర్మించడానికి సొంత భూమి","వార్షిక ఆదాయం ₹1 లక్ష కంటే తక్కువ","3+ సంవత్సరాలు TN నివాసి","ముందు ఇలాంటి పథకం పొందలేదు"],
+    eligibility_ml:["BPL കുടുംബം","സ്ഥിര ഭവനം ഇല്ല","നിർമ്മിക്കാൻ സ്വന്തം ഭൂമി","വരുമാനം ₹1 ലക്ഷത്തിൽ കുറവ്","3+ വർഷം TN നിവാസി","ഇതിനു മുൻ സമാന പദ്ധതി ഇല്ല"],
+    eligibility_kn:["BPL ಕುಟುಂಬ","ಪಕ್ಕಾ ಮನೆ ಇಲ್ಲ","ನಿರ್ಮಾಣಕ್ಕೆ ಸ್ವಂತ ಭೂಮಿ","ವಾರ್ಷಿಕ ₹1 ಲಕ್ಷ ಕ್ಕಿಂತ ಕಡಿಮೆ","3+ ವರ್ಷ TN ನಿವಾಸಿ","ಮೊದಲು ಆವಾಸ ಯೋಜನೆ ಇಲ್ಲ"],
+    eligibility_ur:["BPL خاندان","کوئی پختہ مکان نہیں","تعمیر کے لیے اپنی زمین","سالانہ آمدنی ₹1 لاکھ سے کم","3+ سال TN رہائشی","پہلے ایسی اسکیم نہیں ملی"],
+    requirements_en:["BPL ration card","Land ownership documents","Income certificate","Aadhaar card","Bank account","Residence proof","Self-declaration of no pucca house"],
+    requirements_ta:["BPL குடும்ப அட்டை","நில உரிமை ஆவணங்கள்","வருமான சான்றிதழ்","ஆதார் அட்டை","வங்கி கணக்கு","வசிப்பிட சான்று","வீடு இல்லை என்று சுய சான்றிதழ்"],
+    requirements_hi:["BPL राशन कार्ड","भूमि दस्तावेज","आय प्रमाण","आधार","बैंक खाता","निवास प्रमाण","पक्का मकान न होने का स्व-घोषणा"],
+    requirements_te:["BPL రేషన్ కార్డ్","భూమి పత్రాలు","ఆదాయ సర్టిఫికేట్","ఆధార్","బ్యాంక్ ఖాతా","నివాస రుజువు","పక్కా ఇల్లు లేదని స్వ-ప్రకటన"],
+    requirements_ml:["BPL കാർഡ്","ഭൂ രേഖ","ورमান സർട്ടിഫிക്കറ്റ്","ആധാർ","ബ്യాങ്ക്","നിవാസ തെളിവ്","ഭวन ഇല്ലെന്ന സ്വ-ഘോഷണ"],
+    requirements_kn:["BPL ರೇಷನ್ ಕಾರ್ಡ್","ಭೂ ದಾಖಲೆ","ಆದಾಯ ಪ್ರಮಾಣ","ಆಧಾರ್","ಬ್ಯಾಂಕ್","ನಿವಾಸ ಪ್ರಮಾಣ","ಪಕ್ಕಾ ಮನೆ ಇಲ್ಲ ಎಂಬ ಘೋಷಣೆ"],
+    requirements_ur:["BPL راشن کارڈ","زمین کی دستاویزات","آمدنی سرٹیفکیٹ","آدھار","بینک","رہائشی ثبوت","پختہ مکان نہ ہونے کا اعلامیہ"],
+    checkFields:[{id:"hasBPL2",type:"select",label_en:"BPL Card?",label_ta:"BPL அட்டை உள்ளதா?",label_hi:"BPL कार्ड?",label_te:"BPL కార్డ్ ఉందా?",label_ml:"BPL കാർഡ്?",label_kn:"BPL ಕಾರ್ಡ್?",label_ur:"BPL کارڈ?",options:[{val:"yes",en:"Yes",ta:"ஆம்",hi:"हाँ",te:"అవును",ml:"ഉണ്ട്",kn:"ಹೌದు",ur:"ہاں"},{val:"no",en:"No",ta:"இல்லை",hi:"नहीं",te:"లేదు",ml:"ഇല്ല",kn:"ಇಲ್ಲ",ur:"نہیں"}]},{id:"hasLand2",type:"select",label_en:"Own Land?",label_ta:"சொந்த நிலம் உள்ளதா?",label_hi:"अपनी जमीन?",label_te:"సొంత భూమి ఉందా?",label_ml:"സ്വന്തം ഭൂമി?",label_kn:"ಸ್ವಂತ ಭೂಮಿ?",label_ur:"اپنی زمین؟",options:[{val:"yes",en:"Yes",ta:"ஆம்",hi:"हाँ",te:"అవును",ml:"ഉണ്ട്",kn:"ಹೌದು",ur:"ہاں"},{val:"no",en:"No",ta:"இல்லை",hi:"नहीं",te:"లేదు",ml:"ഇല്ല",kn:"ಇಲ್ಲ",ur:"نہیں"}]}],
+    checkFn:function(v){return v.hasBPL2==="yes" && v.hasLand2==="yes";}
+  },
+  {
+    id:7, name_en:"Widow Pension Scheme", name_ta:"விதவை ஓய்வூதியத் திட்டம்", name_hi:"विधवा पेंशन योजना", name_te:"విధవ పెన్షన్ పథకం", name_ml:"വিधவ পেൻஷ৻ പദ്ధতি", name_kn:"ವಿಧವಾ ವೇತನ ಯೋಜನೆ", name_ur:"بیوہ پینشن اسکیم",
+    description_en:"Monthly financial assistance to destitute widows with little or no income. Applicants must submit spouse death certificate and income proof.",
+    description_ta:"வருமானம் குறைவாக உள்ள அல்லது வருமானம் இல்லாத ஆதரவற்ற விதவைகளுக்கு மாதாந்திர நிதி உதவி.",
+    description_hi:"कम या बिना आय वाली निराश्रित विधवाओं को मासिक वित्तीय सहायता।",
+    description_te:"ఆదాయం తక్కువ లేదా లేని నిరాశ్రయులైన విధవలకు నెలవారీ ఆర్థిక సహాయం.",
+    description_ml:"കഡ്‌ ആദায ഒ ഇല്ലാത്ത നिरालंब विधवकൾക്ക് मासिക सहाय.",
+    description_kn:"ಕಡಿಮೆ ಅಥವಾ ಆದಾಯ ಇಲ್ಲದ ನಿರಾಶ್ರಿತ ವಿಧವೆಯರಿಗೆ ಮಾಸಿಕ ಆರ್ಥಿಕ ಸಹಾಯ.",
+    description_ur:"کم یا بغیر آمدنی والی بے سہارا بیواؤں کو ماہانہ مالی امداد۔",
+    benefit_en:"₹1,000/month", benefit_ta:"₹1,000/மாதம்", benefit_hi:"₹1,000/माह", benefit_te:"₹1,000/నెల", benefit_ml:"₹1,000/മാസം", benefit_kn:"₹1,000/ತಿಂಗಳ", benefit_ur:"₹1,000/ماہ",
+    eligibility_en:["Female, widowed","Age 18–79 years","Annual income below ₹36,000","Tamil Nadu resident","No pension from other source","Aadhaar-linked bank account"],
+    eligibility_ta:["பெண், விதவை","வயது 18–79","ஆண்டு வருமானம் ₹36,000 க்குக் குறைவாக","தமிழ்நாட்டில் வசிப்பவர்","வேறு மூலத்திலிருந்து ஓய்வூதியம் இல்லை","ஆதார் இணைக்கப்பட்ட வங்கிக் கணக்கு"],
+    eligibility_hi:["महिला, विधवा","आयु 18–79 वर्ष","वार्षिक आय ₹36,000 से कम","तमिलनाडु निवासी","कोई अन्य पेंशन नहीं","आधार-लिंक्ड बैंक"],
+    eligibility_te:["స్త్రీ, విధవ","వయస్సు 18–79","వార్షిక ఆదాయం ₹36,000 కంటే తక్కువ","TN నివాసి","ఇతర వనరు నుండి పెన్షన్ లేదు","ఆధార్ లింక్ బ్యాంక్"],
+    eligibility_ml:["സ്ത്രീ, വിধവ","18–79 വയസ്","வரుமানம் ₹36,000-ൽ കുറవ്","TN నివాసి","ഇതര源 ಪेಂশன್ ಇಲ್ಲ","ആধார്-ランク് ബ്ャāংक്"],
+    eligibility_kn:["ಮಹಿಳೆ, ವಿಧವೆ","18–79 ವರ್ಷ","₹36,000 ಕ್ಕಿಂತ ಕಡಿಮೆ","TN ನಿವಾಸಿ","ಇತರ ಮೂಲ ಪಿಂಚಣಿ ಇಲ್ಲ","ಆಧಾರ್-ಲಿಂಕ್ ಬ್ಯಾಂಕ್"],
+    eligibility_ur:["خاتون، بیوہ","عمر 18–79","آمدنی ₹36,000 سے کم","TN رہائشی","کسی اور سے پنشن نہیں","آدھار لنک بینک"],
+    requirements_en:["Husband's death certificate","Aadhaar card","Income certificate","Age proof","Residence certificate","Bank passbook","Ration card"],
+    requirements_ta:["கணவர் இறப்பு சான்றிதழ்","ஆதார் அட்டை","வருமான சான்றிதழ்","வயது சான்று","வசிப்பிட சான்றிதழ்","வங்கி பாஸ்புக்","குடும்ப அட்டை"],
+    requirements_hi:["पति का मृत्यु प्रमाण पत्र","आधार","आय प्रमाण","आयु प्रमाण","निवास प्रमाण","बैंक पासबुक","राशन कार्ड"],
+    requirements_te:["భర్త మరణ ధృవీకరణ","ఆధార్","ఆదాయ సర్టిఫికేట్","వయస్సు రుజువు","నివాస సర్టిఫికేట్","బ్యాంక్ పాస్‌బుక్","రేషన్ కార్డ్"],
+    requirements_ml:["ভর্তার মৃত্যু সার্টিফিকেট","আধার","وরুমান সার্টিফিকেট","বয়স প্রমাণ","নিবাস সার্টিফিকেট","বাংক","রেশন কার্ড"],
+    requirements_kn:["ಪತಿಯ ಮರಣ ಸರ್ಟಿಫಿಕೇಟ್","ಆಧಾರ್","ಆದಾಯ ಪ್ರಮಾಣ","ವಯಸ್ಸಿನ ಪ್ರಮಾಣ","ನಿವಾಸ ಪ್ರಮಾಣ","ಬ್ಯಾಂಕ್ ಪಾಸ್‌ಬುಕ್","ರೇಷನ್ ಕಾರ್ಡ್"],
+    requirements_ur:["شوہر کا ڈیتھ سرٹیفکیٹ","آدھار","آمدنی سرٹیفکیٹ","عمر کا ثبوت","رہائش سرٹیفکیٹ","بینک پاس بک","راشن کارڈ"],
+    checkFields:[{id:"isWidow",type:"select",label_en:"Are you a widow?",label_ta:"நீங்கள் விதவையா?",label_hi:"क्या आप विधवा हैं?",label_te:"మీరు విధవ?",label_ml:"നിങ്ങൾ വിधவ?",label_kn:"ನೀವು ವಿಧವೆ?",label_ur:"کیا آپ بیوہ ہیں؟",options:[{val:"yes",en:"Yes",ta:"ஆம்",hi:"हाँ",te:"అవును",ml:"ആണ്",kn:"ಹೌದು",ur:"ہاں"},{val:"no",en:"No",ta:"இல்லை",hi:"नहीं",te:"కాదు",ml:"അല്ല",kn:"ಇಲ್ಲ",ur:"نہیں"}]},{id:"income4",type:"number",label_en:"Annual Income (₹)",label_ta:"ஆண்டு வருமானம்",label_hi:"वार्षिक आय",label_te:"వార్షిక ఆదాయం",label_ml:"வர்ஷ வருமானம்",label_kn:"ವಾರ್ಷಿಕ ಆದಾಯ",label_ur:"سالانہ آمدنی",min:0,max:9999999}],
+    checkFn:function(v){return v.isWidow==="yes" && parseInt(v.income4)<=36000;}
+  },
+  {
+    id:8, name_en:"Self-Employment Loan", name_ta:"சுயவேலைவாய்ப்பு கடன்", name_hi:"स्वरोजगार ऋण", name_te:"స్వయం ఉపాధి రుణం", name_ml:"স্বয়ং তোज়িল্ ওয়াইপ্পু", name_kn:"ಸ್ವಯಂ ಉದ್ಯೋಗ ಸಾಲ", name_ur:"خود روزگار قرضہ",
+    description_en:"Low-interest loans for unemployed youth and aspiring entrepreneurs to start small businesses. Subsidies and training support also offered.",
+    description_ta:"வேலையில்லாத இளைஞர்கள் மற்றும் தொழில் தொடங்க விரும்பும் ஆர்வலர்களுக்கு குறைந்த வட்டியில் கடன். மானியம் மற்றும் பயிற்சி உதவியும் வழங்கப்படும்.",
+    description_hi:"बेरोजगार युवाओं को छोटा व्यवसाय शुरू करने हेतु कम ब्याज पर ऋण। सब्सिडी और प्रशिक्षण भी उपलब्ध।",
+    description_te:"నిరుద్యోగ యువతకు చిన్న వ్యాపారం ప్రారంభించడానికి తక్కువ వడ్డీ రుణం. సబ్సిడీ మరియు శిక్షణ కూడా.",
+    description_ml:"ചെറുകിട ব্যবసায মা শুরু করতে নিরুদ্যোগ যুবাকদের কম সুদে ঋণ।",
+    description_kn:"ಸಣ್ಣ ವ್ಯಾಪಾರ ಪ್ರಾರಂಭಿಸಲು ನಿರುದ್ಯೋಗ ಯುವಕರಿಗೆ ಕಡಿಮೆ ಬಡ್ಡಿ ಸಾಲ.",
+    description_ur:"چھوٹا کاروبار شروع کرنے کے لیے بے روزگار نوجوانوں کو کم شرح سود پر قرضہ۔",
+    benefit_en:"Loan up to ₹2 Lakh @ 4% interest", benefit_ta:"₹2 லட்சம் வரை 4% வட்டியில்", benefit_hi:"₹2 लाख तक 4% ब्याज पर", benefit_te:"₹2 లక్షల వరకు 4% వడ్డీ", benefit_ml:"₹2 ലക്ഷം 4% പലിശ", benefit_kn:"₹2 ಲಕ್ಷ 4% ಬಡ್ಡಿ", benefit_ur:"₹2 لاکھ 4% سود",
+    eligibility_en:["Age 18–45 years","Currently unemployed","Tamil Nadu resident","Annual family income below ₹1.5 Lakh","Must not have defaulted on previous government loan","Business plan required"],
+    eligibility_ta:["வயது 18–45","தற்போது வேலையில்லாதவர்","தமிழ்நாட்டில் வசிப்பவர்","குடும்ப வருட வருமானம் ₹1.5 லட்சத்திற்கும் குறைவாக","முந்தைய அரசு கடனில் நாணயம் தவறியிருக்கக்கூடாது","தொழில் திட்டம் தேவை"],
+    eligibility_hi:["आयु 18–45","वर्तमान में बेरोजगार","TN निवासी","वार्षिक आय ₹1.5 लाख से कम","पूर्व सरकारी ऋण में चूक न हो","व्यवसाय योजना आवश्यक"],
+    eligibility_te:["వయస్సు 18–45","ప్రస్తుతం నిరుద్యోగి","TN నివాసి","కుటుంబ ఆదాయం ₹1.5 లక్ష కంటే తక్కువ","ముందు ప్రభుత్వ రుణ డిఫాల్ట్ లేదు","వ్యాపార ప్రణాళిక అవసరం"],
+    eligibility_ml:["వయস్ 18–45","ప్రస్తుతం నిరుద్యోగి","TN నివాసి","కుటుంబ ఆదాయం ₹1.5 లక్ష కంటే తక్కువ","ముందు ప్రభుత్వ రుణ Default లేదు","వ్యాపారం ప్రణాళిక అవసరం"],
+    eligibility_kn:["ವಯಸ್ಸು 18–45","ಪ್ರಸ್ತುತ ನಿರುದ್ಯೋಗಿ","TN ನಿವಾಸಿ","₹1.5 ಲಕ್ಷ ಕ್ಕಿಂತ ಕಡಿಮೆ","ಸರ್ಕಾರಿ ಸಾಲ ತಪ್ಪಿಲ್ಲ","ವ್ಯಾಪಾರ ಯೋಜನೆ ಬೇಕು"],
+    eligibility_ur:["عمر 18–45","فی الحال بے روزگار","TN رہائشی","سالانہ آمدنی ₹1.5 لاکھ سے کم","پہلے قرضے میں ڈیفالٹ نہیں","کاروباری منصوبہ ضروری"],
+    requirements_en:["Aadhaar card","Income certificate","Unemployment certificate","Business plan (written)","Bank passbook","Ration card","Educational certificates"],
+    requirements_ta:["ஆதார் அட்டை","வருமான சான்றிதழ்","வேலையில்லாமை சான்றிதழ்","தொழில் திட்டம் (எழுத்துப்பூர்வம்)","வங்கி பாஸ்புக்","குடும்ப அட்டை","கல்விச் சான்றுகள்"],
+    requirements_hi:["आधार","आय प्रमाण","बेरोजगारी प्रमाण","व्यवसाय योजना (लिखित)","बैंक पासबुक","राशन कार्ड","शैक्षिक प्रमाण"],
+    requirements_te:["ఆధార్","ఆదాయ సర్టిఫికేట్","నిరుద్యోగ సర్టిఫికేట్","వ్యాపార ప్రణాళిక","బ్యాంక్ పాస్‌బుక్","రేషన్ కార్డ్","విద్యా ధృవీకరణ"],
+    requirements_ml:["আধার","وরুমান সার্টিফিকেট","বেরোজগার সার্টিফিকেট","ব্যবসার পরিকল্পনা","বाংক পাসবুক","রেশন কার্ড","শিক্ষাগত সার্টিফিকেট"],
+    requirements_kn:["ಆಧಾರ್","ಆದಾಯ ಪ್ರಮಾಣ","ನಿರುದ್ಯೋಗ ಪ್ರಮಾಣ","ವ್ಯಾಪಾರ ಯೋಜನೆ","ಬ್ಯಾಂಕ್","ರೇಷನ್ ಕಾರ್ಡ್","ಶೈಕ್ಷಣಿಕ ದಾಖಲೆ"],
+    requirements_ur:["آدھار","آمدنی سرٹیفکیٹ","بے روزگاری سرٹیفکیٹ","کاروباری منصوبہ","بینک","راشن کارڈ","تعلیمی سرٹیفکیٹ"],
+    checkFields:[{id:"age2",type:"number",label_en:"Your Age",label_ta:"உங்கள் வயது",label_hi:"आपकी उम्र",label_te:"మీ వయస్సు",label_ml:"നിങ്ങളुടे प्रायം",label_kn:"ನಿಮ್ಮ ವಯಸ್ಸು",label_ur:"آپ کی عمر",min:16,max:60},{id:"income5",type:"number",label_en:"Annual Family Income (₹)",label_ta:"குடும்ப வருட வருமானம்",label_hi:"वार्षिक आय",label_te:"వార్షిక ఆదాయం",label_ml:"வர்ஷ வருமானம்",label_kn:"ವಾರ್ಷಿಕ ಆದಾಯ",label_ur:"سالانہ آمدنی",min:0,max:9999999}],
+    checkFn:function(v){return parseInt(v.age2)>=18 && parseInt(v.age2)<=45 && parseInt(v.income5)<=150000;}
+  },
+  {
+    id:9, name_en:"Educational Scholarship", name_ta:"கல்வி உதவித்தொகை", name_hi:"शैक्षिक छात्रवृत्ति", name_te:"విద్యా స్కాలర్‌షిప్", name_ml:"വിദ്യাഭ്യാസ സ്കോളർഷിപ്പ്", name_kn:"ಶೈಕ್ಷಣಿಕ ವಿದ್ಯಾರ್ಥಿವೇತನ", name_ur:"تعلیمی اسکالرشپ",
+    description_en:"Financial assistance to EWS students for higher/professional education covering tuition, books, and hostel expenses.",
+    description_ta:"பொருளாதார பின்தங்கிய பிரிவு மாணவர்களுக்கு உயர்கல்வி மற்றும் தொழிற்கல்விக்கான கல்விக்கட்டணம், புத்தகங்கள் மற்றும் விடுதி செலவு உதவி.",
+    description_hi:"आर्थिक रूप से कमजोर वर्ग के छात्रों को उच्च शिक्षा के लिए ट्यूशन, किताबें व हॉस्टल हेतु सहायता।",
+    description_te:"EWS విద్యార్థులకు ఉన్నత/వృత్తి విద్యా ట్యూషన్, పుస్తకాలు, హాస్టల్ ఖర్చుల కోసం సహాయం.",
+    description_ml:"EWS విద్యార్థులకు ఉన్నత/వృత్తి విద్యా ట్యూషన్, పుస్తకాలు, హాస్టల్ ఖర్చుల కోసం సహాయం.",
+    description_kn:"EWS ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಉನ್ನತ/ವೃತ್ತಿ ಶಿಕ್ಷಣ ಶುಲ್ಕ, ಪುಸ್ತಕ ಮತ್ತು ಹಾಸ್ಟೆಲ್ ಸಹಾಯ.",
+    description_ur:"EWS طلباء کو اعلیٰ تعلیم کے لیے ٹیوشن، کتب اور ہاسٹل اخراجات کی مدد۔",
+    benefit_en:"Up to ₹25,000/year", benefit_ta:"₹25,000 வரை/ஆண்டு", benefit_hi:"₹25,000 तक/वर्ष", benefit_te:"₹25,000 వరకు/సంవత్సరం", benefit_ml:"₹25,000/വർഷം", benefit_kn:"₹25,000/ವರ್ಷ", benefit_ur:"₹25,000/سال",
+    eligibility_en:["Student enrolled in govt-recognised institution","Family annual income below ₹1 Lakh","Tamil Nadu resident","Minimum 60% marks in previous exam","SC/ST/BC/MBC or EWS category"],
+    eligibility_ta:["அரசால் அங்கீகரிக்கப்பட்ட நிறுவனத்தில் சேர்ந்த மாணவர்","குடும்ப ஆண்டு வருமானம் ₹1 லட்சத்திற்கும் குறைவாக","தமிழ்நாட்டில் வசிப்பவர்","முந்தைய தேர்வில் குறைந்தது 60% மதிப்பெண்","SC/ST/BC/MBC அல்லது EWS பிரிவு"],
+    eligibility_hi:["सरकारी मान्यता प्राप्त संस्था में नामांकित","वार्षिक आय ₹1 लाख से कम","TN निवासी","पिछली परीक्षा में न्यूनतम 60%","SC/ST/BC/MBC या EWS वर्ग"],
+    eligibility_te:["ప్రభుత్వ గుర్తింపు పొందిన సంస్థలో చేరిక","కుటుంబ ఆదాయం ₹1 లక్ష కంటే తక్కువ","TN నివాసి","60% మార్కులు","SC/ST/BC/MBC లేదా EWS"],
+    eligibility_ml:["ಸrkkaar-man'yate sansthe","₹1 লाখ কম আয়","TN নিবাসী","60%+ নম্বর","SC/ST/BC/MBC বা EWS"],
+    eligibility_kn:["ಸರ್ಕಾರಿ ಮಾನ್ಯ ಶಿಕ್ಷಣ ಸಂಸ್ಥೆ","₹1 ಲಕ್ಷ ಕ್ಕಿಂತ ಕಡಿಮೆ","TN ನಿವಾಸಿ","60% ಅಂಕ","SC/ST/BC/MBC ಅಥವಾ EWS"],
+    eligibility_ur:["سرکاری تسلیم شدہ ادارے میں داخلہ","سالانہ آمدنی ₹1 لاکھ سے کم","TN رہائشی","60% نمبر","SC/ST/BC/MBC یا EWS"],
+    requirements_en:["Admission letter / ID card","Income certificate (family)","Caste/Community certificate","Previous mark sheet","Aadhaar","Bank passbook","Hostel fee receipt (if applicable)"],
+    requirements_ta:["சேர்க்கை கடிதம் / அடையாள அட்டை","குடும்ப வருமான சான்றிதழ்","சாதி/சமுதாய சான்றிதழ்","முந்தைய மதிப்பெண் சான்று","ஆதார்","வங்கி பாஸ்புக்","விடுதி கட்டண ரசீது (தேவைப்பட்டால்)"],
+    requirements_hi:["प्रवेश पत्र","आय प्रमाण","जाति प्रमाण","पिछली मार्कशीट","आधार","बैंक","हॉस्टल रसीद"],
+    requirements_te:["అడ్మిషన్ లెటర్","ఆదాయ సర్టిఫికేట్","కుల సర్టిఫికేట్","మార్క్ షీట్","ఆధార్","బ్యాంక్","హాస్టల్ రసీదు"],
+    requirements_ml:["অ্যাডমিশন লেটার","আয় সার্টিফিকেট","জাতি সার্টিফিকেট","মার্কশিট","আধার","বাংক","হস্টেল রশিদ"],
+    requirements_kn:["ಪ್ರವೇಶ ಪತ್ರ","ಆದಾಯ ಪ್ರಮಾಣ","ಜಾತಿ ಪ್ರಮಾಣ","ಮಾರ್ಕ್‌ಶೀಟ್","ಆಧಾರ್","ಬ್ಯಾಂಕ್","ಹಾಸ್ಟೆಲ್ ರಶೀದಿ"],
+    requirements_ur:["داخلہ خط","آمدنی سرٹیفکیٹ","ذات سرٹیفکیٹ","مارک شیٹ","آدھار","بینک","ہاسٹل رسید"],
+    checkFields:[{id:"income6",type:"number",label_en:"Annual Family Income (₹)",label_ta:"குடும்ப ஆண்டு வருமானம்",label_hi:"वार्षिक आय",label_te:"వార్షిక ఆదాయం",label_ml:"वர्ष வருமானம்",label_kn:"ವಾರ್ಷಿಕ ಆದಾಯ",label_ur:"سالانہ آمدنی",min:0,max:9999999},{id:"marks",type:"number",label_en:"Last exam percentage (%)",label_ta:"கடைசி தேர்வு மதிப்பெண் (%)",label_hi:"पिछली परीक्षा का प्रतिशत (%)",label_te:"చివరి పరీక్ష శాతం (%)",label_ml:"கடைசி தேர்வு மதிப்பெண் (%)",label_kn:"ಕೊನೆ ಪರೀಕ್ಷೆ ಶೇಕಡ (%)",label_ur:"آخری امتحان کا فیصد (%)",min:0,max:100}],
+    checkFn:function(v){return parseInt(v.income6)<=100000 && parseInt(v.marks)>=60;}
+  },
+  {id:10,name_en:"Disability Welfare",name_ta:"மாற்றுத்திறனாளிகள் நலன்",name_hi:"विकलांग कल्याण",name_te:"వికలాంగుల సంక్షేమం",name_ml:"ഭिन्न ශేഷി ക്ഷേมம്",name_kn:"ವಿಕಲಚೇತನರ ಕಲ್ಯಾಣ",name_ur:"معذور افراد کی بہبود",
+    description_en:"Assistive devices, artificial limbs, and monthly allowance for persons with disabilities to improve mobility and quality of life.",
+    description_ta:"மாற்றுத்திறனாளிகளுக்கு உதவி உபகரணங்கள், செயற்கை அவயவங்கள் மற்றும் மாதாந்திர பராமரிப்பு உதவித்தொகை.",
+    description_hi:"विकलांगों को सहायक उपकरण, कृत्रिम अंग और मासिक भत्ता।",
+    description_te:"వికలాంగులకు సహాయక పరికరాలు, కృత్రిమ అవయవాలు మరియు నెలవారీ భత్యం.",
+    description_ml:"ഭिन्नশEshi-क്കার്‍ക്ക् सহаय उপকরণ, கৃত্রিম অবয়ব ও মাসিক ভাত্তা.",
+    description_kn:"ವಿಕಲಚೇತನರಿಗೆ ಸಹಾಯಕ ಸಾಧನ, ಕೃತಕ ಅಂಗ ಮತ್ತು ಮಾಸಿಕ ಭತ್ಯೆ.",
+    description_ur:"معذوروں کے لیے امدادی آلات، مصنوعی اعضاء اور ماہانہ الاؤنس۔",
+    benefit_en:"Devices + ₹1,000/month", benefit_ta:"சாதனங்கள் + ₹1,000/மாதம்", benefit_hi:"उपकरण + ₹1,000/माह", benefit_te:"పరికరాలు + ₹1,000/నెల", benefit_ml:"ഉপকরണ + ₹1,000/மாสம்", benefit_kn:"ಸಾಧನ + ₹1,000/ತಿಂಗಳ", benefit_ur:"آلات + ₹1,000/ماہ",
+    eligibility_en:["Disability of 40% or more (certified)","Tamil Nadu resident","Annual income below ₹1 Lakh","Age 5 years and above","Certificate from recognised medical authority"],
+    eligibility_ta:["40% அல்லது அதற்கு மேல் மாற்றுத்திறன் (சான்றளிக்கப்பட்டது)","தமிழ்நாட்டில் வசிப்பவர்","ஆண்டு வருமானம் ₹1 லட்சத்திற்கும் குறைவாக","வயது 5 மற்றும் அதற்கு மேல்","அங்கீகரிக்கப்பட்ட மருத்துவ அதிகாரியிடம் சான்றிதழ்"],
+    eligibility_hi:["40% या अधिक विकलांगता (प्रमाणित)","TN निवासी","₹1 लाख से कम आय","आयु 5 वर्ष से ऊपर","मान्यता प्राप्त चिकित्सा प्राधिकरण से प्रमाण"],
+    eligibility_te:["40%+ వైకల్యం (ధృవీకరించబడింది)","TN నివాసి","₹1 లక్ష కంటే తక్కువ ఆదాయం","వయస్సు 5+","ధృవీకరించబడిన వైద్య సర్టిఫికేట్"],
+    eligibility_ml:["40%+ வைக்கல்யம் (ధృవీகరించబడింది)","TN నివాసి","₹1 লाখ ত কম আয়","বয়স 5+","স্বীকৃত মेडিकल সার্টিফিকেট"],
+    eligibility_kn:["40%+ ಅಂಗವೈಕಲ್ಯ (ಪ್ರಮಾಣಿತ)","TN ನಿವಾಸಿ","₹1 ಲಕ್ಷ ಕ್ಕಿಂತ ಕಡಿಮೆ","ವಯಸ್ಸು 5+","ಮಾನ್ಯ ವೈದ್ಯಕೀಯ ಸರ್ಟಿಫಿಕೇಟ್"],
+    eligibility_ur:["40%+ معذوری (تصدیق شدہ)","TN رہائشی","₹1 لاکھ سے کم آمدنی","عمر 5+","تسلیم شدہ طبی سرٹیفکیٹ"],
+    requirements_en:["Disability certificate (40%+)","Aadhaar card","Income certificate","Medical certificate from Govt hospital","Bank passbook","Residence proof","Age proof","Passport photo"],
+    requirements_ta:["மாற்றுத்திறன் சான்றிதழ் (40%+)","ஆதார் அட்டை","வருமான சான்றிதழ்","அரசு மருத்துவமனை மருத்துவ சான்றிதழ்","வங்கி பாஸ்புக்","வசிப்பிட சான்று","வயது சான்று","பாஸ்போர்ட் புகைப்படம்"],
+    requirements_hi:["विकलांगता प्रमाण (40%+)","आधार","आय प्रमाण","सरकारी अस्पताल का चिकित्सा प्रमाण","बैंक","निवास प्रमाण","आयु प्रमाण","फोटो"],
+    requirements_te:["వైకల్య సర్టిఫికేట్ (40%+)","ఆధార్","ఆదాయ సర్టిఫికేట్","ప్రభుత్వ ఆసుపత్రి సర్టిఫికేట్","బ్యాంక్","నివాస రుజువు","వయస్సు రుజువు","ఫోటో"],
+    requirements_ml:["বিকলাঙ্গ সার্টিফিকেট","আধার","আয় সার্টিফিকেট","সরকারি হাসপাতাল সার্টিফিকেট","বাংক","নিবাস","বয়স প্রমাণ","ছবি"],
+    requirements_kn:["ಅಂಗವೈಕಲ್ಯ ಸರ್ಟಿ","ಆಧಾರ್","ಆದಾಯ ಪ್ರಮಾಣ","ಸರ್ಕಾರಿ ಆಸ್ಪತ್ರೆ ಸರ್ಟಿ","ಬ್ಯಾಂಕ್","ನಿವಾಸ","ವಯಸ್ಸು","ಫೋಟೋ"],
+    requirements_ur:["معذوری سرٹیفکیٹ (40%+)","آدھار","آمدنی سرٹیفکیٹ","سرکاری ہسپتال سرٹیفکیٹ","بینک","رہائش","عمر","فوٹو"],
+    checkFields:[{id:"disabilityPct",type:"number",label_en:"Disability % (certified)",label_ta:"மாற்றுத்திறன் % (சான்றளிக்கப்பட்டது)",label_hi:"विकलांगता % (प्रमाणित)",label_te:"వైకల్యం % (ధృవీకరించబడింది)",label_ml:"விকலாங்க %",label_kn:"ಅಂಗವೈಕಲ್ಯ %",label_ur:"معذوری %",min:0,max:100}],
+    checkFn:function(v){return parseInt(v.disabilityPct)>=40;}
+  },
+  {id:11,name_en:"Unemployment Allowance",name_ta:"வேலைவாய்ப்பற்றோர் உதவி",name_hi:"बेरोजगारी भत्ता",name_te:"నిరుద్యోగ భృతి",name_ml:"ತೊझिलில്ലाय്മ ವেตनம்",name_kn:"ನಿರುದ್ಯೋಗ ಭತ್ಯೆ",name_ur:"بے روزگاری الاؤنس",
+    description_en:"Monthly allowance to registered educated unemployed youth while searching for jobs. Registration with employment office is mandatory.",
+    description_ta:"வேலை தேடும் பதிவு செய்யப்பட்ட படித்த வேலையில்லா இளைஞர்களுக்கு மாதாந்திர உதவித்தொகை.",
+    description_hi:"पंजीकृत शिक्षित बेरोजगार युवाओं को नौकरी तलाश के दौरान मासिक भत्ता।",
+    description_te:"ఉద్యోగ అన్వేషణలో ఉన్న నమోదు చేసిన విద్యావంతులైన నిరుద్యోగ యువతకు నెలవారీ భృతి.",
+    description_ml:"ತोझில् ಅন্বেষণতில் ఉন్న నమోদు నిరుద్యోగ యువతకু నెలవారీ ভাতা.",
+    description_kn:"ಉದ್ಯೋಗ ಹುಡುಕುತ್ತಿರುವ ನೋಂದಾಯಿತ ಶಿಕ್ಷಿತ ಯುವಕರಿಗೆ ಮಾಸಿಕ ಭತ್ಯೆ.",
+    description_ur:"ملازمت کی تلاش میں رجسٹرڈ تعلیم یافتہ بے روزگار نوجوانوں کو ماہانہ الاؤنس۔",
+    benefit_en:"₹500/month (educated)", benefit_ta:"₹500/மாதம்", benefit_hi:"₹500/माह", benefit_te:"₹500/నెల", benefit_ml:"₹500/மாสம்", benefit_kn:"₹500/ತಿಂಗಳ", benefit_ur:"₹500/ماہ",
+    eligibility_en:["Age 21–35 years","Minimum 10th pass","Registered with Employment Exchange","Not currently employed","Tamil Nadu resident","Annual family income below ₹75,000"],
+    eligibility_ta:["வயது 21–35","குறைந்தது 10ம் வகுப்பு தேர்ச்சி","வேலைவாய்ப்பு பரிமாற்ற அலுவலகத்தில் பதிவு செய்யப்பட்டவர்","தற்போது வேலையில் இல்லாதவர்","தமிழ்நாட்டில் வசிப்பவர்","குடும்ப ஆண்டு வருமானம் ₹75,000 க்குக் குறைவாக"],
+    eligibility_hi:["आयु 21–35","न्यूनतम 10वीं पास","रोजगार एक्सचेंज में पंजीकृत","वर्तमान में नियोजित नहीं","TN निवासी","वार्षिक आय ₹75,000 से कम"],
+    eligibility_te:["వయస్సు 21–35","కనీసం 10వ పాస్","ఎంప్లాయ్‌మెంట్ ఎక్స్ఛేంజ్ రిజిస్ట్రేషన్","ప్రస్తుతం ఉద్యోగంలో లేదు","TN నివాసి","₹75,000 కంటే తక్కువ"],
+    eligibility_ml:["வயஸ் 21–35","10ம் வகுப்பு","வேலைவாய்ப்பு பரிமாற்றம் பதிவு","ప్రస్తుతం ఉద్యోగంలో లేదు","TN నివాసి","₹75,000 కంటే తక్కువ"],
+    eligibility_kn:["ವಯಸ್ಸು 21–35","ಕನಿಷ್ಠ 10ನೇ","ಎಂಪ್ಲಾಯ್‌ಮೆಂಟ್ ಎಕ್ಸ್‌ಚೇಂಜ್ ನೋಂದಣಿ","ಪ್ರಸ್ತುತ ನಿರುದ್ಯೋಗ","TN ನಿವಾಸಿ","₹75,000 ಕ್ಕಿಂತ ಕಡಿಮೆ"],
+    eligibility_ur:["عمر 21–35","کم از کم 10ویں پاس","ایمپلائمنٹ ایکسچینج رجسٹریشن","فی الحال ملازم نہیں","TN رہائشی","₹75,000 سے کم"],
+    requirements_en:["Employment Exchange registration card","Educational certificates","Income certificate","Aadhaar card","Bank passbook","Residence proof"],
+    requirements_ta:["வேலைவாய்ப்பு பரிமாற்ற பதிவு அட்டை","கல்விச் சான்றுகள்","வருமான சான்றிதழ்","ஆதார் அட்டை","வங்கி பாஸ்புக்","வசிப்பிட சான்று"],
+    requirements_hi:["रोजगार एक्सचेंज कार्ड","शैक्षिक प्रमाण","आय प्रमाण","आधार","बैंक","निवास प्रमाण"],
+    requirements_te:["ఎంప్లాయ్‌మెంట్ ఎక్స్ఛేంజ్ కార్డ్","విద్యా సర్టిఫికేట్","ఆదాయ సర్టిఫికేట్","ఆధార్","బ్యాంక్","నివాస రుజువు"],
+    requirements_ml:["ஏmploimenT এক্সচেঞ্জ কার্ড","শিক্ষাগত সার্টিফিকেট","আয় সার্টিফিকেট","আধার","বাংক","নিবাস"],
+    requirements_kn:["ಎಂಪ್ಲಾಯ್‌ಮೆಂಟ್ ಕಾರ್ಡ್","ಶೈಕ್ಷಣಿಕ ಪ್ರಮಾಣ","ಆದಾಯ ಪ್ರಮಾಣ","ಆಧಾರ್","ಬ್ಯಾಂಕ್","ನಿವಾಸ"],
+    requirements_ur:["ایمپلائمنٹ ایکسچینج کارڈ","تعلیمی سرٹیفکیٹ","آمدنی سرٹیفکیٹ","آدھار","بینک","رہائش"],
+    checkFields:[{id:"age3",type:"number",label_en:"Your Age",label_ta:"உங்கள் வயது",label_hi:"आपकी उम्र",label_te:"మీ వయస్సు",label_ml:"نيங்கள் பrாயம்",label_kn:"ನಿಮ್ಮ ವಯಸ್ಸು",label_ur:"آپ کی عمر",min:15,max:60},{id:"income7",type:"number",label_en:"Annual Family Income (₹)",label_ta:"குடும்ப ஆண்டு வருமானம்",label_hi:"वार्षिक आय",label_te:"వార్షిక ఆదాయం",label_ml:"வர்ஷ வருமானம்",label_kn:"ವಾರ್ಷಿಕ ಆದಾಯ",label_ur:"سالانہ آمدنی",min:0,max:9999999}],
+    checkFn:function(v){return parseInt(v.age3)>=21 && parseInt(v.age3)<=35 && parseInt(v.income7)<=75000;}
+  },
+  {id:12,name_en:"Community Certificate Service",name_ta:"சாதிச் சான்றிதழ் சேவை",name_hi:"जाति प्रमाण पत्र सेवा",name_te:"కుల ధృవీకరణ పత్రం సేవ",name_ml:"കമ്മ്യൂणिटी सर्टिफिकेट്",name_kn:"ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ ಸೇವೆ",name_ur:"کمیونٹی سرٹیفکیٹ سروس",
+    description_en:"Issuance of community certificates for reservation benefits in education and government employment.",
+    description_ta:"கல்வி மற்றும் அரசு வேலைவாய்ப்பில் இடஒதுக்கீடு பெற சாதிச் சான்றிதழ் வழங்கும் சேவை.",
+    description_hi:"शिक्षा और सरकारी नौकरी में आरक्षण के लिए जाति प्रमाण पत्र जारी करना।",
+    description_te:"విద్య మరియు ప్రభుత్వ ఉపాధిలో రిజర్వేషన్ కోసం కమ్యూనిటీ సర్టిఫికేట్ జారీ.",
+    description_ml:"విద్య ও ప్రభుత్వ ఉద్యోగంలో రిజర్వేషన్ కోసం కమ్యూనిటీ సర్టిఫికేట్.",
+    description_kn:"ಶಿಕ್ಷಣ ಮತ್ತು ಸರ್ಕಾರಿ ಉದ್ಯೋಗದಲ್ಲಿ ಮೀಸಲಾತಿಗೆ ಜಾತಿ ಪ್ರಮಾಣಪತ್ರ.",
+    description_ur:"تعلیم و سرکاری ملازمت میں ریزرویشن کے لیے کمیونٹی سرٹیفکیٹ جاری کرنا۔",
+    benefit_en:"Free Certificate Issuance", benefit_ta:"இலவச சான்றிதழ்", benefit_hi:"मुफ्त प्रमाण पत्र", benefit_te:"ఉచిత సర్టిఫికేట్", benefit_ml:"ഉчित সার্টিফিকেট", benefit_kn:"ಉಚಿತ ಸರ್ಟಿ", benefit_ur:"مفت سرٹیفکیٹ",
+    eligibility_en:["Belongs to SC / ST / BC / MBC / OBC category","Tamil Nadu resident","Family ancestry documents available","First-time application or renewal"],
+    eligibility_ta:["SC / ST / BC / MBC / OBC பிரிவைச் சேர்ந்தவர்","தமிழ்நாட்டில் வசிப்பவர்","குடும்ப வரலாற்று ஆவணங்கள் கிடைக்கும்","முதல் முறை விண்ணப்பம் அல்லது புதுப்பித்தல்"],
+    eligibility_hi:["SC/ST/BC/MBC/OBC श्रेणी","TN निवासी","पारिवारिक दस्तावेज उपलब्ध","पहली बार या नवीनीकरण"],
+    eligibility_te:["SC/ST/BC/MBC/OBC వర్గం","TN నివాసి","కుటుంబ పత్రాలు","మొదటిసారి లేదా నవీకరణ"],
+    eligibility_ml:["SC/ST/BC/MBC/OBC","TN నివాసి","కుటుంబ రేఖ రేఖీయ పత్రాలు","మొదటిసారి లేదా నవీకరణ"],
+    eligibility_kn:["SC/ST/BC/MBC/OBC","TN ನಿವಾಸಿ","ಕುಟುಂಬ ದಾಖಲೆ","ಮೊದಲ ಬಾರಿ ಅಥವಾ ನವೀಕರಣ"],
+    eligibility_ur:["SC/ST/BC/MBC/OBC زمرہ","TN رہائشی","خاندانی دستاویزات","پہلی بار یا تجدید"],
+    requirements_en:["Aadhaar card","Ration card / Family card","Father's community certificate (if available)","School transfer certificate","Revenue records","Residence proof"],
+    requirements_ta:["ஆதார் அட்டை","குடும்ப அட்டை","தந்தையின் சாதி சான்றிதழ் (கிடைத்தால்)","பள்ளி இடமாற்றுச் சான்றிதழ்","வருவாய் பதிவுகள்","வசிப்பிட சான்று"],
+    requirements_hi:["आधार","राशन/परिवार कार्ड","पिता का जाति प्रमाण","स्कूल TC","राजस्व रिकॉर्ड","निवास प्रमाण"],
+    requirements_te:["ఆధార్","రేషన్/కుటుంబ కార్డ్","తండ్రి కుల సర్టిఫికేట్","TC","రెవెన్యూ రికార్డులు","నివాస రుజువు"],
+    requirements_ml:["আধার","রেশন কার্ড","পিতার জাতি সার্টিফিকেট","TC","রাজস্ব নথি","নিবাস"],
+    requirements_kn:["ಆಧಾರ್","ರೇಷನ್ ಕಾರ್ಡ್","ತಂದೆಯ ಜಾತಿ ಸರ್ಟಿ","TC","ಕಂದಾಯ ದಾಖಲೆ","ನಿವಾಸ"],
+    requirements_ur:["آدھار","راشن/خاندانی کارڈ","والد کا ذات سرٹیفکیٹ","TC","ریونیو ریکارڈ","رہائش"],
+    checkFields:[{id:"casteCategory",type:"select",label_en:"Caste Category",label_ta:"சாதி வகை",label_hi:"जाति वर्ग",label_te:"కుల వర్గం",label_ml:"ജाതि",label_kn:"ಜಾತಿ ವರ್ಗ",label_ur:"ذات زمرہ",options:[{val:"sc",en:"SC",ta:"SC",hi:"SC",te:"SC",ml:"SC",kn:"SC",ur:"SC"},{val:"st",en:"ST",ta:"ST",hi:"ST",te:"ST",ml:"ST",kn:"ST",ur:"ST"},{val:"bc",en:"BC",ta:"BC",hi:"BC",te:"BC",ml:"BC",kn:"BC",ur:"BC"},{val:"mbc",en:"MBC",ta:"MBC",hi:"MBC",te:"MBC",ml:"MBC",kn:"MBC",ur:"MBC"},{val:"gen",en:"General",ta:"பொது",hi:"सामान्य",te:"జనరల్",ml:"General",kn:"ಸಾಮಾನ್ಯ",ur:"عام"}]}],
+    checkFn:function(v){return v.casteCategory!=="gen";}
+  }
+]};
+
+// ── i18n label maps ──
+const LABELS = {
+  eligibility:   {en:"Eligibility Criteria",ta:"தகுதி நிபந்தனைகள்",hi:"पात्रता मानदंड",te:"అర్హతా ప్రమాణాలు",ml:"അർഹതാ മാനദണ്ഡങ്ങൾ",kn:"ಅರ್ಹತಾ ಮಾನದಂಡಗಳು",ur:"اہلیت کے معیارات"},
+  requirements:  {en:"Required Documents",ta:"தேவையான ஆவணங்கள்",hi:"आवश्यक दस्तावेज",te:"అవసరమైన పత్రాలు",ml:"ആവശ്യമായ രേഖകൾ",kn:"ಅಗತ್ಯ ದಾಖಲೆಗಳು",ur:"ضروری دستاویزات"},
+  benefit:       {en:"Benefit",ta:"சலுகை",hi:"लाभ",te:"ప్రయోజనం",ml:"ആനുകൂല്യം",kn:"ಪ್ರಯೋಜನ",ur:"فائدہ"},
+  checkElig:     {en:"Check Your Eligibility",ta:"உங்கள் தகுதியை சரிபார்க்கவும்",hi:"पात्रता जांचें",te:"మీ అర్హత తనిఖీ చేయండి",ml:"നിങ്ങളുടെ അർഹത പരിശോധിക്കുക",kn:"ನಿಮ್ಮ ಅರ್ಹತೆ ಪರಿಶೀಲಿಸಿ",ur:"اپنی اہلیت چیک کریں"},
+  checkNow:      {en:"Check Now",ta:"இப்போதே சரிபார்க்கவும்",hi:"अभी जांचें",te:"ఇప్పుడే తనిఖీ చేయండి",ml:"ഇപ്പോൾ പരിശോധിക്കുക",kn:"ಈಗ ಪರಿಶೀಲಿಸಿ",ur:"ابھی چیک کریں"},
+  eligible:      {en:"✅ You appear eligible for this scheme!",ta:"✅ நீங்கள் இத்திட்டத்திற்கு தகுதியானவராகத் தோன்றுகிறீர்கள்!",hi:"✅ आप इस योजना के पात्र लगते हैं!",te:"✅ మీరు ఈ పథకానికి అర్హులుగా కనిపిస్తున్నారు!",ml:"✅ ഈ പദ്ധതിക്ക് നിങ്ങൾ അർഹരാണ്!",kn:"✅ ನೀವು ಈ ಯೋಜನೆಗೆ ಅರ್ಹರಾಗಿ ಕಾಣುತ್ತೀರಿ!",ur:"✅ آپ اس اسکیم کے لیے اہل معلوم ہوتے ہیں!"},
+  notEligible:   {en:"❌ You may not meet the basic criteria for this scheme.",ta:"❌ நீங்கள் இத்திட்டத்தின் அடிப்படை நிபந்தனைகளை பூர்த்தி செய்யாமல் இருக்கலாம்.",hi:"❌ आप इस योजना की बुनियादी पात्रता शर्तें पूरी नहीं करते।",te:"❌ మీరు ఈ పథకానికి అర్హత ప్రమాణాలు తీర్చడం లేదు.",ml:"❌ ഈ പദ്ധതിയുടെ അടിസ്ഥാന മാനദണ്ഡങ്ങൾ നിറവേറ്റിയേക്കില്ല.",kn:"❌ ಈ ಯೋಜನೆಯ ಮೂಲ ಮಾನದಂಡ ಪೂರೈಸದಿರಬಹುದು.",ur:"❌ آپ اس اسکیم کے بنیادی معیارات پورے نہیں کرتے۔"}
+};
+
+
+function L(obj){return obj[currentLang]||obj.en;}
+
+
+// ── District change ──
+document.getElementById("district").addEventListener("change", function(){
+  const d=this.value, tk=document.getElementById("taluk"), sk=document.getElementById("scheme");
+  tk.innerHTML=`<option value="">${L({en:"Select Taluk",ta:"வட்டத்தைத் தேர்ந்தெடுக்கவும்",hi:"तालुका चुनें",te:"తాలూకా ఎంచుకోండి",ml:"താലൂക്ക് തിരഞ്ഞെടുക്കുക",kn:"ತಾಲ್ಲೂಕ ಆರಿಸಿ",ur:"تعلقہ منتخب کریں"})}</option>`;
+  sk.innerHTML=`<option value="">${L({en:"Select Scheme",ta:"திட்டம்",hi:"योजना",te:"పథకం",ml:"പദ്ധതി",kn:"ಯೋಜನೆ",ur:"اسکیم"})}</option>`;
+  hideSchemePanel();
+  if(d in data) data[d].forEach(t=>{const o=document.createElement("option");o.value=o.text=t;tk.appendChild(o);});
+});
+
+document.getElementById("taluk").addEventListener("change", function(){
+  const sk=document.getElementById("scheme");
+  sk.innerHTML=`<option value="">${L({en:"Select Scheme",ta:"திட்டத்தைத் தேர்ந்தெடுக்கவும்",hi:"योजना चुनें",te:"పథకాన్ని ఎంచుకోండి",ml:"പദ്ധതി തിരഞ്ഞെടുക്കുക",kn:"ಯೋಜನೆ ಆರಿಸಿ",ur:"اسکیم منتخب کریں"})}</option>`;
+  hideSchemePanel();
+  schemeData.schemes.forEach(s=>{const o=document.createElement("option");o.value=s.id;o.text=s[`name_${currentLang}`]||s.name_en;sk.appendChild(o);});
+});
+
+function hideSchemePanel(){
+  document.getElementById("schemeDetails").style.display="none";
+  document.getElementById("eligCheckPanel").style.display="none";
+  document.getElementById("eligCheckResult").style.display="none";
+}
+
+// ── Scheme selection → show details + eligibility ──
+function displaySchemeDetails() {
+    const selectedId = document.getElementById('scheme').value;
+    const detailsDiv = document.getElementById('schemeDetails');
+    const scheme = schemeData.schemes.find(s => s.id == selectedId);
+
+    if (scheme) {
+        detailsDiv.style.display = 'block';
+        document.getElementById('detailTitle').innerText = scheme[`name_${currentLang}`] || scheme.name_en;
+        document.getElementById('detailDesc').innerText = scheme[`description_${currentLang}`] || scheme.description_en;
+
+        // Update Eligibility List
+        const eligList = document.getElementById('eligibilityList');
+        eligList.innerHTML = '';
+        const eligItems = scheme[`eligibility_${currentLang}`] || scheme.eligibility_en || [];
+        eligItems.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            eligList.appendChild(li);
+        });
+
+        // --- DYNAMIC REQUIREMENTS WITH FILE UPLOADS ---
+        const reqList = document.getElementById('requirementsList');
+        reqList.innerHTML = '';
+        
+        const reqItems = scheme[`requirements_${currentLang}`] || scheme.requirements_en || [];
+
+        reqItems.forEach((item, index) => {
+            const li = document.createElement('li');
+            li.style.background = "#fff";
+            li.style.border = "1px solid #dee2e6";
+            li.style.borderRadius = "10px";
+            li.style.padding = "15px";
+            li.style.marginBottom = "10px";
+            li.style.listStyle = "none";
+            
+            li.innerHTML = `
+                <div class="row align-items-center">
+                    <div class="col-md-7">
+                        <span class="fw-bold text-primary">
+                            <i class="fas fa-file-upload me-2"></i>${item}
+                        </span>
+                    </div>
+                    <div class="col-md-5">
+                        <input 
+                            type="file" 
+                            name="doc_${index}" 
+                            class="form-control form-control-sm" 
+                            accept="image/*,application/pdf"
+                            required>
+                        <small class="text-muted">PDF/Image (Max 5MB)</small>
+                    </div>
+                </div>
+            `;
+            reqList.appendChild(li);
+        });
+
+        // Update Benefit Badge
+        const benefitRow = document.getElementById('benefitRow');
+        const benefitText = scheme[`benefit_${currentLang}`] || scheme.benefit_en;
+        benefitRow.innerHTML = `
+            <div class="badge bg-success p-3 mt-2 w-100" style="font-size: 1rem; border-radius:10px;">
+                <i class="fas fa-gift me-2"></i>${L(LABELS.benefit)}: ${benefitText}
+            </div>`;
+        
+        setupEligibilityFields(scheme);
+    } else {
+        hideSchemePanel();
+    }
+}
+document.querySelector('form').addEventListener('submit', function(e) {
+    const formData = new FormData(this);
+    console.log("=== FORM SUBMISSION DEBUG ===");
+    
+    for (let [key, value] of formData.entries()) {
+        if (value instanceof File) {
+            console.log(`${key}: ${value.name} (${value.size} bytes)`);
+        }
+    }
+    
+    // Don't prevent submission, just log
+});
+function setupEligibilityFields(scheme) {
+    const fieldContainer = document.getElementById('eligCheckFields');
+    const panel = document.getElementById('eligCheckPanel');
+    fieldContainer.innerHTML = '';
+    
+    if (scheme.checkFields) {
+        panel.style.display = 'block';
+        scheme.checkFields.forEach(f => {
+            let html = `<div class="col-md-6"><label class="small fw-bold">${f[`label_${currentLang}`]}</label>`;
+            if (f.type === 'select') {
+                html += `<select id="chk_${f.id}" class="form-select form-select-sm">`;
+                f.options.forEach(opt => {
+                    html += `<option value="${opt.val}">${opt[currentLang] || opt.en}</option>`;
+                });
+                html += `</select>`;
+            } else {
+                html += `<input type="number" id="chk_${f.id}" class="form-control form-control-sm">`;
+            }
+            html += `</div>`;
+            fieldContainer.innerHTML += html;
+        });
+    } else {
+        panel.style.display = 'none';
+    }
+}
+
+// ── Run eligibility check ──
+function checkEligibility() {
+    const id = document.getElementById("scheme").value;
+    const s = schemeData.schemes.find(x => x.id == id);
+    if (!s || !s.checkFn) return;
+
+    const v = {};
+    (s.checkFields || []).forEach(f => {
+        const el = document.getElementById(`chk_${f.id}`);
+        if (el) v[f.id] = el.value;
+    });
+
+    const ok = s.checkFn(v);
+    const res = document.getElementById("eligCheckResult");
+    
+    res.style.display = "block";
+    res.style.background = ok ? "#e8f5e9" : "#fce4ec";
+    res.style.color = ok ? "#1b5e20" : "#b71c1c";
+    res.innerHTML = `<i class="fas fa-${ok ? "check" : "times"}-circle me-2"></i>${L(ok ? LABELS.eligible : LABELS.notEligible)}`;
+}
+document.getElementById('applicationForm').addEventListener('submit', function(e) {
+    const formData = new FormData(this);
+    console.log("=== FORM SUBMISSION DEBUG ===");
+    
+    let fileCount = 0;
+    for (let [key, value] of formData.entries()) {
+        if (value instanceof File && value.size > 0) {
+            console.log(`${key}: ${value.name} (${value.size} bytes)`);
+            fileCount++;
+        }
+    }
+    
+    console.log(`Total files: ${fileCount}`);
+    
+    // Don't prevent submission - just log
+});
+</script>
+</body>
+</html>

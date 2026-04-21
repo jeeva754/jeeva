@@ -1,0 +1,831 @@
+{% import "translations.html" as i18n with context %}
+
+<!DOCTYPE html>
+<html lang="{{ session.get('lang', 'en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ i18n.translate("Citizen Dashboard") }} | TN Gov</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        :root {
+            --tn-blue:    #003366;
+            --tn-accent:  #2563eb;
+            --tn-gold:    #FFD700;
+            --tn-green:   #10b981;
+            --tn-orange:  #f97316;
+            --tn-red:     #ef4444;
+            --sidebar-width: 280px;
+            --bg-soft:    #f4f7fe;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', 'Segoe UI', 'Tamil MN', sans-serif;
+            background: var(--bg-soft);
+            color: #1e293b;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            position: fixed;
+            background: white;
+            border-right: 1px solid #e2e8f0;
+            padding: 2rem 1.5rem;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+        }
+
+        .sidebar-brand {
+            display: flex; align-items: center; gap: 12px;
+            margin-bottom: 2.5rem;
+            color: var(--tn-blue); font-weight: 700; font-size: 1.2rem;
+            text-decoration: none;
+        }
+
+        .nav-section-label {
+            font-size: 0.65rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1.2px;
+            color: #94a3b8; padding: 0 15px;
+            margin: 18px 0 6px;
+        }
+
+        .nav-link {
+            display: flex; align-items: center;
+            padding: 11px 15px;
+            color: #64748b; text-decoration: none;
+            border-radius: 12px; margin-bottom: 3px;
+            transition: all 0.25s; font-size: 0.9rem; font-weight: 500;
+            position: relative;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: #eff6ff; color: var(--tn-accent);
+        }
+        .nav-link i { margin-right: 11px; width: 18px; text-align: center; }
+
+        /* badge on nav item */
+        .nav-badge {
+            margin-left: auto;
+            background: var(--tn-red); color: white;
+            font-size: 0.65rem; font-weight: 800;
+            padding: 2px 7px; border-radius: 20px;
+            min-width: 20px; text-align: center;
+        }
+
+        .nav-divider { border-color: #e2e8f0; margin: 16px 0; }
+
+        /* ── MAIN ── */
+        .main-wrapper {
+            margin-left: var(--sidebar-width);
+            padding: 2rem 2.5rem;
+        }
+
+        /* ── HERO ── */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--tn-blue) 0%, #1e40af 100%);
+            border-radius: 22px;
+            padding: 2.5rem 3rem;
+            color: white;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0,51,102,0.12);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        /* ── STAT CARDS ── */
+        .stat-card {
+            background: white; border-radius: 18px;
+            padding: 1.4rem 1.6rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            display: flex; align-items: center; gap: 16px;
+            transition: 0.25s;
+        }
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+        }
+        .stat-icon {
+            width: 52px; height: 52px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; flex-shrink: 0;
+        }
+        .stat-number { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+        .stat-label  { font-size: 0.78rem; color: #64748b; font-weight: 500; margin-top: 3px; }
+
+        /* ── ACTION CARDS ── */
+        .card-gov {
+            background: white; padding: 1.8rem;
+            border-radius: 18px; border: 1px solid #e2e8f0;
+            text-align: center; transition: 0.3s; height: 100%;
+        }
+        .card-gov:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        .card-gov .icon-wrap {
+            width: 64px; height: 64px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem; margin: 0 auto 1rem;
+        }
+        .btn-action {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--tn-accent); color: white;
+            padding: 10px 22px; border-radius: 10px;
+            font-weight: 600; text-decoration: none;
+            transition: 0.2s; margin-top: 1rem; font-size: 0.88rem;
+        }
+        .btn-action:hover { background: #1d4ed8; color: white; }
+
+        /* orange variant for complaint action */
+        .btn-action.orange { background: var(--tn-orange); }
+        .btn-action.orange:hover { background: #ea6c00; }
+
+        /* ── CHART CARDS ── */
+        .chart-card {
+            background: white; border-radius: 18px; padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04); height: 100%;
+        }
+        .chart-title {
+            font-weight: 600; color: #334155;
+            margin-bottom: 1.2rem; font-size: 0.95rem;
+            display: flex; align-items: center; gap: 8px;
+        }
+
+        /* ── COMPLAINT STATUS WIDGET ── */
+        .complaint-widget {
+            background: white; border-radius: 18px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+
+        .cw-header {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            padding: 18px 22px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .cw-header h6 {
+            color: white; font-weight: 700; margin: 0; font-size: 0.9rem;
+        }
+
+        .cw-stats {
+            display: flex; gap: 8px; padding: 16px 22px;
+            border-bottom: 1px solid #f1f5f9;
+            flex-wrap: wrap;
+        }
+
+        .cw-stat {
+            flex: 1; min-width: 70px; text-align: center;
+            background: #f8fafc; border-radius: 10px; padding: 10px 8px;
+        }
+        .cw-stat-num  { font-size: 1.3rem; font-weight: 700; line-height: 1; }
+        .cw-stat-lbl  { font-size: 0.65rem; font-weight: 600; color: #94a3b8; margin-top: 3px; text-transform: uppercase; }
+
+        /* Recent complaint rows */
+        .complaint-row {
+            padding: 14px 22px;
+            border-bottom: 1px solid #f8fafc;
+            display: flex; align-items: flex-start;
+            gap: 14px; transition: 0.2s;
+        }
+        .complaint-row:last-child { border-bottom: none; }
+        .complaint-row:hover { background: #fafafa; }
+
+        .cr-cat-icon {
+            width: 36px; height: 36px; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.9rem; flex-shrink: 0;
+            background: #fff7ed; color: var(--tn-orange);
+        }
+
+        .cr-subject {
+            font-weight: 600; font-size: 0.85rem;
+            color: #1e293b; margin-bottom: 3px;
+            white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+            max-width: 200px;
+        }
+
+        .cr-meta { font-size: 0.72rem; color: #94a3b8; }
+
+        .cr-status {
+            margin-left: auto; flex-shrink: 0;
+            padding: 4px 10px; border-radius: 100px;
+            font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
+        }
+        .crs-open      { background:#fff7ed; color:#9a3412; }
+        .crs-in-progress{ background:#eff6ff; color:#1d4ed8; }
+        .crs-resolved  { background:#f0fdf4; color:#166534; }
+        .crs-closed    { background:#f1f5f9; color:#475569; }
+
+        /* Gov reply indicator */
+        .cr-reply-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--tn-green); flex-shrink: 0;
+            margin-top: 4px; animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0%   { box-shadow: 0 0 0 0 rgba(16,185,129,0.6); }
+            70%  { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+            100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+        }
+
+        .cw-footer {
+            padding: 12px 22px; text-align: center;
+            border-top: 1px solid #f1f5f9;
+        }
+
+        .btn-view-all {
+            font-size: 0.8rem; font-weight: 700;
+            color: var(--tn-orange); text-decoration: none;
+            display: inline-flex; align-items: center; gap: 6px;
+        }
+        .btn-view-all:hover { color: #ea580c; }
+
+        /* ── CHATBOT ── */
+        .chatbox {
+            position: fixed; bottom: 90px; right: 25px;
+            width: 380px; background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            display: flex; flex-direction: column;
+            z-index: 1001; overflow: hidden;
+            transform: scale(0.85) translateY(20px);
+            opacity: 0; pointer-events: none;
+            transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s ease;
+            transform-origin: bottom right;
+        }
+        .chatbox.open { transform: scale(1) translateY(0); opacity: 1; pointer-events: all; }
+
+        .chat-fab {
+            position: fixed; bottom: 25px; right: 25px;
+            width: 56px; height: 56px; border-radius: 50%;
+            background: var(--tn-blue); color: white;
+            border: none; box-shadow: 0 8px 24px rgba(0,51,102,.35);
+            cursor: pointer; z-index: 1002;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; transition: background .25s, transform .25s;
+        }
+        .chat-fab:hover { background: #002244; transform: scale(1.08); }
+        .chat-fab .notif-dot {
+            position: absolute; top: 6px; right: 6px;
+            width: 10px; height: 10px; background: var(--tn-red);
+            border-radius: 50%; border: 2px solid white;
+            animation: pulse-red 1.8s infinite;
+        }
+        @keyframes pulse-red {
+            0%   { box-shadow: 0 0 0 0 rgba(239,68,68,.6); }
+            70%  { box-shadow: 0 0 0 8px rgba(239,68,68,0); }
+            100% { box-shadow: 0 0 0 0 rgba(239,68,68,0); }
+        }
+
+        .chat-header { background: var(--tn-blue); color: white; padding: 15px; font-weight: bold; }
+        .chat-body   { height: 350px; overflow-y: auto; padding: 15px; background: #f8fafc; }
+        .msg         { padding: 12px; margin: 8px 0; border-radius: 12px; max-width: 85%; font-size: 0.9rem; }
+        .user        { background: var(--tn-accent); color: white; margin-left: auto; }
+        .bot         { background: white; color: #333; border: 1px solid #e2e8f0; }
+        .chat-input  { display: flex; padding: 10px; border-top: 1px solid #eee; }
+        .chat-input input { flex: 1; border: none; outline: none; padding: 10px; }
+
+        @media (max-width: 992px) {
+            .sidebar      { display: none; }
+            .main-wrapper { margin-left: 0; padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     SIDEBAR
+═══════════════════════════════════════════ -->
+<div class="sidebar">
+    <a href="/user/dashboard" class="sidebar-brand">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" height="38">
+        <span>TN Connect</span>
+    </a>
+
+    <nav style="flex:1;">
+        <!-- Applications -->
+        <div class="nav-section-label">{{ i18n.translate("Applications") }}</div>
+        <a href="/user/dashboard" class="nav-link active">
+            <i class="fa fa-home"></i> {{ i18n.translate("Citizen Dashboard") }}
+        </a>
+        <a href="/apply_grievance" class="nav-link">
+            <i class="fa fa-pen-to-square"></i> {{ i18n.translate("Apply Now") }}
+        </a>
+        <a href="/my_grievances" class="nav-link">
+            <i class="fa fa-list-check"></i> {{ i18n.translate("View Status") }}
+        </a>
+        <a href="/profile" class="nav-link"><i class="fa fa-user-pen"></i> {{ i18n.translate("My Profile") }}</a>
+        <a href="/recommendations" class="nav-link"><i class="fa fa-lightbulb"></i> {{ i18n.translate("Recommendations") }}</a>
+
+
+        <!-- Complaints -->
+        <div class="nav-section-label">{{ i18n.translate("Complaints") }}</div>
+        <a href="/raise_complaint" class="nav-link">
+            <i class="fa fa-circle-plus"></i> {{ i18n.translate("Raise Complaint") }}
+        </a>
+        <a href="/my_complaints" class="nav-link">
+            <i class="fa fa-headset"></i> {{ i18n.translate("My Complaints") }}
+            {% if unread_replies and unread_replies > 0 %}
+            <span class="nav-badge">{{ unread_replies }}</span>
+            {% endif %}
+        </a>
+
+        <!-- Account -->
+        <div class="nav-section-label">{{ i18n.translate("Account") }}</div>
+        <a href="/profile" class="nav-link">
+            <i class="fa fa-user-pen"></i> {{ i18n.translate("My Profile") }}
+        </a>
+        <a href="/recommendations" class="nav-link">
+            <i class="fa fa-lightbulb"></i> {{ i18n.translate("Recommendations") }}
+        </a>
+
+        <hr class="nav-divider">
+        <a href="/logout" class="nav-link" style="color:#ef4444;">
+            <i class="fa fa-sign-out-alt"></i> {{ i18n.translate("Logout") }}
+        </a>
+    </nav>
+</div>
+
+<!-- ══════════════════════════════════════════
+     MAIN CONTENT
+═══════════════════════════════════════════ -->
+<div class="main-wrapper">
+
+    <!-- Top greeting row -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2 class="fw-bold mb-0">{{ i18n.translate("Welcome") }}, {{ name }}</h2>
+            <p class="text-muted mb-0 small">
+                <i class="fa fa-location-dot me-1 text-primary"></i>
+                {{ district }} {{ i18n.translate("District") }}
+            </p>
+        </div>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" height="48">
+    </div>
+
+    <!-- Hero banner -->
+    <div class="hero-banner mb-4">
+        <div>
+            <h4 class="fw-bold mb-2">{{ i18n.translate("Government of Tamil Nadu") }}</h4>
+            <p class="mb-0 opacity-75 small">
+                {{ i18n.translate("Integrated Citizen Welfare Portal - Providing seamless access to government services.") }}
+            </p>
+        </div>
+        <div class="d-none d-md-flex gap-3">
+            <a href="/apply_grievance" class="btn-action">
+                <i class="fa fa-plus"></i> Apply
+            </a>
+            <a href="/raise_complaint" class="btn-action orange">
+                <i class="fa fa-bullhorn"></i> Complain
+            </a>
+        </div>
+    </div>
+
+    <!-- ── STAT CARDS ROW ── -->
+    <div class="row g-3 mb-4">
+        <!-- Grievance stats -->
+        <div class="col-6 col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon" style="background:#eff6ff; color:var(--tn-accent);">
+                    <i class="fa fa-file-lines"></i>
+                </div>
+                <div>
+                    <div class="stat-number">{{ (g_stats.get('Pending',0) + g_stats.get('Approved',0) + g_stats.get('Rejected',0)) }}</div>
+                    <div class="stat-label">Total Applications</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon" style="background:#fffbeb; color:#b45309;">
+                    <i class="fa fa-clock"></i>
+                </div>
+                <div>
+                    <div class="stat-number" style="color:#b45309;">{{ g_stats.get('Pending', 0) }}</div>
+                    <div class="stat-label">Pending Apps</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon" style="background:#f0fdf4; color:var(--tn-green);">
+                    <i class="fa fa-circle-check"></i>
+                </div>
+                <div>
+                    <div class="stat-number" style="color:var(--tn-green);">{{ g_stats.get('Approved', 0) }}</div>
+                    <div class="stat-label">Approved Apps</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="stat-card">
+                <div class="stat-icon" style="background:#fff7ed; color:var(--tn-orange);">
+                    <i class="fa fa-headset"></i>
+                </div>
+                <div>
+                    <div class="stat-number" style="color:var(--tn-orange);">
+                        {{ (c_stats.get('Open',0) + c_stats.get('In Progress',0) + c_stats.get('Resolved',0) + c_stats.get('Closed',0)) }}
+                    </div>
+                    <div class="stat-label">Total Complaints</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── ACTION CARDS ── -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-3">
+            <div class="card-gov">
+                <div class="icon-wrap" style="background:#eff6ff; color:var(--tn-accent);">
+                    <i class="fa fa-file-signature"></i>
+                </div>
+                <h6 class="fw-700 mb-2">{{ i18n.translate("Apply for Grievance") }}</h6>
+                <p class="text-muted small mb-0">{{ i18n.translate("Submit a new scheme application.") }}</p>
+                <a href="/apply_grievance" class="btn-action">
+                    <i class="fa fa-arrow-right"></i> Apply Now
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-gov">
+                <div class="icon-wrap" style="background:#f0fdf4; color:var(--tn-green);">
+                    <i class="fa fa-list-check"></i>
+                </div>
+                <h6 class="fw-700 mb-2">{{ i18n.translate("Check Application Status") }}</h6>
+                <p class="text-muted small mb-0">{{ i18n.translate("Track your submitted grievances.") }}</p>
+                <a href="/my_grievances" class="btn-action" style="background:var(--tn-green);">
+                    <i class="fa fa-arrow-right"></i> View Status
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-gov">
+                <div class="icon-wrap" style="background:#fff7ed; color:var(--tn-orange);">
+                    <i class="fa fa-bullhorn"></i>
+                </div>
+                <h6 class="fw-700 mb-2">{{ i18n.translate("Raise a Complaint") }}</h6>
+                <p class="text-muted small mb-0">Report an issue — roads, water, electricity and more.</p>
+                <a href="/raise_complaint" class="btn-action orange">
+                    <i class="fa fa-arrow-right"></i> Complain
+                </a>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card-gov">
+                <div class="icon-wrap" style="background:#fdf4ff; color:#7c3aed;">
+                    <i class="fa fa-comment-dots"></i>
+                </div>
+                <h6 class="fw-700 mb-2">{{ i18n.translate("My Complaints") }}</h6>
+                <p class="text-muted small mb-0">Track complaints & read government replies.</p>
+                <a href="/my_complaints" class="btn-action" style="background:#7c3aed;">
+                    <i class="fa fa-arrow-right"></i> Track
+                    {% if unread_replies and unread_replies > 0 %}
+                    <span style="background:white;color:#7c3aed;padding:1px 7px;border-radius:20px;font-size:0.7rem;font-weight:800;">
+                        {{ unread_replies }} new
+                    </span>
+                    {% endif %}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── COMPLAINT WIDGET + CHARTS ── -->
+    <div class="row g-4 mb-4">
+
+        <!-- Complaint status widget -->
+        <div class="col-lg-5">
+            <div class="complaint-widget h-100">
+                <div class="cw-header">
+                    <h6><i class="fa fa-headset me-2"></i> My Complaints</h6>
+                    {% if unread_replies and unread_replies > 0 %}
+                    <span style="background:white;color:var(--tn-orange);font-size:0.7rem;
+                                 font-weight:800;padding:3px 10px;border-radius:20px;">
+                        {{ unread_replies }} govt. repl{{ 'y' if unread_replies == 1 else 'ies' }}
+                    </span>
+                    {% endif %}
+                </div>
+
+                <!-- Stats strip -->
+                <div class="cw-stats">
+                    <div class="cw-stat">
+                        <div class="cw-stat-num" style="color:#9a3412;">{{ c_stats.get('Open', 0) }}</div>
+                        <div class="cw-stat-lbl">Open</div>
+                    </div>
+                    <div class="cw-stat">
+                        <div class="cw-stat-num" style="color:#1d4ed8;">{{ c_stats.get('In Progress', 0) }}</div>
+                        <div class="cw-stat-lbl">In Progress</div>
+                    </div>
+                    <div class="cw-stat">
+                        <div class="cw-stat-num" style="color:var(--tn-green);">{{ c_stats.get('Resolved', 0) }}</div>
+                        <div class="cw-stat-lbl">Resolved</div>
+                    </div>
+                    <div class="cw-stat">
+                        <div class="cw-stat-num" style="color:#475569;">{{ c_stats.get('Closed', 0) }}</div>
+                        <div class="cw-stat-lbl">Closed</div>
+                    </div>
+                </div>
+
+                <!-- Recent complaints list -->
+                {% if recent_complaints %}
+                    {% for c in recent_complaints %}
+                    <a href="/my_complaints" style="text-decoration:none; color:inherit;">
+                        <div class="complaint-row">
+                            <div class="cr-cat-icon"><i class="fa fa-tag"></i></div>
+                            <div style="flex:1; min-width:0;">
+                                <div class="cr-subject" title="{{ c.subject }}">{{ c.subject }}</div>
+                                <div class="cr-meta">
+                                    <span class="me-2"><i class="fa fa-tag me-1"></i>{{ c.category }}</span>
+                                    <span><i class="fa fa-clock me-1"></i>{{ c.submitted_at }}</span>
+                                </div>
+                            </div>
+                            {% if c.gov_reply %}
+                            <div class="cr-reply-dot" title="Government replied"></div>
+                            {% endif %}
+                            <span class="cr-status
+                                {% if c.status == 'Open' %}crs-open
+                                {% elif c.status == 'In Progress' %}crs-in-progress
+                                {% elif c.status == 'Resolved' %}crs-resolved
+                                {% else %}crs-closed{% endif %}">
+                                {{ c.status }}
+                            </span>
+                        </div>
+                    </a>
+                    {% endfor %}
+                {% else %}
+                    <div class="text-center py-4 text-muted small">
+                        <i class="fa fa-inbox fa-2x mb-2 d-block opacity-25"></i>
+                        No complaints filed yet.
+                    </div>
+                {% endif %}
+
+                <div class="cw-footer">
+                    <a href="/my_complaints" class="btn-view-all">
+                        View all complaints <i class="fa fa-arrow-right"></i>
+                    </a>
+                    <span class="text-muted mx-3" style="font-size:0.75rem;">·</span>
+                    <a href="/raise_complaint" class="btn-view-all" style="color:var(--tn-green);">
+                        <i class="fa fa-plus"></i> New complaint
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts column -->
+        <div class="col-lg-7">
+            <div class="row g-4 h-100">
+                <div class="col-12">
+                    <div class="chart-card">
+                        <div class="chart-title">
+                            <i class="fa fa-chart-bar text-primary"></i> Grievances by Category
+                        </div>
+                        <canvas id="barChart" style="max-height:180px;"></canvas>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="chart-card">
+                        <div class="chart-title">
+                            <i class="fa fa-chart-pie text-success"></i> Resolution Status
+                        </div>
+                        <canvas id="doughnutChart"></canvas>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="chart-card">
+                        <div class="chart-title">
+                            <i class="fa fa-chart-line text-warning"></i> Trends
+                        </div>
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── SECOND CHART ROW ── -->
+    <div class="row g-4 mb-5">
+        <div class="col-lg-4">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fa fa-chart-pie text-info me-1"></i> Application Source</div>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fa fa-circle-dot text-danger me-1"></i> Dept. Efficiency Score</div>
+                <canvas id="polarChart"></canvas>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="chart-card">
+                <div class="chart-title"><i class="fa fa-chart-bar text-primary me-1"></i> Complaint Categories</div>
+                <canvas id="complaintCatChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div><!-- end main-wrapper -->
+
+<!-- ── CHATBOT FAB ── -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()" title="TN AI Assistant">
+    <i class="fa fa-robot" id="fabIcon"></i>
+    <span class="notif-dot" id="notifDot"></span>
+</button>
+
+<div class="chatbox" id="chatbox">
+    <div class="chat-header d-flex justify-content-between align-items-center">
+        <span><i class="fa fa-robot me-2"></i> {{ i18n.translate("TN AI Assistant") }}</span>
+        <div class="d-flex align-items-center gap-2">
+            <select id="chatLang" class="form-select form-select-sm w-auto bg-transparent text-white border-0" style="font-size:0.7rem;">
+                <option value="en" class="text-dark">English</option>
+                <option value="ta" class="text-dark">தமிழ்</option>
+                <option value="hi" class="text-dark">हिन्दी</option>
+                <option value="te" class="text-dark">తెలుగు</option>
+                <option value="ml" class="text-dark">മലയാളം</option>
+                <option value="kn" class="text-dark">ಕನ್ನಡ</option>
+                <option value="ur" class="text-dark">اردو</option>
+            </select>
+            <button onclick="toggleChat()"
+                style="background:rgba(255,255,255,.15);border:none;color:white;width:28px;height:28px;
+                       border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;
+                       font-size:.8rem;transition:background .2s;"
+                onmouseover="this.style.background='rgba(255,255,255,.3)'"
+                onmouseout="this.style.background='rgba(255,255,255,.15)'">
+                <i class="fa fa-xmark"></i>
+            </button>
+        </div>
+    </div>
+    <div id="chat" class="chat-body">
+        <div class="msg bot" id="welcomeMsg">Welcome! How can I help you today?</div>
+    </div>
+    <div class="chat-input">
+        <input id="msg" placeholder="{{ i18n.translate('Type your message...') }}"
+               onkeydown="if(event.key==='Enter') sendMsg('text')">
+        <button id="voiceBtn" class="btn btn-sm btn-info text-white me-1" onclick="startVoice()">
+            <i class="fa fa-microphone"></i>
+        </button>
+        <button class="btn btn-sm btn-primary" onclick="sendMsg('text')">
+            {{ i18n.translate("Send") }}
+        </button>
+    </div>
+</div>
+
+<script>
+    // ── CHART DATA ─────────────────────────────────────────────
+    const colors = ['#2563eb','#8b5cf6','#06b6d4','#10b981','#f59e0b','#ef4444'];
+
+    new Chart(document.getElementById('barChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Water','Roads','Electricity','Health','Education','Social'],
+            datasets: [{ label: 'Cases', data: [45,32,60,25,18,50], backgroundColor: colors }]
+        },
+        options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    new Chart(document.getElementById('doughnutChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Resolved','Pending','In Progress'],
+            datasets: [{ data: [
+                {{ g_stats.get('Approved', 0) }},
+                {{ g_stats.get('Pending',  0) }},
+                {{ g_stats.get('Rejected', 0) }}
+            ], backgroundColor: ['#10b981','#f59e0b','#ef4444'] }]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } } }
+    });
+
+    new Chart(document.getElementById('lineChart'), {
+        type: 'line',
+        data: {
+            labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+            datasets: [{ label: 'New Apps', data: [120,150,180,140,210,250],
+                         borderColor: '#2563eb', tension: 0.3 }]
+        },
+        options: { responsive: true, plugins: { legend: { display: false } } }
+    });
+
+    new Chart(document.getElementById('pieChart'), {
+        type: 'pie',
+        data: {
+            labels: ['Mobile App','Portal','E-Seva Centre'],
+            datasets: [{ data: [40,35,25], backgroundColor: colors.slice(2,5) }]
+        }
+    });
+
+    new Chart(document.getElementById('polarChart'), {
+        type: 'polarArea',
+        data: {
+            labels: ['Agri','Rev','Police','Welfare','Edu'],
+            datasets: [{ data: [15,20,12,18,10], backgroundColor: colors }]
+        }
+    });
+
+    // Complaint category breakdown (live from c_stats)
+    new Chart(document.getElementById('complaintCatChart'), {
+        type: 'doughnut',
+        data: {
+            labels: ['Open','In Progress','Resolved','Closed'],
+            datasets: [{ data: [
+                {{ c_stats.get('Open', 0) }},
+                {{ c_stats.get('In Progress', 0) }},
+                {{ c_stats.get('Resolved', 0) }},
+                {{ c_stats.get('Closed', 0) }}
+            ], backgroundColor: ['#f97316','#3b82f6','#10b981','#94a3b8'] }]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'bottom', labels: { font: { size: 11 } } } } }
+    });
+
+    // ── CHAT ───────────────────────────────────────────────────
+    function toggleChat() {
+        const box  = document.getElementById('chatbox');
+        const icon = document.getElementById('fabIcon');
+        const dot  = document.getElementById('notifDot');
+        const open = box.classList.toggle('open');
+        icon.className = open ? 'fa fa-xmark' : 'fa fa-robot';
+        if (open) dot.style.display = 'none';
+    }
+
+    const chat = document.getElementById('chat');
+
+    function addMessage(text, type) {
+        const div = document.createElement('div');
+        div.className = 'msg ' + type;
+        div.innerText  = text;
+        chat.appendChild(div);
+        chat.scrollTop = chat.scrollHeight;
+    }
+
+    const langMap = {
+        en:'en-US', ta:'ta-IN', hi:'hi-IN',
+        te:'te-IN', ml:'ml-IN', kn:'kn-IN', ur:'ur-PK'
+    };
+
+    function sendMsg(inputType = 'text') {
+        const input      = document.getElementById('msg');
+        const selectedLang = document.getElementById('chatLang').value;
+        const msg        = input.value.trim();
+        if (!msg) return;
+        addMessage(msg, 'user');
+        input.value = '';
+
+        fetch('/chatbot', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: msg, lang: selectedLang })
+        })
+        .then(r => r.json())
+        .then(data => {
+            addMessage(data.reply, 'bot');
+            if (inputType === 'voice') {
+                const s = new SpeechSynthesisUtterance(data.reply);
+                s.lang = langMap[selectedLang] || 'en-US';
+                window.speechSynthesis.cancel();
+                window.speechSynthesis.speak(s);
+            }
+        })
+        .catch(() => addMessage('Server error', 'bot'));
+    }
+
+    function startVoice() {
+        const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+        if (!SR) return alert('Use Chrome for voice input');
+        const rec  = new SR();
+        const lang = document.getElementById('chatLang').value;
+        const vBtn = document.getElementById('voiceBtn');
+        rec.lang   = langMap[lang] || 'en-US';
+        vBtn.classList.replace('btn-info', 'btn-danger');
+        rec.start();
+        rec.onresult = e => {
+            document.getElementById('msg').value = e.results[0][0].transcript;
+            vBtn.classList.replace('btn-danger', 'btn-info');
+            sendMsg('voice');
+        };
+        rec.onerror = () => vBtn.classList.replace('btn-danger', 'btn-info');
+    }
+
+    document.getElementById('chatLang').addEventListener('change', function () {
+        const welcome = {
+            en:'How can I help you?', ta:'நான் எவ்வாறு உதவ முடியும்?',
+            hi:'मैं आपकी क्या मदद कर सकता हूँ?', te:'నేను మీకు ఎలా సహాయం చేయగలను?',
+            ml:'എനിക്ക് എങ്ങനെ സഹായിക്കാനാകും?', kn:'ನಾನು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಲಿ?',
+            ur:'میں آپ کی کیا مدد کر سکتا ہوں؟'
+        };
+        document.getElementById('welcomeMsg').innerText = welcome[this.value] || welcome.en;
+    });
+</script>
+
+</body>
+</html>

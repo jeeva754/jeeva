@@ -1,0 +1,3220 @@
+{
+    "Chennai": {
+        "constituencies": {
+            "Kolathur": {
+                "schemes": [
+                    "Skill Training Scheme",
+                    "Student Free Bus Pass",
+                    "Nutrition Food Kit",
+                    "Differently Abled Welfare",
+                    "Pregnancy Nutrition Kit",
+                    "Senior Citizen Travel Pass",
+                    "School Uniform Scheme",
+                    "Housing Scheme",
+                    "Self Help Group Loan",
+                    "Free Sewing Machine"
+                ]
+            },
+            "Villivakkam": {
+                "schemes": [
+                    "Old Age Pension Scheme",
+                    "Marriage Assistance Scheme",
+                    "Minority Scholarship",
+                    "Nutrition Food Kit",
+                    "Primary Health Upgrade",
+                    "Free Bus Pass for Women",
+                    "Self Help Group Loan",
+                    "Village Road Development",
+                    "Scholarship for Students",
+                    "Hill Area Development"
+                ]
+            },
+            "Thiru-Vi-Ka-Nagar": {
+                "schemes": [
+                    "Free Medical Camp",
+                    "Free Bicycle Scheme",
+                    "Primary Health Upgrade",
+                    "Handloom Weaver Support",
+                    "Housing Scheme",
+                    "Old Age Pension Scheme",
+                    "Youth Employment Camp",
+                    "Midday Meal Scheme",
+                    "Coastal Area Development",
+                    "Scholarship for Students"
+                ]
+            },
+            "Egmore": {
+                "schemes": [
+                    "Skill Training Scheme",
+                    "Fishing Net Subsidy",
+                    "Solar Pump Subsidy",
+                    "Midday Meal Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Green House Solar",
+                    "Youth Startup Support",
+                    "Farmer Loan Waiver",
+                    "Rain Water Harvesting",
+                    "Chief Minister Health Insurance Scheme"
+                ]
+            },
+            "Royapuram": {
+                "schemes": [
+                    "Farmer Equipment Subsidy",
+                    "Free Medical Camp",
+                    "Farmer Loan Waiver",
+                    "Pregnancy Nutrition Kit",
+                    "Public Toilet Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Women Safety Scheme",
+                    "Village Internet Scheme",
+                    "Rural Employment Scheme",
+                    "Smart Ration Card Scheme"
+                ]
+            },
+            "Harbour": {
+                "schemes": [
+                    "Midday Meal Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Water Tank Construction",
+                    "Rural Employment Scheme",
+                    "Solar Pump Subsidy",
+                    "Self Help Group Loan",
+                    "Startup Seed Fund",
+                    "Waste Management Scheme",
+                    "Public Library Development",
+                    "Green House Solar"
+                ]
+            },
+            "Chepauk-Thiruvallikeni": {
+                "schemes": [
+                    "Free Bicycle Scheme",
+                    "Primary Health Upgrade",
+                    "Nutrition Food Kit",
+                    "Free Goat Distribution",
+                    "Pregnancy Nutrition Kit",
+                    "Smart Ration Card Scheme",
+                    "Hill Area Development",
+                    "Fishing Net Subsidy",
+                    "Marriage Assistance Scheme",
+                    "Rain Water Harvesting"
+                ]
+            },
+            "Thousand Lights": {
+                "schemes": [
+                    "Drip Irrigation Subsidy",
+                    "Green House Solar",
+                    "Nutrition Food Kit",
+                    "Startup Seed Fund",
+                    "Free Medical Camp",
+                    "Public Library Development",
+                    "Rain Water Harvesting",
+                    "Solar Pump Subsidy",
+                    "Free Electricity for Farmers",
+                    "Village Internet Scheme"
+                ]
+            },
+            "Anna Nagar": {
+                "schemes": [
+                    "Handloom Weaver Support",
+                    "Farmer Loan Waiver",
+                    "Drip Irrigation Subsidy",
+                    "Coastal Area Development",
+                    "Pregnancy Nutrition Kit",
+                    "Free Bus Pass for Women",
+                    "Rain Water Harvesting",
+                    "Free Sewing Machine",
+                    "Self Help Group Loan",
+                    "Skill Training Scheme"
+                ]
+            },
+            "Virugampakkam": {
+                "schemes": [
+                    "Hill Area Development",
+                    "Startup Seed Fund",
+                    "Scholarship for Students",
+                    "Self Help Group Loan",
+                    "Chief Minister Health Insurance Scheme",
+                    "Coastal Area Development",
+                    "Free Medical Camp",
+                    "Differently Abled Welfare",
+                    "Free Laptop Scheme",
+                    "Village Road Development"
+                ]
+            },
+            "Saidapet": {
+                "schemes": [
+                    "Free Bicycle Scheme",
+                    "Student Free Bus Pass",
+                    "Marriage Assistance Scheme",
+                    "Startup Seed Fund",
+                    "Primary Health Upgrade",
+                    "Drip Irrigation Subsidy",
+                    "Nutrition Food Kit",
+                    "Solar Pump Subsidy",
+                    "Old Age Pension Scheme",
+                    "Rural Employment Scheme"
+                ]
+            },
+            "T. Nagar": {
+                "schemes": [
+                    "Primary Health Upgrade",
+                    "Rural Employment Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Old Age Pension Scheme",
+                    "Digital Education Scheme",
+                    "School Uniform Scheme",
+                    "Scholarship for Students",
+                    "Minority Scholarship",
+                    "Marriage Assistance Scheme",
+                    "Youth Startup Support"
+                ]
+            },
+            "Mylapore": {
+                "schemes": [
+                    "Smart Ration Card Scheme",
+                    "Solar Pump Subsidy",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Housing Scheme",
+                    "Free Goat Distribution",
+                    "Startup Seed Fund",
+                    "Waste Management Scheme",
+                    "Youth Startup Support",
+                    "Farmer Loan Waiver",
+                    "Women Safety Scheme"
+                ]
+            },
+            "Velachery": {
+                "schemes": [
+                    "Street Vendor Loan Scheme",
+                    "Free Electricity for Farmers",
+                    "Farmer Equipment Subsidy",
+                    "Village Internet Scheme",
+                    "Scholarship for Students",
+                    "Free Medical Camp",
+                    "Smart Ration Card Scheme",
+                    "Minority Scholarship",
+                    "Green House Solar",
+                    "Handloom Weaver Support"
+                ]
+            },
+            "Sholinganallur": {
+                "schemes": [
+                    "Fishing Net Subsidy",
+                    "Urban Employment Scheme",
+                    "Public Library Development",
+                    "Digital Education Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Youth Employment Camp",
+                    "Village Internet Scheme",
+                    "Old Age Pension Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Handloom Weaver Support"
+                ]
+            },
+            "Perambur": {
+                "schemes": [
+                    "Green House Solar",
+                    "Rain Water Harvesting",
+                    "Free Laptop Scheme",
+                    "Women Safety Scheme",
+                    "Pregnancy Nutrition Kit",
+                    "Midday Meal Scheme",
+                    "Digital Education Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Student Free Bus Pass",
+                    "Smart Ration Card Scheme"
+                ]
+            }
+        }
+    },
+    "Tiruvallur": {
+        "constituencies": {
+            "Gummidipoondi": {
+                "schemes": [
+                    "Pregnancy Nutrition Kit",
+                    "Digital Education Scheme",
+                    "Midday Meal Scheme",
+                    "Public Toilet Scheme",
+                    "Primary Health Upgrade",
+                    "Urban Employment Scheme",
+                    "Water Tank Construction",
+                    "Free Sewing Machine",
+                    "Youth Startup Support",
+                    "Coastal Area Development"
+                ]
+            },
+            "Ponneri": {
+                "schemes": [
+                    "Chief Minister Health Insurance Scheme",
+                    "Youth Startup Support",
+                    "Waste Management Scheme",
+                    "Solar Pump Subsidy",
+                    "Scholarship for Students",
+                    "Free Sewing Machine",
+                    "Free Laptop Scheme",
+                    "Free Electricity for Farmers",
+                    "Hill Area Development",
+                    "Free Bus Pass for Women"
+                ]
+            },
+            "Tiruttani": {
+                "schemes": [
+                    "Coastal Area Development",
+                    "Primary Health Upgrade",
+                    "Drip Irrigation Subsidy",
+                    "Women Entrepreneurship Loan",
+                    "Differently Abled Welfare",
+                    "Free Medical Camp",
+                    "Farmer Equipment Subsidy",
+                    "Digital Education Scheme",
+                    "Scholarship for Students",
+                    "Senior Citizen Travel Pass"
+                ]
+            },
+            "Thiruvallur": {
+                "schemes": [
+                    "Differently Abled Welfare",
+                    "School Uniform Scheme",
+                    "Old Age Pension Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Public Toilet Scheme",
+                    "Free Medical Camp",
+                    "Rural Employment Scheme",
+                    "Water Tank Construction",
+                    "Farmer Loan Waiver",
+                    "Marriage Assistance Scheme"
+                ]
+            },
+            "Poonamallee": {
+                "schemes": [
+                    "Startup Seed Fund",
+                    "Digital Education Scheme",
+                    "Smart Ration Card Scheme",
+                    "Public Library Development",
+                    "Village Road Development",
+                    "Youth Employment Camp",
+                    "Youth Startup Support",
+                    "Free Sewing Machine",
+                    "Pregnancy Nutrition Kit",
+                    "Farmer Loan Waiver"
+                ]
+            },
+            "Avadi": {
+                "schemes": [
+                    "Green House Solar",
+                    "Street Vendor Loan Scheme",
+                    "Free Electricity for Farmers",
+                    "Pregnancy Nutrition Kit",
+                    "Youth Employment Camp",
+                    "Free Goat Distribution",
+                    "Coastal Area Development",
+                    "Marriage Assistance Scheme",
+                    "Student Free Bus Pass",
+                    "Rural Employment Scheme"
+                ]
+            },
+            "Maduravoyal": {
+                "schemes": [
+                    "Free Bus Pass for Women",
+                    "Green House Solar",
+                    "Street Vendor Loan Scheme",
+                    "Rain Water Harvesting",
+                    "Village Road Development",
+                    "Free Sewing Machine",
+                    "Marriage Assistance Scheme",
+                    "Old Age Pension Scheme",
+                    "Handloom Weaver Support",
+                    "Rural Employment Scheme"
+                ]
+            },
+            "Ambattur": {
+                "schemes": [
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Free Electricity for Farmers",
+                    "Water Tank Construction",
+                    "Rain Water Harvesting",
+                    "Self Help Group Loan",
+                    "Nutrition Food Kit",
+                    "Midday Meal Scheme",
+                    "Free Medical Camp",
+                    "Smart Ration Card Scheme",
+                    "Old Age Pension Scheme"
+                ]
+            },
+            "Madhavaram": {
+                "schemes": [
+                    "Skill Training Scheme",
+                    "Water Tank Construction",
+                    "Coastal Area Development",
+                    "Farmer Equipment Subsidy",
+                    "Student Free Bus Pass",
+                    "Primary Health Upgrade",
+                    "Handloom Weaver Support",
+                    "Free Bus Pass for Women",
+                    "Housing Scheme",
+                    "Free Sewing Machine"
+                ]
+            }
+        }
+    },
+    "Kancheepuram": {
+        "constituencies": {
+            "Sriperumbudur": {
+                "schemes": [
+                    "Free Medical Camp",
+                    "Primary Health Upgrade",
+                    "Old Age Pension Scheme",
+                    "Minority Scholarship",
+                    "Farmer Loan Waiver",
+                    "Farmer Equipment Subsidy",
+                    "Free Bus Pass for Women",
+                    "Free Bicycle Scheme",
+                    "Rain Water Harvesting",
+                    "Coastal Area Development"
+                ]
+            },
+            "Kundrathur": {
+                "schemes": [
+                    "Senior Citizen Travel Pass",
+                    "Chief Minister Health Insurance Scheme",
+                    "Waste Management Scheme",
+                    "Midday Meal Scheme",
+                    "Smart Ration Card Scheme",
+                    "Solar Pump Subsidy",
+                    "Marriage Assistance Scheme",
+                    "Farmer Loan Waiver",
+                    "Women Safety Scheme",
+                    "Drip Irrigation Subsidy"
+                ]
+            },
+            "Uthiramerur": {
+                "schemes": [
+                    "Solar Pump Subsidy",
+                    "Women Entrepreneurship Loan",
+                    "Free Medical Camp",
+                    "Village Road Development",
+                    "Digital Education Scheme",
+                    "Nutrition Food Kit",
+                    "Midday Meal Scheme",
+                    "Public Library Development",
+                    "Free Laptop Scheme",
+                    "Pregnancy Nutrition Kit"
+                ]
+            },
+            "Kancheepuram": {
+                "schemes": [
+                    "Farmer Equipment Subsidy",
+                    "Street Vendor Loan Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Free Electricity for Farmers",
+                    "Skill Training Scheme",
+                    "Free Goat Distribution",
+                    "Digital Education Scheme",
+                    "Rain Water Harvesting",
+                    "Hill Area Development",
+                    "Free Bus Pass for Women"
+                ]
+            }
+        }
+    },
+    "Chengalpattu": {
+        "constituencies": {
+            "Tambaram": {
+                "schemes": [
+                    "Farmer Equipment Subsidy",
+                    "Old Age Pension Scheme",
+                    "Nutrition Food Kit",
+                    "Midday Meal Scheme",
+                    "Free Goat Distribution",
+                    "Skill Training Scheme",
+                    "School Uniform Scheme",
+                    "Farmer Loan Waiver",
+                    "Differently Abled Welfare",
+                    "Free Bus Pass for Women"
+                ]
+            },
+            "Alandur": {
+                "schemes": [
+                    "Marriage Assistance Scheme",
+                    "Free Medical Camp",
+                    "Youth Employment Camp",
+                    "Smart Ration Card Scheme",
+                    "Fishing Net Subsidy",
+                    "Free Goat Distribution",
+                    "Solar Pump Subsidy",
+                    "Differently Abled Welfare",
+                    "School Uniform Scheme",
+                    "Senior Citizen Travel Pass"
+                ]
+            },
+            "Pallavaram": {
+                "schemes": [
+                    "Water Tank Construction",
+                    "Women Safety Scheme",
+                    "Student Free Bus Pass",
+                    "Minority Scholarship",
+                    "Pregnancy Nutrition Kit",
+                    "Street Vendor Loan Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Free Bus Pass for Women",
+                    "Differently Abled Welfare",
+                    "Youth Employment Camp"
+                ]
+            },
+            "Chengalpattu": {
+                "schemes": [
+                    "Smart Ration Card Scheme",
+                    "Waste Management Scheme",
+                    "Housing Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Minority Scholarship",
+                    "Village Road Development",
+                    "Hill Area Development",
+                    "Drip Irrigation Subsidy",
+                    "Youth Employment Camp",
+                    "Pregnancy Nutrition Kit"
+                ]
+            },
+            "Thiruporur": {
+                "schemes": [
+                    "Free Laptop Scheme",
+                    "Digital Education Scheme",
+                    "Green House Solar",
+                    "Street Vendor Loan Scheme",
+                    "Water Tank Construction",
+                    "Coastal Area Development",
+                    "Differently Abled Welfare",
+                    "Primary Health Upgrade",
+                    "Urban Employment Scheme",
+                    "Youth Employment Camp"
+                ]
+            },
+            "Cheyyur": {
+                "schemes": [
+                    "Rain Water Harvesting",
+                    "Student Free Bus Pass",
+                    "Handloom Weaver Support",
+                    "Street Vendor Loan Scheme",
+                    "Farmer Loan Waiver",
+                    "Free Bus Pass for Women",
+                    "Senior Citizen Travel Pass",
+                    "Marriage Assistance Scheme",
+                    "Old Age Pension Scheme",
+                    "Urban Employment Scheme"
+                ]
+            }
+        }
+    },
+    "Ranipet": {
+        "constituencies": {
+            "Arcot": {
+                "schemes": [
+                    "Old Age Pension Scheme",
+                    "Fishing Net Subsidy",
+                    "Green House Solar",
+                    "Water Tank Construction",
+                    "Youth Startup Support",
+                    "Chief Minister Health Insurance Scheme",
+                    "Midday Meal Scheme",
+                    "Free Electricity for Farmers",
+                    "Minority Scholarship",
+                    "Pregnancy Nutrition Kit"
+                ]
+            },
+            "Sholingur": {
+                "schemes": [
+                    "Women Entrepreneurship Loan",
+                    "Primary Health Upgrade",
+                    "Free Sewing Machine",
+                    "Handloom Weaver Support",
+                    "Village Internet Scheme",
+                    "Scholarship for Students",
+                    "Green House Solar",
+                    "Village Road Development",
+                    "Women Safety Scheme",
+                    "Street Vendor Loan Scheme"
+                ]
+            },
+            "Arakkonam": {
+                "schemes": [
+                    "Village Internet Scheme",
+                    "Free Medical Camp",
+                    "Water Tank Construction",
+                    "Women Safety Scheme",
+                    "Fishing Net Subsidy",
+                    "Senior Citizen Travel Pass",
+                    "Women Entrepreneurship Loan",
+                    "Pregnancy Nutrition Kit",
+                    "Urban Employment Scheme",
+                    "Green House Solar"
+                ]
+            }
+        }
+    },
+    "Vellore": {
+        "constituencies": {
+            "Katpadi": {
+                "schemes": [
+                    "Village Road Development",
+                    "Free Bus Pass for Women",
+                    "Youth Employment Camp",
+                    "Green House Solar",
+                    "Self Help Group Loan",
+                    "Scholarship for Students",
+                    "Differently Abled Welfare",
+                    "Marriage Assistance Scheme",
+                    "Coastal Area Development",
+                    "Free Laptop Scheme"
+                ]
+            },
+            "Vellore": {
+                "schemes": [
+                    "Nutrition Food Kit",
+                    "Farmer Loan Waiver",
+                    "Marriage Assistance Scheme",
+                    "Youth Startup Support",
+                    "Fishing Net Subsidy",
+                    "Village Road Development",
+                    "School Uniform Scheme",
+                    "Public Library Development",
+                    "Student Free Bus Pass",
+                    "Green House Solar"
+                ]
+            },
+            "Anaikattu": {
+                "schemes": [
+                    "Differently Abled Welfare",
+                    "Free Laptop Scheme",
+                    "Village Internet Scheme",
+                    "Student Free Bus Pass",
+                    "Waste Management Scheme",
+                    "Free Goat Distribution",
+                    "School Uniform Scheme",
+                    "Solar Pump Subsidy",
+                    "Urban Employment Scheme",
+                    "Women Entrepreneurship Loan"
+                ]
+            },
+            "Gudiyattam": {
+                "schemes": [
+                    "Village Internet Scheme",
+                    "Youth Employment Camp",
+                    "Smart Ration Card Scheme",
+                    "Public Library Development",
+                    "Free Medical Camp",
+                    "Skill Training Scheme",
+                    "Free Electricity for Farmers",
+                    "Drip Irrigation Subsidy",
+                    "Primary Health Upgrade",
+                    "Rain Water Harvesting"
+                ]
+            }
+        }
+    },
+    "Tirupathur": {
+        "constituencies": {
+            "Jolarpet": {
+                "schemes": [
+                    "Farmer Loan Waiver",
+                    "Senior Citizen Travel Pass",
+                    "Urban Employment Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Free Goat Distribution",
+                    "Waste Management Scheme",
+                    "Green House Solar",
+                    "Farmer Equipment Subsidy",
+                    "School Uniform Scheme",
+                    "Rural Employment Scheme"
+                ]
+            },
+            "Tirupathur": {
+                "schemes": [
+                    "Free Medical Camp",
+                    "Self Help Group Loan",
+                    "Free Goat Distribution",
+                    "Farmer Equipment Subsidy",
+                    "Fishing Net Subsidy",
+                    "Old Age Pension Scheme",
+                    "Free Electricity for Farmers",
+                    "Coastal Area Development",
+                    "Senior Citizen Travel Pass",
+                    "Student Free Bus Pass"
+                ]
+            },
+            "Ambur": {
+                "schemes": [
+                    "Free Electricity for Farmers",
+                    "Public Library Development",
+                    "Marriage Assistance Scheme",
+                    "Free Medical Camp",
+                    "Smart Ration Card Scheme",
+                    "Women Entrepreneurship Loan",
+                    "Differently Abled Welfare",
+                    "Skill Training Scheme",
+                    "Coastal Area Development",
+                    "Free Laptop Scheme"
+                ]
+            },
+            "Vaniyambadi": {
+                "schemes": [
+                    "Free Medical Camp",
+                    "Marriage Assistance Scheme",
+                    "Water Tank Construction",
+                    "Village Internet Scheme",
+                    "School Uniform Scheme",
+                    "Youth Startup Support",
+                    "Public Toilet Scheme",
+                    "Digital Education Scheme",
+                    "Free Laptop Scheme",
+                    "Student Free Bus Pass"
+                ]
+            }
+        }
+    },
+    "Krishnagiri": {
+        "constituencies": {
+            "Krishnagiri": {
+                "schemes": [
+                    "Skill Training Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Handloom Weaver Support",
+                    "Midday Meal Scheme",
+                    "Public Library Development",
+                    "Nutrition Food Kit",
+                    "Rain Water Harvesting",
+                    "Village Internet Scheme",
+                    "Primary Health Upgrade",
+                    "Women Entrepreneurship Loan"
+                ]
+            },
+            "Bargur": {
+                "schemes": [
+                    "Village Internet Scheme",
+                    "Free Sewing Machine",
+                    "Free Goat Distribution",
+                    "Fishing Net Subsidy",
+                    "Old Age Pension Scheme",
+                    "Women Entrepreneurship Loan",
+                    "Hill Area Development",
+                    "Marriage Assistance Scheme",
+                    "Housing Scheme",
+                    "Pregnancy Nutrition Kit"
+                ]
+            },
+            "Uthangarai": {
+                "schemes": [
+                    "Old Age Pension Scheme",
+                    "Free Electricity for Farmers",
+                    "Fishing Net Subsidy",
+                    "Drip Irrigation Subsidy",
+                    "Solar Pump Subsidy",
+                    "Free Medical Camp",
+                    "Student Free Bus Pass",
+                    "Startup Seed Fund",
+                    "Water Tank Construction",
+                    "Senior Citizen Travel Pass"
+                ]
+            },
+            "Hosur": {
+                "schemes": [
+                    "Self Help Group Loan",
+                    "Free Bicycle Scheme",
+                    "Nutrition Food Kit",
+                    "Marriage Assistance Scheme",
+                    "Smart Ration Card Scheme",
+                    "Student Free Bus Pass",
+                    "Free Sewing Machine",
+                    "Differently Abled Welfare",
+                    "Youth Startup Support",
+                    "Solar Pump Subsidy"
+                ]
+            },
+            "Veppanahalli": {
+                "schemes": [
+                    "Differently Abled Welfare",
+                    "Farmer Loan Waiver",
+                    "Public Toilet Scheme",
+                    "Primary Health Upgrade",
+                    "Women Safety Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Public Library Development",
+                    "Green House Solar",
+                    "Youth Employment Camp",
+                    "Self Help Group Loan"
+                ]
+            }
+        }
+    },
+    "Dharmapuri": {
+        "constituencies": {
+            "Palacode": {
+                "schemes": [
+                    "Scholarship for Students",
+                    "Youth Employment Camp",
+                    "Senior Citizen Travel Pass",
+                    "Housing Scheme",
+                    "Public Library Development",
+                    "Midday Meal Scheme",
+                    "Skill Training Scheme",
+                    "Pregnancy Nutrition Kit",
+                    "Village Road Development",
+                    "Kalaignar Magalir Urimai Thogai"
+                ]
+            },
+            "Pennagaram": {
+                "schemes": [
+                    "Digital Education Scheme",
+                    "Women Entrepreneurship Loan",
+                    "Primary Health Upgrade",
+                    "Village Road Development",
+                    "Senior Citizen Travel Pass",
+                    "Pregnancy Nutrition Kit",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Marriage Assistance Scheme",
+                    "Urban Employment Scheme",
+                    "Student Free Bus Pass"
+                ]
+            },
+            "Dharmapuri": {
+                "schemes": [
+                    "Coastal Area Development",
+                    "Free Laptop Scheme",
+                    "Rain Water Harvesting",
+                    "Hill Area Development",
+                    "Pregnancy Nutrition Kit",
+                    "Free Bus Pass for Women",
+                    "Water Tank Construction",
+                    "Green House Solar",
+                    "Urban Employment Scheme",
+                    "Public Toilet Scheme"
+                ]
+            },
+            "Pappireddippatti": {
+                "schemes": [
+                    "Student Free Bus Pass",
+                    "Street Vendor Loan Scheme",
+                    "Youth Startup Support",
+                    "Chief Minister Health Insurance Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Water Tank Construction",
+                    "Free Bus Pass for Women",
+                    "Nutrition Food Kit",
+                    "Minority Scholarship",
+                    "Youth Employment Camp"
+                ]
+            },
+            "Harur": {
+                "schemes": [
+                    "Free Electricity for Farmers",
+                    "Primary Health Upgrade",
+                    "Coastal Area Development",
+                    "Farmer Equipment Subsidy",
+                    "Water Tank Construction",
+                    "Handloom Weaver Support",
+                    "Housing Scheme",
+                    "School Uniform Scheme",
+                    "Free Goat Distribution",
+                    "Green House Solar"
+                ]
+            }
+        }
+    },
+    "Salem": {
+        "constituencies": {
+            "Salem North": {
+                "schemes": [
+                    "Free Medical Camp",
+                    "Pregnancy Nutrition Kit",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Rural Employment Scheme",
+                    "Student Free Bus Pass",
+                    "Village Internet Scheme",
+                    "Marriage Assistance Scheme",
+                    "Housing Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Skill Training Scheme"
+                ]
+            },
+            "Salem South": {
+                "schemes": [
+                    "Self Help Group Loan",
+                    "Scholarship for Students",
+                    "Marriage Assistance Scheme",
+                    "Solar Pump Subsidy",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Startup Seed Fund",
+                    "Skill Training Scheme",
+                    "Village Internet Scheme",
+                    "Minority Scholarship",
+                    "Free Bicycle Scheme"
+                ]
+            },
+            "Salem West": {
+                "schemes": [
+                    "Women Entrepreneurship Loan",
+                    "Water Tank Construction",
+                    "Free Electricity for Farmers",
+                    "Public Library Development",
+                    "Skill Training Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Youth Employment Camp",
+                    "Student Free Bus Pass",
+                    "Smart Ration Card Scheme",
+                    "Rain Water Harvesting"
+                ]
+            },
+            "Omalur": {
+                "schemes": [
+                    "Waste Management Scheme",
+                    "Public Toilet Scheme",
+                    "Village Internet Scheme",
+                    "Free Goat Distribution",
+                    "Midday Meal Scheme",
+                    "Free Electricity for Farmers",
+                    "Startup Seed Fund",
+                    "Minority Scholarship",
+                    "Senior Citizen Travel Pass",
+                    "Free Medical Camp"
+                ]
+            },
+            "Edappadi": {
+                "schemes": [
+                    "Student Free Bus Pass",
+                    "Smart Ration Card Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Coastal Area Development",
+                    "Youth Employment Camp",
+                    "Urban Employment Scheme",
+                    "Water Tank Construction",
+                    "Free Bicycle Scheme",
+                    "Hill Area Development",
+                    "Solar Pump Subsidy"
+                ]
+            },
+            "Mettur": {
+                "schemes": [
+                    "Urban Employment Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Youth Startup Support",
+                    "Skill Training Scheme",
+                    "Midday Meal Scheme",
+                    "Rain Water Harvesting",
+                    "Farmer Loan Waiver",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Startup Seed Fund",
+                    "Village Internet Scheme"
+                ]
+            },
+            "Veerapandi": {
+                "schemes": [
+                    "Farmer Loan Waiver",
+                    "Village Internet Scheme",
+                    "Free Medical Camp",
+                    "Coastal Area Development",
+                    "Free Electricity for Farmers",
+                    "Street Vendor Loan Scheme",
+                    "Nutrition Food Kit",
+                    "Student Free Bus Pass",
+                    "Pregnancy Nutrition Kit",
+                    "Free Sewing Machine"
+                ]
+            },
+            "Yercaud": {
+                "schemes": [
+                    "Free Bus Pass for Women",
+                    "Old Age Pension Scheme",
+                    "Free Goat Distribution",
+                    "Student Free Bus Pass",
+                    "Drip Irrigation Subsidy",
+                    "Farmer Equipment Subsidy",
+                    "Rain Water Harvesting",
+                    "Women Safety Scheme",
+                    "Urban Employment Scheme",
+                    "Farmer Loan Waiver"
+                ]
+            },
+            "Attur": {
+                "schemes": [
+                    "Free Bicycle Scheme",
+                    "Digital Education Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Water Tank Construction",
+                    "Street Vendor Loan Scheme",
+                    "Waste Management Scheme",
+                    "Minority Scholarship",
+                    "Rain Water Harvesting",
+                    "Hill Area Development",
+                    "Public Library Development"
+                ]
+            },
+            "Gangavalli": {
+                "schemes": [
+                    "Youth Startup Support",
+                    "Street Vendor Loan Scheme",
+                    "Waste Management Scheme",
+                    "Digital Education Scheme",
+                    "Fishing Net Subsidy",
+                    "Marriage Assistance Scheme",
+                    "Solar Pump Subsidy",
+                    "Senior Citizen Travel Pass",
+                    "Midday Meal Scheme",
+                    "Smart Ration Card Scheme"
+                ]
+            },
+            "Sankari": {
+                "schemes": [
+                    "Free Electricity for Farmers",
+                    "Digital Education Scheme",
+                    "School Uniform Scheme",
+                    "Smart Ration Card Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Differently Abled Welfare",
+                    "Pregnancy Nutrition Kit",
+                    "Hill Area Development",
+                    "Free Bicycle Scheme",
+                    "Primary Health Upgrade"
+                ]
+            }
+        }
+    },
+    "Namakkal": {
+        "constituencies": {
+            "Rasipuram": {
+                "schemes": [
+                    "Free Medical Camp",
+                    "Free Electricity for Farmers",
+                    "Village Internet Scheme",
+                    "Hill Area Development",
+                    "Differently Abled Welfare",
+                    "Rain Water Harvesting",
+                    "Pregnancy Nutrition Kit",
+                    "Free Laptop Scheme",
+                    "Startup Seed Fund",
+                    "Farmer Equipment Subsidy"
+                ]
+            },
+            "Senthamangalam": {
+                "schemes": [
+                    "Startup Seed Fund",
+                    "Youth Startup Support",
+                    "Senior Citizen Travel Pass",
+                    "Farmer Loan Waiver",
+                    "Street Vendor Loan Scheme",
+                    "Marriage Assistance Scheme",
+                    "Free Laptop Scheme",
+                    "Solar Pump Subsidy",
+                    "Minority Scholarship",
+                    "Smart Ration Card Scheme"
+                ]
+            },
+            "Namakkal": {
+                "schemes": [
+                    "Coastal Area Development",
+                    "Village Road Development",
+                    "Chief Minister Health Insurance Scheme",
+                    "Urban Employment Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Women Entrepreneurship Loan",
+                    "Hill Area Development",
+                    "Self Help Group Loan",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Free Laptop Scheme"
+                ]
+            },
+            "Paramathi Velur": {
+                "schemes": [
+                    "Nutrition Food Kit",
+                    "Youth Employment Camp",
+                    "Free Laptop Scheme",
+                    "Midday Meal Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Primary Health Upgrade",
+                    "Hill Area Development",
+                    "Farmer Equipment Subsidy",
+                    "Coastal Area Development",
+                    "Public Library Development"
+                ]
+            },
+            "Tiruchengode": {
+                "schemes": [
+                    "Free Laptop Scheme",
+                    "Primary Health Upgrade",
+                    "Rural Employment Scheme",
+                    "Youth Employment Camp",
+                    "Solar Pump Subsidy",
+                    "Village Road Development",
+                    "Drip Irrigation Subsidy",
+                    "Public Library Development",
+                    "Youth Startup Support",
+                    "Fishing Net Subsidy"
+                ]
+            },
+            "Kumarapalayam": {
+                "schemes": [
+                    "Free Bus Pass for Women",
+                    "Rural Employment Scheme",
+                    "Student Free Bus Pass",
+                    "Marriage Assistance Scheme",
+                    "Free Electricity for Farmers",
+                    "Minority Scholarship",
+                    "School Uniform Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Smart Ration Card Scheme"
+                ]
+            }
+        }
+    },
+    "Erode": {
+        "constituencies": {
+            "Erode East": {
+                "schemes": [
+                    "Student Free Bus Pass",
+                    "Green House Solar",
+                    "Free Bus Pass for Women",
+                    "Street Vendor Loan Scheme",
+                    "Public Library Development",
+                    "Senior Citizen Travel Pass",
+                    "Skill Training Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Digital Education Scheme",
+                    "Handloom Weaver Support"
+                ]
+            },
+            "Erode West": {
+                "schemes": [
+                    "Farmer Equipment Subsidy",
+                    "Women Safety Scheme",
+                    "Marriage Assistance Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Nutrition Food Kit",
+                    "Rain Water Harvesting",
+                    "Drip Irrigation Subsidy",
+                    "Public Library Development",
+                    "Old Age Pension Scheme",
+                    "Free Bus Pass for Women"
+                ]
+            },
+            "Modakkurichi": {
+                "schemes": [
+                    "Free Goat Distribution",
+                    "Student Free Bus Pass",
+                    "Pregnancy Nutrition Kit",
+                    "Urban Employment Scheme",
+                    "Farmer Loan Waiver",
+                    "Senior Citizen Travel Pass",
+                    "Public Toilet Scheme",
+                    "Differently Abled Welfare",
+                    "Drip Irrigation Subsidy",
+                    "Village Road Development"
+                ]
+            },
+            "Perundurai": {
+                "schemes": [
+                    "Waste Management Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Hill Area Development",
+                    "Senior Citizen Travel Pass",
+                    "Handloom Weaver Support",
+                    "Minority Scholarship",
+                    "Chief Minister Health Insurance Scheme",
+                    "Free Medical Camp",
+                    "Urban Employment Scheme",
+                    "Free Bus Pass for Women"
+                ]
+            },
+            "Bhavani": {
+                "schemes": [
+                    "Student Free Bus Pass",
+                    "Differently Abled Welfare",
+                    "Farmer Equipment Subsidy",
+                    "Startup Seed Fund",
+                    "Free Bus Pass for Women",
+                    "School Uniform Scheme",
+                    "Waste Management Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Farmer Loan Waiver",
+                    "Free Sewing Machine"
+                ]
+            },
+            "Anthiyur": {
+                "schemes": [
+                    "Nutrition Food Kit",
+                    "Women Safety Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Public Toilet Scheme",
+                    "Scholarship for Students",
+                    "Minority Scholarship",
+                    "Handloom Weaver Support",
+                    "Free Bus Pass for Women",
+                    "Green House Solar",
+                    "Chief Minister Health Insurance Scheme"
+                ]
+            },
+            "Gobichettipalayam": {
+                "schemes": [
+                    "Youth Startup Support",
+                    "Village Internet Scheme",
+                    "Free Medical Camp",
+                    "Skill Training Scheme",
+                    "Differently Abled Welfare",
+                    "School Uniform Scheme",
+                    "Startup Seed Fund",
+                    "Waste Management Scheme",
+                    "Free Bicycle Scheme",
+                    "Senior Citizen Travel Pass"
+                ]
+            },
+            "Bhavanisagar": {
+                "schemes": [
+                    "Old Age Pension Scheme",
+                    "Youth Employment Camp",
+                    "Women Entrepreneurship Loan",
+                    "Free Electricity for Farmers",
+                    "Rural Employment Scheme",
+                    "Water Tank Construction",
+                    "Hill Area Development",
+                    "Green House Solar",
+                    "Village Road Development",
+                    "School Uniform Scheme"
+                ]
+            }
+        }
+    },
+    "Tiruppur": {
+        "constituencies": {
+            "Tiruppur North": {
+                "schemes": [
+                    "Pregnancy Nutrition Kit",
+                    "Farmer Equipment Subsidy",
+                    "Old Age Pension Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Midday Meal Scheme",
+                    "Nutrition Food Kit",
+                    "Rain Water Harvesting",
+                    "Water Tank Construction",
+                    "Marriage Assistance Scheme",
+                    "Coastal Area Development"
+                ]
+            },
+            "Tiruppur South": {
+                "schemes": [
+                    "Waste Management Scheme",
+                    "Free Bus Pass for Women",
+                    "Street Vendor Loan Scheme",
+                    "Handloom Weaver Support",
+                    "Women Safety Scheme",
+                    "Public Toilet Scheme",
+                    "Smart Ration Card Scheme",
+                    "Midday Meal Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Nutrition Food Kit"
+                ]
+            },
+            "Avinashi": {
+                "schemes": [
+                    "Youth Employment Camp",
+                    "Self Help Group Loan",
+                    "Free Sewing Machine",
+                    "Midday Meal Scheme",
+                    "Handloom Weaver Support",
+                    "Smart Ration Card Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Nutrition Food Kit",
+                    "Women Entrepreneurship Loan",
+                    "Waste Management Scheme"
+                ]
+            },
+            "Palladam": {
+                "schemes": [
+                    "Village Internet Scheme",
+                    "Student Free Bus Pass",
+                    "Village Road Development",
+                    "Public Library Development",
+                    "Urban Employment Scheme",
+                    "Startup Seed Fund",
+                    "Youth Startup Support",
+                    "Scholarship for Students",
+                    "Handloom Weaver Support",
+                    "Free Laptop Scheme"
+                ]
+            },
+            "Dharapuram": {
+                "schemes": [
+                    "Free Medical Camp",
+                    "Skill Training Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Hill Area Development",
+                    "Differently Abled Welfare",
+                    "Housing Scheme",
+                    "Green House Solar",
+                    "Free Bus Pass for Women",
+                    "Handloom Weaver Support",
+                    "Midday Meal Scheme"
+                ]
+            },
+            "Kangayam": {
+                "schemes": [
+                    "Hill Area Development",
+                    "Youth Employment Camp",
+                    "Public Library Development",
+                    "Digital Education Scheme",
+                    "Fishing Net Subsidy",
+                    "Housing Scheme",
+                    "Free Bicycle Scheme",
+                    "Rural Employment Scheme",
+                    "Primary Health Upgrade",
+                    "Free Electricity for Farmers"
+                ]
+            },
+            "Udumalpet": {
+                "schemes": [
+                    "Self Help Group Loan",
+                    "Student Free Bus Pass",
+                    "Hill Area Development",
+                    "Free Laptop Scheme",
+                    "Free Goat Distribution",
+                    "Chief Minister Health Insurance Scheme",
+                    "Pregnancy Nutrition Kit",
+                    "Differently Abled Welfare",
+                    "Youth Startup Support",
+                    "Housing Scheme"
+                ]
+            },
+            "Madathukulam": {
+                "schemes": [
+                    "Rain Water Harvesting",
+                    "Green House Solar",
+                    "Self Help Group Loan",
+                    "Solar Pump Subsidy",
+                    "Chief Minister Health Insurance Scheme",
+                    "Waste Management Scheme",
+                    "Housing Scheme",
+                    "Primary Health Upgrade",
+                    "Coastal Area Development",
+                    "Farmer Equipment Subsidy"
+                ]
+            }
+        }
+    },
+    "Nilgiris": {
+        "constituencies": {
+            "Udhagamandalam": {
+                "schemes": [
+                    "Senior Citizen Travel Pass",
+                    "Self Help Group Loan",
+                    "Youth Employment Camp",
+                    "Coastal Area Development",
+                    "Drip Irrigation Subsidy",
+                    "Free Sewing Machine",
+                    "Solar Pump Subsidy",
+                    "Public Library Development",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Water Tank Construction"
+                ]
+            },
+            "Gudalur": {
+                "schemes": [
+                    "Rural Employment Scheme",
+                    "Scholarship for Students",
+                    "Youth Employment Camp",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Fishing Net Subsidy",
+                    "Free Bicycle Scheme",
+                    "Public Toilet Scheme",
+                    "Women Safety Scheme",
+                    "Solar Pump Subsidy",
+                    "Pregnancy Nutrition Kit"
+                ]
+            },
+            "Coonoor": {
+                "schemes": [
+                    "Farmer Loan Waiver",
+                    "Fishing Net Subsidy",
+                    "Farmer Equipment Subsidy",
+                    "School Uniform Scheme",
+                    "Women Safety Scheme",
+                    "Water Tank Construction",
+                    "Youth Startup Support",
+                    "Free Medical Camp",
+                    "Handloom Weaver Support",
+                    "Drip Irrigation Subsidy"
+                ]
+            }
+        }
+    },
+    "Coimbatore": {
+        "constituencies": {
+            "Coimbatore North": {
+                "schemes": [
+                    "Farmer Loan Waiver",
+                    "Marriage Assistance Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Housing Scheme",
+                    "Solar Pump Subsidy",
+                    "Student Free Bus Pass",
+                    "Coastal Area Development",
+                    "Drip Irrigation Subsidy",
+                    "Village Road Development",
+                    "Women Entrepreneurship Loan"
+                ]
+            },
+            "Coimbatore South": {
+                "schemes": [
+                    "Free Bicycle Scheme",
+                    "Housing Scheme",
+                    "Free Electricity for Farmers",
+                    "Public Toilet Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Free Sewing Machine",
+                    "Startup Seed Fund",
+                    "Nutrition Food Kit",
+                    "Farmer Equipment Subsidy",
+                    "Hill Area Development"
+                ]
+            },
+            "Kavundampalayam": {
+                "schemes": [
+                    "Solar Pump Subsidy",
+                    "Free Goat Distribution",
+                    "Free Sewing Machine",
+                    "Fishing Net Subsidy",
+                    "Startup Seed Fund",
+                    "Digital Education Scheme",
+                    "Water Tank Construction",
+                    "Green House Solar",
+                    "Women Safety Scheme",
+                    "Kalaignar Magalir Urimai Thogai"
+                ]
+            },
+            "Singanallur": {
+                "schemes": [
+                    "Primary Health Upgrade",
+                    "Smart Ration Card Scheme",
+                    "Housing Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Coastal Area Development",
+                    "Handloom Weaver Support",
+                    "Drip Irrigation Subsidy",
+                    "Free Electricity for Farmers",
+                    "Village Internet Scheme",
+                    "Nutrition Food Kit"
+                ]
+            },
+            "Thondamuthur": {
+                "schemes": [
+                    "Women Safety Scheme",
+                    "Waste Management Scheme",
+                    "Midday Meal Scheme",
+                    "Fishing Net Subsidy",
+                    "Coastal Area Development",
+                    "Village Internet Scheme",
+                    "Free Medical Camp",
+                    "Solar Pump Subsidy",
+                    "Old Age Pension Scheme",
+                    "Women Entrepreneurship Loan"
+                ]
+            },
+            "Kinathukadavu": {
+                "schemes": [
+                    "Hill Area Development",
+                    "Skill Training Scheme",
+                    "Free Medical Camp",
+                    "Public Library Development",
+                    "Free Laptop Scheme",
+                    "Free Bus Pass for Women",
+                    "School Uniform Scheme",
+                    "Startup Seed Fund",
+                    "Green House Solar",
+                    "Coastal Area Development"
+                ]
+            },
+            "Pollachi": {
+                "schemes": [
+                    "School Uniform Scheme",
+                    "Women Entrepreneurship Loan",
+                    "Free Goat Distribution",
+                    "Chief Minister Health Insurance Scheme",
+                    "Nutrition Food Kit",
+                    "Housing Scheme",
+                    "Student Free Bus Pass",
+                    "Public Toilet Scheme",
+                    "Self Help Group Loan",
+                    "Public Library Development"
+                ]
+            },
+            "Valparai": {
+                "schemes": [
+                    "Senior Citizen Travel Pass",
+                    "Digital Education Scheme",
+                    "Green House Solar",
+                    "Smart Ration Card Scheme",
+                    "Coastal Area Development",
+                    "Public Library Development",
+                    "Hill Area Development",
+                    "Rural Employment Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Kalaignar Magalir Urimai Thogai"
+                ]
+            },
+            "Sulur": {
+                "schemes": [
+                    "Free Medical Camp",
+                    "Coastal Area Development",
+                    "Free Bicycle Scheme",
+                    "Primary Health Upgrade",
+                    "Public Library Development",
+                    "Digital Education Scheme",
+                    "Free Goat Distribution",
+                    "Rural Employment Scheme",
+                    "Startup Seed Fund",
+                    "Women Entrepreneurship Loan"
+                ]
+            }
+        }
+    },
+    "Dindigul": {
+        "constituencies": {
+            "Palani": {
+                "schemes": [
+                    "Old Age Pension Scheme",
+                    "Water Tank Construction",
+                    "Village Internet Scheme",
+                    "Startup Seed Fund",
+                    "Women Entrepreneurship Loan",
+                    "Public Toilet Scheme",
+                    "Hill Area Development",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Housing Scheme",
+                    "Pregnancy Nutrition Kit"
+                ]
+            },
+            "Oddanchatram": {
+                "schemes": [
+                    "Housing Scheme",
+                    "Hill Area Development",
+                    "Student Free Bus Pass",
+                    "Youth Startup Support",
+                    "Drip Irrigation Subsidy",
+                    "Urban Employment Scheme",
+                    "Solar Pump Subsidy",
+                    "Differently Abled Welfare",
+                    "Midday Meal Scheme",
+                    "Free Electricity for Farmers"
+                ]
+            },
+            "Athoor": {
+                "schemes": [
+                    "Free Bicycle Scheme",
+                    "Youth Employment Camp",
+                    "Farmer Equipment Subsidy",
+                    "Senior Citizen Travel Pass",
+                    "Primary Health Upgrade",
+                    "Fishing Net Subsidy",
+                    "Water Tank Construction",
+                    "Free Sewing Machine",
+                    "Chief Minister Health Insurance Scheme",
+                    "School Uniform Scheme"
+                ]
+            },
+            "Nilakkottai": {
+                "schemes": [
+                    "Marriage Assistance Scheme",
+                    "Waste Management Scheme",
+                    "Rural Employment Scheme",
+                    "Minority Scholarship",
+                    "Free Bicycle Scheme",
+                    "Women Safety Scheme",
+                    "Housing Scheme",
+                    "Skill Training Scheme",
+                    "Student Free Bus Pass",
+                    "Smart Ration Card Scheme"
+                ]
+            },
+            "Natham": {
+                "schemes": [
+                    "Hill Area Development",
+                    "Rural Employment Scheme",
+                    "Marriage Assistance Scheme",
+                    "Rain Water Harvesting",
+                    "Waste Management Scheme",
+                    "Free Electricity for Farmers",
+                    "Free Bicycle Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Free Medical Camp",
+                    "Farmer Loan Waiver"
+                ]
+            },
+            "Dindigul": {
+                "schemes": [
+                    "Women Safety Scheme",
+                    "Solar Pump Subsidy",
+                    "Drip Irrigation Subsidy",
+                    "Farmer Equipment Subsidy",
+                    "Waste Management Scheme",
+                    "Free Bus Pass for Women",
+                    "Free Bicycle Scheme",
+                    "Student Free Bus Pass",
+                    "Housing Scheme",
+                    "School Uniform Scheme"
+                ]
+            }
+        }
+    },
+    "Karur": {
+        "constituencies": {
+            "Aravakurichi": {
+                "schemes": [
+                    "Differently Abled Welfare",
+                    "Digital Education Scheme",
+                    "Women Safety Scheme",
+                    "Old Age Pension Scheme",
+                    "Free Bus Pass for Women",
+                    "Free Medical Camp",
+                    "Waste Management Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Youth Employment Camp",
+                    "Hill Area Development"
+                ]
+            },
+            "Karur": {
+                "schemes": [
+                    "Nutrition Food Kit",
+                    "Senior Citizen Travel Pass",
+                    "Midday Meal Scheme",
+                    "Waste Management Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Hill Area Development",
+                    "Youth Employment Camp",
+                    "Scholarship for Students",
+                    "Street Vendor Loan Scheme",
+                    "Public Toilet Scheme"
+                ]
+            },
+            "Krishnarayapuram": {
+                "schemes": [
+                    "Differently Abled Welfare",
+                    "Public Toilet Scheme",
+                    "Waste Management Scheme",
+                    "Hill Area Development",
+                    "Digital Education Scheme",
+                    "Public Library Development",
+                    "Old Age Pension Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Nutrition Food Kit"
+                ]
+            },
+            "Kulithalai": {
+                "schemes": [
+                    "Chief Minister Health Insurance Scheme",
+                    "Coastal Area Development",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Free Bicycle Scheme",
+                    "Rural Employment Scheme",
+                    "Scholarship for Students",
+                    "Student Free Bus Pass",
+                    "Midday Meal Scheme",
+                    "Smart Ration Card Scheme",
+                    "Farmer Equipment Subsidy"
+                ]
+            }
+        }
+    },
+    "Tiruchirappalli": {
+        "constituencies": {
+            "Srirangam": {
+                "schemes": [
+                    "Free Bicycle Scheme",
+                    "Housing Scheme",
+                    "Solar Pump Subsidy",
+                    "Youth Startup Support",
+                    "Smart Ration Card Scheme",
+                    "Village Road Development",
+                    "Waste Management Scheme",
+                    "Free Sewing Machine",
+                    "Rural Employment Scheme",
+                    "Public Library Development"
+                ]
+            },
+            "Tiruchirappalli West": {
+                "schemes": [
+                    "Hill Area Development",
+                    "Pregnancy Nutrition Kit",
+                    "Old Age Pension Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Free Electricity for Farmers",
+                    "Farmer Equipment Subsidy",
+                    "School Uniform Scheme",
+                    "Women Safety Scheme",
+                    "Smart Ration Card Scheme",
+                    "Women Entrepreneurship Loan"
+                ]
+            },
+            "Tiruchirappalli East": {
+                "schemes": [
+                    "Scholarship for Students",
+                    "Smart Ration Card Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Youth Employment Camp",
+                    "Primary Health Upgrade",
+                    "Public Library Development",
+                    "Handloom Weaver Support",
+                    "Free Bicycle Scheme",
+                    "Housing Scheme"
+                ]
+            },
+            "Thiruverumbur": {
+                "schemes": [
+                    "Public Library Development",
+                    "Public Toilet Scheme",
+                    "Skill Training Scheme",
+                    "Free Medical Camp",
+                    "Water Tank Construction",
+                    "Pregnancy Nutrition Kit",
+                    "Differently Abled Welfare",
+                    "Chief Minister Health Insurance Scheme",
+                    "Startup Seed Fund",
+                    "Free Electricity for Farmers"
+                ]
+            },
+            "Manachanallur": {
+                "schemes": [
+                    "Primary Health Upgrade",
+                    "Rain Water Harvesting",
+                    "Housing Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Handloom Weaver Support",
+                    "Waste Management Scheme",
+                    "Free Bicycle Scheme",
+                    "Women Entrepreneurship Loan",
+                    "Self Help Group Loan",
+                    "Free Electricity for Farmers"
+                ]
+            },
+            "Musiri": {
+                "schemes": [
+                    "Minority Scholarship",
+                    "Urban Employment Scheme",
+                    "Startup Seed Fund",
+                    "Marriage Assistance Scheme",
+                    "Handloom Weaver Support",
+                    "Free Medical Camp",
+                    "Fishing Net Subsidy",
+                    "Digital Education Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Drip Irrigation Subsidy"
+                ]
+            },
+            "Thuraiyur": {
+                "schemes": [
+                    "Farmer Equipment Subsidy",
+                    "Urban Employment Scheme",
+                    "Green House Solar",
+                    "Startup Seed Fund",
+                    "Old Age Pension Scheme",
+                    "School Uniform Scheme",
+                    "Nutrition Food Kit",
+                    "Senior Citizen Travel Pass",
+                    "Chief Minister Health Insurance Scheme",
+                    "Pregnancy Nutrition Kit"
+                ]
+            },
+            "Lalgudi": {
+                "schemes": [
+                    "Waste Management Scheme",
+                    "Green House Solar",
+                    "Old Age Pension Scheme",
+                    "Urban Employment Scheme",
+                    "Marriage Assistance Scheme",
+                    "Solar Pump Subsidy",
+                    "Free Bicycle Scheme",
+                    "Primary Health Upgrade",
+                    "Free Medical Camp",
+                    "Village Internet Scheme"
+                ]
+            },
+            "Manapparai": {
+                "schemes": [
+                    "Primary Health Upgrade",
+                    "Chief Minister Health Insurance Scheme",
+                    "Smart Ration Card Scheme",
+                    "Digital Education Scheme",
+                    "Nutrition Food Kit",
+                    "Women Entrepreneurship Loan",
+                    "Free Laptop Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Free Electricity for Farmers",
+                    "Free Medical Camp"
+                ]
+            }
+        }
+    },
+    "Perambalur": {
+        "constituencies": {
+            "Perambalur": {
+                "schemes": [
+                    "Solar Pump Subsidy",
+                    "Differently Abled Welfare",
+                    "Urban Employment Scheme",
+                    "Waste Management Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Digital Education Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Green House Solar",
+                    "Student Free Bus Pass",
+                    "Public Library Development"
+                ]
+            },
+            "Kunnam": {
+                "schemes": [
+                    "Free Bus Pass for Women",
+                    "Fishing Net Subsidy",
+                    "Marriage Assistance Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Old Age Pension Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Waste Management Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Self Help Group Loan",
+                    "Kalaignar Magalir Urimai Thogai"
+                ]
+            }
+        }
+    },
+    "Ariyalur": {
+        "constituencies": {
+            "Ariyalur": {
+                "schemes": [
+                    "Farmer Equipment Subsidy",
+                    "Public Toilet Scheme",
+                    "Handloom Weaver Support",
+                    "Rain Water Harvesting",
+                    "Village Internet Scheme",
+                    "Primary Health Upgrade",
+                    "Differently Abled Welfare",
+                    "Village Road Development",
+                    "Student Free Bus Pass",
+                    "Pregnancy Nutrition Kit"
+                ]
+            },
+            "Jayankondam": {
+                "schemes": [
+                    "Free Bicycle Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Youth Startup Support",
+                    "Rain Water Harvesting",
+                    "Free Medical Camp",
+                    "Drip Irrigation Subsidy",
+                    "Housing Scheme",
+                    "Startup Seed Fund",
+                    "Free Sewing Machine",
+                    "Midday Meal Scheme"
+                ]
+            }
+        }
+    },
+    "Cuddalore": {
+        "constituencies": {
+            "Tittakudi": {
+                "schemes": [
+                    "Coastal Area Development",
+                    "Farmer Equipment Subsidy",
+                    "Handloom Weaver Support",
+                    "Farmer Loan Waiver",
+                    "Housing Scheme",
+                    "Women Safety Scheme",
+                    "Village Internet Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Waste Management Scheme",
+                    "Free Laptop Scheme"
+                ]
+            },
+            "Vriddhachalam": {
+                "schemes": [
+                    "Smart Ration Card Scheme",
+                    "Midday Meal Scheme",
+                    "Solar Pump Subsidy",
+                    "Rural Employment Scheme",
+                    "Startup Seed Fund",
+                    "Old Age Pension Scheme",
+                    "Free Bicycle Scheme",
+                    "Free Goat Distribution",
+                    "Coastal Area Development",
+                    "Drip Irrigation Subsidy"
+                ]
+            },
+            "Neyveli": {
+                "schemes": [
+                    "Handloom Weaver Support",
+                    "Water Tank Construction",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Farmer Equipment Subsidy",
+                    "Chief Minister Health Insurance Scheme",
+                    "Self Help Group Loan",
+                    "Marriage Assistance Scheme",
+                    "Fishing Net Subsidy",
+                    "Minority Scholarship",
+                    "Skill Training Scheme"
+                ]
+            },
+            "Panruti": {
+                "schemes": [
+                    "Hill Area Development",
+                    "Marriage Assistance Scheme",
+                    "Housing Scheme",
+                    "Youth Startup Support",
+                    "Street Vendor Loan Scheme",
+                    "Free Electricity for Farmers",
+                    "Minority Scholarship",
+                    "Green House Solar",
+                    "Old Age Pension Scheme",
+                    "Free Bus Pass for Women"
+                ]
+            },
+            "Cuddalore": {
+                "schemes": [
+                    "School Uniform Scheme",
+                    "Student Free Bus Pass",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Smart Ration Card Scheme",
+                    "Free Bicycle Scheme",
+                    "Startup Seed Fund",
+                    "Village Road Development",
+                    "Waste Management Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Drip Irrigation Subsidy"
+                ]
+            },
+            "Kurinjipadi": {
+                "schemes": [
+                    "Free Electricity for Farmers",
+                    "Scholarship for Students",
+                    "Women Entrepreneurship Loan",
+                    "Skill Training Scheme",
+                    "Farmer Loan Waiver",
+                    "Drip Irrigation Subsidy",
+                    "Fishing Net Subsidy",
+                    "Hill Area Development",
+                    "Differently Abled Welfare",
+                    "School Uniform Scheme"
+                ]
+            },
+            "Bhuvanagiri": {
+                "schemes": [
+                    "Public Library Development",
+                    "Urban Employment Scheme",
+                    "Green House Solar",
+                    "Women Safety Scheme",
+                    "Student Free Bus Pass",
+                    "Free Electricity for Farmers",
+                    "Scholarship for Students",
+                    "Old Age Pension Scheme",
+                    "Rain Water Harvesting",
+                    "Free Bicycle Scheme"
+                ]
+            },
+            "Chidambaram": {
+                "schemes": [
+                    "Urban Employment Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Rain Water Harvesting",
+                    "Coastal Area Development",
+                    "Village Road Development",
+                    "Pregnancy Nutrition Kit",
+                    "Nutrition Food Kit",
+                    "Fishing Net Subsidy",
+                    "Public Toilet Scheme",
+                    "Digital Education Scheme"
+                ]
+            },
+            "Kattumannarkoil": {
+                "schemes": [
+                    "Skill Training Scheme",
+                    "Village Road Development",
+                    "Midday Meal Scheme",
+                    "Primary Health Upgrade",
+                    "Green House Solar",
+                    "Self Help Group Loan",
+                    "Startup Seed Fund",
+                    "Chief Minister Health Insurance Scheme",
+                    "Women Entrepreneurship Loan",
+                    "Farmer Loan Waiver"
+                ]
+            }
+        }
+    },
+    "Kallakurichi": {
+        "constituencies": {
+            "Kallakurichi": {
+                "schemes": [
+                    "Farmer Equipment Subsidy",
+                    "Village Road Development",
+                    "Farmer Loan Waiver",
+                    "Rural Employment Scheme",
+                    "Free Electricity for Farmers",
+                    "Hill Area Development",
+                    "Free Laptop Scheme",
+                    "Youth Startup Support",
+                    "Digital Education Scheme",
+                    "Public Toilet Scheme"
+                ]
+            },
+            "Rishivandiyam": {
+                "schemes": [
+                    "Free Bus Pass for Women",
+                    "Public Toilet Scheme",
+                    "Women Safety Scheme",
+                    "Differently Abled Welfare",
+                    "Senior Citizen Travel Pass",
+                    "Self Help Group Loan",
+                    "Free Sewing Machine",
+                    "Pregnancy Nutrition Kit",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Minority Scholarship"
+                ]
+            },
+            "Sankarapuram": {
+                "schemes": [
+                    "Nutrition Food Kit",
+                    "Free Bus Pass for Women",
+                    "Smart Ration Card Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Free Laptop Scheme",
+                    "Housing Scheme",
+                    "Women Safety Scheme",
+                    "Minority Scholarship",
+                    "Solar Pump Subsidy",
+                    "Farmer Loan Waiver"
+                ]
+            },
+            "Ulundurpettai": {
+                "schemes": [
+                    "Chief Minister Health Insurance Scheme",
+                    "Waste Management Scheme",
+                    "Free Goat Distribution",
+                    "Coastal Area Development",
+                    "Primary Health Upgrade",
+                    "Youth Startup Support",
+                    "Free Bus Pass for Women",
+                    "Solar Pump Subsidy",
+                    "Rain Water Harvesting",
+                    "Green House Solar"
+                ]
+            }
+        }
+    },
+    "Villupuram": {
+        "constituencies": {
+            "Villupuram": {
+                "schemes": [
+                    "Women Safety Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Primary Health Upgrade",
+                    "Village Road Development",
+                    "Water Tank Construction",
+                    "Scholarship for Students",
+                    "Digital Education Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Urban Employment Scheme",
+                    "Village Internet Scheme"
+                ]
+            },
+            "Vikravandi": {
+                "schemes": [
+                    "Senior Citizen Travel Pass",
+                    "Street Vendor Loan Scheme",
+                    "Green House Solar",
+                    "Midday Meal Scheme",
+                    "Rain Water Harvesting",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Digital Education Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Free Goat Distribution",
+                    "Village Road Development"
+                ]
+            },
+            "Tirukkoyilur": {
+                "schemes": [
+                    "Differently Abled Welfare",
+                    "Nutrition Food Kit",
+                    "Marriage Assistance Scheme",
+                    "Student Free Bus Pass",
+                    "Primary Health Upgrade",
+                    "Free Laptop Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Coastal Area Development",
+                    "Rain Water Harvesting",
+                    "Midday Meal Scheme"
+                ]
+            },
+            "Vanur": {
+                "schemes": [
+                    "School Uniform Scheme",
+                    "Old Age Pension Scheme",
+                    "Free Medical Camp",
+                    "Free Goat Distribution",
+                    "Pregnancy Nutrition Kit",
+                    "Senior Citizen Travel Pass",
+                    "Public Library Development",
+                    "Village Road Development",
+                    "Free Bus Pass for Women",
+                    "Skill Training Scheme"
+                ]
+            },
+            "Tindivanam": {
+                "schemes": [
+                    "Public Library Development",
+                    "Coastal Area Development",
+                    "Marriage Assistance Scheme",
+                    "Public Toilet Scheme",
+                    "Waste Management Scheme",
+                    "Skill Training Scheme",
+                    "Free Medical Camp",
+                    "Nutrition Food Kit",
+                    "Hill Area Development",
+                    "Senior Citizen Travel Pass"
+                ]
+            },
+            "Mailam": {
+                "schemes": [
+                    "Women Entrepreneurship Loan",
+                    "Free Sewing Machine",
+                    "Smart Ration Card Scheme",
+                    "Old Age Pension Scheme",
+                    "Rural Employment Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Startup Seed Fund",
+                    "Solar Pump Subsidy",
+                    "Public Toilet Scheme",
+                    "Nutrition Food Kit"
+                ]
+            },
+            "Gingee": {
+                "schemes": [
+                    "Pregnancy Nutrition Kit",
+                    "Village Road Development",
+                    "Farmer Equipment Subsidy",
+                    "Urban Employment Scheme",
+                    "School Uniform Scheme",
+                    "Women Safety Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Smart Ration Card Scheme",
+                    "Waste Management Scheme",
+                    "Public Toilet Scheme"
+                ]
+            }
+        }
+    },
+    "Tiruvannamalai": {
+        "constituencies": {
+            "Tiruvannamalai": {
+                "schemes": [
+                    "Pregnancy Nutrition Kit",
+                    "Solar Pump Subsidy",
+                    "Public Library Development",
+                    "Street Vendor Loan Scheme",
+                    "Public Toilet Scheme",
+                    "Digital Education Scheme",
+                    "Free Goat Distribution",
+                    "Green House Solar",
+                    "Midday Meal Scheme",
+                    "Urban Employment Scheme"
+                ]
+            },
+            "Kilpennathur": {
+                "schemes": [
+                    "Rural Employment Scheme",
+                    "Old Age Pension Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Free Bicycle Scheme",
+                    "Free Goat Distribution",
+                    "Free Bus Pass for Women",
+                    "Pregnancy Nutrition Kit",
+                    "Fishing Net Subsidy",
+                    "Scholarship for Students",
+                    "Green House Solar"
+                ]
+            },
+            "Kalasapakkam": {
+                "schemes": [
+                    "Solar Pump Subsidy",
+                    "Differently Abled Welfare",
+                    "Farmer Loan Waiver",
+                    "Free Electricity for Farmers",
+                    "Free Laptop Scheme",
+                    "Handloom Weaver Support",
+                    "Free Bicycle Scheme",
+                    "Hill Area Development",
+                    "Free Medical Camp",
+                    "Water Tank Construction"
+                ]
+            },
+            "Chengam": {
+                "schemes": [
+                    "Urban Employment Scheme",
+                    "Housing Scheme",
+                    "Midday Meal Scheme",
+                    "Skill Training Scheme",
+                    "Public Toilet Scheme",
+                    "Free Laptop Scheme",
+                    "Startup Seed Fund",
+                    "Farmer Loan Waiver",
+                    "Fishing Net Subsidy",
+                    "Student Free Bus Pass"
+                ]
+            },
+            "Polur": {
+                "schemes": [
+                    "Youth Employment Camp",
+                    "Marriage Assistance Scheme",
+                    "Old Age Pension Scheme",
+                    "Free Bus Pass for Women",
+                    "Solar Pump Subsidy",
+                    "Scholarship for Students",
+                    "Drip Irrigation Subsidy",
+                    "Differently Abled Welfare",
+                    "Smart Ration Card Scheme",
+                    "Nutrition Food Kit"
+                ]
+            },
+            "Arani": {
+                "schemes": [
+                    "Chief Minister Health Insurance Scheme",
+                    "Waste Management Scheme",
+                    "Public Library Development",
+                    "Water Tank Construction",
+                    "Drip Irrigation Subsidy",
+                    "Green House Solar",
+                    "Village Road Development",
+                    "Free Goat Distribution",
+                    "Skill Training Scheme",
+                    "Handloom Weaver Support"
+                ]
+            },
+            "Cheyyar": {
+                "schemes": [
+                    "Senior Citizen Travel Pass",
+                    "Differently Abled Welfare",
+                    "Farmer Loan Waiver",
+                    "Free Electricity for Farmers",
+                    "Fishing Net Subsidy",
+                    "Handloom Weaver Support",
+                    "School Uniform Scheme",
+                    "Self Help Group Loan",
+                    "Smart Ration Card Scheme",
+                    "Drip Irrigation Subsidy"
+                ]
+            }
+        }
+    },
+    "Nagapattinam": {
+        "constituencies": {
+            "Nagapattinam": {
+                "schemes": [
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Pregnancy Nutrition Kit",
+                    "Chief Minister Health Insurance Scheme",
+                    "Rural Employment Scheme",
+                    "Water Tank Construction",
+                    "Farmer Loan Waiver",
+                    "Public Toilet Scheme",
+                    "Student Free Bus Pass",
+                    "Marriage Assistance Scheme",
+                    "Green House Solar"
+                ]
+            },
+            "Kilvelur": {
+                "schemes": [
+                    "Housing Scheme",
+                    "Public Toilet Scheme",
+                    "Women Safety Scheme",
+                    "Free Goat Distribution",
+                    "Senior Citizen Travel Pass",
+                    "Village Road Development",
+                    "Village Internet Scheme",
+                    "Youth Employment Camp",
+                    "Drip Irrigation Subsidy",
+                    "Digital Education Scheme"
+                ]
+            }
+        }
+    },
+    "Mayiladuthurai": {
+        "constituencies": {
+            "Mayiladuthurai": {
+                "schemes": [
+                    "Women Safety Scheme",
+                    "Public Library Development",
+                    "Free Sewing Machine",
+                    "Self Help Group Loan",
+                    "Handloom Weaver Support",
+                    "Hill Area Development",
+                    "Farmer Loan Waiver",
+                    "Primary Health Upgrade",
+                    "Midday Meal Scheme",
+                    "Marriage Assistance Scheme"
+                ]
+            },
+            "Poompuhar": {
+                "schemes": [
+                    "School Uniform Scheme",
+                    "Coastal Area Development",
+                    "Youth Employment Camp",
+                    "Free Bicycle Scheme",
+                    "Free Medical Camp",
+                    "Free Laptop Scheme",
+                    "Smart Ration Card Scheme",
+                    "Student Free Bus Pass",
+                    "Self Help Group Loan",
+                    "Pregnancy Nutrition Kit"
+                ]
+            },
+            "Sirkazhi": {
+                "schemes": [
+                    "Housing Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Student Free Bus Pass",
+                    "Digital Education Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Youth Startup Support",
+                    "Urban Employment Scheme",
+                    "Village Internet Scheme",
+                    "Free Goat Distribution",
+                    "Midday Meal Scheme"
+                ]
+            }
+        }
+    },
+    "Tiruvarur": {
+        "constituencies": {
+            "Tiruvarur": {
+                "schemes": [
+                    "Handloom Weaver Support",
+                    "Senior Citizen Travel Pass",
+                    "Startup Seed Fund",
+                    "Free Electricity for Farmers",
+                    "Solar Pump Subsidy",
+                    "Scholarship for Students",
+                    "Village Internet Scheme",
+                    "Public Toilet Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Rural Employment Scheme"
+                ]
+            },
+            "Nannilam": {
+                "schemes": [
+                    "Nutrition Food Kit",
+                    "Water Tank Construction",
+                    "Solar Pump Subsidy",
+                    "Free Medical Camp",
+                    "Farmer Loan Waiver",
+                    "Drip Irrigation Subsidy",
+                    "Handloom Weaver Support",
+                    "Smart Ration Card Scheme",
+                    "Pregnancy Nutrition Kit",
+                    "Free Electricity for Farmers"
+                ]
+            },
+            "Thiruvidaimarudur": {
+                "schemes": [
+                    "Senior Citizen Travel Pass",
+                    "Village Internet Scheme",
+                    "Fishing Net Subsidy",
+                    "Solar Pump Subsidy",
+                    "Village Road Development",
+                    "Primary Health Upgrade",
+                    "Rain Water Harvesting",
+                    "Youth Employment Camp",
+                    "Handloom Weaver Support",
+                    "Old Age Pension Scheme"
+                ]
+            }
+        }
+    },
+    "Thanjavur": {
+        "constituencies": {
+            "Thanjavur": {
+                "schemes": [
+                    "Public Library Development",
+                    "Water Tank Construction",
+                    "Free Electricity for Farmers",
+                    "Minority Scholarship",
+                    "Startup Seed Fund",
+                    "Differently Abled Welfare",
+                    "Chief Minister Health Insurance Scheme",
+                    "Student Free Bus Pass",
+                    "Self Help Group Loan",
+                    "Village Internet Scheme"
+                ]
+            },
+            "Orathanadu": {
+                "schemes": [
+                    "Digital Education Scheme",
+                    "Differently Abled Welfare",
+                    "Marriage Assistance Scheme",
+                    "Senior Citizen Travel Pass",
+                    "Free Goat Distribution",
+                    "Public Library Development",
+                    "Free Medical Camp",
+                    "Nutrition Food Kit",
+                    "Urban Employment Scheme",
+                    "Free Laptop Scheme"
+                ]
+            },
+            "Papanasam": {
+                "schemes": [
+                    "Rural Employment Scheme",
+                    "Nutrition Food Kit",
+                    "Fishing Net Subsidy",
+                    "Differently Abled Welfare",
+                    "Primary Health Upgrade",
+                    "Public Toilet Scheme",
+                    "Village Internet Scheme",
+                    "Water Tank Construction",
+                    "Free Electricity for Farmers",
+                    "Farmer Loan Waiver"
+                ]
+            },
+            "Kumbakonam": {
+                "schemes": [
+                    "Public Library Development",
+                    "Hill Area Development",
+                    "Free Medical Camp",
+                    "Free Bus Pass for Women",
+                    "Farmer Loan Waiver",
+                    "Chief Minister Health Insurance Scheme",
+                    "Women Safety Scheme",
+                    "Old Age Pension Scheme",
+                    "Primary Health Upgrade",
+                    "Self Help Group Loan"
+                ]
+            },
+            "Pattukkottai": {
+                "schemes": [
+                    "Chief Minister Health Insurance Scheme",
+                    "Youth Employment Camp",
+                    "Startup Seed Fund",
+                    "Marriage Assistance Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Green House Solar",
+                    "Free Laptop Scheme",
+                    "Differently Abled Welfare",
+                    "Old Age Pension Scheme",
+                    "Pregnancy Nutrition Kit"
+                ]
+            },
+            "Peravurani": {
+                "schemes": [
+                    "Free Electricity for Farmers",
+                    "Rural Employment Scheme",
+                    "Free Bus Pass for Women",
+                    "Urban Employment Scheme",
+                    "Startup Seed Fund",
+                    "Differently Abled Welfare",
+                    "Youth Employment Camp",
+                    "Free Bicycle Scheme",
+                    "Women Entrepreneurship Loan",
+                    "Village Internet Scheme"
+                ]
+            }
+        }
+    },
+    "Pudukkottai": {
+        "constituencies": {
+            "Pudukkottai": {
+                "schemes": [
+                    "Smart Ration Card Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Urban Employment Scheme",
+                    "Water Tank Construction",
+                    "Startup Seed Fund",
+                    "Village Road Development",
+                    "Coastal Area Development",
+                    "Nutrition Food Kit",
+                    "Village Internet Scheme",
+                    "Free Bicycle Scheme"
+                ]
+            },
+            "Gandarvakottai": {
+                "schemes": [
+                    "Nutrition Food Kit",
+                    "Marriage Assistance Scheme",
+                    "Free Medical Camp",
+                    "Primary Health Upgrade",
+                    "Pregnancy Nutrition Kit",
+                    "Smart Ration Card Scheme",
+                    "Minority Scholarship",
+                    "Digital Education Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Village Internet Scheme"
+                ]
+            },
+            "Viralimalai": {
+                "schemes": [
+                    "Marriage Assistance Scheme",
+                    "Student Free Bus Pass",
+                    "Hill Area Development",
+                    "Nutrition Food Kit",
+                    "Green House Solar",
+                    "Rain Water Harvesting",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Solar Pump Subsidy",
+                    "Startup Seed Fund",
+                    "Digital Education Scheme"
+                ]
+            },
+            "Thirumayam": {
+                "schemes": [
+                    "Public Toilet Scheme",
+                    "Scholarship for Students",
+                    "Free Medical Camp",
+                    "Marriage Assistance Scheme",
+                    "Youth Employment Camp",
+                    "Free Sewing Machine",
+                    "School Uniform Scheme",
+                    "Fishing Net Subsidy",
+                    "Differently Abled Welfare",
+                    "Housing Scheme"
+                ]
+            },
+            "Alangudi": {
+                "schemes": [
+                    "Green House Solar",
+                    "Handloom Weaver Support",
+                    "Marriage Assistance Scheme",
+                    "Urban Employment Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Startup Seed Fund",
+                    "Smart Ration Card Scheme",
+                    "Youth Employment Camp",
+                    "Farmer Equipment Subsidy",
+                    "Rain Water Harvesting"
+                ]
+            },
+            "Aranthangi": {
+                "schemes": [
+                    "Pregnancy Nutrition Kit",
+                    "Free Bicycle Scheme",
+                    "Youth Employment Camp",
+                    "Public Toilet Scheme",
+                    "Digital Education Scheme",
+                    "Rain Water Harvesting",
+                    "Water Tank Construction",
+                    "Women Entrepreneurship Loan",
+                    "Hill Area Development",
+                    "Differently Abled Welfare"
+                ]
+            }
+        }
+    },
+    "Sivaganga": {
+        "constituencies": {
+            "Sivaganga": {
+                "schemes": [
+                    "Old Age Pension Scheme",
+                    "Primary Health Upgrade",
+                    "Fishing Net Subsidy",
+                    "Nutrition Food Kit",
+                    "Free Electricity for Farmers",
+                    "Free Sewing Machine",
+                    "Farmer Loan Waiver",
+                    "Scholarship for Students",
+                    "Village Internet Scheme",
+                    "Handloom Weaver Support"
+                ]
+            },
+            "Manamadurai": {
+                "schemes": [
+                    "Senior Citizen Travel Pass",
+                    "Free Electricity for Farmers",
+                    "Free Laptop Scheme",
+                    "School Uniform Scheme",
+                    "Youth Startup Support",
+                    "Startup Seed Fund",
+                    "Free Sewing Machine",
+                    "Housing Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Hill Area Development"
+                ]
+            },
+            "Karaikudi": {
+                "schemes": [
+                    "Rural Employment Scheme",
+                    "Nutrition Food Kit",
+                    "Free Bicycle Scheme",
+                    "Startup Seed Fund",
+                    "Free Laptop Scheme",
+                    "Student Free Bus Pass",
+                    "Free Electricity for Farmers",
+                    "Street Vendor Loan Scheme",
+                    "Youth Startup Support",
+                    "Drip Irrigation Subsidy"
+                ]
+            },
+            "Tirupattur": {
+                "schemes": [
+                    "Free Bus Pass for Women",
+                    "Water Tank Construction",
+                    "Rural Employment Scheme",
+                    "Free Laptop Scheme",
+                    "Marriage Assistance Scheme",
+                    "Smart Ration Card Scheme",
+                    "Scholarship for Students",
+                    "Farmer Loan Waiver",
+                    "Youth Startup Support",
+                    "Differently Abled Welfare"
+                ]
+            }
+        }
+    },
+    "Madurai": {
+        "constituencies": {
+            "Madurai North": {
+                "schemes": [
+                    "Free Medical Camp",
+                    "Public Toilet Scheme",
+                    "Green House Solar",
+                    "Public Library Development",
+                    "Village Road Development",
+                    "Fishing Net Subsidy",
+                    "Old Age Pension Scheme",
+                    "Free Bicycle Scheme",
+                    "Nutrition Food Kit",
+                    "Student Free Bus Pass"
+                ]
+            },
+            "Madurai South": {
+                "schemes": [
+                    "Village Road Development",
+                    "Pregnancy Nutrition Kit",
+                    "Free Laptop Scheme",
+                    "Coastal Area Development",
+                    "Farmer Equipment Subsidy",
+                    "Minority Scholarship",
+                    "Rural Employment Scheme",
+                    "Waste Management Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Farmer Loan Waiver"
+                ]
+            },
+            "Madurai Central": {
+                "schemes": [
+                    "Coastal Area Development",
+                    "Drip Irrigation Subsidy",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Youth Employment Camp",
+                    "Farmer Loan Waiver",
+                    "Village Road Development",
+                    "Public Library Development",
+                    "Handloom Weaver Support",
+                    "Startup Seed Fund",
+                    "Smart Ration Card Scheme"
+                ]
+            },
+            "Madurai East": {
+                "schemes": [
+                    "Public Toilet Scheme",
+                    "Nutrition Food Kit",
+                    "Solar Pump Subsidy",
+                    "Hill Area Development",
+                    "Free Electricity for Farmers",
+                    "Smart Ration Card Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Women Safety Scheme",
+                    "Youth Startup Support",
+                    "Coastal Area Development"
+                ]
+            },
+            "Madurai West": {
+                "schemes": [
+                    "Rain Water Harvesting",
+                    "Pregnancy Nutrition Kit",
+                    "Startup Seed Fund",
+                    "Street Vendor Loan Scheme",
+                    "Free Medical Camp",
+                    "Chief Minister Health Insurance Scheme",
+                    "Village Road Development",
+                    "Women Entrepreneurship Loan",
+                    "Village Internet Scheme",
+                    "Farmer Loan Waiver"
+                ]
+            },
+            "Thiruparankundram": {
+                "schemes": [
+                    "School Uniform Scheme",
+                    "Public Library Development",
+                    "Nutrition Food Kit",
+                    "Street Vendor Loan Scheme",
+                    "Youth Startup Support",
+                    "Smart Ration Card Scheme",
+                    "Fishing Net Subsidy",
+                    "Handloom Weaver Support",
+                    "Primary Health Upgrade",
+                    "Scholarship for Students"
+                ]
+            },
+            "Tirumangalam": {
+                "schemes": [
+                    "Pregnancy Nutrition Kit",
+                    "Handloom Weaver Support",
+                    "Housing Scheme",
+                    "Women Safety Scheme",
+                    "Youth Startup Support",
+                    "School Uniform Scheme",
+                    "Smart Ration Card Scheme",
+                    "Public Library Development",
+                    "Free Sewing Machine",
+                    "Primary Health Upgrade"
+                ]
+            },
+            "Usilampatti": {
+                "schemes": [
+                    "Water Tank Construction",
+                    "Women Entrepreneurship Loan",
+                    "Student Free Bus Pass",
+                    "Fishing Net Subsidy",
+                    "Pregnancy Nutrition Kit",
+                    "Marriage Assistance Scheme",
+                    "Differently Abled Welfare",
+                    "Handloom Weaver Support",
+                    "Free Medical Camp",
+                    "Smart Ration Card Scheme"
+                ]
+            },
+            "Melur": {
+                "schemes": [
+                    "Coastal Area Development",
+                    "Youth Employment Camp",
+                    "Free Electricity for Farmers",
+                    "Startup Seed Fund",
+                    "Rural Employment Scheme",
+                    "Smart Ration Card Scheme",
+                    "Free Goat Distribution",
+                    "Free Sewing Machine",
+                    "Hill Area Development",
+                    "Student Free Bus Pass"
+                ]
+            },
+            "Sholavandan": {
+                "schemes": [
+                    "Old Age Pension Scheme",
+                    "Solar Pump Subsidy",
+                    "Primary Health Upgrade",
+                    "Youth Employment Camp",
+                    "Student Free Bus Pass",
+                    "Waste Management Scheme",
+                    "Free Bus Pass for Women",
+                    "Startup Seed Fund",
+                    "Differently Abled Welfare",
+                    "Village Road Development"
+                ]
+            }
+        }
+    },
+    "Theni": {
+        "constituencies": {
+            "Andipatti": {
+                "schemes": [
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Smart Ration Card Scheme",
+                    "Self Help Group Loan",
+                    "Housing Scheme",
+                    "Coastal Area Development",
+                    "Village Road Development",
+                    "Free Sewing Machine",
+                    "Youth Employment Camp",
+                    "Free Medical Camp",
+                    "Drip Irrigation Subsidy"
+                ]
+            },
+            "Periyakulam": {
+                "schemes": [
+                    "Differently Abled Welfare",
+                    "Student Free Bus Pass",
+                    "Minority Scholarship",
+                    "Self Help Group Loan",
+                    "Farmer Loan Waiver",
+                    "Coastal Area Development",
+                    "Village Internet Scheme",
+                    "Pregnancy Nutrition Kit",
+                    "Free Bicycle Scheme",
+                    "Nutrition Food Kit"
+                ]
+            },
+            "Bodinayakanur": {
+                "schemes": [
+                    "Midday Meal Scheme",
+                    "Handloom Weaver Support",
+                    "Green House Solar",
+                    "Senior Citizen Travel Pass",
+                    "Street Vendor Loan Scheme",
+                    "Free Sewing Machine",
+                    "Primary Health Upgrade",
+                    "Free Goat Distribution",
+                    "Women Safety Scheme",
+                    "Free Bus Pass for Women"
+                ]
+            },
+            "Cumbum": {
+                "schemes": [
+                    "Student Free Bus Pass",
+                    "Startup Seed Fund",
+                    "Green House Solar",
+                    "School Uniform Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Urban Employment Scheme",
+                    "Women Safety Scheme",
+                    "Free Medical Camp",
+                    "Waste Management Scheme",
+                    "Free Sewing Machine"
+                ]
+            }
+        }
+    },
+    "Virudhunagar": {
+        "constituencies": {
+            "Rajapalayam": {
+                "schemes": [
+                    "Startup Seed Fund",
+                    "Free Bicycle Scheme",
+                    "Coastal Area Development",
+                    "Women Safety Scheme",
+                    "Midday Meal Scheme",
+                    "Youth Employment Camp",
+                    "Village Internet Scheme",
+                    "Smart Ration Card Scheme",
+                    "Farmer Loan Waiver",
+                    "Self Help Group Loan"
+                ]
+            },
+            "Srivilliputhur": {
+                "schemes": [
+                    "Water Tank Construction",
+                    "Scholarship for Students",
+                    "Village Internet Scheme",
+                    "Differently Abled Welfare",
+                    "Startup Seed Fund",
+                    "Village Road Development",
+                    "Handloom Weaver Support",
+                    "Solar Pump Subsidy",
+                    "Free Sewing Machine",
+                    "Primary Health Upgrade"
+                ]
+            },
+            "Sattur": {
+                "schemes": [
+                    "Free Sewing Machine",
+                    "Midday Meal Scheme",
+                    "Street Vendor Loan Scheme",
+                    "Self Help Group Loan",
+                    "Nutrition Food Kit",
+                    "Pregnancy Nutrition Kit",
+                    "Free Goat Distribution",
+                    "Scholarship for Students",
+                    "Free Laptop Scheme",
+                    "Digital Education Scheme"
+                ]
+            },
+            "Sivakasi": {
+                "schemes": [
+                    "Free Bus Pass for Women",
+                    "Urban Employment Scheme",
+                    "Water Tank Construction",
+                    "Primary Health Upgrade",
+                    "Public Toilet Scheme",
+                    "Rain Water Harvesting",
+                    "Startup Seed Fund",
+                    "Free Electricity for Farmers",
+                    "Chief Minister Health Insurance Scheme",
+                    "Self Help Group Loan"
+                ]
+            },
+            "Virudhunagar": {
+                "schemes": [
+                    "Pregnancy Nutrition Kit",
+                    "Midday Meal Scheme",
+                    "Public Toilet Scheme",
+                    "Free Laptop Scheme",
+                    "Minority Scholarship",
+                    "Waste Management Scheme",
+                    "Free Medical Camp",
+                    "Free Electricity for Farmers",
+                    "Differently Abled Welfare",
+                    "Rural Employment Scheme"
+                ]
+            },
+            "Aruppukkottai": {
+                "schemes": [
+                    "Urban Employment Scheme",
+                    "Rural Employment Scheme",
+                    "School Uniform Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Public Library Development",
+                    "Public Toilet Scheme",
+                    "Student Free Bus Pass",
+                    "Village Internet Scheme",
+                    "Scholarship for Students",
+                    "Startup Seed Fund"
+                ]
+            },
+            "Tiruchuli": {
+                "schemes": [
+                    "Village Internet Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Green House Solar",
+                    "Differently Abled Welfare",
+                    "Youth Employment Camp",
+                    "Women Entrepreneurship Loan",
+                    "Water Tank Construction",
+                    "Startup Seed Fund",
+                    "Midday Meal Scheme",
+                    "Youth Startup Support"
+                ]
+            }
+        }
+    },
+    "Ramanathapuram": {
+        "constituencies": {
+            "Ramanathapuram": {
+                "schemes": [
+                    "Drip Irrigation Subsidy",
+                    "Fishing Net Subsidy",
+                    "Self Help Group Loan",
+                    "Old Age Pension Scheme",
+                    "Student Free Bus Pass",
+                    "Free Bicycle Scheme",
+                    "Scholarship for Students",
+                    "Skill Training Scheme",
+                    "Nutrition Food Kit",
+                    "Kalaignar Magalir Urimai Thogai"
+                ]
+            },
+            "Paramakudi": {
+                "schemes": [
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Hill Area Development",
+                    "Fishing Net Subsidy",
+                    "Farmer Equipment Subsidy",
+                    "Handloom Weaver Support",
+                    "Urban Employment Scheme",
+                    "Farmer Loan Waiver",
+                    "Marriage Assistance Scheme",
+                    "Minority Scholarship",
+                    "Skill Training Scheme"
+                ]
+            },
+            "Mudukulathur": {
+                "schemes": [
+                    "Street Vendor Loan Scheme",
+                    "Urban Employment Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Handloom Weaver Support",
+                    "Public Toilet Scheme",
+                    "Free Sewing Machine",
+                    "Hill Area Development",
+                    "Rain Water Harvesting",
+                    "Midday Meal Scheme"
+                ]
+            }
+        }
+    },
+    "Thoothukudi": {
+        "constituencies": {
+            "Thoothukudi": {
+                "schemes": [
+                    "Free Medical Camp",
+                    "Coastal Area Development",
+                    "Senior Citizen Travel Pass",
+                    "Drip Irrigation Subsidy",
+                    "Village Internet Scheme",
+                    "Startup Seed Fund",
+                    "Primary Health Upgrade",
+                    "Skill Training Scheme",
+                    "Free Laptop Scheme",
+                    "Nutrition Food Kit"
+                ]
+            },
+            "Tiruchendur": {
+                "schemes": [
+                    "Minority Scholarship",
+                    "Youth Employment Camp",
+                    "Public Library Development",
+                    "Primary Health Upgrade",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Midday Meal Scheme",
+                    "Hill Area Development",
+                    "Solar Pump Subsidy",
+                    "Student Free Bus Pass",
+                    "Drip Irrigation Subsidy"
+                ]
+            },
+            "Srivaikuntam": {
+                "schemes": [
+                    "Free Laptop Scheme",
+                    "Farmer Loan Waiver",
+                    "Green House Solar",
+                    "Midday Meal Scheme",
+                    "Village Road Development",
+                    "Senior Citizen Travel Pass",
+                    "Scholarship for Students",
+                    "Public Library Development",
+                    "Nutrition Food Kit",
+                    "Women Safety Scheme"
+                ]
+            },
+            "Vilathikulam": {
+                "schemes": [
+                    "Farmer Equipment Subsidy",
+                    "Handloom Weaver Support",
+                    "Chief Minister Health Insurance Scheme",
+                    "Free Goat Distribution",
+                    "Drip Irrigation Subsidy",
+                    "Marriage Assistance Scheme",
+                    "Scholarship for Students",
+                    "Coastal Area Development",
+                    "Youth Startup Support",
+                    "Student Free Bus Pass"
+                ]
+            },
+            "Ottapidaram": {
+                "schemes": [
+                    "Coastal Area Development",
+                    "Street Vendor Loan Scheme",
+                    "Chief Minister Health Insurance Scheme",
+                    "Smart Ration Card Scheme",
+                    "Scholarship for Students",
+                    "Public Library Development",
+                    "Village Internet Scheme",
+                    "Youth Employment Camp",
+                    "Differently Abled Welfare",
+                    "Waste Management Scheme"
+                ]
+            },
+            "Kovilpatti": {
+                "schemes": [
+                    "Free Goat Distribution",
+                    "Student Free Bus Pass",
+                    "Farmer Loan Waiver",
+                    "Smart Ration Card Scheme",
+                    "Pregnancy Nutrition Kit",
+                    "Free Laptop Scheme",
+                    "Digital Education Scheme",
+                    "Midday Meal Scheme",
+                    "Housing Scheme",
+                    "Free Medical Camp"
+                ]
+            }
+        }
+    },
+    "Tenkasi": {
+        "constituencies": {
+            "Tenkasi": {
+                "schemes": [
+                    "Rain Water Harvesting",
+                    "Farmer Equipment Subsidy",
+                    "Chief Minister Health Insurance Scheme",
+                    "Free Laptop Scheme",
+                    "Fishing Net Subsidy",
+                    "Free Bus Pass for Women",
+                    "Free Goat Distribution",
+                    "Nutrition Food Kit",
+                    "Drip Irrigation Subsidy",
+                    "Waste Management Scheme"
+                ]
+            },
+            "Alangulam": {
+                "schemes": [
+                    "Village Road Development",
+                    "Skill Training Scheme",
+                    "Women Entrepreneurship Loan",
+                    "Drip Irrigation Subsidy",
+                    "Free Sewing Machine",
+                    "Fishing Net Subsidy",
+                    "Youth Startup Support",
+                    "Digital Education Scheme",
+                    "Free Goat Distribution",
+                    "Green House Solar"
+                ]
+            },
+            "Kadayanallur": {
+                "schemes": [
+                    "Public Toilet Scheme",
+                    "Women Entrepreneurship Loan",
+                    "Student Free Bus Pass",
+                    "Self Help Group Loan",
+                    "Free Sewing Machine",
+                    "Youth Startup Support",
+                    "Nutrition Food Kit",
+                    "Free Laptop Scheme",
+                    "Differently Abled Welfare",
+                    "Urban Employment Scheme"
+                ]
+            },
+            "Sankarankovil": {
+                "schemes": [
+                    "Free Sewing Machine",
+                    "Public Toilet Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Public Library Development",
+                    "Digital Education Scheme",
+                    "Primary Health Upgrade",
+                    "Solar Pump Subsidy",
+                    "Housing Scheme",
+                    "Handloom Weaver Support",
+                    "Midday Meal Scheme"
+                ]
+            },
+            "Vasudevanallur": {
+                "schemes": [
+                    "Old Age Pension Scheme",
+                    "Smart Ration Card Scheme",
+                    "Urban Employment Scheme",
+                    "Hill Area Development",
+                    "Coastal Area Development",
+                    "Free Medical Camp",
+                    "Startup Seed Fund",
+                    "Rain Water Harvesting",
+                    "Nutrition Food Kit",
+                    "Chief Minister Health Insurance Scheme"
+                ]
+            }
+        }
+    },
+    "Tirunelveli": {
+        "constituencies": {
+            "Tirunelveli": {
+                "schemes": [
+                    "Primary Health Upgrade",
+                    "Urban Employment Scheme",
+                    "Housing Scheme",
+                    "Midday Meal Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Youth Employment Camp",
+                    "Free Bus Pass for Women",
+                    "Public Library Development",
+                    "Solar Pump Subsidy",
+                    "Scholarship for Students"
+                ]
+            },
+            "Palayamkottai": {
+                "schemes": [
+                    "Midday Meal Scheme",
+                    "Waste Management Scheme",
+                    "Hill Area Development",
+                    "Minority Scholarship",
+                    "Digital Education Scheme",
+                    "Nutrition Food Kit",
+                    "Coastal Area Development",
+                    "Startup Seed Fund",
+                    "Fishing Net Subsidy",
+                    "Free Goat Distribution"
+                ]
+            },
+            "Ambasamudram": {
+                "schemes": [
+                    "Farmer Loan Waiver",
+                    "Farmer Equipment Subsidy",
+                    "Free Goat Distribution",
+                    "Marriage Assistance Scheme",
+                    "Nutrition Food Kit",
+                    "Smart Ration Card Scheme",
+                    "Green House Solar",
+                    "Primary Health Upgrade",
+                    "Water Tank Construction",
+                    "Digital Education Scheme"
+                ]
+            },
+            "Nanguneri": {
+                "schemes": [
+                    "Free Sewing Machine",
+                    "Solar Pump Subsidy",
+                    "Public Toilet Scheme",
+                    "Drip Irrigation Subsidy",
+                    "Chief Minister Health Insurance Scheme",
+                    "Free Medical Camp",
+                    "Scholarship for Students",
+                    "Women Entrepreneurship Loan",
+                    "Nutrition Food Kit",
+                    "Farmer Loan Waiver"
+                ]
+            },
+            "Radhapuram": {
+                "schemes": [
+                    "Startup Seed Fund",
+                    "Pregnancy Nutrition Kit",
+                    "Chief Minister Health Insurance Scheme",
+                    "Nutrition Food Kit",
+                    "Senior Citizen Travel Pass",
+                    "Street Vendor Loan Scheme",
+                    "Green House Solar",
+                    "Youth Startup Support",
+                    "Waste Management Scheme",
+                    "Primary Health Upgrade"
+                ]
+            }
+        }
+    },
+    "Kanyakumari": {
+        "constituencies": {
+            "Nagercoil": {
+                "schemes": [
+                    "Marriage Assistance Scheme",
+                    "Handloom Weaver Support",
+                    "Farmer Loan Waiver",
+                    "Free Bus Pass for Women",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Pregnancy Nutrition Kit",
+                    "Digital Education Scheme",
+                    "Rain Water Harvesting",
+                    "Smart Ration Card Scheme",
+                    "Free Laptop Scheme"
+                ]
+            },
+            "Padmanabhapuram": {
+                "schemes": [
+                    "Farmer Loan Waiver",
+                    "Hill Area Development",
+                    "Solar Pump Subsidy",
+                    "Student Free Bus Pass",
+                    "Differently Abled Welfare",
+                    "Free Sewing Machine",
+                    "Youth Startup Support",
+                    "Women Entrepreneurship Loan",
+                    "Farmer Equipment Subsidy",
+                    "Free Bus Pass for Women"
+                ]
+            },
+            "Vilavancode": {
+                "schemes": [
+                    "Hill Area Development",
+                    "Water Tank Construction",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Free Electricity for Farmers",
+                    "Chief Minister Health Insurance Scheme",
+                    "Primary Health Upgrade",
+                    "Startup Seed Fund",
+                    "Village Internet Scheme",
+                    "Midday Meal Scheme",
+                    "Self Help Group Loan"
+                ]
+            },
+            "Killiyoor": {
+                "schemes": [
+                    "Free Bicycle Scheme",
+                    "Differently Abled Welfare",
+                    "Youth Startup Support",
+                    "Marriage Assistance Scheme",
+                    "Kalaignar Magalir Urimai Thogai",
+                    "Fishing Net Subsidy",
+                    "Old Age Pension Scheme",
+                    "Farmer Equipment Subsidy",
+                    "Free Electricity for Farmers",
+                    "Farmer Loan Waiver"
+                ]
+            }
+        }
+    }
+}

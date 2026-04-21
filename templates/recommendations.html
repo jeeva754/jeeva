@@ -1,0 +1,325 @@
+{% import "translations.html" as i18n with context %}
+<!DOCTYPE html>
+<html lang="{{ session.get('lang','en') }}" {% if session.get('lang')=='ur' %}dir="rtl"{% endif %}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scheme Recommendations | TN Welfare Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root{--tn-blue:#003366;--tn-green:#2e7d32;--tn-gold:#FFD700;--accent:#2563eb;--sidebar:280px;--bg:#f4f7fe;}
+        body{margin:0;font-family:'Plus Jakarta Sans','Segoe UI',sans-serif;background:var(--bg);color:#1e293b;}
+        [dir="rtl"] .nav-link i{margin-right:0;margin-left:12px;}
+        [dir="rtl"] .sidebar{left:auto;right:0;border-right:none;border-left:1px solid #e2e8f0;}
+        [dir="rtl"] .main-wrapper{margin-left:0;margin-right:var(--sidebar);}
+
+        /* Sidebar */
+        .sidebar{width:var(--sidebar);height:100vh;position:fixed;background:white;border-right:1px solid #e2e8f0;padding:2rem 1.5rem;z-index:1000;}
+        .sidebar-brand{display:flex;align-items:center;gap:12px;margin-bottom:3rem;color:var(--tn-blue);font-weight:700;font-size:1.15rem;text-decoration:none;}
+        .nav-link{display:flex;align-items:center;padding:12px 15px;color:#64748b;text-decoration:none;border-radius:12px;margin-bottom:8px;transition:.3s;}
+        .nav-link:hover,.nav-link.active{background:#eff6ff;color:var(--accent);}
+        .nav-link i{margin-right:12px;width:20px;text-align:center;}
+
+        .main-wrapper{margin-left:var(--sidebar);padding:2.5rem 3rem;min-height:100vh;}
+
+        /* Hero banner */
+        .rec-hero{background:linear-gradient(135deg,var(--tn-blue),#1e40af);border-radius:24px;padding:2.5rem 3rem;color:white;margin-bottom:2rem;position:relative;overflow:hidden;}
+        .rec-hero::after{content:"";position:absolute;right:-40px;top:-40px;width:220px;height:220px;background:rgba(255,255,255,.05);border-radius:50%;}
+
+        /* Profile form card */
+        .profile-card{background:white;border-radius:22px;padding:2rem 2.5rem;border:1px solid #e2e8f0;box-shadow:0 4px 15px rgba(0,0,0,.04);margin-bottom:2rem;animation:fadeUp .5s ease both;}
+        @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+        .section-title{font-size:.85rem;font-weight:800;color:var(--tn-blue);text-transform:uppercase;letter-spacing:.8px;margin-bottom:1.25rem;display:flex;align-items:center;gap:8px;border-bottom:2px solid #f1f5f9;padding-bottom:.7rem;}
+        label.form-label{font-weight:700;font-size:.78rem;color:#475569;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px;}
+        .form-control,.form-select{border:1.5px solid #e2e8f0;border-radius:12px;padding:11px 15px;font-size:.95rem;transition:.3s;}
+        .form-control:focus,.form-select:focus{border-color:var(--tn-blue);box-shadow:0 0 0 3px rgba(0,51,102,.08);}
+        .btn-recommend{background:var(--tn-green);color:white;padding:13px 40px;border-radius:12px;font-weight:700;border:none;transition:.3s;cursor:pointer;font-size:1rem;}
+        .btn-recommend:hover{background:#1b5e20;transform:translateY(-2px);}
+
+        /* Scheme result cards */
+        #resultsSection{display:none;}
+        .result-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;}
+        .scheme-card{background:white;border-radius:20px;padding:1.75rem 2rem;border:1px solid #e2e8f0;box-shadow:0 4px 12px rgba(0,0,0,.04);margin-bottom:1.25rem;transition:.3s;position:relative;overflow:hidden;}
+        .scheme-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.08);}
+        .scheme-card::before{content:"";position:absolute;top:0;left:0;width:5px;height:100%;background:var(--tn-green);border-radius:0 0 0 0;}
+        .scheme-card.partial::before{background:#f59e0b;}
+        .match-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-weight:800;font-size:.73rem;text-transform:uppercase;}
+        .match-full{background:#ecfdf5;color:#065f46;border:1px solid #bbf7d0;}
+        .match-partial{background:#fffbeb;color:#92400e;border:1px solid #fde68a;}
+        .benefit-tag{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:100px;background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;font-weight:700;font-size:.78rem;}
+        .req-chip{display:inline-block;background:#f1f5f9;color:#475569;border-radius:6px;padding:3px 10px;font-size:.75rem;margin:2px;font-weight:600;}
+        .no-results{text-align:center;padding:4rem 2rem;color:#94a3b8;}
+        .apply-btn{background:var(--tn-blue);color:white;padding:9px 22px;border-radius:10px;font-weight:700;font-size:.85rem;text-decoration:none;transition:.3s;display:inline-flex;align-items:center;gap:8px;}
+        .apply-btn:hover{background:#002244;color:var(--tn-gold);}
+
+        @media(max-width:992px){.sidebar{display:none}.main-wrapper{margin-left:0!important;margin-right:0!important;padding:1rem}}
+    </style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <a href="/user/dashboard" class="sidebar-brand">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" height="40">
+        <span>TN Connect</span>
+    </a>
+    <nav>
+        <a href="/user/dashboard"   class="nav-link"><i class="fa fa-home"></i> {{ i18n.translate("Citizen Dashboard") }}</a>
+        <a href="/apply_grievance"  class="nav-link"><i class="fa fa-pen-to-square"></i> {{ i18n.translate("Apply Now") }}</a>
+        <a href="/my_grievances"    class="nav-link"><i class="fa fa-list-check"></i> {{ i18n.translate("View Status") }}</a>
+        <a href="/recommendations"  class="nav-link active"><i class="fa fa-lightbulb"></i> Recommendations</a>
+        <a href="/profile"          class="nav-link"><i class="fa fa-user-pen"></i> My Profile</a>
+        <hr class="my-4 opacity-25">
+        <a href="/logout" class="nav-link text-danger"><i class="fa fa-sign-out-alt"></i> {{ i18n.translate("Logout") }}</a>
+    </nav>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrapper">
+
+    <!-- Hero -->
+    <div class="rec-hero">
+        <h2 class="fw-800 mb-1"><i class="fas fa-lightbulb me-3 text-warning"></i>
+            <span id="heroTitle">Scheme Recommendations For You</span>
+        </h2>
+        <p class="mb-0 opacity-75 small" id="heroSub">Answer a few quick questions and we'll match you with the most relevant government welfare schemes.</p>
+    </div>
+
+    <!-- Profile input form -->
+    <div class="profile-card">
+        <div class="section-title"><i class="fas fa-sliders text-primary"></i> <span id="profileTitle">Your Profile</span></div>
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label class="form-label" id="lAge">Age</label>
+                <input type="number" id="pAge" class="form-control" min="1" max="120" placeholder="e.g. 45">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" id="lGender">Gender</label>
+                <select id="pGender" class="form-select">
+                    <option value="">-- Select --</option>
+                    <option value="female" id="optFemale">Female</option>
+                    <option value="male"   id="optMale">Male</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" id="lIncome">Annual Family Income (₹)</label>
+                <input type="number" id="pIncome" class="form-control" min="0" placeholder="e.g. 60000">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" id="lCaste">Category</label>
+                <select id="pCaste" class="form-select">
+                    <option value="">-- Select --</option>
+                    <option value="sc">SC</option>
+                    <option value="st">ST</option>
+                    <option value="bc">BC</option>
+                    <option value="mbc">MBC</option>
+                    <option value="gen" id="optGen">General/OC</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" id="lWidow">Marital / Social Status</label>
+                <select id="pWidow" class="form-select">
+                    <option value="no" id="optMarried">Married / Single</option>
+                    <option value="yes" id="optWidow">Widow / Destitute</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" id="lOccupation">Occupation</label>
+                <select id="pOccupation" class="form-select">
+                    <option value="">-- Select --</option>
+                    <option value="farmer"   id="optFarmer">Farmer</option>
+                    <option value="student"  id="optStudent">Student</option>
+                    <option value="unemployed" id="optUnemployed">Unemployed</option>
+                    <option value="employed" id="optEmployed">Employed</option>
+                    <option value="self"     id="optSelf">Self-Employed</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" id="lDisability">Disability %</label>
+                <input type="number" id="pDisability" class="form-control" min="0" max="100" placeholder="0 if none">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label" id="lBPL">BPL Card</label>
+                <select id="pBPL" class="form-select">
+                    <option value="yes" id="optBPLYes">Yes</option>
+                    <option value="no"  id="optBPLNo">No</option>
+                </select>
+            </div>
+        </div>
+        <div class="mt-4">
+            <button class="btn-recommend" onclick="runRecommendations()">
+                <i class="fas fa-search-plus me-2"></i><span id="btnLabel">Find My Schemes</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Results -->
+    <div id="resultsSection">
+        <div class="result-header">
+            <div>
+                <h4 class="fw-bold mb-0" id="resultsTitle">Recommended Schemes</h4>
+                <p class="text-muted small mb-0" id="resultsCount"></p>
+            </div>
+            <button class="btn btn-outline-secondary btn-sm rounded-pill" onclick="document.getElementById('resultsSection').style.display='none'">
+                <i class="fas fa-times me-1"></i><span id="clearLabel">Clear</span>
+            </button>
+        </div>
+        <div id="schemeCards"></div>
+    </div>
+
+</div>
+
+<script>
+const CL = "{{ session.get('lang','en') }}";
+
+// ── i18n UI strings ──
+const UI = {
+  heroTitle:      {en:"Scheme Recommendations For You",ta:"உங்களுக்கான திட்ட பரிந்துரைகள்",hi:"आपके लिए योजना अनुशंसाएं",te:"మీ కోసం పథక సిఫార్సులు",ml:"നിങ്ങൾക്കുള്ള പദ്ധതി ശുപാർശകൾ",kn:"ನಿಮಗಾಗಿ ಯೋಜನೆ ಶಿಫಾರಸ್ಸುಗಳು",ur:"آپ کے لیے اسکیم سفارشات"},
+  heroSub:        {en:"Answer a few quick questions and we'll match you with the most relevant welfare schemes.",ta:"சில கேள்விகளுக்கு பதில் சொல்லுங்கள், உங்களுக்கு ஏற்ற திட்டங்களை காட்டுகிறோம்.",hi:"कुछ सवालों का जवाब दें और हम आपके लिए सबसे उपयुक्त योजनाएं बताएंगे।",te:"కొన్ని ప్రశ్నలకు సమాధానం ఇవ్వండి, మీకు సంబంధించిన పథకాలను చూపిస్తాం.",ml:"ചില ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകൂ, ബന്ധപ്പെട്ട പദ്ധതികൾ കണ്ടെത്തും.",kn:"ಕೆಲವು ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಿಸಿ, ಸಂಬಂಧಿತ ಯೋಜನೆಗಳನ್ನು ತೋರಿಸುತ್ತೇವೆ.",ur:"چند سوالوں کے جواب دیں، متعلقہ اسکیمیں دکھاتے ہیں۔"},
+  profileTitle:   {en:"Your Profile",ta:"உங்கள் விவரங்கள்",hi:"आपकी प्रोफ़ाइल",te:"మీ వివరాలు",ml:"നിങ്ങളുടെ വിവരം",kn:"ನಿಮ್ಮ ಮಾಹಿತಿ",ur:"آپ کی پروفائل"},
+  lAge:           {en:"Age",ta:"வயது",hi:"आयु",te:"వయస్సు",ml:"പ്രായം",kn:"ವಯಸ್ಸು",ur:"عمر"},
+  lGender:        {en:"Gender",ta:"பாலினம்",hi:"लिंग",te:"లింగం",ml:"ലിംഗഭേദം",kn:"ಲಿಂಗ",ur:"جنس"},
+  lIncome:        {en:"Annual Family Income (₹)",ta:"வருடாந்திர குடும்ப வருமானம் (₹)",hi:"वार्षिक आय (₹)",te:"వార్షిక ఆదాయం (₹)",ml:"வர்ஷ வருமானம் (₹)",kn:"ವಾರ್ಷಿಕ ಆದಾಯ (₹)",ur:"سالانہ آمدنی (₹)"},
+  lCaste:         {en:"Category",ta:"சாதி / பிரிவு",hi:"वर्ग",te:"వర్గం",ml:"वर्गं",kn:"ವರ್ಗ",ur:"زمرہ"},
+  lWidow:         {en:"Marital / Social Status",ta:"திருமண / சமூக நிலை",hi:"वैवाहिक / सामाजिक स्थिति",te:"వైవాహిక / సామాజిక స్థితి",ml:"वैवाहिक / सामाजिक நிலை",kn:"ವೈವಾಹಿಕ / ಸಾಮಾಜಿಕ ಸ್ಥಿತಿ",ur:"ازدواجی / سماجی حیثیت"},
+  lOccupation:    {en:"Occupation",ta:"தொழில்",hi:"पेशा",te:"వృత్తి",ml:"ജോലി",kn:"ಉದ್ಯೋಗ",ur:"پیشہ"},
+  lDisability:    {en:"Disability %",ta:"மாற்றுத்திறன் %",hi:"विकलांगता %",te:"వైకల్యం %",ml:"विकलांग%",kn:"ಅಂಗವೈಕಲ್ಯ %",ur:"معذوری %"},
+  lBPL:           {en:"BPL Card",ta:"BPL அட்டை",hi:"BPL कार्ड",te:"BPL కార్డ్",ml:"BPL കার്ഡ്",kn:"BPL ಕಾರ್ಡ್",ur:"BPL کارڈ"},
+  btnLabel:       {en:"Find My Schemes",ta:"என் திட்டங்களை கண்டறியுங்கள்",hi:"मेरी योजनाएं खोजें",te:"నా పథకాలు కనుగొనండి",ml:"എന്റെ পদ্ধতিक৾ കണ്ടെत്ത്",kn:"ನನ್ನ ಯೋಜನೆ ಹುಡುಕಿ",ur:"میری اسکیمیں تلاش کریں"},
+  resultsTitle:   {en:"Recommended Schemes",ta:"பரிந்துரைக்கப்பட்ட திட்டங்கள்",hi:"अनुशंसित योजनाएं",te:"సిఫార్సు చేయబడిన పథకాలు",ml:"ശുپار്‍ശ ചെয്ത پদ്ধതिகள்",kn:"ಶಿಫಾರಸ್ ಯೋಜನೆಗಳು",ur:"سفارش کردہ اسکیمیں"},
+  clearLabel:     {en:"Clear",ta:"அழி",hi:"साफ",te:"క్లియర్",ml:"ক্লিয়ার",kn:"ತೆರவು",ur:"صاف"},
+  optFemale:      {en:"Female",ta:"பெண்",hi:"महिला",te:"స్త్రీ",ml:"स्त्री",kn:"ಮಹಿಳೆ",ur:"خاتون"},
+  optMale:        {en:"Male",ta:"ஆண்",hi:"पुरुष",te:"పురుషుడు",ml:"पुरुष",kn:"ಪುರುಷ",ur:"مرد"},
+  optGen:         {en:"General/OC",ta:"பொது",hi:"सामान्य",te:"జనరల్",ml:"General",kn:"ಸಾಮಾನ್ಯ",ur:"عام"},
+  optMarried:     {en:"Married / Single",ta:"திருமணமானவர் / ஒற்றையர்",hi:"विवाहित / अविवाहित",te:"వివాహిత/ఒంటరి",ml:"Married/Single",kn:"ಮದುವೆ/ಒಂಟಿ",ur:"شادی شدہ/غیر شادی شدہ"},
+  optWidow:       {en:"Widow / Destitute",ta:"விதவை / ஆதரவற்றவர்",hi:"विधवा / निराश्रित",te:"విధవ/నిరాశ్రయ",ml:"Widow",kn:"ವಿಧವೆ",ur:"بیوہ/بے سہارا"},
+  optFarmer:      {en:"Farmer",ta:"விவசாயி",hi:"किसान",te:"రైతు",ml:"Farmer",kn:"ರೈತ",ur:"کسان"},
+  optStudent:     {en:"Student",ta:"மாணவர்",hi:"छात्र",te:"విద్యార్థి",ml:"Student",kn:"ವಿದ್ಯಾರ್ಥಿ",ur:"طالب علم"},
+  optUnemployed:  {en:"Unemployed",ta:"வேலையில்லாதவர்",hi:"बेरोजगार",te:"నిరుద్యోగి",ml:"Unemployed",kn:"ನಿರುದ್ಯೋಗಿ",ur:"بے روزگار"},
+  optEmployed:    {en:"Employed",ta:"வேலையில் இருப்பவர்",hi:"नियोजित",te:"ఉద్యోగి",ml:"Employed",kn:"ಉದ್ಯೋಗಿ",ur:"ملازم"},
+  optSelf:        {en:"Self-Employed",ta:"சுயமாக வேலை",hi:"स्वरोजगार",te:"స్వయంఉపాధి",ml:"Self-Employed",kn:"ಸ್ವಯಂ ಉದ್ಯೋಗಿ",ur:"خود روزگار"},
+  optBPLYes:      {en:"Yes",ta:"ஆம்",hi:"हाँ",te:"అవును",ml:"ഉണ്ട്",kn:"ಹೌದು",ur:"ہاں"},
+  optBPLNo:       {en:"No",ta:"இல்லை",hi:"नहीं",te:"లేదు",ml:"ഇல്ല",kn:"ಇಲ್ಲ",ur:"نہیں"},
+  fullMatch:      {en:"Full Match",ta:"முழு பொருத்தம்",hi:"पूर्ण मिलान",te:"పూర్తి పొంతన",ml:"পূर्ण पൊருத्तम്",kn:"ಪೂರ್ಣ ಹೊಂದಾಣಿಕೆ",ur:"مکمل مطابقت"},
+  partialMatch:   {en:"Possible Match",ta:"சாத்தியமான பொருத்தம்",hi:"संभावित मिलान",te:"సాధ్యమైన పొంతన",ml:"সম্ভাব্য পৰুত্তম்",kn:"ಸಾಧ್ಯ ಹೊಂದಾಣಿಕೆ",ur:"ممکنہ مطابقت"},
+  applyNow:       {en:"Apply Now",ta:"இப்போதே விண்ணப்பிக்கவும்",hi:"अभी आवेदन",te:"ఇప్పుడే దరఖాస్తు",ml:"ഇপ্পোলੇ আবেদন",kn:"ಈಗ ಅರ್ಜಿ",ur:"ابھی اپلائی"},
+  benefit:        {en:"Benefit",ta:"சலுகை",hi:"लाभ",te:"ప్రయోజనం",ml:"ആনുകൂல്യం",kn:"ಪ್ರಯೋಜನ",ur:"فائدہ"},
+  docs:           {en:"Documents Needed",ta:"தேவையான ஆவணங்கள்",hi:"आवश्यक दस्तावेज",te:"పత్రాలు",ml:"रेखകൾ",kn:"ದಾಖಲೆ",ur:"دستاویزات"},
+  noResults:      {en:"No schemes matched your profile. Try adjusting your inputs.",ta:"உங்கள் விவரங்களுக்கு பொருந்தும் திட்டங்கள் இல்லை. உள்ளீடுகளை மாற்றி முயற்சிக்கவும்.",hi:"आपकी प्रोफ़ाइल से कोई योजना मेल नहीं खाती। इनपुट बदलकर पुनः प्रयास करें।",te:"మీ ప్రొఫైల్‌తో పథకాలు పొంతలేదు. ఇన్‌పుట్‌లు మార్చండి.",ml:"ప్రొఫైల్ แมச్ ఆలేదు. మళ్ళీ ప్రయత్నించండి.",kn:"ಯೋಜನೆ ಹೊಂದಾಣಿಕೆ ಇಲ್ಲ. ಮರು ಪ್ರಯತ್ನಿಸಿ.",ur:"کوئی اسکیم مطابق نہیں ملی۔ انپٹ تبدیل کریں۔"}
+};
+function L(k){return UI[k]?UI[k][CL]||UI[k].en:k;}
+
+// Apply labels on load
+window.addEventListener("DOMContentLoaded",()=>{
+  ["heroTitle","heroSub","profileTitle","lAge","lGender","lIncome","lCaste","lWidow","lOccupation","lDisability","lBPL","btnLabel","resultsTitle","clearLabel","optFemale","optMale","optGen","optMarried","optWidow","optFarmer","optStudent","optUnemployed","optEmployed","optSelf","optBPLYes","optBPLNo"]
+  .forEach(id=>{const el=document.getElementById(id);if(el)el.textContent=L(id);});
+});
+
+// ── SCHEME DATABASE (same as apply_grievance) ──
+// For brevity, scoring is rule-based using profile fields:
+const SCHEMES=[
+  {id:1, score:function(p){return p.age>=60?2:0;}, name:"Old Age Pension Scheme", partial:function(p){return p.income<=150000;}},
+  {id:2, score:function(p){return p.income<=72000?2:0;}, name:"Marriage Assistance Scheme", partial:function(p){return p.income<=120000;}},
+  {id:3, score:function(p){return p.occupation==="farmer"?3:0;}, name:"Farmer Production Subsidy", partial:function(p){return false;}},
+  {id:4, score:function(p){return p.income<=72000 && p.bpl==="yes"?3:0;}, name:"CM Health Insurance", partial:function(p){return p.income<=100000;}},
+  {id:5, score:function(p){return p.gender==="female" && p.income<=36000?3:0;}, name:"Free Sewing Machine", partial:function(p){return p.gender==="female" && p.income<=72000;}},
+  {id:6, score:function(p){return p.bpl==="yes"?2:0;}, name:"Home Construction Grant", partial:function(p){return p.income<=100000;}},
+  {id:7, score:function(p){return p.widow==="yes" && p.income<=36000?3:0;}, name:"Widow Pension Scheme", partial:function(p){return p.widow==="yes";}},
+  {id:8, score:function(p){return p.age>=18 && p.age<=45 && p.occupation==="unemployed" && p.income<=150000?3:0;}, name:"Self-Employment Loan", partial:function(p){return p.age>=18 && p.age<=45;}},
+  {id:9, score:function(p){return p.occupation==="student" && p.income<=100000?3:0;}, name:"Educational Scholarship", partial:function(p){return p.occupation==="student";}},
+  {id:10,score:function(p){return p.disability>=40?3:0;}, name:"Disability Welfare", partial:function(p){return p.disability>=20;}},
+  {id:11,score:function(p){return p.age>=21 && p.age<=35 && p.occupation==="unemployed" && p.income<=75000?3:0;}, name:"Unemployment Allowance", partial:function(p){return p.age>=21 && p.age<=35 && p.occupation==="unemployed";}},
+  {id:12,score:function(p){return ["sc","st","bc","mbc"].includes(p.caste)?2:0;}, name:"Community Certificate Service", partial:function(p){return false;}}
+];
+
+// Full scheme details (subset for display)
+const DETAILS={
+  1:{name_en:"Old Age Pension Scheme",name_ta:"முதியோர் ஓய்வூதியத் திட்டம்",name_hi:"वृद्धावस्था पेंशन योजना",name_te:"వృద్ధాప్య పెన్షన్ పథకం",name_ml:"വāർദ্ধक्यकाल पेন्‍షன്‍",name_kn:"ವೃದ್ಧಾಪ್ಯ ವೇತನ ಯೋಜನೆ",name_ur:"اولڈ ایج پینشن اسکیم",benefit_en:"₹1,000/month",requirements_en:["Age Proof","Residence Certificate","BPL Ration Card","Bank Passbook","Photo"]},
+  2:{name_en:"Marriage Assistance Scheme",name_ta:"திருமண உதவித் திட்டம்",name_hi:"विवाह सहायता योजना",name_te:"వివాహ సహాయ పథకం",name_ml:"विवाह सहाय योजना",name_kn:"ವಿವಾಹ ಸಹಾಯ ಯೋಜನೆ",name_ur:"شادی امدادی اسکیم",benefit_en:"₹25,000 + 8g Gold",requirements_en:["Income Certificate","Bride Age Proof","Groom Age Proof","Wedding Invitation","Bank Details"]},
+  3:{name_en:"Farmer Production Subsidy",name_ta:"விவசாயிகள் உற்பத்தி மானியம்",name_hi:"किसान उत्पादन सब्सिडी",name_te:"రైతు ఉత్పత్తి సబ్సిడీ",name_ml:"कर्षक उत्पादन सब्सिडी",name_kn:"ರೈತ ಉತ್ಪಾದನಾ ಸಬ್ಸಿಡಿ",name_ur:"کسان پیداواری سبسڈی",benefit_en:"Up to 50% subsidy",requirements_en:["Land Ownership Proof","Agricultural Registration","Aadhaar","Bank Passbook","Photo"]},
+  4:{name_en:"CM Health Insurance",name_ta:"முதலமைச்சர் மருத்துவக் காப்பீடு",name_hi:"CM स्वास्थ्य बीमा",name_te:"CM ఆరోగ్య బీమా",name_ml:"CM ആরോഗ്യ ഇൻഷ്",name_kn:"CM ಆರೋಗ್ಯ ವಿಮೆ",name_ur:"CM صحت بیمہ",benefit_en:"Up to ₹5 Lakh/year",requirements_en:["Ration Card","Aadhaar","Income Certificate","Residence Proof"]},
+  5:{name_en:"Free Sewing Machine",name_ta:"விலையில்லா தையல் இயந்திரம்",name_hi:"मुफ्त सिलाई मशीन",name_te:"ఉచిత కుట్టు మిషన్",name_ml:"सौजन्य तैयल् मेशीन்",name_kn:"ಉಚಿತ ಹೊಲಿಗೆ ಯಂತ್ರ",name_ur:"مفت سلائی مشین",benefit_en:"1 Free Sewing Machine",requirements_en:["Aadhaar","Income Certificate","Widowhood Certificate","Ration Card","Bank Details"]},
+  6:{name_en:"Home Construction Grant",name_ta:"வீடு கட்டும் மானியம்",name_hi:"गृह निर्माण अनुदान",name_te:"గృహ నిర్మాణ గ్రాంట్",name_ml:"ഭवन निर्माण grant",name_kn:"ಮನೆ ನಿರ್ಮಾಣ ಅನುದಾನ",name_ur:"گھر تعمیر گرانٹ",benefit_en:"Up to ₹1.2 Lakh",requirements_en:["BPL Card","Land Documents","Income Certificate","Aadhaar","Bank Passbook"]},
+  7:{name_en:"Widow Pension Scheme",name_ta:"விதவை ஓய்வூதியத் திட்டம்",name_hi:"विधवा पेंशन योजना",name_te:"విధవ పెన్షన్ పథకం",name_ml:"विधवा पेन्सन् योजना",name_kn:"ವಿಧವಾ ವೇತನ ಯೋಜನೆ",name_ur:"بیوہ پینشن اسکیم",benefit_en:"₹1,000/month",requirements_en:["Husband's Death Certificate","Aadhaar","Income Certificate","Bank Passbook","Ration Card"]},
+  8:{name_en:"Self-Employment Loan",name_ta:"சுயவேலைவாய்ப்பு கடன்",name_hi:"स्वरोजगार ऋण",name_te:"స్వయం ఉపాధి రుణం",name_ml:"स्वयं तोजिल् वायिप्पु",name_kn:"ಸ್ವಯಂ ಉದ್ಯೋಗ ಸಾಲ",name_ur:"خود روزگار قرضہ",benefit_en:"₹2 Lakh @ 4% interest",requirements_en:["Aadhaar","Income Certificate","Unemployment Certificate","Business Plan","Bank Passbook"]},
+  9:{name_en:"Educational Scholarship",name_ta:"கல்வி உதவித்தொகை",name_hi:"शैक्षिक छात्रवृत्ति",name_te:"విద్యా స్కాలర్‌షిప్",name_ml:"विद्याभ्यास स्कोलर्शिप்",name_kn:"ಶೈಕ್ಷಣಿಕ ವಿದ್ಯಾರ್ಥಿವೇತನ",name_ur:"تعلیمی اسکالرشپ",benefit_en:"Up to ₹25,000/year",requirements_en:["Admission Letter","Income Certificate","Caste Certificate","Mark Sheet","Aadhaar"]},
+  10:{name_en:"Disability Welfare",name_ta:"மாற்றுத்திறனாளிகள் நலன்",name_hi:"विकलांग कल्याण",name_te:"వికలాంగుల సంక్షేమం",name_ml:"भिन्नशेषि कल्याण",name_kn:"ವಿಕಲಚೇತನರ ಕಲ್ಯಾಣ",name_ur:"معذور افراد کی بہبود",benefit_en:"Devices + ₹1,000/month",requirements_en:["Disability Certificate 40%+","Aadhaar","Income Certificate","Govt Hospital Certificate","Bank Passbook"]},
+  11:{name_en:"Unemployment Allowance",name_ta:"வேலைவாய்ப்பற்றோர் உதவி",name_hi:"बेरोजगारी भत्ता",name_te:"నిరుద్యోగ భృతి",name_ml:"तॊझिलिल्लायिम वेदनम்",name_kn:"ನಿರುದ್ಯೋಗ ಭತ್ಯೆ",name_ur:"بے روزگاری الاؤنس",benefit_en:"₹500/month",requirements_en:["Employment Exchange Card","Educational Certificates","Income Certificate","Aadhaar","Bank Passbook"]},
+  12:{name_en:"Community Certificate Service",name_ta:"சாதிச் சான்றிதழ் சேவை",name_hi:"जाति प्रमाण पत्र",name_te:"కుల ధృవీకరణ పత్రం",name_ml:"समुदाय सर्टिफिकेट्",name_kn:"ಜಾತಿ ಪ್ರಮಾಣ ಪತ್ರ",name_ur:"کمیونٹی سرٹیفکیٹ",benefit_en:"Free Certificate",requirements_en:["Aadhaar","Ration Card","Father's Community Certificate","School TC","Residence Proof"]}
+};
+
+function getName(id){const d=DETAILS[id];return d?d[`name_${CL}`]||d.name_en:"";}
+function getBenefit(id){const d=DETAILS[id];return d?d[`benefit_${CL}`]||d.benefit_en:"";}
+function getReqs(id){const d=DETAILS[id];return d?(d[`requirements_${CL}`]||d.requirements_en):[]; }
+
+function runRecommendations(){
+  const p={
+    age:parseInt(document.getElementById("pAge").value)||0,
+    gender:document.getElementById("pGender").value,
+    income:parseInt(document.getElementById("pIncome").value)||999999,
+    caste:document.getElementById("pCaste").value,
+    widow:document.getElementById("pWidow").value,
+    occupation:document.getElementById("pOccupation").value,
+    disability:parseInt(document.getElementById("pDisability").value)||0,
+    bpl:document.getElementById("pBPL").value
+  };
+
+  const full=[], partial=[];
+  SCHEMES.forEach(s=>{
+    const sc=s.score(p);
+    if(sc>=2) full.push(s.id);
+    else if(s.partial&&s.partial(p)) partial.push(s.id);
+  });
+
+  const container=document.getElementById("schemeCards");
+  container.innerHTML="";
+
+  if(full.length===0 && partial.length===0){
+    container.innerHTML=`<div class="no-results"><i class="fas fa-search fa-3x mb-3 d-block opacity-25"></i><p class="fw-bold">${L("noResults")}</p></div>`;
+  } else {
+    [...full,...partial].forEach(id=>{
+      const isFull=full.includes(id);
+      const d=DETAILS[id];
+      if(!d) return;
+      const name=getName(id);
+      const benefit=getBenefit(id);
+      const reqs=getReqs(id).slice(0,4);
+      const badgeClass=isFull?"match-badge match-full":"match-badge match-partial";
+      const badgeText=isFull?L("fullMatch"):L("partialMatch");
+      const card=document.createElement("div");
+      card.className=`scheme-card ${isFull?"":"partial"}`;
+      card.innerHTML=`
+        <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-3">
+          <div class="d-flex align-items-center gap-3">
+            <div style="width:44px;height:44px;background:${isFull?"#ecfdf5":"#fffbeb"};border-radius:12px;display:flex;align-items:center;justify-content:center;">
+              <i class="fas fa-${isFull?"check-circle":"question-circle"}" style="color:${isFull?"#065f46":"#92400e"};font-size:1.3rem;"></i>
+            </div>
+            <div>
+              <h5 class="fw-bold mb-0">${name}</h5>
+              <span class="${badgeClass} mt-1">${badgeText}</span>
+            </div>
+          </div>
+          <span class="benefit-tag"><i class="fas fa-gift me-1"></i>${L("benefit")}: <strong class="ms-1">${benefit}</strong></span>
+        </div>
+        <div class="mb-3">
+          <small class="text-muted fw-700 d-block mb-2">${L("docs")}:</small>
+          <div>${reqs.map(r=>`<span class="req-chip"><i class="fas fa-file-alt me-1 opacity-50"></i>${r}</span>`).join("")}</div>
+        </div>
+        <a href="/apply_grievance" class="apply-btn">
+          <i class="fas fa-arrow-right"></i> ${L("applyNow")}
+        </a>`;
+      container.appendChild(card);
+    });
+  }
+
+  document.getElementById("resultsSection").style.display="block";
+  document.getElementById("resultsTitle").textContent=L("resultsTitle");
+  document.getElementById("clearLabel").textContent=L("clearLabel");
+  document.getElementById("resultsCount").textContent=`${full.length+partial.length} scheme(s) matched`;
+  document.getElementById("resultsSection").scrollIntoView({behavior:"smooth",block:"start"});
+}
+</script>
+</body>
+</html>

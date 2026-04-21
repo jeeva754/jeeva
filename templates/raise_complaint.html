@@ -1,0 +1,329 @@
+{% import "translations.html" as i18n with context %}
+<!DOCTYPE html>
+<html lang="{{ session.get('lang', 'en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raise a Complaint | TN Welfare Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --tn-blue: #063970;
+            --tn-gold: #ffb300;
+            --tn-orange: #f97316;
+        }
+
+        body {
+            background: linear-gradient(rgba(6,57,112,0.88), rgba(6,57,112,0.88)),
+                        url('https://images.pexels.com/photos/235731/pexels-photo-235731.jpeg?auto=compress&cs=tinysrgb&w=1920') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            padding: 50px 20px;
+        }
+
+        .form-card {
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            max-width: 720px;
+            margin: auto;
+            overflow: hidden;
+            box-shadow: 0 60px 120px rgba(0,0,0,0.4);
+            animation: cardUp 0.7s cubic-bezier(0.16,1,0.3,1);
+        }
+
+        @keyframes cardUp {
+            from { opacity: 0; transform: translateY(40px) scale(0.97); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .card-header-band {
+            background: var(--tn-blue);
+            padding: 36px 40px;
+            color: white;
+            position: relative;
+        }
+
+        .card-header-band::after {
+            content: '';
+            position: absolute; bottom: 0; left: 0;
+            width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--tn-gold), var(--tn-orange));
+        }
+
+        .card-body-pad { padding: 40px; }
+
+        /* Category grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .cat-btn {
+            border: 2px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 16px 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s;
+            background: white;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: #64748b;
+        }
+
+        .cat-btn i {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            transition: 0.25s;
+        }
+
+        .cat-btn:hover {
+            border-color: var(--tn-blue);
+            color: var(--tn-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(6,57,112,0.12);
+        }
+
+        .cat-btn.selected {
+            border-color: var(--tn-blue);
+            background: #eff6ff;
+            color: var(--tn-blue);
+            box-shadow: 0 8px 20px rgba(6,57,112,0.15);
+        }
+
+        /* Priority selector */
+        .priority-row {
+            display: flex; gap: 12px; margin-bottom: 28px;
+        }
+
+        .prio-btn {
+            flex: 1; padding: 12px 10px;
+            border-radius: 12px; border: 2px solid #e2e8f0;
+            text-align: center; cursor: pointer;
+            font-size: 0.78rem; font-weight: 700;
+            transition: 0.2s; background: white;
+        }
+
+        .prio-btn.p-low.selected    { border-color: #10b981; background: #f0fdf4; color: #065f46; }
+        .prio-btn.p-medium.selected { border-color: #f59e0b; background: #fffbeb; color: #92400e; }
+        .prio-btn.p-high.selected   { border-color: #ef4444; background: #fef2f2; color: #991b1b; }
+
+        /* Form fields */
+        .field-label {
+            font-size: 0.78rem; font-weight: 800;
+            color: #64748b; text-transform: uppercase;
+            letter-spacing: 0.8px; margin-bottom: 8px; display: block;
+        }
+
+        .field-input {
+            width: 100%; border: 1.5px solid #e2e8f0;
+            border-radius: 12px; padding: 14px 16px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.92rem; outline: none;
+            transition: border-color 0.2s;
+            box-sizing: border-box;
+        }
+        .field-input:focus { border-color: var(--tn-blue); }
+
+        textarea.field-input { min-height: 120px; resize: vertical; }
+
+        /* File upload */
+        .upload-zone {
+            border: 2px dashed #cbd5e1;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: 0.2s;
+            background: #f8fafc;
+        }
+        .upload-zone:hover { border-color: var(--tn-blue); background: #eff6ff; }
+
+        .submit-btn {
+            width: 100%; padding: 16px;
+            background: var(--tn-blue); color: white;
+            border: none; border-radius: 14px;
+            font-size: 1rem; font-weight: 800;
+            cursor: pointer; transition: 0.3s;
+            margin-top: 28px; letter-spacing: 0.5px;
+        }
+        .submit-btn:hover {
+            background: #042d5a;
+            box-shadow: 0 10px 30px rgba(6,57,112,0.35);
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .back-link:hover { color: var(--tn-gold); }
+
+        .step-indicator {
+            display: flex; gap: 8px; align-items: center;
+            margin-bottom: 28px;
+        }
+        .step-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: #e2e8f0; transition: 0.3s;
+        }
+        .step-dot.active { background: var(--tn-blue); width: 24px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+
+<div class="form-card">
+    <div class="card-header-band">
+        <div class="d-flex justify-content-between align-items-start">
+            <div class="d-flex align-items-center gap-3">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" height="50">
+                <div>
+                    <h3 class="fw-800 mb-0">{{i18n.translate("Raise a Complaint") }}</h3>
+                    <p class="mb-0 opacity-75 small">{{i18n.translate("Citizen Grievance Redressal System — TN Gov") }}</p>
+                </div>
+            </div>
+            <a href="/user/dashboard" class="back-link">
+                <i class="fa fa-arrow-left me-1"></i> Back
+            </a>
+        </div>
+    </div>
+
+    <div class="card-body-pad">
+
+        {% if error %}
+        <div class="alert alert-danger rounded-3 mb-4 small fw-600">
+            <i class="fa fa-circle-exclamation me-2"></i>{{ error }}
+        </div>
+        {% endif %}
+
+        <form method="POST" action="/submit_complaint" enctype="multipart/form-data" id="complaintForm">
+
+            <!-- Category -->
+            <div class="mb-4">
+                <label class="field-label">{{i18n.translate("1. Select Complaint Category") }}</label>
+                <div class="category-grid" id="catGrid">
+                    <div class="cat-btn" data-cat="Roads & Infrastructure" onclick="selectCat(this)">
+                        <i class="fa fa-road"></i> {{i18n.translate("Roads & Infra") }}
+                    </div>
+                    <div class="cat-btn" data-cat="Water Supply" onclick="selectCat(this)">
+                        <i class="fa fa-droplet"></i> {{i18n.translate("Water Supply") }}
+                    </div>
+                    <div class="cat-btn" data-cat="Electricity" onclick="selectCat(this)">
+                        <i class="fa fa-bolt"></i> {{i18n.translate("Electricity") }}
+                    </div>
+                    <div class="cat-btn" data-cat="Sanitation & Waste" onclick="selectCat(this)">
+                        <i class="fa fa-trash"></i> {{i18n.translate("Sanitation") }}
+                    </div>
+                    <div class="cat-btn" data-cat="Healthcare" onclick="selectCat(this)">
+                        <i class="fa fa-hospital"></i> {{i18n.translate("Healthcare") }}
+                    </div>
+                    <div class="cat-btn" data-cat="Education" onclick="selectCat(this)">
+                        <i class="fa fa-graduation-cap"></i> {{i18n.translate("Education") }}
+                    </div>
+                    <div class="cat-btn" data-cat="Pension & Welfare" onclick="selectCat(this)">
+                        <i class="fa fa-hand-holding-heart"></i> {{i18n.translate("Welfare") }}
+                    </div>
+                    <div class="cat-btn" data-cat="Other" onclick="selectCat(this)">
+                        <i class="fa fa-ellipsis"></i> {{i18n.translate("Other") }}
+                    </div>
+                </div>
+                <input type="hidden" name="category" id="catInput" required>
+            </div>
+
+            <!-- Priority -->
+            <div class="mb-4">
+                <label class="field-label">{{i18n.translate("2. Urgency Level") }}</label>
+                <div class="priority-row">
+                    <div class="prio-btn p-low"    onclick="selectPriority(this,'Low')">🟢 {{i18n.translate("Low") }}</div>
+                    <div class="prio-btn p-medium" onclick="selectPriority(this,'Medium')">🟡 {{i18n.translate("Medium") }}</div>
+                    <div class="prio-btn p-high"   onclick="selectPriority(this,'High')">🔴 {{i18n.translate("High / Urgent") }}</div>
+                </div>
+                <input type="hidden" name="priority" id="priorityInput" required>
+            </div>
+
+            <!-- Subject -->
+            <div class="mb-4">
+                <label class="field-label" for="subject">{{i18n.translate("3. Complaint Subject") }}</label>
+                <input type="text" class="field-input" id="subject" name="subject"
+                    placeholder="e.g. Street light not working near bus stand for 3 weeks" required maxlength="120">
+            </div>
+
+            <!-- Description -->
+            <div class="mb-4">
+                <label class="field-label" for="description">{{i18n.translate("4. Detailed Description") }}</label>
+                <textarea class="field-input" id="description" name="description"
+                    placeholder="Describe the issue clearly — location, duration, impact on residents..." required maxlength="1000"></textarea>
+                <div class="text-end small text-muted mt-1" id="descCount">0 / 1000</div>
+            </div>
+
+            <!-- Location -->
+            <div class="mb-4">
+                <label class="field-label" for="location">{{i18n.translate("5. Specific Location / Landmark") }}</label>
+                <input type="text" class="field-input" id="location" name="location"
+                    placeholder="e.g. Near St. Thomas Church, Anna Nagar, Chennai" required>
+            </div>
+
+            <!-- Photo evidence -->
+            <div class="mb-2">
+                <label class="field-label">{{i18n.translate("6. Attach Photo Evidence (optional)") }}</label>
+                <div class="upload-zone" onclick="document.getElementById('photoInput').click()">
+                    <i class="fa fa-camera fa-2x text-muted mb-2"></i>
+                    <div class="fw-600 text-muted small">{{i18n.translate("Click to upload a photo") }}</div>
+                    <div class="text-muted" style="font-size:0.75rem;">JPG, PNG up to 5MB</div>
+                    <div id="fileName" class="mt-2 small text-primary fw-600"></div>
+                </div>
+                <input type="file" id="photoInput" name="photo" accept="image/*" style="display:none"
+                    onchange="document.getElementById('fileName').textContent = this.files[0]?.name || ''">
+            </div>
+
+            <button type="submit" class="submit-btn" id="submitBtn">
+                <i class="fa fa-paper-plane me-2"></i>{{i18n.translate("Submit Complaint") }}
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+function selectCat(el) {
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('catInput').value = el.dataset.cat;
+}
+
+function selectPriority(el, val) {
+    document.querySelectorAll('.prio-btn').forEach(b => b.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('priorityInput').value = val;
+}
+
+document.getElementById('description').addEventListener('input', function() {
+    document.getElementById('descCount').textContent = this.value.length + ' / 1000';
+});
+
+document.getElementById('complaintForm').addEventListener('submit', function(e) {
+    if (!document.getElementById('catInput').value) {
+        e.preventDefault();
+        alert('Please select a complaint category.');
+        return;
+    }
+    if (!document.getElementById('priorityInput').value) {
+        e.preventDefault();
+        alert('Please select an urgency level.');
+        return;
+    }
+    document.getElementById('submitBtn').innerHTML = '<i class="fa fa-spinner fa-spin me-2"></i> Submitting...';
+    document.getElementById('submitBtn').disabled = true;
+});
+</script>
+</body>
+</html>

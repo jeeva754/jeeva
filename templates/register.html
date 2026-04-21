@@ -1,0 +1,209 @@
+
+<!DOCTYPE html>
+<html lang="{{ session.get('lang', 'en') }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% import "translations.html" as i18n with context %}
+   
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root { --tn-blue: #003366; --tn-gold: #FFD700; }
+        
+        html, body { 
+            height: 100vh; 
+            width: 100vw;
+            margin: 0; 
+            overflow: hidden; 
+            font-family: 'Segoe UI', 'Latha', 'Tamil MN', sans-serif;
+            background: #fdfdfd;
+        }
+
+        .split-container { 
+            display: flex; 
+            height: 100vh; 
+            width: 100vw;
+            flex-direction: row-reverse; 
+        }
+
+        .image-side {
+            flex: 1.2;
+            background: linear-gradient(rgba(0, 51, 102, 0.85), rgba(0, 51, 102, 0.85)),
+                        url('https://images.unsplash.com/photo-1622151834677-70f982c9adef?q=80&w=1472&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .portal-passage {
+            max-width: 550px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 300;
+        }
+
+        .form-side {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: white;
+        }
+
+        .register-card { 
+            width: 100%; 
+            max-width: 400px; 
+            animation: fadeIn 0.8s ease;
+        }
+
+        /* --- Updated Icon Integration --- */
+        .input-group-text {
+            background-color: #f8f9fa;
+            border: 1.5px solid #eee;
+            border-right: none;
+            color: var(--tn-blue);
+        }
+
+        .form-control { 
+            padding: 11px; 
+            border-radius: 8px; 
+            border: 1.5px solid #eee;
+        }
+
+        .input-group .form-control {
+            border-left: none;
+        }
+
+        .form-control:focus {
+            border-color: #eee;
+            box-shadow: none;
+            background-color: #fff;
+        }
+
+        .input-group:focus-within .input-group-text,
+        .input-group:focus-within .form-control {
+            border-color: var(--tn-blue);
+        }
+        /* ------------------------------- */
+
+        .btn-gov { 
+            background: var(--tn-blue); 
+            color: white; 
+            padding: 12px; 
+            font-weight: 600; 
+            width: 100%; 
+            border: none; 
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-gov:hover { 
+            background: #002244; 
+            color: var(--tn-gold);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 992px) {
+            .image-side { display: none; }
+            html, body { overflow-y: auto; }
+            .split-container { height: auto; min-height: 100vh; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="split-container">
+
+    <div class="image-side">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/TamilNadu_Logo.svg" height="120" class="mb-4 shadow-sm">
+
+        <h1 class="display-5 fw-bold">{{ i18n.translate("Government of Tamil Nadu") }}</h1>
+        <p class="lead px-lg-4 mb-0">{{ i18n.translate("Slogan") }}</p>
+
+        <div class="portal-passage">
+            {{ i18n.translate("Portal Passage") }}
+        </div>
+    </div>
+
+    <div class="form-side">
+        <div class="register-card">
+
+            <a href="/" class="text-decoration-none text-muted small mb-4 d-inline-block">
+                <i class="fa fa-arrow-left me-1"></i> {{ i18n.translate("Back Home") }}
+            </a>
+
+            <div class="mb-4">
+                <h2 class="fw-bold mb-1 text-primary">{{ i18n.translate("Create Account") }}</h2>
+                <p class="text-muted small">{{ i18n.translate("Subtext") }}</p>
+            </div>
+
+            <form action="/user/register" method="POST">
+
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">{{ i18n.translate("Full Name") }}</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                        <input type="text" name="name" class="form-control"
+                               placeholder="{{ i18n.translate('Name Placeholder') }}" required>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label small fw-bold">{{ i18n.translate("Email Address") }}</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                        <input type="email" name="email" class="form-control"
+                               placeholder="{{ i18n.translate('Email Placeholder') }}" required>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label small fw-bold">{{ i18n.translate("Create Password") }}</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                        <input type="password" name="password" class="form-control"
+                               placeholder="{{ i18n.translate('Pass Placeholder') }}" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-gov shadow-sm">
+                    <i class="fa fa-user-plus me-2"></i>{{ i18n.translate("Register") }}
+                </button>
+            </form>
+
+            <div class="mt-4 text-center">
+                <p class="small text-muted">
+                    {{ i18n.translate("Already have an account?") }}
+                    <a href="/user/login"
+                       class="text-primary fw-bold text-decoration-none ms-1">
+                        {{ i18n.translate("Login here") }}
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
