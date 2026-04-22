@@ -1,5 +1,10 @@
-from flask import (Flask, render_template, session, redirect,
-                   url_for, request, g, jsonify, flash)
+from flask import Flask, request, jsonify, render_template, session, g
+import os
+import re
+import uuid
+import pickle
+from datetime import datetime
+import numpy as np
 import json
 import sqlite3
 import random
@@ -36,9 +41,8 @@ SENDER_EMAIL   = "tnconnect.2k26@gmail.com"
 SENDER_PASSWORD = "fpnpwqczchwrztuk"
 
 import nltk
-nltk.download('punkt')
-nltk.download('wordnet')
-
+# nltk.download('punkt')
+# nltk.download('wordnet')
 # ── Language context ─────────────────────────────────────────
 @app.before_request
 def set_language_context():
