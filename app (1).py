@@ -15,7 +15,6 @@ import pickle
 from datetime import datetime
 import numpy as np
 from werkzeug.utils import secure_filename
-from tensorflow.keras.models import load_model
 from nltk.stem import WordNetLemmatizer
 import nltk
 from translator import to_english, to_tamil
@@ -35,6 +34,10 @@ app.config["UPLOAD_FOLDER"] = os.path.join("static", "uploads")
 DB             = "database.db"
 SENDER_EMAIL   = "tnconnect.2k26@gmail.com"
 SENDER_PASSWORD = "fpnpwqczchwrztuk"
+
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
 
 # ── Language context ─────────────────────────────────────────
 @app.before_request
@@ -527,30 +530,6 @@ def _send_aadhaar_otp_email(to_email, otp, aadhar):
     _smtp_send(to_email,
                f"Aadhaar Verification OTP — TN Citizen Portal [Ref: {ref}]",
                html)
-
-
-
-
-def clean_up_sentence(sentence):
-    sentence_words = nltk.word_tokenize(sentence)
-    return [lemmatizer.lemmatize(w.lower()) for w in sentence_words]
-
-
-def bag_of_words(sentence):
-    sentence_words = clean_up_sentence(sentence)
-    bag = [0] * len(words)
-    for s in sentence_words:
-        for i, w in enumerate(words):
-            if w == s:
-                bag[i] = 1
-    return np.array(bag)
-
-
-def predict_class(sentence):
-    bow = bag_of_words(sentence)
-    res = model.predict(np.array([bow]), verbose=0)[0]
-    return classes[int(np.argmax(res))]
-
 
 
 
